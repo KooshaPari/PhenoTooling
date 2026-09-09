@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KooshaPari/phenotype-tooling/cr_roster/schema.json",
+  "title": "cr_roster providers catalog",
+  "type": "object",
+  "required": ["schema_version", "providers"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "priority",
+          "free_tier",
+          "quota_per_day",
+          "endpoint",
+          "auth",
+          "self_hostable"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{1,40}$"
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "priority": { "type": "integer", "minimum": 1 },
+          "free_tier": { "type": "string", "minLength": 1 },
+          "quota_per_day": {
+            "anyOf": [
+              { "type": "integer", "minimum": 0 },
+              { "type": "null" }
+            ]
+          },
+          "endpoint": { "type": "string", "format": "uri" },
+          "auth": {
+            "type": "string",
+            "enum": ["api_key", "app_installation", "oauth", "none"]
+          },
+          "self_hostable": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

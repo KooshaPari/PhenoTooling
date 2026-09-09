@@ -11,6 +11,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+import json
+
 import yaml
 
 ROSTER_ROOT = Path(__file__).resolve().parent
@@ -63,7 +65,23 @@ def load_providers(validate_schema: bool = False) -> list[dict[str, Any]]:
 
 
 def _validate_against_schema(providers: list[dict[str, Any]]) -> None:
-    """Validate the loaded providers against schema.json. Implemented in Task 6."""
-    # Placeholder until Task 6 wires jsonschema. Keeping the call site stable
-    # avoids touching tests once Task 6 lands.
-    return None
+    """Validate the loaded providers against schema.json."""
+    if not SCHEMA_JSON.exists():
+        raise RosterError(
+            f"schema.json not found at {SCHEMA_JSON}; cannot validate."
+        )
+    try:
+        import jsonschema  # local import so the dep is optional for non-validating callers
+    except ImportError as exc:
+        raise RosterError(
+            "jsonschema is not installed; install with `pip install jsonschema`"
+        ) from exc
+
+    with SCHEMA_JSON.open("r", encoding="utf-8") as fh:
+        schema = json.load(fh)
+
+    validator = jsonschema.Draft202012Validator(schema)
+    errors = sorted(validator.iter_errors({"schema_version": 1, "providers": providers}), key=lambda e: e.path)
+    if errors:
+        msgs = [f"{'/'.join(map(str, e.path)) or '<root>'}: {e.message}" for e in errors]
+        raise RosterError("schema validation failed:\n  - " + "\n  - ".join(msgs))
