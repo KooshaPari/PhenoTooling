@@ -1,4 +1,4 @@
-"""Pytest fixtures for cr-roster tests."""
+"""Pytest fixtures for cr_roster tests."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,7 +10,7 @@ ROSTER_ROOT = Path(__file__).resolve().parent.parent
 
 @pytest.fixture(scope="session")
 def roster_root() -> Path:
-    """Absolute path to the cr-roster/ directory."""
+    """Absolute path to the cr_roster/ directory."""
     return ROSTER_ROOT
 
 

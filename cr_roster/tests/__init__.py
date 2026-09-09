@@ -1,1 +1,1 @@
-"""Test package for cr-roster."""
+"""Test package for cr_roster."""
