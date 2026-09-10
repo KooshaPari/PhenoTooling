@@ -236,11 +236,21 @@ pre-push:
         # Local pre-CR sanity check (spec SP6). Invokes a small shell script
         # that catches the obvious stuff before any remote CR token is burned.
         # Skip with CR_LOCAL_GATE=0; promote warnings with CR_LOCAL_GATE_STRICT=1.
-        if [ -f "$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh" ]; then
-          bash "$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh"
+        # Path resolution is worktree-safe: `--show-toplevel` returns the
+        # worktree's checkout root regardless of whether the hook fires from
+        # the main checkout, a worktree, or a subdirectory.
+        SCRIPT=""
+        if [ -n "${LEFTHOOK_CONFIG_DIR:-}" ] && [ -f "$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh" ]; then
+          SCRIPT="$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh"
         else
-          SCRIPT="$(dirname "$(git rev-parse --git-dir)")/../templates/lefthook-hooks/cr-local-gate.sh"
-          if [ -f "$SCRIPT" ]; then bash "$SCRIPT"; else echo "cr-local-gate: script not found; skipping"; fi
+          TOP="$(git rev-parse --show-toplevel)"
+          CAND="$TOP/templates/lefthook-hooks/cr-local-gate.sh"
+          [ -f "$CAND" ] && SCRIPT="$CAND"
+        fi
+        if [ -n "$SCRIPT" ]; then
+          bash "$SCRIPT"
+        else
+          echo "cr-local-gate: script not found; skipping"
         fi
       skip:
         - rebase
