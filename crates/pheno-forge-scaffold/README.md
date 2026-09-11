@@ -35,22 +35,22 @@
 
 ## Feature matrix (truthful status as of 2026-09-08)
 
-| Feature | Status | Where in code |
-|---------|--------|---------------|
-| Parallel execution (worker pool) | **Not implemented** | — |
-| Dependency graph / topological sort | **Not implemented** | — |
-| Cycle detection | **Not implemented** | — |
-| Hot reload / file watching | **Not implemented** (flag exists, no-op) | `src/main.rs:9` |
-| Plugin system (WASM or otherwise) | **Not implemented** | — |
-| Incremental builds | **Not implemented** | — |
-| Caching | **Not implemented** | — |
-| Remote execution | **Not implemented** | — |
-| Profiling | **Not implemented** | — |
-| CLI: `forge run <task>` | **Not implemented** (CLI accepts positional `task` only) | `src/main.rs:8` |
-| CLI: `forge list` | **Not implemented** | — |
-| CLI: `forge graph` | **Not implemented** | — |
-| CLI: `forge check` | **Not implemented** | — |
-| CLI: `forge --watch` | **Stub only** (flag accepted, prints line, does nothing) | `src/main.rs:9` |
+| Feature                             | Status                                                   | Where in code   |
+| ----------------------------------- | -------------------------------------------------------- | --------------- |
+| Parallel execution (worker pool)    | **Not implemented**                                      | —               |
+| Dependency graph / topological sort | **Not implemented**                                      | —               |
+| Cycle detection                     | **Not implemented**                                      | —               |
+| Hot reload / file watching          | **Not implemented** (flag exists, no-op)                 | `src/main.rs:9` |
+| Plugin system (WASM or otherwise)   | **Not implemented**                                      | —               |
+| Incremental builds                  | **Not implemented**                                      | —               |
+| Caching                             | **Not implemented**                                      | —               |
+| Remote execution                    | **Not implemented**                                      | —               |
+| Profiling                           | **Not implemented**                                      | —               |
+| CLI: `forge run <task>`             | **Not implemented** (CLI accepts positional `task` only) | `src/main.rs:8` |
+| CLI: `forge list`                   | **Not implemented**                                      | —               |
+| CLI: `forge graph`                  | **Not implemented**                                      | —               |
+| CLI: `forge check`                  | **Not implemented**                                      | —               |
+| CLI: `forge --watch`                | **Stub only** (flag accepted, prints line, does nothing) | `src/main.rs:9` |
 
 > **Stable** / **Beta** badges from the previous README have been removed. No feature
 > in this checkout warrants a stability claim.

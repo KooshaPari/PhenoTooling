@@ -5,10 +5,10 @@ on 2026-09-10 during the phenoForge-batch recovery-hold closure.
 
 ## Source of record (canonical)
 
-- Upstream repo:  https://github.com/KooshaPari/phenoForge
-- Upstream HEAD:  `2fccbc27`
-- Closure PR:     https://github.com/KooshaPari/phenoForge/pull/41
-- WBS row:        `13-breadth-readiness-and-priority.md:32` (Recovery hold)
+- Upstream repo: https://github.com/KooshaPari/phenoForge
+- Upstream HEAD: `2fccbc27`
+- Closure PR: https://github.com/KooshaPari/phenoForge/pull/41
+- WBS row: `13-breadth-readiness-and-priority.md:32` (Recovery hold)
 - Bounded target: "locate historical executable contract OR explicitly
   classify an unimplemented task/watch promise; sentinel must execute"
   (`06-future-wbs-governance.md:93`)
@@ -27,11 +27,11 @@ This crate is the reference exemplar.
 
 ## What is in the crate (all verbatim copies)
 
-| File | Origin | Lines |
-|---|---|---|
-| `crates/pheno-forge-scaffold/src/main.rs` | phenoForge `src/main.rs` at HEAD `2fccbc27` | 12 |
-| `crates/pheno-forge-scaffold/tests/integration.rs` | phenoForge `tests/integration.rs` at HEAD `2fccbc27` (via PR #41) | ~130 |
-| `crates/pheno-forge-scaffold/src/lib.rs` | new; provenance doc-comment only | ~12 |
+| File                                               | Origin                                                            | Lines |
+| -------------------------------------------------- | ----------------------------------------------------------------- | ----- |
+| `crates/pheno-forge-scaffold/src/main.rs`          | phenoForge `src/main.rs` at HEAD `2fccbc27`                       | 12    |
+| `crates/pheno-forge-scaffold/tests/integration.rs` | phenoForge `tests/integration.rs` at HEAD `2fccbc27` (via PR #41) | ~130  |
+| `crates/pheno-forge-scaffold/src/lib.rs`           | new; provenance doc-comment only                                  | ~12   |
 
 ## What is NOT in this crate
 
