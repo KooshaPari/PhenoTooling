@@ -17,6 +17,14 @@
 #   + private `do_not_edit` block at the bottom shows the canonical
 #     minimal config (consumers can copy that block to override everything)
 #
+# Changes from v2 (2026-06-14) for the SP6 cr-local-gate rollout:
+#   + new pre-push command `cr-local-gate` invokes
+#     templates/lefthook-hooks/cr-local-gate.sh
+#   + cr-local-gate is a fast local-only CR-style check; bypass with
+#     CR_LOCAL_GATE=0; promote warnings to failures with
+#     CR_LOCAL_GATE_STRICT=1
+#   + see spec §3 SP6 and §6 D8 (local lefthook stage = pre-push)
+#
 # Recipe used by hooks:
 #   * prefer `just <recipe>` (the v2 shared library) when present
 #   * fall back to `task <recipe>` (Taskfile.yml v2)
@@ -218,6 +226,31 @@ pre-push:
         # Node/JS dependency audit. Slow on first run; cached after.
         if [ -f package.json ] && [ -f package-lock.json ]; then
           npm audit --omit=dev || echo "npm audit found advisories (non-fatal)"
+        fi
+      skip:
+        - rebase
+
+    cr-local-gate:
+      tags: [gate, slow, cr]
+      run: |
+        # Local pre-CR sanity check (spec SP6). Invokes a small shell script
+        # that catches the obvious stuff before any remote CR token is burned.
+        # Skip with CR_LOCAL_GATE=0; promote warnings with CR_LOCAL_GATE_STRICT=1.
+        # Path resolution is worktree-safe: `--show-toplevel` returns the
+        # worktree's checkout root regardless of whether the hook fires from
+        # the main checkout, a worktree, or a subdirectory.
+        SCRIPT=""
+        if [ -n "${LEFTHOOK_CONFIG_DIR:-}" ] && [ -f "$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh" ]; then
+          SCRIPT="$LEFTHOOK_CONFIG_DIR/../templates/lefthook-hooks/cr-local-gate.sh"
+        else
+          TOP="$(git rev-parse --show-toplevel)"
+          CAND="$TOP/templates/lefthook-hooks/cr-local-gate.sh"
+          [ -f "$CAND" ] && SCRIPT="$CAND"
+        fi
+        if [ -n "$SCRIPT" ]; then
+          bash "$SCRIPT"
+        else
+          echo "cr-local-gate: script not found; skipping"
         fi
       skip:
         - rebase
