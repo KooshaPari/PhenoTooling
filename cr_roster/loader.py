@@ -58,14 +58,22 @@ def load_providers(validate_schema: bool = False) -> list[dict[str, Any]]:
         raise RosterError("'providers' must be a list")
 
     if validate_schema:
-        _validate_against_schema(providers)
+        _validate_against_schema(data)
 
     providers.sort(key=lambda p: p.get("priority", 10_000))
     return providers
 
 
-def _validate_against_schema(providers: list[dict[str, Any]]) -> None:
-    """Validate the loaded providers against schema.json."""
+def _validate_against_schema(data: dict[str, Any]) -> None:
+    """Validate the loaded YAML data against schema.json.
+
+    Performs JSON Schema validation and additional business-rule checks:
+    - provider IDs must be unique
+    - provider priorities must be unique and contiguous starting at 1
+    """
+    schema_version = data.get("schema_version")
+    providers = data["providers"]
+
     if not SCHEMA_JSON.exists():
         raise RosterError(
             f"schema.json not found at {SCHEMA_JSON}; cannot validate."
@@ -80,8 +88,39 @@ def _validate_against_schema(providers: list[dict[str, Any]]) -> None:
     with SCHEMA_JSON.open("r", encoding="utf-8") as fh:
         schema = json.load(fh)
 
+    # Validate against the actual declared schema_version, not a hardcoded value.
     validator = jsonschema.Draft202012Validator(schema)
-    errors = sorted(validator.iter_errors({"schema_version": 1, "providers": providers}), key=lambda e: e.path)
+    errors = sorted(
+        validator.iter_errors({"schema_version": schema_version, "providers": providers}),
+        key=lambda e: e.path,
+    )
+
+    # --- Business-rule checks beyond JSON Schema ---
+    # Unique provider IDs
+    ids = [p.get("id") for p in providers]
+    seen_ids: set[str] = set()
+    for idx, pid in enumerate(ids):
+        if pid in seen_ids:
+            errors.append(
+                jsonschema.ValidationError(
+                    f"Duplicate provider id '{pid}' at index {idx}",
+                    path=[idx, "id"],
+                )
+            )
+        seen_ids.add(pid)
+
+    # Unique, contiguous priorities starting at 1
+    priorities = sorted(p.get("priority", 0) for p in providers)
+    expected = list(range(1, len(providers) + 1))
+    if priorities != expected:
+        errors.append(
+            jsonschema.ValidationError(
+                f"Provider priorities must be unique and contiguous 1..{len(providers)}; "
+                f"got {priorities}",
+                path=["providers"],
+            )
+        )
+
     if errors:
         msgs = [f"{'/'.join(map(str, e.path)) or '<root>'}: {e.message}" for e in errors]
         raise RosterError("schema validation failed:\n  - " + "\n  - ".join(msgs))

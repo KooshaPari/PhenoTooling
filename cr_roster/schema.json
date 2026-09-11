@@ -13,6 +13,8 @@
     "providers": {
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
+      "description": "Provider entries. Each id must be unique across the array.",
       "items": {
         "type": "object",
         "required": [
