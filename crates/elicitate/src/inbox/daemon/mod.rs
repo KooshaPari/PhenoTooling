@@ -116,7 +116,7 @@ pub fn start_daemon(cfg: DaemonConfig) -> Result<DaemonHandle, ElicitError> {
 
     let shutdown = Arc::new(AtomicBool::new(false));
     let lockfile = cfg.inbox_root.join(lockfile::LOCKFILE_NAME);
-    lockfile::write_lockfile(&lockfile, &cfg.inbox_root, actual_port, cfg.bind)?;
+    lockfile::write_lockfile(&lockfile, &cfg.inbox_root, actual_port, cfg.bind, None)?;
 
     let tray_url = format!("http://{}:{}", cfg.bind, actual_port);
     // ---- tray icon (best-effort, never blocks boot) ---------------
@@ -266,6 +266,7 @@ mod tests {
             port: 1,
             bind: IpAddr::V4(Ipv4Addr::LOCALHOST),
             booted_at_ms: unix_now_ms(),
+            ipc_sock: None,
         };
         std::fs::write(
             dir.join(lockfile::LOCKFILE_NAME),
@@ -284,6 +285,7 @@ mod tests {
             port,
             bind: IpAddr::V4(Ipv4Addr::LOCALHOST),
             booted_at_ms: unix_now_ms(),
+            ipc_sock: None,
         };
         std::fs::write(
             dir.join(lockfile::LOCKFILE_NAME),
@@ -309,6 +311,7 @@ mod tests {
             port: 1,
             bind: IpAddr::V4(Ipv4Addr::new(10, 0, 0, 1)),
             booted_at_ms: unix_now_ms(),
+            ipc_sock: None,
         };
         std::fs::write(
             dir.join(lockfile::LOCKFILE_NAME),

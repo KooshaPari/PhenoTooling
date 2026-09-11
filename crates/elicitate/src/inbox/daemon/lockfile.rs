@@ -24,20 +24,28 @@ pub struct LockfilePayload {
     pub port: u16,
     pub bind: IpAddr,
     pub booted_at_ms: u64,
+    /// Path to the daemon's JSON-RPC Unix domain socket. `None` if the
+    /// daemon was started before IPC support shipped; clients should fall
+    /// back to HTTP in that case.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub ipc_sock: Option<PathBuf>,
 }
 
-/// Write a lockfile with the daemon's listen address and boot time.
+/// Write a lockfile with the daemon's listen address, boot time, and
+/// (optional) IPC socket path.
 pub(crate) fn write_lockfile(
     path: &Path,
     root: &Path,
     port: u16,
     bind: IpAddr,
+    ipc_sock: Option<&Path>,
 ) -> Result<(), crate::error::ElicitError> {
     let payload = LockfilePayload {
         root: root.to_path_buf(),
         port,
         bind,
         booted_at_ms: unix_now_ms(),
+        ipc_sock: ipc_sock.map(Path::to_path_buf),
     };
     let json = serde_json::to_vec_pretty(&payload).map_err(crate::error::ElicitError::Json)?;
     std::fs::write(path, json)?;
