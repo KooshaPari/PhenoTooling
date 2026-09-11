@@ -337,10 +337,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "benchora"
-version = "0.1.0"
-
-[[package]]
 name = "bit-set"
 version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2950,17 +2946,6 @@ dependencies = [
  "tokio",
  "toml 1.1.4+spec-1.1.0",
  "walkdir",
-]
-
-[[package]]
-name = "quality-gate"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "clap",
- "serde",
- "serde_json",
- "tokio",
 ]
 
 [[package]]

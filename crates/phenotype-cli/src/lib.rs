@@ -1,7 +1,7 @@
 //! phenotype-cli: top-level CLI facade for the phenotype-tooling ecosystem.
 //!
 //! Provides a unified `pt <subcmd>` entry-point that dispatches to the absorbed
-//! sub-crates (`docs-health`, `quality-gate`, `fr-trace`, `release-cut`,
+//! sub-crates (`docs-health`, `qgate`, `fr-trace`, `release-cut`,
 //! `sbom-gen`, etc.) via the spine's subcommand router pattern.
 //!
 //! ## Design
@@ -35,7 +35,7 @@ pub mod stream_channel;
     version = VERSION,
     about = "Phenotype tooling — unified CLI for absorbed sub-crates",
     long_about = "pt is the unified entry-point for the phenotype-tooling ecosystem. \
-                  It dispatches to docs-health, quality-gate, fr-trace, release-cut, \
+                  It dispatches to docs-health, qgate, fr-trace, release-cut, \
                   sbom-gen, and other absorbed sub-crates via subcommands."
 )]
 pub struct Cli {
@@ -58,8 +58,8 @@ pub enum Command {
     /// Check docs health (broken links, stale references).
     DocsHealth(docs_health::Args),
 
-    /// Run the quality gate (fmt, clippy, deny, audit, test).
-    QualityGate(quality_gate::Args),
+    /// Run the quality gate (coverage + all check types).
+    QGate(qgate::Args),
 
     /// Trace functional requirements to code/test artifacts.
     FrTrace(fr_trace::Args),
@@ -148,7 +148,7 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
     let code = match cli.command {
         Command::DocsHealth(args) => docs_health::run(args, cli.verbose),
-        Command::QualityGate(args) => quality_gate::run(args, cli.verbose),
+        Command::QGate(args) => qgate::run(args, cli.verbose),
         Command::FrTrace(args) => fr_trace::run(args, cli.verbose),
         Command::ReleaseCut(args) => release_cut::run(args, cli.verbose),
         Command::SbomGen(args) => sbom_gen::run(args, cli.verbose),
@@ -189,7 +189,7 @@ pub fn run() -> Result<(), Box<dyn std::error::Error>> {
 pub fn run_cli(cli: Cli) -> i32 {
     match cli.command {
         Command::DocsHealth(args) => docs_health::run(args, cli.verbose),
-        Command::QualityGate(args) => quality_gate::run(args, cli.verbose),
+        Command::QGate(args) => qgate::run(args, cli.verbose),
         Command::FrTrace(args) => fr_trace::run(args, cli.verbose),
         Command::ReleaseCut(args) => release_cut::run(args, cli.verbose),
         Command::SbomGen(args) => sbom_gen::run(args, cli.verbose),
@@ -246,7 +246,7 @@ pub mod docs_health {
     }
 }
 
-pub mod quality_gate {
+pub mod qgate {
     use clap::Args as ClapArgs;
     #[derive(Debug, ClapArgs)]
     pub struct Args {
@@ -545,8 +545,8 @@ mod tests {
     }
 
     #[test]
-    fn parses_quality_gate_with_flags() {
-        let cli = Cli::try_parse_from(["pt", "quality-gate", "--skip-fmt"]).unwrap();
+    fn parses_qgate_with_flags() {
+        let cli = Cli::try_parse_from(["pt", "qgate", "--skip-fmt"]).unwrap();
         match cli.command {
             Command::QualityGate(args) => assert!(args.skip_fmt),
             _ => panic!("expected QualityGate"),
