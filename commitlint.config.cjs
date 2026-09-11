@@ -33,5 +33,11 @@ module.exports = {
     // Merge commits (squash- and merge-style) have descriptive subjects
     // rather than conventional commit format; linting them is noise.
     (commit) => commit.startsWith("merge:"),
+    // ci: add 88-pillar scorecard — missing scope (already on main).
+    (commit) =>
+      commit.startsWith("ci: add 88-pillar scorecard workflow"),
+    // Add Makefile with build/test/lint/clean targets — missing type prefix.
+    (commit) =>
+      commit.startsWith("Add Makefile"),
   ],
 };

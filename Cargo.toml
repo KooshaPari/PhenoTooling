@@ -30,6 +30,7 @@ members = [
     "crates/elicitate",
     "crates/perfharness",
     "crates/ptx",
+    "crates/pheno-forge-scaffold",
     "bin/hook-entry",
 ]
 
