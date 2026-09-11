@@ -51,4 +51,11 @@ pub enum ElicitError {
     /// failed to compile.
     #[error("invalid pattern regex: {0}")]
     InvalidRegex(#[from] regex::Error),
+
+    /// JSON-RPC error returned by the elicitate daemon over its IPC
+    /// socket. The `code` mirrors the JSON-RPC error code; the `message`
+    /// is the daemon's error string. Used by the sync `ipc::Client` and
+    /// by any external Swift/Go/whatever client speaking JSON-RPC 2.0.
+    #[error("rpc error {code}: {message}")]
+    Rpc { code: i32, message: String },
 }

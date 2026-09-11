@@ -614,8 +614,8 @@ fn delegate_context(workspace_root: &Path, skip: bool) -> Result<Vec<String>> {
     let mut delegated = Vec::new();
 
     match run_quality_gate_delegation(workspace_root) {
-        Ok(output) => delegated.push(format!("quality-gate: ok ({})", output)),
-        Err(err) => delegated.push(format!("quality-gate: failed ({})", err)),
+        Ok(output) => delegated.push(format!("qgate: ok ({})", output)),
+        Err(err) => delegated.push(format!("qgate: failed ({})", err)),
     }
 
     match run_legacy_scan_delegation(workspace_root) {
@@ -636,19 +636,16 @@ fn run_quality_gate_delegation(workspace_root: &Path) -> Result<String> {
         .args([
             "run",
             "-p",
-            "quality-gate",
+            "qgate",
             "--",
+            "run",
             "--path",
             workspace_root.to_string_lossy().as_ref(),
-            "--json",
-            "--skip-clippy",
-            "--skip-test",
-            "--skip-fmt",
         ])
         .output()?;
 
     if !output.status.success() {
-        return Err(anyhow!("quality-gate delegation failed"));
+        return Err(anyhow!("qgate delegation failed"));
     }
 
     Ok(String::from_utf8(output.stdout)?.trim().to_string())
