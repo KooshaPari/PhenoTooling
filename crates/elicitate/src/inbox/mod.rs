@@ -38,8 +38,8 @@ use crate::spec::{ElicitResponse, PromptSpec};
 
 pub mod change;
 pub mod daemon;
+pub mod ipc;
 pub mod notify;
-
 pub use change::{InboxChangeBus, InboxWatcher};
 
 /// State of a request in the inbox.

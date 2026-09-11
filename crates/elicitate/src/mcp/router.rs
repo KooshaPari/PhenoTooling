@@ -4,10 +4,8 @@
 //! Codex, Cursor, Claude Code, etc.). Each tool call is dispatched to
 //! `elicitate::elicit()` and the response is returned as MCP tool output.
 
-use std::future::Future;
-
-use rmcp::handler::server::tool::Parameters;
-use rmcp::handler::server::tool::ToolRouter;
+use rmcp::handler::server::router::tool::ToolRouter;
+use rmcp::handler::server::wrapper::Parameters;
 use rmcp::model::*;
 use rmcp::schemars::JsonSchema;
 use rmcp::ServerHandler;
@@ -91,14 +89,14 @@ impl ElicitateMcp {
     async fn elicit(
         &self,
         Parameters(params): Parameters<ElicitateParams>,
-    ) -> Result<CallToolResult, rmcp::Error> {
+    ) -> Result<CallToolResponse, rmcp::ErrorData> {
         let spec: PromptSpec = params.into();
 
         // Validate upfront — a bad spec should fail loudly before we open a window.
         if let Err(msg) = spec.validate() {
-            return Ok(CallToolResult::error(vec![Content::text(format!(
+            return Ok(CallToolResult::error(vec![ContentBlock::text(format!(
                 "invalid PromptSpec: {msg}"
-            ))]));
+            ))]).into());
         }
 
         // Run the popup on a blocking thread so we don't park the tokio worker.
@@ -106,56 +104,47 @@ impl ElicitateMcp {
         let result = tokio::task::spawn_blocking(move || crate::elicit_with(&spec, &opts))
             .await
             .map_err(|e| {
-                rmcp::Error::internal_error(format!("popup task join failed: {e}"), None)
+                rmcp::ErrorData::internal_error(format!("popup task join failed: {e}"), None)
             })?;
 
         let response: ElicitResponse = match result {
             Ok(r) => r,
             Err(e) => {
-                return Ok(CallToolResult::error(vec![Content::text(format!(
+                return Ok(CallToolResult::error(vec![ContentBlock::text(format!(
                     "popup failed: {e}"
-                ))]));
+                ))]).into());
             }
         };
 
         let json = serde_json::to_value(&response).map_err(|e| {
-            rmcp::Error::internal_error(format!("serialize response: {e}"), None)
+            rmcp::ErrorData::internal_error(format!("serialize response: {e}"), None)
         })?;
 
-        let content = Content::json(json.clone()).map_err(|e| {
-            rmcp::Error::internal_error(format!("content: {e}"), None)
-        })?;
-
-        let is_error = matches!(
-            &response,
-            ElicitResponse::Failed { .. } | ElicitResponse::TimedOut { .. }
+        let content_block = ContentBlock::text(
+            serde_json::to_string(&json).unwrap_or_default(),
         );
 
-        Ok(CallToolResult {
-            content: vec![content],
-            is_error: if is_error { Some(true) } else { None },
-        })
+        let is_error = matches!(&response, ElicitResponse::Failed { .. } | ElicitResponse::TimedOut { .. });
+
+        if is_error {
+            Ok(CallToolResult::error(vec![content_block]).into())
+        } else {
+            Ok(CallToolResult::success(vec![content_block]).into())
+        }
     }
 }
 
 #[tool_handler]
 impl ServerHandler for ElicitateMcp {
     fn get_info(&self) -> ServerInfo {
-        ServerInfo {
-            protocol_version: ProtocolVersion::default(),
-            capabilities: ServerCapabilities::default(),
-            server_info: Implementation {
-                name: "elicitate".to_string(),
-                version: env!("CARGO_PKG_VERSION").to_string(),
-            },
-            instructions: Some(
+        ServerInfo::new(ServerCapabilities::default())
+            .with_server_info(Implementation::new("elicitate", env!("CARGO_PKG_VERSION")))
+            .with_instructions(
                 "elicitate_mcp renders a native OS popup and blocks until the human responds. \
                  Use it whenever you need a single, structured decision from the operator: \
                  confirmations, secrets, multi-choice selection, disambiguation. Returns typed \
                  JSON: {status: answered|cancelled|timed_out|failed, value?, notes?}."
-                    .to_string(),
-            ),
-        }
+            )
     }
 }
 

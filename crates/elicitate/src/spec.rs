@@ -286,6 +286,12 @@ pub enum ElicitResponse {
     },
 }
 
+impl Default for ElicitResponse {
+    fn default() -> Self {
+        Self::Cancelled { notes: None }
+    }
+}
+
 impl PromptSpec {
     /// Validate the spec. Returns an error message on the first violation.
     pub fn validate(&self) -> Result<(), String> {
