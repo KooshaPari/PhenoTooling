@@ -6,7 +6,7 @@
 use std::path::PathBuf;
 use std::process::ExitCode;
 
-use clap::{Args, Parser, Subcommand};
+use clap::{Parser, Subcommand};
 
 use elicitate::options::RendererPreference;
 

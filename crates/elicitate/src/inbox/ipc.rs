@@ -37,15 +37,17 @@ use parking_lot::Mutex;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
-use tokio::net::{UnixListener, UnixStream};
+use tokio::net::UnixListener;
+use tokio::net::UnixStream;
 use tokio::sync::{broadcast, Notify};
 use tokio::task::JoinHandle;
 
 use crate::error::ElicitError;
 use crate::inbox::{
-    self, list_pending, load_pending, load_request, ElicitResponse, PendingRequest, RequestState,
+    self, list_pending, load_pending, load_request, PendingRequest, RequestState,
     ResponseStatus, ELICITATE_VERSION,
 };
+use crate::spec::ElicitResponse;
 
 // ---------------------------------------------------------------------------
 // Socket path
@@ -60,7 +62,7 @@ pub fn ipc_socket_path(root: &Path) -> PathBuf {
 /// Returns `None` if the lockfile is missing, malformed, or `ipc_sock` is empty
 /// (older daemons predating IPC).
 pub fn live_socket(root: &Path) -> Option<PathBuf> {
-    let payload = crate::inbox::daemon::read_lockfile(root).ok()?;
+    let payload = crate::inbox::daemon::lockfile::read_lockfile(root)?;
     let sock = payload.ipc_sock?;
     if sock.as_os_str().is_empty() {
         return None;
@@ -196,7 +198,7 @@ impl RpcState {
         Self {
             root,
             sock_path,
-            started_ms: inbox::unix_now_ms(),
+            started_ms: inbox::unix_now_ms() as i64,
             shutdown: Arc::new(Notify::new()),
             changes: tx,
             listener_slot: Arc::new(Mutex::new(None)),
@@ -369,7 +371,7 @@ async fn dispatch(state: &RpcState, req: Request) -> Response {
         },
 
         "inbox.cancel" => match parse_params::<RidParams>(&req.params) {
-            Ok(p) => match finalize_via_state(state, &p.rid, ElicitResponse::Cancelled).await {
+            Ok(p) => match finalize_via_state(state, &p.rid, ElicitResponse::Cancelled { notes: None }).await {
                 Ok(updated) => Response::ok(id, json!({ "request": updated })),
                 Err(e) => e,
             },
@@ -408,14 +410,43 @@ async fn finalize_via_state(
             format!("rid={rid} already finalized (state={:?})", pending.state),
         ));
     }
-    match crate::inbox::daemon::form::submit_answer(&state.root, rid, response) {
-        Ok(updated) => {
+    // Determine the response and state based on the ElicitResponse variant.
+    let (final_state, _notes) = match &response {
+        ElicitResponse::Cancelled { notes } => (
+            RequestState::Cancelled,
+            notes.clone(),
+        ),
+        ElicitResponse::TimedOut { .. } | ElicitResponse::Failed { .. } => (
+            RequestState::Answered,
+            None,
+        ),
+        _ => (RequestState::Answered, None),
+    };
+    let final_req = PendingRequest {
+        state: final_state,
+        response: Some(response),
+        ..pending
+    };
+    match crate::inbox::finalize(&state.root, &final_req) {
+        Ok(_path) => {
+            // Reload from disk so the caller gets the canonical on-disk state.
+            let updated = match load_pending(&state.root, rid) {
+                Ok(Some(p)) => p,
+                Ok(None) => {
+                    return Err(Response::err(
+                        Value::Null,
+                        ERR_INTERNAL,
+                        format!("just-finalized rid={rid} disappeared from disk"),
+                    ))
+                }
+                Err(e) => {
+                    return Err(Response::err(Value::Null, ERR_IO, e.to_string()))
+                }
+            };
             let status = match &updated.response {
-                Some(r) => match r {
-                    ElicitResponse::Cancelled => ResponseStatus::Cancelled,
-                    ElicitResponse::TimedOut => ResponseStatus::TimedOut,
-                    _ => ResponseStatus::Answered,
-                },
+                Some(ElicitResponse::Cancelled { .. }) => ResponseStatus::Cancelled,
+                Some(ElicitResponse::TimedOut { .. }) => ResponseStatus::TimedOut,
+                Some(_) => ResponseStatus::Answered,
                 None => ResponseStatus::Pending,
             };
             state.notify_answered(rid, status);
@@ -493,7 +524,7 @@ impl Client {
 
     /// Convenience constructor that walks the inbox root + lockfile.
     pub fn connect_default() -> Result<Self, ElicitError> {
-        let root = inbox::default_inbox_root()?;
+        let root = inbox::default_inbox_root();
         let sock = live_socket(&root)
             .ok_or_else(|| ElicitError::Io(std::io::Error::new(
                 std::io::ErrorKind::NotFound,
@@ -510,7 +541,8 @@ impl Client {
             params,
         };
         let line = serde_json::to_string(&req).map_err(ElicitError::Json)?;
-        let mut s = UnixStream::connect(&self.sock).map_err(|e| {
+        // Use the blocking std UnixStream here (this is a sync method).
+        let mut s = std::os::unix::net::UnixStream::connect(&self.sock).map_err(|e| {
             ElicitError::Io(std::io::Error::new(
                 e.kind(),
                 format!("connect ipc {}: {e}", self.sock.display()),
@@ -519,7 +551,7 @@ impl Client {
         use std::io::Write;
         s.write_all(line.as_bytes()).map_err(ElicitError::Io)?;
         s.write_all(b"\n").map_err(ElicitError::Io)?;
-        let mut reader = BufReader::new(s);
+        let mut reader = std::io::BufReader::new(s);
         let mut buf = String::new();
         use std::io::BufRead;
         reader.read_line(&mut buf).map_err(ElicitError::Io)?;
