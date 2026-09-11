@@ -18,7 +18,7 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "elicitate"
-path = "src/bin_elicitate.rs"
+path = "src/cli/mod.rs"
 
 [[bin]]
 name = "elicitate-mcp"
