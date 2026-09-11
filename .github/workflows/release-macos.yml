@@ -7,7 +7,7 @@ name: Release macOS (phenotype-tooling)
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "phenotype-tooling-*"
   workflow_dispatch:
 
 concurrency:
@@ -20,14 +20,15 @@ permissions:
 jobs:
   macos:
     name: Build, sign, notarize phenotype-tooling
-    uses: kooshapari/phenotype-fleet-ops/.github/workflows/macos-release.yml@main
+    uses: kooshapari/phenotype-fleet-ops/.github/workflows/macos-release.yml@9482260ce07b8c37394358b98d2eb413ab813ec3
     with:
       app-name: phenotype-tooling
       app-bundle-id: ai.phenotype.melosviz
       build-cmd: |
-          pnpm install --frozen-lockfile
-          pnpm --filter tooling tauri build --target universal-apple-darwin
-          cp -R apps/tooling/src-tauri/target/universal-apple-darwin/release/bundle/macos/phenotype-tooling.app dist/macos/
+          cd apps/tooling
+          bun install --frozen-lockfile
+          bun run tauri build --target universal-apple-darwin
+          cp -R src-tauri/target/universal-apple-darwin/release/bundle/macos/phenotype-tooling.app ../../dist/macos/
       entitlements-file: apps/tooling/src-tauri/Entitlements.plist
       artifact-dir: dist/macos
       create-dmg: true
