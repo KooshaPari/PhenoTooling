@@ -16,10 +16,11 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 /// Channel a release can be promoted through.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Channel {
     /// Releases with >= 1 week soak on beta.
+    #[default]
     Stable,
     /// Releases with >= 24h soak on nightly.
     Beta,
@@ -51,6 +52,42 @@ impl Channel {
     pub fn is_stricter_than(&self, other: Channel) -> bool {
         self.rank() < other.rank()
     }
+}
+
+/// CLI args for the `pt upgrade` subcommand (WP-28).
+#[derive(Debug, Clone, clap::Args)]
+pub struct UpgradeArgs {
+    /// Release channel to track (stable, beta, nightly).
+    #[arg(short, long, default_value = "stable")]
+    pub channel: Channel,
+
+    /// Optional version specifier (e.g. "0.2.0" or "latest").
+    #[arg(short, long)]
+    pub version: Option<String>,
+
+    /// Force the upgrade even if the current version is up to date.
+    #[arg(long)]
+    pub force: bool,
+
+    /// Dry run — show what would be upgraded without applying.
+    #[arg(long)]
+    pub dry_run: bool,
+}
+
+/// Execute the `pt upgrade` subcommand.
+///
+/// Currently a stub that validates the channel and prints the target.
+/// Full implementation (WP-28) will download, verify, and install the
+/// release tarball for the specified stream.
+#[must_use]
+pub fn run(args: UpgradeArgs, verbosity: u8) -> i32 {
+    if verbosity > 0 {
+        eprintln!("upgrade: channel={}, force={}, dry_run={}",
+            args.channel, args.force, args.dry_run);
+    }
+    let version = args.version.as_deref().unwrap_or("latest");
+    println!("upgrade: {} channel -> {} (not yet implemented)", version, args.channel);
+    super::exit_code::OK
 }
 
 impl std::fmt::Display for Channel {
