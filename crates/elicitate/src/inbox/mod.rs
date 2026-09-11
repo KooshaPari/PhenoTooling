@@ -36,13 +36,16 @@ use std::{fs, io};
 use serde::{Deserialize, Serialize};
 
 use crate::error::ElicitError;
-use crate::spec::{ElicitResponse, PromptSpec};
+pub use crate::spec::{ElicitResponse, PromptSpec};
 
 pub mod change;
 pub mod daemon;
 pub mod ipc;
 pub mod notify;
 pub use change::{InboxChangeBus, InboxWatcher};
+
+/// Compile-time crate version — matches `Cargo.toml` via `env!`.
+pub const ELICITATE_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 /// State of a request in the inbox.
 #[derive(
@@ -62,6 +65,19 @@ pub enum RequestState {
     Cancelled,
     /// Request exceeded its TTL without a response.
     Expired,
+}
+
+/// Simplified status for IPC / change-event consumers.
+///
+/// Maps from [`ElicitResponse`] variants to a flat status the IPC layer can
+/// serialize without exposing the full response payload.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, schemars::JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ResponseStatus {
+    Pending,
+    Answered,
+    Cancelled,
+    TimedOut,
 }
 
 /// Surface that surfaced this request to the user.
@@ -428,6 +444,45 @@ pub fn cancel_pending(
     req.state = RequestState::Cancelled;
     finalize(root, &req)?;
     Ok(RequestState::Cancelled)
+}
+
+/// Load a pending (non-terminal) request by id from `root`.
+///
+/// Returns `Ok(None)` when the entry is missing or already terminal.
+pub fn load_pending(
+    root: &Path,
+    request_id: &str,
+) -> Result<Option<PendingRequest>, ElicitError> {
+    let pending = inbox_pending_dir(root).join(format!("{request_id}.json"));
+    if !pending.exists() {
+        return Ok(None);
+    }
+    let text = std::fs::read_to_string(&pending)?;
+    let req: PendingRequest = serde_json::from_str(&text).map_err(ElicitError::Json)?;
+    Ok(Some(req))
+}
+
+/// Load a request by id from `root` (pending OR answered).
+///
+/// Returns `Ok(None)` when the entry does not exist.
+pub fn load_request(
+    root: &Path,
+    request_id: &str,
+) -> Result<Option<PendingRequest>, ElicitError> {
+    validate_request_id(request_id)?;
+    let candidates = [
+        inbox_pending_dir(root).join(format!("{request_id}.json")),
+        answered_dir(root).join(format!("{request_id}.json")),
+    ];
+    for path in candidates {
+        if path.exists() {
+            let text = std::fs::read_to_string(&path)?;
+            return serde_json::from_str(&text)
+                .map(Some)
+                .map_err(ElicitError::Json);
+        }
+    }
+    Ok(None)
 }
 
 /// Load a single request by id from `dir` (pending OR answered).
