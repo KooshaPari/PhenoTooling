@@ -43,9 +43,10 @@ use tokio::task::JoinHandle;
 
 use crate::error::ElicitError;
 use crate::inbox::{
-    self, list_pending, load_pending, load_request, ElicitResponse, PendingRequest, RequestState,
+    self, list_pending, load_pending, load_request, PendingRequest, RequestState,
     ResponseStatus, ELICITATE_VERSION,
 };
+use crate::spec::ElicitResponse;
 
 // ---------------------------------------------------------------------------
 // Socket path
@@ -60,7 +61,7 @@ pub fn ipc_socket_path(root: &Path) -> PathBuf {
 /// Returns `None` if the lockfile is missing, malformed, or `ipc_sock` is empty
 /// (older daemons predating IPC).
 pub fn live_socket(root: &Path) -> Option<PathBuf> {
-    let payload = crate::inbox::daemon::read_lockfile(root).ok()?;
+    let payload = crate::inbox::daemon::lockfile::read_lockfile(root)?;
     let sock = payload.ipc_sock?;
     if sock.as_os_str().is_empty() {
         return None;
@@ -196,7 +197,7 @@ impl RpcState {
         Self {
             root,
             sock_path,
-            started_ms: inbox::unix_now_ms(),
+            started_ms: inbox::unix_now_ms() as i64,
             shutdown: Arc::new(Notify::new()),
             changes: tx,
             listener_slot: Arc::new(Mutex::new(None)),
@@ -369,7 +370,7 @@ async fn dispatch(state: &RpcState, req: Request) -> Response {
         },
 
         "inbox.cancel" => match parse_params::<RidParams>(&req.params) {
-            Ok(p) => match finalize_via_state(state, &p.rid, ElicitResponse::Cancelled).await {
+            Ok(p) => match finalize_via_state(state, &p.rid, ElicitResponse::Cancelled { notes: None }).await {
                 Ok(updated) => Response::ok(id, json!({ "request": updated })),
                 Err(e) => e,
             },
@@ -396,7 +397,7 @@ async fn finalize_via_state(
     rid: &str,
     response: ElicitResponse,
 ) -> Result<PendingRequest, Response> {
-    let pending = match load_pending(&state.root, rid) {
+    let mut pending = match load_pending(&state.root, rid) {
         Ok(Some(p)) => p,
         Ok(None) => return Err(Response::err(Value::Null, ERR_NOT_FOUND, format!("rid={rid}"))),
         Err(e) => return Err(Response::err(Value::Null, ERR_IO, e.to_string())),
@@ -408,18 +409,25 @@ async fn finalize_via_state(
             format!("rid={rid} already finalized (state={:?})", pending.state),
         ));
     }
-    match crate::inbox::daemon::form::submit_answer(&state.root, rid, response) {
-        Ok(updated) => {
-            let status = match &updated.response {
-                Some(r) => match r {
-                    ElicitResponse::Cancelled => ResponseStatus::Cancelled,
-                    ElicitResponse::TimedOut => ResponseStatus::TimedOut,
-                    _ => ResponseStatus::Answered,
-                },
+    // Determine new state from the response.
+    let new_state = match &response {
+        ElicitResponse::Cancelled { .. } => RequestState::Cancelled,
+        ElicitResponse::TimedOut { .. } => RequestState::Expired,
+        ElicitResponse::Failed { .. } => RequestState::Expired,
+        ElicitResponse::Answered { .. } => RequestState::Answered,
+    };
+    pending.state = new_state;
+    pending.response = Some(response);
+    match crate::inbox::finalize(&state.root, &pending) {
+        Ok(_path) => {
+            let status = match &pending.response {
+                Some(ElicitResponse::Cancelled { .. }) => ResponseStatus::Cancelled,
+                Some(ElicitResponse::TimedOut { .. }) => ResponseStatus::TimedOut,
+                Some(_) => ResponseStatus::Answered,
                 None => ResponseStatus::Pending,
             };
             state.notify_answered(rid, status);
-            Ok(updated)
+            Ok(pending)
         }
         Err(e) => Err(Response::err(Value::Null, ERR_IO, e.to_string())),
     }
@@ -493,7 +501,7 @@ impl Client {
 
     /// Convenience constructor that walks the inbox root + lockfile.
     pub fn connect_default() -> Result<Self, ElicitError> {
-        let root = inbox::default_inbox_root()?;
+        let root = inbox::default_inbox_root();
         let sock = live_socket(&root)
             .ok_or_else(|| ElicitError::Io(std::io::Error::new(
                 std::io::ErrorKind::NotFound,
@@ -510,7 +518,7 @@ impl Client {
             params,
         };
         let line = serde_json::to_string(&req).map_err(ElicitError::Json)?;
-        let mut s = UnixStream::connect(&self.sock).map_err(|e| {
+        let mut s = std::os::unix::net::UnixStream::connect(&self.sock).map_err(|e| {
             ElicitError::Io(std::io::Error::new(
                 e.kind(),
                 format!("connect ipc {}: {e}", self.sock.display()),
@@ -519,7 +527,7 @@ impl Client {
         use std::io::Write;
         s.write_all(line.as_bytes()).map_err(ElicitError::Io)?;
         s.write_all(b"\n").map_err(ElicitError::Io)?;
-        let mut reader = BufReader::new(s);
+        let mut reader = std::io::BufReader::new(s);
         let mut buf = String::new();
         use std::io::BufRead;
         reader.read_line(&mut buf).map_err(ElicitError::Io)?;

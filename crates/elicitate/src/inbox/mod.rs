@@ -40,7 +40,61 @@ pub mod change;
 pub mod daemon;
 pub mod ipc;
 pub mod notify;
+#[cfg(test)] mod tests;
 pub use change::{InboxChangeBus, InboxWatcher};
+
+/// Crate version, exposed so the IPC ping can report it.
+pub const ELICITATE_VERSION: &str = env!("CARGO_PKG_VERSION");
+
+/// Lightweight status for IPC change-event notifications.  Mirrors
+/// [`RequestState`] but is a separate type so the IPC layer doesn't
+/// serialize without exposing the full response payload.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ResponseStatus {
+    Pending,
+    Answered,
+    Cancelled,
+    TimedOut,
+}
+
+/// Load a pending (non-terminal) request by id from `root`.
+///
+/// Returns `Ok(None)` when the entry is missing or already terminal.
+pub fn load_pending(
+    root: &Path,
+    request_id: &str,
+) -> Result<Option<PendingRequest>, ElicitError> {
+    let pending = inbox_pending_dir(root).join(format!("{request_id}.json"));
+    if !pending.exists() {
+        return Ok(None);
+    }
+    let text = std::fs::read_to_string(&pending)?;
+    let req: PendingRequest = serde_json::from_str(&text).map_err(ElicitError::Json)?;
+    Ok(Some(req))
+}
+
+/// Load a request by id from `root` (pending OR answered).
+///
+/// Returns `Ok(None)` when the entry does not exist.
+pub fn load_request(
+    root: &Path,
+    request_id: &str,
+) -> Result<Option<PendingRequest>, ElicitError> {
+    let candidates = [
+        inbox_pending_dir(root).join(format!("{request_id}.json")),
+        answered_dir(root).join(format!("{request_id}.json")),
+    ];
+    for path in candidates {
+        if path.exists() {
+            let text = std::fs::read_to_string(&path)?;
+            return serde_json::from_str(&text)
+                .map(Some)
+                .map_err(ElicitError::Json);
+        }
+    }
+    Ok(None)
+}
 
 /// State of a request in the inbox.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -353,138 +407,3 @@ pub fn wait_for_response(
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    fn sample_origin() -> RequestOrigin {
-        RequestOrigin {
-            hostname: "h".into(),
-            process: "p".into(),
-            pid: 1,
-            callback: None,
-        }
-    }
-
-    #[test]
-    fn new_fills_request_id_and_timestamps() {
-        let spec = crate::spec::PromptSpec {
-            title: "t".into(),
-            question: "?".into(),
-            field: crate::spec::FieldSpec::Boolean {
-                label: "?".into(),
-                default: Some(true),
-            },
-            notes: None,
-            buttons: None,
-            urgency: crate::spec::Urgency::Info,
-            timeout_secs: 60,
-            request_id: None,
-        };
-        let req = PendingRequest::new(spec.clone(), sample_origin());
-        assert!(!req.request_id.is_empty());
-        assert!(req.expires_at_ms > req.queued_at_ms);
-        assert!(!req.is_terminal());
-
-        let mut spec2 = spec;
-        spec2.request_id = Some("my-id".into());
-        let req2 = PendingRequest::new(spec2, sample_origin());
-        assert_eq!(req2.request_id, "my-id");
-    }
-
-    #[test]
-    fn path_in_is_stable() {
-        let req = PendingRequest {
-            request_id: "abc".into(),
-            origin: sample_origin(),
-            spec: crate::spec::PromptSpec {
-                title: "t".into(),
-                question: "?".into(),
-                field: crate::spec::FieldSpec::Boolean {
-                    label: "?".into(),
-                    default: None,
-                },
-                notes: None,
-                buttons: None,
-                urgency: crate::spec::Urgency::Info,
-                timeout_secs: 60,
-                request_id: Some("abc".into()),
-            },
-            queued_at_ms: 0,
-            expires_at_ms: u64::MAX,
-            state: RequestState::Pending,
-            response: None,
-            notified_via: vec![],
-            metadata: serde_json::Map::new(),
-        };
-        let dir = Path::new("/x/inbox");
-        assert_eq!(req.path_in(dir), PathBuf::from("/x/inbox/abc.json"));
-    }
-
-    #[test]
-    fn enqueue_and_load_roundtrip() {
-        let tmp = tempfile::tempdir().unwrap();
-        let req = PendingRequest {
-            request_id: "rt-1".into(),
-            origin: sample_origin(),
-            spec: crate::spec::PromptSpec {
-                title: "t".into(),
-                question: "?".into(),
-                field: crate::spec::FieldSpec::Boolean {
-                    label: "?".into(),
-                    default: Some(false),
-                },
-                notes: None,
-                buttons: None,
-                urgency: crate::spec::Urgency::Info,
-                timeout_secs: 60,
-                request_id: Some("rt-1".into()),
-            },
-            queued_at_ms: unix_now_ms(),
-            expires_at_ms: unix_now_ms() + 60_000,
-            state: RequestState::Pending,
-            response: None,
-            notified_via: vec![],
-            metadata: serde_json::Map::new(),
-        };
-        enqueue(tmp.path(), &req).unwrap();
-        let loaded = load(tmp.path(), "rt-1").unwrap();
-        assert_eq!(loaded.request_id, "rt-1");
-        assert_eq!(loaded.state, RequestState::Pending);
-    }
-
-    #[test]
-    fn finalize_moves_to_answered_dir() {
-        let tmp = tempfile::tempdir().unwrap();
-        let req = PendingRequest {
-            request_id: "fn-1".into(),
-            origin: sample_origin(),
-            spec: crate::spec::PromptSpec {
-                title: "t".into(),
-                question: "?".into(),
-                field: crate::spec::FieldSpec::Boolean {
-                    label: "?".into(),
-                    default: None,
-                },
-                notes: None,
-                buttons: None,
-                urgency: crate::spec::Urgency::Info,
-                timeout_secs: 60,
-                request_id: Some("fn-1".into()),
-            },
-            queued_at_ms: unix_now_ms(),
-            expires_at_ms: unix_now_ms() + 60_000,
-            state: RequestState::Answered,
-            response: Some(ElicitResponse::Answered {
-                value: crate::spec::FieldValue::Boolean(true),
-                notes: None,
-            }),
-            notified_via: vec![],
-            metadata: serde_json::Map::new(),
-        };
-        enqueue(tmp.path(), &req).unwrap();
-        finalize(tmp.path(), &req).unwrap();
-        let loaded = load(tmp.path(), "fn-1").unwrap();
-        assert_eq!(loaded.state, RequestState::Answered);
-    }
-}
