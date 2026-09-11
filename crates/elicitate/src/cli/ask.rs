@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 use elicitate::inbox::RequestOrigin;
 use elicitate::options::RendererPreference;
-use elicitate::spec::PromptSpec;
+use elicitate::spec::{PromptSpec, Urgency};
 use serde_json::json;
 
 /// Render a popup (blocking) or queue it (with `--async`).

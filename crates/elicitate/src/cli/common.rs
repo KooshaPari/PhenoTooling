@@ -207,7 +207,7 @@ pub fn parse_notify_cfg(spec: Option<&str>) -> elicitate::NotifyChannels {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::cli::ask::AskArgs;
+    use crate::ask::AskArgs;
 
     #[test]
     fn build_minimal_spec_uses_defaults() {

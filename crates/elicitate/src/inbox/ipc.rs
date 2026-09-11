@@ -37,8 +37,7 @@ use parking_lot::Mutex;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
-use tokio::net::UnixListener;
-use tokio::net::UnixStream;
+use tokio::net::{UnixListener, UnixStream};
 use tokio::sync::{broadcast, Notify};
 use tokio::task::JoinHandle;
 
@@ -398,7 +397,7 @@ async fn finalize_via_state(
     rid: &str,
     response: ElicitResponse,
 ) -> Result<PendingRequest, Response> {
-    let pending = match load_pending(&state.root, rid) {
+    let mut pending = match load_pending(&state.root, rid) {
         Ok(Some(p)) => p,
         Ok(None) => return Err(Response::err(Value::Null, ERR_NOT_FOUND, format!("rid={rid}"))),
         Err(e) => return Err(Response::err(Value::Null, ERR_IO, e.to_string())),
@@ -410,47 +409,25 @@ async fn finalize_via_state(
             format!("rid={rid} already finalized (state={:?})", pending.state),
         ));
     }
-    // Determine the response and state based on the ElicitResponse variant.
-    let (final_state, _notes) = match &response {
-        ElicitResponse::Cancelled { notes } => (
-            RequestState::Cancelled,
-            notes.clone(),
-        ),
-        ElicitResponse::TimedOut { .. } | ElicitResponse::Failed { .. } => (
-            RequestState::Answered,
-            None,
-        ),
-        _ => (RequestState::Answered, None),
+    // Determine new state from the response.
+    let new_state = match &response {
+        ElicitResponse::Cancelled { .. } => RequestState::Cancelled,
+        ElicitResponse::TimedOut { .. } => RequestState::Expired,
+        ElicitResponse::Failed { .. } => RequestState::Expired,
+        ElicitResponse::Answered { .. } => RequestState::Answered,
     };
-    let final_req = PendingRequest {
-        state: final_state,
-        response: Some(response),
-        ..pending
-    };
-    match crate::inbox::finalize(&state.root, &final_req) {
+    pending.state = new_state;
+    pending.response = Some(response);
+    match crate::inbox::finalize(&state.root, &pending) {
         Ok(_path) => {
-            // Reload from disk so the caller gets the canonical on-disk state.
-            let updated = match load_pending(&state.root, rid) {
-                Ok(Some(p)) => p,
-                Ok(None) => {
-                    return Err(Response::err(
-                        Value::Null,
-                        ERR_INTERNAL,
-                        format!("just-finalized rid={rid} disappeared from disk"),
-                    ))
-                }
-                Err(e) => {
-                    return Err(Response::err(Value::Null, ERR_IO, e.to_string()))
-                }
-            };
-            let status = match &updated.response {
+            let status = match &pending.response {
                 Some(ElicitResponse::Cancelled { .. }) => ResponseStatus::Cancelled,
                 Some(ElicitResponse::TimedOut { .. }) => ResponseStatus::TimedOut,
                 Some(_) => ResponseStatus::Answered,
                 None => ResponseStatus::Pending,
             };
             state.notify_answered(rid, status);
-            Ok(updated)
+            Ok(pending)
         }
         Err(e) => Err(Response::err(Value::Null, ERR_IO, e.to_string())),
     }
@@ -541,7 +518,6 @@ impl Client {
             params,
         };
         let line = serde_json::to_string(&req).map_err(ElicitError::Json)?;
-        // Use the blocking std UnixStream here (this is a sync method).
         let mut s = std::os::unix::net::UnixStream::connect(&self.sock).map_err(|e| {
             ElicitError::Io(std::io::Error::new(
                 e.kind(),

@@ -206,6 +206,7 @@ mod tests {
     use crate::inbox::unix_now_ms;
     use std::io::{BufRead, BufReader, Write};
     use std::net::{Ipv4Addr, TcpStream};
+    use std::time::Duration;
 
     #[test]
     fn start_stop_roundtrip() {
