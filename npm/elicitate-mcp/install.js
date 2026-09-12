@@ -47,7 +47,7 @@ async function downloadFromGitHub() {
   const config = PLATFORMS[key];
   if (!config) {
     console.error(`[elicitate-mcp] unsupported platform: ${key}`);
-    console.error("[elicitate-mcp] install manually: https://github.com/Kooshapari/phenotype-tooling/releases");
+    console.error("[elicitate-mcp] install manually: https://github.com/Kooshapari/PhenoTooling/releases");
     process.exit(0);
   }
 
@@ -57,7 +57,7 @@ async function downloadFromGitHub() {
   const isWin = process.platform === "win32";
   const ext = isWin ? "zip" : "tar.gz";
   const archive = `elicitate-${tag}-${config.target}.${ext}`;
-  const url = `https://github.com/Kooshapari/phenotype-tooling/releases/download/${tag}/${archive}`;
+  const url = `https://github.com/Kooshapari/PhenoTooling/releases/download/${tag}/${archive}`;
 
   console.log(`[elicitate-mcp] downloading ${archive} ...`);
   fs.mkdirSync(BIN_DIR, { recursive: true });
@@ -78,7 +78,7 @@ async function downloadFromGitHub() {
     }
   } catch (err) {
     console.error(`[elicitate-mcp] download failed: ${err.message}`);
-    console.error("[elicitate-mcp] install from https://github.com/Kooshapari/phenotype-tooling/releases");
+    console.error("[elicitate-mcp] install from https://github.com/Kooshapari/PhenoTooling/releases");
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }

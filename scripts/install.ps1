@@ -1,10 +1,10 @@
-# elicitate installer — irm https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.ps1 | iex
+# elicitate installer — irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
 #
 # Installs elicitate + elicitate-mcp binaries to ~/.elicitate/bin/
 
 $ErrorActionPreference = "Stop"
 
-$REPO = "Kooshapari/phenotype-tooling"
+$REPO = "Kooshapari/PhenoTooling"
 $INSTALL_DIR = if ($env:ELICITATE_INSTALL_DIR) { $env:ELICITATE_INSTALL_DIR } else { Join-Path $HOME ".elicitate\bin" }
 $VERSION = if ($env:ELICITATE_VERSION) { $env:ELICITATE_VERSION } else { "latest" }
 $GITHUB_API = "https://api.github.com/repos/$REPO"

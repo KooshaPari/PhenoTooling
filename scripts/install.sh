@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# elicitate installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.sh | sh
+# elicitate installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
 #
 # Installs elicitate + elicitate-mcp binaries to ~/.elicitate/bin/
 # Supports macOS (arm64, x64), Linux (x64, arm64).
 
-REPO="Kooshapari/phenotype-tooling"
+REPO="Kooshapari/PhenoTooling"
 BINARY_NAMES=("elicitate" "elicitate-mcp")
 INSTALL_DIR="${ELICITATE_INSTALL_DIR:-$HOME/.elicitate/bin}"
 VERSION="${ELICITATE_VERSION:-latest}"

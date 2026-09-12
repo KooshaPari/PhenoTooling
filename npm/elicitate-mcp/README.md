@@ -27,5 +27,5 @@ elicitate --help       # CLI
 
 ## Links
 
-- [GitHub](https://github.com/Kooshapari/phenotype-tooling/tree/main/crates/elicitate)
-- [Releases](https://github.com/Kooshapari/phenotype-tooling/releases)
+- [GitHub](https://github.com/Kooshapari/PhenoTooling/tree/main/crates/elicitate)
+- [Releases](https://github.com/Kooshapari/PhenoTooling/releases)

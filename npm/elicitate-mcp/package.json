@@ -4,7 +4,7 @@
   "description": "Native OS popup elicitation for autonomous agents — MCP server binary",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kooshapari/phenotype-tooling",
+    "url": "https://github.com/Kooshapari/PhenoTooling",
     "directory": "crates/elicitate"
   },
   "license": "MIT",

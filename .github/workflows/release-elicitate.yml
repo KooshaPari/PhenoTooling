@@ -217,12 +217,12 @@ jobs:
 
             **macOS / Linux (curl):**
             ```sh
-            curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.sh | sh
+            curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
             ```
 
             **Windows (PowerShell):**
             ```powershell
-            irm https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.ps1 | iex
+            irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
             ```
 
             **npm / bun:**
