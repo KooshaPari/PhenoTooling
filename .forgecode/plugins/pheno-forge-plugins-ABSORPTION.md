@@ -11,7 +11,7 @@
 
 Source repo `pheno-forge-plugins` was created 2026-05-29 as a sidecar that bundles six `forgecode` plugins for the `antinomyhq/forgecode` runtime. Each plugin is a per-machine systemd unit that exposes a memory / config / tracing skill to forgecode's tool registry.
 
-On 2026-09-01, the polyrepo audit identified that the registry's previously-claimed target path `phenotype-tooling/plugins/pheno-forge/` did not exist on the remote HEAD. The actual matching directory on `phenotype-tooling` is `.forgecode/plugins/` (which already contains `elicitate/`). This absorb relocates the source into the correct target.
+On 2026-09-01, the polyrepo audit identified that the registry's previously-claimed target path `phenotype-tooling/plugins/pheno-forge/` did not exist on the remote HEAD. The actual matching directory on `phenotype-tooling` is `.forgecode/plugins/` (which already contains `phinbox/`). This absorb relocates the source into the correct target.
 
 ## Files absorbed (6 plugins + auxiliary docs)
 

@@ -27,7 +27,7 @@ members = [
     "crates/worktree-manager",
     "crates/phenotype-tooling-observability",
     "crates/phenotype-cli",
-    "crates/elicitate",
+    "crates/phinbox",
     "crates/perfharness",
     "crates/ptx",
     "crates/pheno-forge-scaffold",

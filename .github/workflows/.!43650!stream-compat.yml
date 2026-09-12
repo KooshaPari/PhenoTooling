@@ -1,0 +1,12 @@
+name: stream-compat
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/cross-stream-dependencies.json'
+      - 'workspace.metadata.toml'
+      - 'crates/phenotype-cli/src/lib.rs'
+      - 'crates/phenotype-cli/src/workspace/**'
+      - 'crates/phenotype-cli/src/observability/**'
+      - 'crates/phenotype-cli/src/deploy.rs'

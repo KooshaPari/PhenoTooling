@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# elicitate installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
+# phinbox installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
 #
-# Installs elicitate + elicitate-mcp binaries to ~/.elicitate/bin/
+# Installs phinbox + phinbox-mcp binaries to ~/.phinbox/bin/
 # Supports macOS (arm64, x64), Linux (x64, arm64).
 
 REPO="Kooshapari/PhenoTooling"
-BINARY_NAMES=("elicitate" "elicitate-mcp")
-INSTALL_DIR="${ELICITATE_INSTALL_DIR:-$HOME/.elicitate/bin}"
-VERSION="${ELICITATE_VERSION:-latest}"
+BINARY_NAMES=("phinbox" "phinbox-mcp")
+INSTALL_DIR="${PHINBOX_INSTALL_DIR:-$HOME/.phinbox/bin}"
+VERSION="${PHINBOX_VERSION:-latest}"
 GITHUB_API="https://api.github.com/repos/$REPO"
 
 RED='\033[0;31m'
@@ -47,7 +47,7 @@ get_latest_version() {
 }
 
 main() {
-  echo -e "${BOLD}elicitate installer${NC}"
+  echo -e "${BOLD}phinbox installer${NC}"
   echo ""
 
   local target
@@ -62,7 +62,7 @@ main() {
   local ext="tar.gz"
   [[ "$target" == *"windows"* ]] && ext="zip"
 
-  local archive_name="elicitate-${VERSION}-${target}.${ext}"
+  local archive_name="phinbox-${VERSION}-${target}.${ext}"
   local download_url="https://github.com/$REPO/releases/download/${VERSION}/${archive_name}"
 
   info "downloading $archive_name ..."
@@ -92,7 +92,7 @@ main() {
     unzip -o "$tmp_dir/$archive_name" -d "$INSTALL_DIR"
   fi
 
-  chmod +x "$INSTALL_DIR/elicitate" "$INSTALL_DIR/elicitate-mcp" 2>/dev/null || true
+  chmod +x "$INSTALL_DIR/phinbox" "$INSTALL_DIR/phinbox-mcp" 2>/dev/null || true
 
   local path_ok=false
   IFS=: read -ra PATH_DIRS <<< "$PATH"
@@ -111,13 +111,13 @@ main() {
     echo ""
     echo -e "${YELLOW}add to your PATH:${NC}"
     case "$(uname -s)" in
-      Darwin*) echo "  echo 'export PATH=\"\$HOME/.elicitate/bin:\$PATH\"' >> ~/.zshrc && source ~/.zshrc" ;;
-      *)       echo "  echo 'export PATH=\"\$HOME/.elicitate/bin:\$PATH\"' >> ~/.bashrc && source ~/.bashrc" ;;
+      Darwin*) echo "  echo 'export PATH=\"\$HOME/.phinbox/bin:\$PATH\"' >> ~/.zshrc && source ~/.zshrc" ;;
+      *)       echo "  echo 'export PATH=\"\$HOME/.phinbox/bin:\$PATH\"' >> ~/.bashrc && source ~/.bashrc" ;;
     esac
   fi
 
   echo ""
-  echo -e "run ${BOLD}elicitate --help${NC} to get started"
+  echo -e "run ${BOLD}phinbox --help${NC} to get started"
 }
 
 main "$@"

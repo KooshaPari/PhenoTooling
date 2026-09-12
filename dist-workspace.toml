@@ -1,14 +1,14 @@
 [workspace]
-members = ["cargo:elicitate"]
+members = ["cargo:phinbox"]
 
-# cargo-dist configuration for elicitate binary distribution.
+# cargo-dist configuration for phinbox binary distribution.
 # https://axodotdev.github.io/cargo-dist/book/reference/config.html
 [dist]
 cargo-dist-version = "0.32.0"
 ci = "github"
 
-# Only distribute elicitate (has 2 binaries: elicitate + elicitate-mcp)
-packages = ["elicitate"]
+# Only distribute phinbox (has 2 binaries: phinbox + phinbox-mcp)
+packages = ["phinbox"]
 
 # Cross-compilation targets
 targets = [
@@ -23,8 +23,8 @@ targets = [
 installers = ["shell", "powershell", "npm"]
 
 # npm package config
-npm-scope = "@anthropic-ai"
-npm-package = "elicitate-mcp"
+npm-scope = "@kooshapari"
+npm-package = "phinbox-mcp"
 
 # Archive format
 unix-archive = ".tar.gz"
@@ -38,7 +38,7 @@ hosting = "github"
 create-release = true
 
 # Install path for shell/powershell installers
-install-path = "~/.elicitate/bin"
+install-path = "~/.phinbox/bin"
 
 # CI generation is managed manually (not by cargo dist generate)
 allow-dirty = ["ci"]

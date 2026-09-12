@@ -1,15 +1,15 @@
-# elicitate installer — irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
+# Phinbox installer — irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
 #
-# Installs elicitate + elicitate-mcp binaries to ~/.elicitate/bin/
+# Installs Phinbox + phinbox-mcp binaries to ~/.phinbox/bin/
 
 $ErrorActionPreference = "Stop"
 
 $REPO = "Kooshapari/PhenoTooling"
-$INSTALL_DIR = if ($env:ELICITATE_INSTALL_DIR) { $env:ELICITATE_INSTALL_DIR } else { Join-Path $HOME ".elicitate\bin" }
-$VERSION = if ($env:ELICITATE_VERSION) { $env:ELICITATE_VERSION } else { "latest" }
+$INSTALL_DIR = if ($env:PHINBOX_INSTALL_DIR) { $env:PHINBOX_INSTALL_DIR } else { Join-Path $HOME ".phinbox\bin" }
+$VERSION = if ($env:PHINBOX_VERSION) { $env:PHINBOX_VERSION } else { "latest" }
 $GITHUB_API = "https://api.github.com/repos/$REPO"
 
-Write-Host "elicitate installer" -ForegroundColor Cyan
+Write-Host "Phinbox installer" -ForegroundColor Cyan
 Write-Host ""
 
 $arch = if ([System.Environment]::Is64BitOperatingSystem) {
@@ -27,12 +27,12 @@ if ($VERSION -eq "latest") {
 }
 Write-Host "info: version: $VERSION" -ForegroundColor Green
 
-$archive = "elicitate-$VERSION-$target.zip"
+$archive = "phinbox-$VERSION-$target.zip"
 $url = "https://github.com/$REPO/releases/download/$VERSION/$archive"
 Write-Host "info: downloading $archive ..." -ForegroundColor Green
 
 New-Item -ItemType Directory -Force -Path $INSTALL_DIR | Out-Null
-$tmpDir = Join-Path $env:TEMP "elicitate-install-$(Get-Random)"
+$tmpDir = Join-Path $env:TEMP "phinbox-install-$(Get-Random)"
 New-Item -ItemType Directory -Force -Path $tmpDir | Out-Null
 
 try {
@@ -52,8 +52,8 @@ try {
     Write-Host ""
     Write-Host "installed successfully!" -ForegroundColor Green
     Write-Host "  binaries: $INSTALL_DIR"
-    Write-Host "    - $INSTALL_DIR\elicitate.exe"
-    Write-Host "    - $INSTALL_DIR\elicitate-mcp.exe"
+    Write-Host "    - $INSTALL_DIR\phinbox.exe"
+    Write-Host "    - $INSTALL_DIR\phinbox-mcp.exe"
 
     $pathDirs = $env:PATH -split ";"
     if ($pathDirs -notcontains $INSTALL_DIR) {
@@ -63,7 +63,7 @@ try {
     }
 
     Write-Host ""
-    Write-Host "run 'elicitate --help' to get started"
+    Write-Host "run 'phinbox --help' to get started"
 } finally {
     Remove-Item -Recurse -Force $tmpDir -ErrorAction SilentlyContinue
 }
