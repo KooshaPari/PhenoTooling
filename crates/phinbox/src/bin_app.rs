@@ -41,11 +41,45 @@ fn main() {
         enable_tray: false, // we create the tray on the main thread
     };
 
-    let handle = match phinbox::inbox::daemon::start_daemon(cfg) {
-        Ok(h) => h,
+    // Try to start the daemon. If one is already running on this port,
+    // read the lockfile to reuse its port/inbox_root for the tray.
+    let (handle, owns_daemon) = match phinbox::inbox::daemon::start_daemon(cfg.clone())
+    {
+        Ok(h) => (h, true),
         Err(e) => {
-            eprintln!("phinbox: failed to start daemon: {e}");
-            std::process::exit(1);
+            // Check if this is the "already running" case
+            let msg = e.to_string();
+            if msg.contains("daemon already running") {
+                // Read the existing lockfile to get port + root
+                if let Some(lf) =
+                    phinbox::inbox::daemon::lockfile::read_lockfile(&cfg.inbox_root)
+                {
+                    eprintln!(
+                        "phinbox: reusing existing daemon on port {}",
+                        lf.port
+                    );
+                    (
+                        phinbox::inbox::daemon::DaemonHandle {
+                            port: lf.port,
+                            inbox_root: lf.root,
+                            bind_addr: lf.bind,
+                            lockfile: cfg
+                                .inbox_root
+                                .join(phinbox::inbox::daemon::lockfile::LOCKFILE_NAME),
+                            shutdown: std::sync::Arc::new(
+                                std::sync::atomic::AtomicBool::new(false),
+                            ),
+                        },
+                        false, // we don't own this daemon
+                    )
+                } else {
+                    eprintln!("phinbox: daemon running but lockfile unreadable: {e}");
+                    std::process::exit(1);
+                }
+            } else {
+                eprintln!("phinbox: failed to start daemon: {e}");
+                std::process::exit(1);
+            }
         }
     };
 
@@ -58,7 +92,7 @@ fn main() {
     // On macOS: create tray on main thread and run Cocoa event loop
     #[cfg(target_os = "macos")]
     {
-        create_tray_and_run_event_loop(handle, port);
+        create_tray_and_run_event_loop(handle, owns_daemon);
     }
 
     // On other platforms: just block until shutdown
@@ -72,7 +106,7 @@ fn main() {
 #[cfg(target_os = "macos")]
 fn create_tray_and_run_event_loop(
     handle: phinbox::inbox::daemon::DaemonHandle,
-    port: u16,
+    owns_daemon: bool,
 ) {
     use objc2_app_kit::{NSApplication, NSApplicationActivationPolicy};
     use objc2_foundation::MainThreadMarker;
@@ -82,7 +116,7 @@ fn create_tray_and_run_event_loop(
         None => {
             eprintln!("phinbox: not on main thread, cannot create tray");
             daemon_shutdown_signal();
-            let _ = handle.stop();
+            if owns_daemon { let _ = handle.stop(); }
             return;
         }
     };
@@ -92,14 +126,14 @@ fn create_tray_and_run_event_loop(
     app.setActivationPolicy(NSApplicationActivationPolicy::Accessory);
 
     // Create tray on main thread (has MainThreadMarker)
-    let tray_url = format!("http://127.0.0.1:{}", port);
+    let tray_url = format!("http://127.0.0.1:{}", handle.port);
     let tray_cfg = phinbox::TrayConfig::new(tray_url, &handle.inbox_root);
     let tray = match phinbox::build_tray(tray_cfg) {
         Ok(t) => t,
         Err(e) => {
             eprintln!("phinbox: tray creation failed: {e}");
             daemon_shutdown_signal();
-            let _ = handle.stop();
+            if owns_daemon { let _ = handle.stop(); }
             return;
         }
     };
@@ -109,7 +143,7 @@ fn create_tray_and_run_event_loop(
     {
         let tray_ref = tray.clone();
         let shutdown_ref = shutdown.clone();
-        let fallback = format!("http://127.0.0.1:{}", port);
+        let fallback = format!("http://127.0.0.1:{}", handle.port);
         std::thread::Builder::new()
             .name("phinbox-tray-events".into())
             .spawn(move || {
@@ -126,10 +160,12 @@ fn create_tray_and_run_event_loop(
     // This keeps NSStatusItem alive and receiving click/menu events.
     app.run();
 
-    // Cleanup
+    // Cleanup — only stop daemon if we started it
     shutdown.store(true, std::sync::atomic::Ordering::SeqCst);
     let _ = tray.shutdown();
-    let _ = handle.stop();
+    if owns_daemon {
+        let _ = handle.stop();
+    }
 }
 
 fn dirs_bridge() -> PathBuf {
