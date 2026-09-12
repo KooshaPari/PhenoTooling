@@ -28,6 +28,20 @@ echo "==> Building phinbox-app binary (features: mcp, tray-native) ..."
 cd "$REPO_ROOT"
 cargo build -p phinbox --bin phinbox-app --features "mcp,tray-native" $CARGO_FLAGS
 
+# Build the Swift inbox helper
+SWIFT_SRC="$SCRIPT_DIR/Sources/inbox-helper"
+if [[ -f "$SWIFT_SRC/main.swift" ]]; then
+    echo "==> Building inbox-helper (Swift native window) ..."
+    swiftc -o "$REPO_ROOT/target/${PROFILE}/inbox-helper" \
+        "$SWIFT_SRC/main.swift" \
+        -framework Cocoa -framework WebKit \
+        -parse-as-library
+    echo "  inbox-helper built successfully"
+else
+    echo "  WARNING: Swift inbox helper source not found at $SWIFT_SRC/main.swift"
+    echo "  The .app will fall back to opening the browser"
+fi
+
 # Locate the built binary
 if [[ "$PROFILE" == "release" ]]; then
     BIN_SRC="$REPO_ROOT/target/release/phinbox-app"
@@ -51,6 +65,14 @@ cp "$SCRIPT_DIR/Info.plist" "$BUNDLE_DIR/Contents/Info.plist"
 # Copy the binary and rename to match CFBundleExecutable
 cp "$BIN_SRC" "$BUNDLE_DIR/Contents/MacOS/phinbox"
 chmod +x "$BUNDLE_DIR/Contents/MacOS/phinbox"
+
+# Copy the Swift inbox helper to Resources
+INBOX_HELPER="$REPO_ROOT/target/${PROFILE}/inbox-helper"
+if [[ -f "$INBOX_HELPER" ]]; then
+    cp "$INBOX_HELPER" "$BUNDLE_DIR/Contents/Resources/inbox-helper"
+    chmod +x "$BUNDLE_DIR/Contents/Resources/inbox-helper"
+    echo "  Copied inbox-helper to Resources"
+fi
 
 # Generate placeholder icon (16x16 PNG → icns)
 ICON_PNG="$SCRIPT_DIR/dist/icon_512.png"

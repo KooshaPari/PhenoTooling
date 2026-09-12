@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 use crate::inbox::unix_now_ms;
 
 /// The lockfile name. Holds the listening socket address + boot time.
-pub(crate) const LOCKFILE_NAME: &str = "daemon.lock";
+pub const LOCKFILE_NAME: &str = "daemon.lock";
 
 /// Payload stored in the lockfile so other processes can discover the
 /// running daemon.
