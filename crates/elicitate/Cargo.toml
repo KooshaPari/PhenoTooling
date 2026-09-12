@@ -12,6 +12,15 @@ keywords = ["phenotype", "elicitation", "mcp", "popup", "agent-ux"]
 categories = ["command-line-utilities", "gui", "development-tools"]
 publish = false
 
+[package.metadata.dist]
+# cargo-dist: distribute despite publish = false
+dist = true
+installers = ["shell", "powershell", "npm"]
+npm-scope = "@anthropic-ai"
+npm-package = "elicitate-mcp"
+install-path = "~/.elicitate/bin"
+features = ["mcp"]
+
 [lib]
 name = "elicitate"
 path = "src/lib.rs"

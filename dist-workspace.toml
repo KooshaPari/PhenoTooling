@@ -1,0 +1,44 @@
+[workspace]
+members = ["cargo:elicitate"]
+
+# cargo-dist configuration for elicitate binary distribution.
+# https://axodotdev.github.io/cargo-dist/book/reference/config.html
+[dist]
+cargo-dist-version = "0.32.0"
+ci = "github"
+
+# Only distribute elicitate (has 2 binaries: elicitate + elicitate-mcp)
+packages = ["elicitate"]
+
+# Cross-compilation targets
+targets = [
+  "aarch64-apple-darwin",
+  "x86_64-apple-darwin",
+  "aarch64-unknown-linux-gnu",
+  "x86_64-unknown-linux-gnu",
+  "x86_64-pc-windows-msvc",
+]
+
+# Installers to generate
+installers = ["shell", "powershell", "npm"]
+
+# npm package config
+npm-scope = "@anthropic-ai"
+npm-package = "elicitate-mcp"
+
+# Archive format
+unix-archive = ".tar.gz"
+windows-archive = ".zip"
+
+# Checksum
+checksum = "sha256"
+
+# Hosting
+hosting = "github"
+create-release = true
+
+# Install path for shell/powershell installers
+install-path = "~/.elicitate/bin"
+
+# CI generation is managed manually (not by cargo dist generate)
+allow-dirty = ["ci"]

@@ -1,0 +1,27 @@
+{
+  "name": "@anthropic-ai/elicitate-mcp",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Native OS popup elicitation for autonomous agents — MCP server binary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kooshapari/phenotype-tooling",
+    "directory": "crates/elicitate"
+  },
+  "license": "MIT",
+  "keywords": ["elicitate", "mcp", "popup", "agent", "elicitation", "anthropic"],
+  "bin": {
+    "elicitate": "bin/elicitate",
+    "elicitate-mcp": "bin/elicitate-mcp"
+  },
+  "files": ["bin/", "install.js", "README.md"],
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "optionalDependencies": {
+    "@anthropic-ai/elicitate-mcp-darwin-arm64": "0.0.0-PLACEHOLDER",
+    "@anthropic-ai/elicitate-mcp-darwin-x64": "0.0.0-PLACEHOLDER",
+    "@anthropic-ai/elicitate-mcp-linux-x64": "0.0.0-PLACEHOLDER",
+    "@anthropic-ai/elicitate-mcp-linux-arm64": "0.0.0-PLACEHOLDER",
+    "@anthropic-ai/elicitate-mcp-win32-x64": "0.0.0-PLACEHOLDER"
+  }
+}

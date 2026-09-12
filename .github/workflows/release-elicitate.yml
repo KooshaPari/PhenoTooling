@@ -1,0 +1,236 @@
+name: Release Elicitate
+
+on:
+  push:
+    tags: ["elicitate-v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Version tag (e.g. elicitate-v0.9.1). Leave empty for dry run."
+        required: false
+
+permissions:
+  contents: write
+  id-token: write  # npm provenance
+
+env:
+  CARGO_TERM_COLOR: always
+  NPM_PACKAGE: "@anthropic-ai/elicitate-mcp"
+
+concurrency:
+  group: release-elicitate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Build matrices ────────────────────────────────────────────────────
+  build-linux:
+    name: Build ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            runner: ubuntu-24.04
+            use-cross: false
+          - target: aarch64-unknown-linux-gnu
+            runner: ubuntu-24.04
+            use-cross: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install cross
+        if: matrix.use-cross
+        run: cargo install cross --git https://github.com/cross-rs/cross
+
+      - name: Build release binaries
+        run: |
+          if [ "${{ matrix.use-cross }}" = "true" ]; then
+            cross build --release --locked --target ${{ matrix.target }} -p elicitate
+          else
+            cargo build --release --locked --target ${{ matrix.target }} -p elicitate
+          fi
+
+      - name: Package archive
+        run: |
+          BIN_DIR=target/${{ matrix.target }}/release
+          ARCHIVE_NAME=elicitate-${{ github.ref_name }}-${{ matrix.target }}.tar.gz
+          tar -czf "$ARCHIVE_NAME" -C "$BIN_DIR" elicitate elicitate-mcp
+          sha256sum "$ARCHIVE_NAME" > "${ARCHIVE_NAME}.sha256"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elicitate-${{ matrix.target }}
+          path: elicitate-${{ github.ref_name }}-${{ matrix.target }}.*
+
+  build-macos:
+    name: Build ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: aarch64-apple-darwin
+            runner: macos-latest
+          - target: x86_64-apple-darwin
+            runner: macos-13
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Build release binaries
+        run: cargo build --release --locked --target ${{ matrix.target }} -p elicitate
+
+      - name: Package archive
+        run: |
+          BIN_DIR=target/${{ matrix.target }}/release
+          ARCHIVE_NAME=elicitate-${{ github.ref_name }}-${{ matrix.target }}.tar.gz
+          tar -czf "$ARCHIVE_NAME" -C "$BIN_DIR" elicitate elicitate-mcp
+          shasum -a 256 "$ARCHIVE_NAME" > "${ARCHIVE_NAME}.sha256"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elicitate-${{ matrix.target }}
+          path: elicitate-${{ github.ref_name }}-${{ matrix.target }}.*
+
+  build-windows:
+    name: Build x86_64-pc-windows-msvc
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Build release binaries
+        run: cargo build --release --locked --target x86_64-pc-windows-msvc -p elicitate
+
+      - name: Package archive
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $target = "x86_64-pc-windows-msvc"
+          $binDir = "target/$target/release"
+          Compress-Archive -Path "$binDir/elicitate.exe","$binDir/elicitate-mcp.exe" -DestinationPath "elicitate-$tag-$target.zip"
+          $hash = (Get-FileHash "elicitate-$tag-$target.zip" -Algorithm SHA256).Hash.ToLower()
+          Set-Content -Path "elicitate-$tag-$target.zip.sha256" -Value "$hash  elicitate-$tag-$target.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elicitate-x86_64-pc-windows-msvc
+          path: elicitate-${{ github.ref_name }}-x86_64-pc-windows-msvc.*
+
+  # ── Publish to npm ────────────────────────────────────────────────────
+  publish-npm:
+    name: Publish npm package
+    needs: [build-linux, build-macos, build-windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/elicitate-v')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          pattern: elicitate-*
+
+      - name: Prepare npm package
+        run: |
+          VERSION="${GITHUB_REF_NAME#elicitate-v}"
+          PKG_DIR="npm-pkg"
+          mkdir -p "$PKG_DIR"
+
+          # Copy package template
+          cp -r npm/elicitate-mcp/* "$PKG_DIR/"
+
+          # Replace VERSION placeholder in package.json
+          sed -i "s/0.0.0-PLACEHOLDER/$VERSION/g" "$PKG_DIR/package.json"
+
+          # Copy platform-specific binaries into platform dirs
+          for platform_dir in artifacts/elicitate-*/; do
+            target=$(basename "$platform_dir" | sed 's/^elicitate-//')
+            DEST="$PKG_DIR/platforms/$target"
+            mkdir -p "$DEST"
+            archive=$(ls "$platform_dir"*.tar.gz "$platform_dir"*.zip 2>/dev/null | head -1)
+            if [[ "$archive" == *.tar.gz ]]; then
+              tar -xzf "$archive" -C "$DEST"
+            elif [[ "$archive" == *.zip ]]; then
+              unzip -o "$archive" -d "$DEST"
+            fi
+          done
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish to npm
+        run: cd npm-pkg && npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # ── Create GitHub Release ─────────────────────────────────────────────
+  create-release:
+    name: Create GitHub Release
+    needs: [build-linux, build-macos, build-windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/elicitate-v')
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          pattern: elicitate-*
+
+      - name: Collect release assets
+        run: |
+          mkdir -p release-assets
+          find artifacts/ -type f \( -name "*.tar.gz" -o -name "*.zip" -o -name "*.sha256" \) -exec cp {} release-assets/ \;
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Elicitate ${{ github.ref_name }}"
+          body: |
+            ## Elicitate ${{ github.ref_name }}
+
+            Native OS popup elicitation for autonomous agents.
+
+            ### Install
+
+            **macOS / Linux (curl):**
+            ```sh
+            curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.sh | sh
+            ```
+
+            **Windows (PowerShell):**
+            ```powershell
+            irm https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.ps1 | iex
+            ```
+
+            **npm / bun:**
+            ```sh
+            npm install -g @anthropic-ai/elicitate-mcp
+            # or
+            bun add -g @anthropic-ai/elicitate-mcp
+            ```
+          files: release-assets/*
+          draft: false
+          prerelease: false
