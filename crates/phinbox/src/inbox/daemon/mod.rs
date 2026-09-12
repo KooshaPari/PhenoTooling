@@ -17,7 +17,7 @@
 pub(crate) mod form;
 pub(crate) mod http;
 pub mod lockfile;
-pub(crate) mod notifier;
+pub mod notifier;
 
 use std::net::{IpAddr, SocketAddr, TcpListener};
 use std::path::PathBuf;

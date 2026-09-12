@@ -87,7 +87,7 @@ pub(crate) fn run_notifier_loop(
 /// Long-running loop that dispatches menu events from the tray icon.
 /// Runs on its own thread; exits when `shutdown` flips or the OS tray
 /// thread terminates.
-pub(crate) fn run_tray_loop(
+pub fn run_tray_loop(
     tray: &dyn Tray,
     shutdown: &Arc<AtomicBool>,
     fallback_url: &str,
