@@ -1,0 +1,33 @@
+name: Journey Gate
+
+on:
+  workflow_call:
+    inputs:
+      manifest_root:
+        description: 'Directory containing journey manifests + optional manifest.schema.json'
+        required: false
+        type: string
+        default: 'docs/journeys/manifests'
+      fail_if_invalid:
+        description: 'Exit non-zero when a manifest is present but fails schema validation'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  journey-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Journey gate (stub)
+        shell: bash
+        run: |
+          root="${{ inputs.manifest_root }}"
+          manifests="$(find "$root" -name '*.json' -not -name 'manifest.schema.json' 2>/dev/null)"
+          if [ -z "$manifests" ]; then
+            echo "::notice::No journey manifests under $root — gate passes (stub status per docs)."
+            echo "status=stub" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::notice::Journey manifests present under $root — schema enforcement to be enabled when manifest.schema.json is committed."
+          echo "status=present-unenforced" >> "$GITHUB_OUTPUT"
