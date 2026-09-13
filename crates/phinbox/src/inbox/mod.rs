@@ -41,7 +41,15 @@ pub mod daemon;
 pub mod ipc;
 pub mod notify;
 #[cfg(test)] mod tests;
+
+pub mod expire;
+pub mod load;
+pub mod mark;
+
 pub use change::{InboxChangeBus, InboxWatcher};
+pub use expire::mark_expired_in_place;
+pub use load::{load_pending, load_request, list_pending};
+pub use mark::{enqueue, finalize};
 
 /// Crate version, exposed so the IPC ping can report it.
 pub const PHINBOX_VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -56,44 +64,6 @@ pub enum ResponseStatus {
     Answered,
     Cancelled,
     TimedOut,
-}
-
-/// Load a pending (non-terminal) request by id from `root`.
-///
-/// Returns `Ok(None)` when the entry is missing or already terminal.
-pub fn load_pending(
-    root: &Path,
-    request_id: &str,
-) -> Result<Option<PendingRequest>, ElicitError> {
-    let pending = inbox_pending_dir(root).join(format!("{request_id}.json"));
-    if !pending.exists() {
-        return Ok(None);
-    }
-    let text = std::fs::read_to_string(&pending)?;
-    let req: PendingRequest = serde_json::from_str(&text).map_err(ElicitError::Json)?;
-    Ok(Some(req))
-}
-
-/// Load a request by id from `root` (pending OR answered).
-///
-/// Returns `Ok(None)` when the entry does not exist.
-pub fn load_request(
-    root: &Path,
-    request_id: &str,
-) -> Result<Option<PendingRequest>, ElicitError> {
-    let candidates = [
-        inbox_pending_dir(root).join(format!("{request_id}.json")),
-        answered_dir(root).join(format!("{request_id}.json")),
-    ];
-    for path in candidates {
-        if path.exists() {
-            let text = std::fs::read_to_string(&path)?;
-            return serde_json::from_str(&text)
-                .map(Some)
-                .map_err(ElicitError::Json);
-        }
-    }
-    Ok(None)
 }
 
 /// State of a request in the inbox.
@@ -279,54 +249,7 @@ pub fn answered_dir(root: &Path) -> PathBuf {
     root.join("answered")
 }
 
-/// Persist a pending request to disk. Creates parent dirs if missing.
-///
-/// After the atomic rename, pings the global `InboxChangeBus` so any TUI
-/// or daemon subscriber re-renders promptly (no 1 s polling latency).
-pub fn enqueue(root: &Path, req: &PendingRequest) -> Result<PathBuf, ElicitError> {
-    let dir = inbox_pending_dir(root);
-    std::fs::create_dir_all(&dir)?;
-    let path = req.path_in(&dir);
-    let json = serde_json::to_vec_pretty(req).map_err(ElicitError::Json)?;
-    // Atomic write: stage in <id>.tmp, rename over final.
-    let tmp = dir.join(format!("{}.tmp", req.request_id));
-    std::fs::write(&tmp, &json)?;
-    std::fs::rename(&tmp, &path)?;
-    InboxChangeBus::global().notify(&format!("enqueue:{}", req.request_id));
-    Ok(path)
-}
-
-/// Move a request from the pending directory to the answered directory
-/// after the user has responded. Returns the new path.
-///
-/// The mutated `req` (with `state` / `response` populated by the caller) is
-/// serialized to the new path *before* the original pending file is removed.
-/// Renaming alone would carry the pre-answer state forward and the waiter
-/// would never observe the response.
-///
-/// Pings the global `InboxChangeBus` after the final write so waiters
-/// unblock immediately (no `poll_interval` latency).
-pub fn finalize(root: &Path, req: &PendingRequest) -> Result<PathBuf, ElicitError> {
-    let pending = inbox_pending_dir(root).join(format!("{}.json", req.request_id));
-    let answered_dir = answered_dir(root);
-    std::fs::create_dir_all(&answered_dir)?;
-    let dst = answered_dir.join(format!("{}.json", req.request_id));
-    if let Some(parent) = dst.parent() {
-        std::fs::create_dir_all(parent).ok();
-    }
-    // 1. Write the *updated* req (new state/response) to the answered path.
-    let json = serde_json::to_vec_pretty(req).map_err(ElicitError::Json)?;
-    let tmp = answered_dir.join(format!("{}.tmp", req.request_id));
-    std::fs::write(&tmp, &json)?;
-    std::fs::rename(&tmp, &dst)?;
-    // 2. Best-effort remove the original pending file (no-op if it was
-    //    already removed by another worker).
-    std::fs::remove_file(&pending).ok();
-    InboxChangeBus::global().notify(&format!("finalize:{}", req.request_id));
-    Ok(dst)
-}
-
-/// Load a single request by id from `dir` (pending OR answered).
+/// Load a single request by id from `root` (pending OR answered).
 pub fn load(root: &Path, request_id: &str) -> Result<PendingRequest, ElicitError> {
     let candidates = [
         inbox_pending_dir(root).join(format!("{request_id}.json")),
@@ -341,54 +264,6 @@ pub fn load(root: &Path, request_id: &str) -> Result<PendingRequest, ElicitError
     Err(ElicitError::InvalidSpec(format!(
         "no inbox entry for request_id '{request_id}'"
     )))
-}
-
-/// List all pending (non-terminal) requests, newest first.
-pub fn list_pending(root: &Path) -> Result<Vec<PendingRequest>, ElicitError> {
-    let dir = inbox_pending_dir(root);
-    if !dir.exists() {
-        return Ok(Vec::new());
-    }
-    let mut out = Vec::new();
-    for entry in std::fs::read_dir(&dir)? {
-        let entry = entry?;
-        let path = entry.path();
-        if path.extension().and_then(|s| s.to_str()) != Some("json") {
-            continue;
-        }
-        let text = std::fs::read_to_string(&path)?;
-        let req: PendingRequest = match serde_json::from_str(&text) {
-            Ok(r) => r,
-            Err(_) => continue, // skip corrupt entries
-        };
-        out.push(req);
-    }
-    // Newest first
-    out.sort_by(|a, b| b.queued_at_ms.cmp(&a.queued_at_ms));
-    Ok(out)
-}
-
-/// Mark an expired request in-place inside the pending directory.
-///
-/// Unlike [`finalize`], this does NOT move the file to `answered/` —
-/// it rewrites the JSON in `inbox/` with the new terminal state so the
-/// inbox UI can still render it (greyed-out / expired badge).
-pub fn mark_expired_in_place(
-    root: &Path,
-    req: &PendingRequest,
-) -> Result<PathBuf, ElicitError> {
-    let dir = inbox_pending_dir(root);
-    let path = dir.join(format!("{}.json", req.request_id));
-    if !path.exists() {
-        // Already removed (e.g. user answered between poll cycles).
-        return Ok(path);
-    }
-    let json = serde_json::to_vec_pretty(req).map_err(ElicitError::Json)?;
-    let tmp = dir.join(format!("{}.tmp", req.request_id));
-    std::fs::write(&tmp, &json)?;
-    std::fs::rename(&tmp, &path)?;
-    InboxChangeBus::global().notify(&format!("expire:{}", req.request_id));
-    Ok(path)
 }
 
 /// Wait until `req.request_id` reaches a terminal state or the wait times out.
@@ -429,4 +304,3 @@ pub fn wait_for_response(
         let _ = watcher.wait_changed(cap);
     }
 }
-
