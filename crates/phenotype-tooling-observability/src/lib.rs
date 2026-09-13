@@ -34,6 +34,32 @@ pub mod health;
 pub mod metrics;
 pub mod slo;
 
+/// Full argis-monitor integration (polling, alerts, webhooks, state store, push).
+///
+/// Requires the `argis-monitor` feature. Provides the complete monitoring
+/// substrate absorbed from `zz-argis-extensions` branch
+/// `wip/argis-monitor-metaalerts-20260806`.
+///
+/// # Quickstart
+///
+/// ```no_run
+/// # #[cfg(feature = "argis-monitor")]
+/// # async fn ex() -> anyhow::Result<()> {
+/// use phenotype_tooling_observability::argis_monitor::{Config, Monitor, SLO};
+/// let monitor = Monitor::new(Config::default()
+///     .with_target_url("http://127.0.0.1:8080")
+///     .with_poll_interval_secs(15)
+///     .with_slo(SLO {
+///         name: "chat_completions_p99".into(),
+///         window_secs: 30 * 24 * 3600,
+///         target: 0.999,
+///     }))?;
+/// monitor.run().await?;
+/// # Ok(()) }
+/// ```
+#[cfg(feature = "argis-monitor")]
+pub mod argis_monitor;
+
 /// Convenience prelude — everything you need for OTLP-observed apps.
 pub mod prelude {
     pub use pheno_tracing::{
