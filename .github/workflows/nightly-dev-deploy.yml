@@ -1,0 +1,205 @@
+# Reusable Nightly Dev Deployment Workflow
+#
+# Deploys the dev backend to Render on:
+#   - a schedule (every 8 hours), only if that commit is not already live, AND
+#   - any main push (the >1-commit condition naturally resolves to the latest
+#     green main commit).
+#
+# "Last deployed" state is derived from the Render API (the live deploy's
+# commitId), NOT from a GitHub secret — GitHub secrets are write-only and cannot
+# be updated at runtime, so a secret-based watermark is fragile.
+#
+# Dev deploys are considered "safe/short-lived": we gate on a compile + unit
+# test pass (dev strictness). Prod has a separate, stricter gated workflow.
+#
+# Usage (in a repo's .github/workflows/nightly-dev-deploy.yml):
+#   name: Nightly Dev Deploy
+#   on:
+#     schedule:
+#       - cron: "0 */8 * * *"   # every 8h
+#     push:
+#       branches: [main]
+#   jobs:
+#     deploy:
+#       uses: KooshaPari/phenotype-tooling/.github/workflows/reusable/nightly-dev-deploy.yml@main
+#       with:
+#         init-command: "cargo build --release -p tracera-server"
+#         test-command: "cargo test -p tracera-server"
+#         health-path: /health
+#       secrets:
+#         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+#
+# Required secrets (per repo):
+#   - RENDER_SERVICE_ID_DEV: Render service ID (srv-XXXX) for the dev service
+#   - RENDER_API_KEY:         Render API key with deploy scope
+#   - CARGO_REGISTRY_TOKEN / others only if the init/test commands need them
+
+name: Nightly Dev Deploy (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      dev-service-id:
+        description: "Render service ID (srv-XXXX) for the dev service. Omit to read from RENDER_SERVICE_ID_DEV secret."
+        required: false
+        type: string
+      init-command:
+        description: "Shell command to build the dev binary (dev strictness gate). Empty disables."
+        required: false
+        type: string
+        default: ""
+      test-command:
+        description: "Shell command to run focused dev tests. Empty disables."
+        required: false
+        type: string
+        default: ""
+      health-path:
+        description: "Health check path on the deployed service (e.g. /health, /healthz)"
+        required: false
+        type: string
+        default: /health
+      timeout-minutes:
+        description: "Deploy job timeout in minutes"
+        required: false
+        type: number
+        default: 20
+    secrets:
+      RENDER_API_KEY:
+        required: true
+      RENDER_SERVICE_ID_DEV:
+        required: false
+
+jobs:
+  dev-deploy:
+    name: Dev Deploy (Render)
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    environment:
+      name: render-dev
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      RENDER_SERVICE_ID: ${{ inputs.dev-service-id || secrets.RENDER_SERVICE_ID_DEV }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Pre-flight — require service id + api key
+        run: |
+          if [ -z "$RENDER_SERVICE_ID" ]; then
+            echo "::error::RENDER_SERVICE_ID_DEV secret not set and no dev-service-id input given."
+            exit 1
+          fi
+          if [ -z "$RENDER_API_KEY" ]; then
+            echo "::error::RENDER_API_KEY secret not set."
+            exit 1
+          fi
+
+      - name: Query Render live commit (last deployed SHA)
+        id: live
+        run: |
+          set -euo pipefail
+          SERVICE_URL="https://api.render.com/v1/services/${RENDER_SERVICE_ID}"
+          SERVICE=$(curl -sS --fail "$SERVICE_URL" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}")
+          SERVICE_ID=$(echo "$SERVICE" | jq -r '.id')
+          echo "service_id=$SERVICE_ID" >> $GITHUB_OUTPUT
+          LATEST_DEPLOY=$(curl -sS --fail \
+            "https://api.render.com/v1/services/${RENDER_SERVICE_ID}/deploys?limit=20" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
+            | jq -r '[.[] | select(.status=="live")][0] // empty')
+          LIVE_COMMIT=$(echo "$LATEST_DEPLOY" | jq -r '.commit.id // ""')
+          echo "live_commit=$LIVE_COMMIT" >> $GITHUB_OUTPUT
+          echo "Current live commit: $LIVE_COMMIT"
+
+      - name: Gate — skip if this commit already live
+        id: gate
+        run: |
+          LIVE="${{ steps.live.outputs.live_commit }}"
+          HEAD="${{ github.sha }}"
+          echo "live=$LIVE"
+          echo "head=$HEAD"
+          if [ -n "$LIVE" ] && [ "$LIVE" = "$HEAD" ]; then
+            echo "deploy=false" >> $GITHUB_OUTPUT
+            echo "Commit $HEAD is already live — skipping (idempotent for every-8h)."
+          else
+            echo "deploy=true" >> $GITHUB_OUTPUT
+            echo "Commit $HEAD not live (current: $LIVE) — deploying."
+          fi
+
+      - name: Dev-strictness gate — init/build
+        if: ${{ steps.gate.outputs.deploy == 'true' && inputs.init-command != '' }}
+        run: bash -euo pipefail -c "${{ inputs.init-command }}"
+
+      - name: Dev-strictness gate — focused tests
+        if: ${{ steps.gate.outputs.deploy == 'true' && inputs.test-command != '' }}
+        run: bash -euo pipefail -c "${{ inputs.test-command }}"
+
+      - name: Trigger Render deploy (pin commit)
+        if: ${{ steps.gate.outputs.deploy == 'true' }}
+        id: deploy
+        run: |
+          set -euo pipefail
+          SERVICE_ID="${{ steps.live.outputs.service_id }}"
+          COMMIT_SHA="${{ github.sha }}"
+          echo "Deploying commit $COMMIT_SHA to service $SERVICE_ID"
+          RESPONSE=$(curl -sS -X POST \
+            "https://api.render.com/v1/services/${SERVICE_ID}/deploys" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "{\"commitId\": \"${COMMIT_SHA}\", \"clearCache\": \"do_not_clear\"}")
+          DEPLOY_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+          if [ -z "$DEPLOY_ID" ]; then
+            echo "::error::Failed to trigger deploy:"
+            echo "$RESPONSE"
+            exit 1
+          fi
+          echo "deploy_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
+          echo "Triggered deploy $DEPLOY_ID"
+
+      - name: Wait for deploy to reach live
+        if: ${{ steps.gate.outputs.deploy == 'true' }}
+        run: |
+          set -euo pipefail
+          SERVICE_ID="${{ steps.live.outputs.service_id }}"
+          DEPLOY_ID="${{ steps.deploy.outputs.deploy_id }}"
+          for i in $(seq 1 90); do
+            STATUS=$(curl -sS \
+              "https://api.render.com/v1/services/${SERVICE_ID}/deploys/${DEPLOY_ID}" \
+              -H "Authorization: Bearer ${RENDER_API_KEY}" \
+              | jq -r '.status // "unknown"')
+            echo "  [$i] deploy status: $STATUS"
+            case "$STATUS" in
+              live) echo "Deploy is live."; exit 0 ;;
+              failed|canceled|cancelled|build_failed) echo "::error::Deploy $STATUS"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          echo "::error::Timed out waiting for deploy to reach live."
+          exit 1
+
+      - name: Post-deploy health check
+        if: ${{ steps.gate.outputs.deploy == 'true' }}
+        run: |
+          set -euo pipefail
+          SID="${{ steps.live.outputs.service_id }}"
+          SERVICE=$(curl -sS --fail \
+            "https://api.render.com/v1/services/${SID}" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}")
+          BASE_URL=$(echo "$SERVICE" | jq -r '.serviceDetails.url // empty')
+          if [ -z "$BASE_URL" ]; then
+            echo "::warning::Could not resolve service URL for health check; skipping."
+            exit 0
+          fi
+          HEALTH="${BASE_URL}${{ inputs.health-path }}"
+          echo "Health checking $HEALTH"
+          for i in $(seq 1 30); do
+            if curl -sf --max-time 5 "$HEALTH" >/dev/null; then
+              echo "Health check passed."
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "::error::Health check failed at ${HEALTH}."
+          exit 1
