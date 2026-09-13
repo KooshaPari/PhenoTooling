@@ -124,15 +124,54 @@ class InboxManager: ObservableObject {
 
 struct RootView: View {
     @ObservedObject var mgr: InboxManager
+    @State private var appeared = false
+
     var body: some View {
+        Group {
+            if !appeared {
+                splash
+            } else {
+                mainContent
+            }
+        }
+        .onAppear { appeared = true }
+    }
+
+    private var splash: some View {
+        ZStack {
+            Color(red: 0.075, green: 0.098, blue: 0.145).ignoresSafeArea()
+            VStack(spacing: 20) {
+                // Teal envelope icon
+                ZStack {
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .fill(Color(red: 0.075, green: 0.098, blue: 0.145))
+                        .frame(width: 80, height: 80)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                .stroke(Color.teal.opacity(0.4), lineWidth: 1.5)
+                        )
+                    envelopeIcon(size: 40)
+                }
+                Text("Phinbox")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .foregroundStyle(.white)
+                Text("Connecting to daemon...")
+                    .font(.subheadline)
+                    .foregroundStyle(.white.opacity(0.5))
+                ProgressView()
+                    .tint(Color.teal)
+            }
+        }
+    }
+
+    private var mainContent: some View {
         NavigationSplitView {
             sidebar
         } detail: {
             if let r = mgr.selected { DetailView(request: r, mgr: mgr) }
             else {
                 VStack(spacing: 16) {
-                    Image(systemName: "tray").font(.system(size: 40, weight: .light))
-                        .foregroundStyle(Color.teal.opacity(0.3))
+                    envelopeIcon(size: 48).opacity(0.3)
                     Text("Select a request").font(.title3).foregroundStyle(.white.opacity(0.5))
                 }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color.appBG)
             }
@@ -146,8 +185,7 @@ struct RootView: View {
             if mgr.requests.isEmpty {
                 VStack(spacing: 16) {
                     Spacer()
-                    Image(systemName: "tray").font(.system(size: 48, weight: .light))
-                        .foregroundStyle(Color.teal.opacity(0.5))
+                    envelopeIcon(size: 48).opacity(0.3)
                     Text("Inbox Empty").font(.title2).fontWeight(.medium).foregroundStyle(.white)
                     Text("Requests from AI agents\nwill appear here.")
                         .font(.subheadline).foregroundStyle(.white.opacity(0.5)).multilineTextAlignment(.center)
@@ -396,6 +434,42 @@ struct DetailView: View {
         }
         submitting = true
         Task { await mgr.submit(request, value: v, notes: notes.isEmpty ? nil : notes); submitting = false }
+    }
+}
+
+// MARK: - Envelope Icon (branded)
+
+struct EnvelopeIcon: View {
+    let size: CGFloat
+    var body: some View {
+        ZStack {
+            // Envelope body
+            RoundedRectangle(cornerRadius: size * 0.15, style: .continuous)
+                .fill(Color.teal.opacity(0.15))
+                .frame(width: size, height: size * 0.72)
+                .overlay(
+                    RoundedRectangle(cornerRadius: size * 0.15, style: .continuous)
+                        .stroke(Color.teal.opacity(0.4), lineWidth: max(1, size * 0.03))
+                )
+            // Flap (V shape using paths)
+            Path { p in
+                let w = size
+                let h = size * 0.72
+                let top = -h / 2
+                let mid = h * 0.05
+                p.move(to: CGPoint(x: -w/2, y: top))
+                p.addLine(to: CGPoint(x: 0, y: mid))
+                p.addLine(to: CGPoint(x: w/2, y: top))
+            }
+            .stroke(Color.teal.opacity(0.6), style: StrokeStyle(lineWidth: max(1, size * 0.03), lineCap: .round, linejoin: .round))
+            .frame(width: size * 0.9, height: size * 0.72)
+        }
+    }
+}
+
+extension RootView {
+    func envelopeIcon(size: CGFloat) -> some View {
+        EnvelopeIcon(size: size)
     }
 }
 
