@@ -2,6 +2,7 @@
 
 import Foundation
 import SwiftUI
+import AppKit
 
 @MainActor
 class InboxManager: ObservableObject {
@@ -86,6 +87,10 @@ class InboxManager: ObservableObject {
                 let oldIDs = Set(self.requests.map(\.request_id))
                 if newIDs != oldIDs {
                     withAnimation(.spring(response: 0.4)) { self.requests = capped }
+                    // Play a subtle beep when new requests arrive.
+                    if newIDs.isDisjoint(with: oldIDs) && !newIDs.isEmpty {
+                        NSSound.beep()
+                    }
                 } else {
                     self.requests = capped
                 }
