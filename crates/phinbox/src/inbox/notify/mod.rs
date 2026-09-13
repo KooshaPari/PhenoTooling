@@ -1,6 +1,6 @@
 //! Notification backends: tray, iMessage, email, webhook.
 //!
-//! Each backend is **best-effort** — the inbox is the source of truth on
+//! Each backend is **best-effort** -- the inbox is the source of truth on
 //! disk; notifications are just "wake the user up" hints. Failures are
 //! logged at `warn` level but never propagated to the caller (the
 //! caller has already enqueued the request and the user can always open
@@ -8,7 +8,15 @@
 //!
 //! Backends in this module shell out to native utilities rather than
 //! binding to Cocoa/AppKit / WinRT directly. That matches the rest of
-//! `phinbox` — zero native dependencies, no cross-compile friction.
+//! `phinbox` -- zero native dependencies, no cross-compile friction.
+
+mod imessage;
+mod tray;
+mod webhook;
+
+pub use imessage::{notify_email, notify_imessage};
+pub use tray::notify_native;
+pub use webhook::notify_webhook;
 
 use crate::inbox::{NotificationKind, PendingRequest};
 use crate::spec::PromptSpec;
@@ -26,7 +34,7 @@ pub struct NotifyChannels {
     #[serde(default)]
     pub email_target: Option<String>,
 
-    /// Generic webhook URL (NTFY, Pushover, Slack incoming webhook…).
+    /// Generic webhook URL (NTFY, Pushover, Slack incoming webhook...).
     #[serde(default)]
     pub webhook_url: Option<String>,
 
@@ -46,14 +54,14 @@ pub struct NotifyAttempt {
 }
 
 impl NotifyAttempt {
-    fn ok(kind: NotificationKind, detail: impl Into<String>) -> Self {
+    pub(super) fn ok(kind: NotificationKind, detail: impl Into<String>) -> Self {
         Self {
             kind,
             ok: true,
             detail: detail.into(),
         }
     }
-    fn err(kind: NotificationKind, err: impl std::fmt::Display) -> Self {
+    pub(super) fn err(kind: NotificationKind, err: impl std::fmt::Display) -> Self {
         Self {
             kind,
             ok: false,
@@ -82,128 +90,9 @@ pub fn surface_all(req: &PendingRequest, cfg: &NotifyChannels) -> Vec<NotifyAtte
     out
 }
 
-/// Fire a platform-native notification.
-pub fn notify_native(req: &PendingRequest) -> NotifyAttempt {
-    let result = match crate::platform() {
-        crate::Platform::Macos => notify_native_macos(req),
-        crate::Platform::Windows => notify_native_windows(req),
-        crate::Platform::Linux => notify_native_linux(req),
-        crate::Platform::Unknown => Err("no native notifier known for this platform".into()),
-    };
-    match result {
-        Ok(msg) => NotifyAttempt::ok(NotificationKind::NativeNotification, msg),
-        Err(e) => NotifyAttempt::err(NotificationKind::NativeNotification, e),
-    }
-}
+// ----- shared helpers (used by submodules via super::) -----
 
-/// Send the request via iMessage. Uses AppleScript `Messages`-app
-/// integration. No-op if the target is unparseable.
-pub fn notify_imessage(req: &PendingRequest, target: &str) -> NotifyAttempt {
-    let body = render_imessage_body(req);
-    let script = format!(
-        "tell application \"Messages\"\n\
-         \x20 set targetService to 1st service whose service type = iMessage\n\
-         \x20 set targetBuddy to buddy \"{target}\" of targetService\n\
-         \x20 send \"{body}\" to targetBuddy\n\
-         end tell",
-        target = escape_applescript(target),
-        body = escape_applescript(&body),
-    );
-    match run_osascript(&script) {
-        Ok(_) => NotifyAttempt::ok(NotificationKind::IMessage, format!("sent to {target}")),
-        Err(e) => NotifyAttempt::err(NotificationKind::IMessage, e),
-    }
-}
-
-/// Open the user's default mail handler prefilled with the rendered
-/// form. One click on "Send" delivers to the user's own mailbox; they
-/// reply by running `phinbox answer --request-id <id> --reply`.
-pub fn notify_email(req: &PendingRequest, target: &str) -> NotifyAttempt {
-    let subject = format!("[phinbox] {}", truncate(&req.spec.title, 60));
-    let body = render_imessage_body(req);
-    let url = format!(
-        "mailto:{target}?subject={}&body={}",
-        url_encode(&subject),
-        url_encode(&body)
-    );
-    match open_url(&url) {
-        Ok(_) => NotifyAttempt::ok(NotificationKind::Email, format!("opened mailto for {target}")),
-        Err(e) => NotifyAttempt::err(NotificationKind::Email, e),
-    }
-}
-
-/// POST a JSON payload to a webhook URL (NTFY, Pushover, Slack).
-pub fn notify_webhook(req: &PendingRequest, url: &str) -> NotifyAttempt {
-    let payload = serde_json::json!({
-        "title": req.spec.title,
-        "question": req.spec.question,
-        "request_id": req.request_id,
-        "open_url": inbox_open_url(req),
-    });
-    let json = match serde_json::to_string(&payload) {
-        Ok(s) => s,
-        Err(e) => {
-            return NotifyAttempt::err(NotificationKind::Webhook, format!("serialize: {e}"));
-        }
-    };
-    match post_form(url, &json) {
-        Ok(_) => NotifyAttempt::ok(NotificationKind::Webhook, "ok"),
-        Err(e) => NotifyAttempt::err(NotificationKind::Webhook, e),
-    }
-}
-
-// ----- private helpers -----
-
-fn notify_native_macos(req: &PendingRequest) -> Result<String, String> {
-    let script = format!(
-        "display notification \"{}\" with title \"{}\" subtitle \"\"",
-        escape_applescript(&truncate(&req.spec.question, 200)),
-        escape_applescript(&truncate(&req.spec.title, 60)),
-    );
-    run_osascript(&script).map(|_| "ok".into())
-}
-
-fn notify_native_windows(req: &PendingRequest) -> Result<String, String> {
-    use std::process::Command;
-    let title = escape_powershell(&truncate(&req.spec.title, 60));
-    let question = escape_powershell(&truncate(&req.spec.question, 200));
-    let ps = format!(
-        "Add-Type -AssemblyName System.Windows.Forms | Out-Null;\n\
-         $n = New-Object System.Windows.Forms.NotifyIcon;\n\
-         $n.Icon = [System.Drawing.SystemIcons]::Information;\n\
-         $n.BalloonTipIcon = 'Info';\n\
-         $n.Visible = $true;\n\
-         $n.ShowBalloonTip(10000, '{title}', '{question}', [System.Windows.Forms.ToolTipIcon]::Info);\n\
-         Start-Sleep -Seconds 6;\n\
-         $n.Dispose();"
-    );
-    let status = Command::new("powershell")
-        .args(["-NoProfile", "-Command", &ps])
-        .status()
-        .map_err(|e| format!("spawn powershell: {e}"))?;
-    if status.success() {
-        Ok("ok".into())
-    } else {
-        Err(format!("powershell exit {status:?}"))
-    }
-}
-
-fn notify_native_linux(req: &PendingRequest) -> Result<String, String> {
-    use std::process::Command;
-    let title = truncate(&req.spec.title, 60);
-    let body = truncate(&req.spec.question, 200);
-    let status = Command::new("notify-send")
-        .args(["-u", "normal", &title, &body])
-        .status()
-        .map_err(|e| format!("spawn notify-send: {e}"))?;
-    if status.success() {
-        Ok("ok".into())
-    } else {
-        Err(format!("notify-send exit {status:?}"))
-    }
-}
-
-fn run_osascript(script: &str) -> Result<(), String> {
+pub(super) fn run_osascript(script: &str) -> Result<(), String> {
     if !cfg!(target_os = "macos") {
         return Err("osascript only available on macos".into());
     }
@@ -230,7 +119,7 @@ fn run_osascript(script: &str) -> Result<(), String> {
 /// - Linux / BSD / other: `xdg-open <url>`
 ///
 /// Returns `Ok(())` on exit-status 0; `Err(msg)` otherwise. The caller
-/// is expected to log and continue — opening the browser is a
+/// is expected to log and continue -- opening the browser is a
 /// best-effort side channel, never a hard requirement.
 pub fn open_in_default_browser(url: &str) -> Result<(), String> {
     use std::process::Command;
@@ -252,57 +141,8 @@ pub fn open_in_default_browser(url: &str) -> Result<(), String> {
     }
 }
 
-fn open_url(url: &str) -> Result<(), String> {
+pub(super) fn open_url(url: &str) -> Result<(), String> {
     open_in_default_browser(url)
-}
-
-/// Best-effort HTTP POST of a JSON body. We don't pull in `reqwest`
-/// just for this — a raw TCP write to the host parsed from the URL is
-/// enough for the small NTFY-style payloads we send. If the URL is
-/// unreachable, the inbox still works, so the failure is fine.
-fn post_form(url: &str, body: &str) -> Result<(), String> {
-    use std::io::Write;
-    use std::net::TcpStream;
-    use std::time::Duration;
-
-    let stripped = url
-        .strip_prefix("http://")
-        .or_else(|| url.strip_prefix("https://"))
-        .ok_or_else(|| "only http(s) URLs are supported".to_string())?;
-    let (authority, path) = match stripped.split_once('/') {
-        Some((a, p)) => (a, format!("/{p}")),
-        None => (stripped, "/".into()),
-    };
-    let default_port = if url.starts_with("https://") { 443 } else { 80 };
-    let (host, port) = match authority.rsplit_once(':') {
-        Some((h, p)) => (h.to_string(), p.parse::<u16>().unwrap_or(default_port)),
-        None => (authority.to_string(), default_port),
-    };
-    let addr = format!("{host}:{port}");
-
-    let mut stream = TcpStream::connect(&addr)
-        .map_err(|e| format!("connect {addr}: {e}"))?;
-    stream
-        .set_write_timeout(Some(Duration::from_secs(3)))
-        .map_err(|e| format!("set timeout: {e}"))?;
-
-    let req = format!(
-        "POST {path} HTTP/1.1\r\n\
-         Host: {host}\r\n\
-         Content-Type: application/json\r\n\
-         Content-Length: {len}\r\n\
-         Connection: close\r\n\
-         \r\n\
-         {body}",
-        path = path,
-        host = host,
-        len = body.len(),
-        body = body,
-    );
-    stream
-        .write_all(req.as_bytes())
-        .map_err(|e| format!("write: {e}"))?;
-    Ok(())
 }
 
 /// Render the request into the iMessage/email body.
@@ -333,7 +173,7 @@ pub fn inbox_open_url(req: &PendingRequest) -> String {
     inbox_open_url_for(&req.request_id)
 }
 
-/// URL helper — defaults to the local daemon (`localhost:7117`) unless
+/// URL helper -- defaults to the local daemon (`localhost:7117`) unless
 /// `PHINBOX_BASE_URL` is set.
 pub fn inbox_open_url_for(request_id: &str) -> String {
     let base = std::env::var("PHINBOX_BASE_URL")
@@ -341,7 +181,7 @@ pub fn inbox_open_url_for(request_id: &str) -> String {
     format!("{base}/inbox/{request_id}")
 }
 
-fn url_encode(s: &str) -> String {
+pub(super) fn url_encode(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
     for b in s.bytes() {
         match b {
@@ -354,20 +194,20 @@ fn url_encode(s: &str) -> String {
     out
 }
 
-fn escape_applescript(s: &str) -> String {
+pub(super) fn escape_applescript(s: &str) -> String {
     s.replace('\\', "\\\\").replace('"', "\\\"")
 }
 
-fn escape_powershell(s: &str) -> String {
+pub(super) fn escape_powershell(s: &str) -> String {
     s.replace('\'', "''")
 }
 
-fn truncate(s: &str, max: usize) -> String {
+pub(super) fn truncate(s: &str, max: usize) -> String {
     if s.chars().count() <= max {
         return s.to_string();
     }
     let mut out: String = s.chars().take(max).collect();
-    out.push('…');
+    out.push('\u{2026}');
     out
 }
 
@@ -428,7 +268,7 @@ mod tests {
 
     #[test]
     fn truncation_drops_with_ellipsis() {
-        assert_eq!(truncate("abcdef", 3), "abc…");
+        assert_eq!(truncate("abcdef", 3), "abc\u{2026}");
         assert_eq!(truncate("abc", 10), "abc");
     }
 
