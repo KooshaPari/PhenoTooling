@@ -3,7 +3,7 @@
 // rather than conventional commit format).
 //
 // Scope-enum extension: historical commits use scopes (`benchora`,
-// `design`, `elicitate`, `phase4`, `phase5`, `release-please`, `wp15`,
+// `design`, `phinbox`, `phase4`, `phase5`, `release-please`, `wp15`,
 // `wp17`) that are outside the original 10-scope enum. Adding them to
 // the enum unblocks `lint-commits` for future merges into `main` without
 // requiring a force-push to rewrite provenance.

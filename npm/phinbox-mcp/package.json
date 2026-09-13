@@ -1,0 +1,27 @@
+{
+  "name": "@kooshapari/phinbox-mcp",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Native OS popup elicitation for autonomous agents — MCP server binary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kooshapari/PhenoTooling",
+    "directory": "crates/phinbox"
+  },
+  "license": "MIT",
+  "keywords": ["phinbox", "mcp", "popup", "agent", "elicitation", "anthropic"],
+  "bin": {
+    "phinbox": "bin/phinbox",
+    "phinbox-mcp": "bin/phinbox-mcp"
+  },
+  "files": ["bin/", "install.js", "README.md"],
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "optionalDependencies": {
+    "@kooshapari/phinbox-mcp-darwin-arm64": "0.0.0-PLACEHOLDER",
+    "@kooshapari/phinbox-mcp-darwin-x64": "0.0.0-PLACEHOLDER",
+    "@kooshapari/phinbox-mcp-linux-x64": "0.0.0-PLACEHOLDER",
+    "@kooshapari/phinbox-mcp-linux-arm64": "0.0.0-PLACEHOLDER",
+    "@kooshapari/phinbox-mcp-win32-x64": "0.0.0-PLACEHOLDER"
+  }
+}

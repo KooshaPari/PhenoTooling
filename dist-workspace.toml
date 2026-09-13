@@ -1,0 +1,44 @@
+[workspace]
+members = ["cargo:phinbox"]
+
+# cargo-dist configuration for phinbox binary distribution.
+# https://axodotdev.github.io/cargo-dist/book/reference/config.html
+[dist]
+cargo-dist-version = "0.32.0"
+ci = "github"
+
+# Only distribute phinbox (has 2 binaries: phinbox + phinbox-mcp)
+packages = ["phinbox"]
+
+# Cross-compilation targets
+targets = [
+  "aarch64-apple-darwin",
+  "x86_64-apple-darwin",
+  "aarch64-unknown-linux-gnu",
+  "x86_64-unknown-linux-gnu",
+  "x86_64-pc-windows-msvc",
+]
+
+# Installers to generate
+installers = ["shell", "powershell", "npm"]
+
+# npm package config
+npm-scope = "@kooshapari"
+npm-package = "phinbox-mcp"
+
+# Archive format
+unix-archive = ".tar.gz"
+windows-archive = ".zip"
+
+# Checksum
+checksum = "sha256"
+
+# Hosting
+hosting = "github"
+create-release = true
+
+# Install path for shell/powershell installers
+install-path = "~/.phinbox/bin"
+
+# CI generation is managed manually (not by cargo dist generate)
+allow-dirty = ["ci"]

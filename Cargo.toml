@@ -5,13 +5,12 @@ members = [
     "crates/dag-scheduler",
     "crates/docs-health",
     "crates/fr-trace",
-    "crates/quality-gate",
     "crates/qgate",
     "crates/legacy-scan",
     "crates/agent-orchestrator",
     "crates/audit-privacy",
     "crates/bench-guard",
-    "crates/benchora",
+
     "crates/commit-msg-check",
     "crates/doc-link-check",
     "crates/fr-coverage",
@@ -28,9 +27,10 @@ members = [
     "crates/worktree-manager",
     "crates/phenotype-tooling-observability",
     "crates/phenotype-cli",
-    "crates/elicitate",
+    "crates/phinbox",
     "crates/perfharness",
     "crates/ptx",
+    "crates/pheno-forge-scaffold",
     "bin/hook-entry",
 ]
 

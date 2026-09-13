@@ -1,0 +1,73 @@
+# cr_roster/providers.yaml — canonical catalog of code-review providers.
+#
+# Source of truth for spec D3:
+#   docs/superpowers/specs/2026-09-09-automated-code-review-workflow-orchestration-design.md §6
+#
+# Rules:
+#   * priority MUST be unique and contiguous starting at 1.
+#   * ids MUST be stable; renaming an id is a breaking change for SP2 router state.
+#   * free_tier refers to the public free-tier limit as of 2026-09-09. Verify before each release.
+#   * endpoint is informational; SP2 router handles auth, not this file.
+
+schema_version: 1
+
+providers:
+  - id: coderabbit
+    name: CodeRabbit
+    priority: 1
+    free_tier: "2 free PR reviews/day per public repo; unlimited on OSS"
+    quota_per_day: 2
+    endpoint: https://api.coderabbit.ai/v1/reviews
+    auth: app_installation
+    self_hostable: false
+    notes: "Default primary per spec D2."
+
+  - id: pr-agent
+    name: PR-Agent (CodiumAI)
+    priority: 2
+    free_tier: "Self-hosted free; managed: 30-day trial"
+    quota_per_day: null
+    endpoint: https://api.codium.ai/agent
+    auth: api_key
+    self_hostable: true
+    notes: "Open-source; self-host recommended for fleets."
+
+  - id: gemini-code
+    name: Gemini Code Assist
+    priority: 3
+    free_tier: "60 req/min, generous daily cap for personal Gmail accounts"
+    quota_per_day: 1500
+    endpoint: https://generativelanguage.googleapis.com/v1beta
+    auth: api_key
+    self_hostable: false
+    notes: "Google account required."
+
+  - id: sourcery
+    name: Sourcery
+    priority: 4
+    free_tier: "200 reviews/month"
+    quota_per_day: 7
+    endpoint: https://sourcery.ai/api/v0
+    auth: api_key
+    self_hostable: false
+    notes: ""
+
+  - id: greptile
+    name: Greptile
+    priority: 5
+    free_tier: "50 PR reviews/month on OSS; paid otherwise"
+    quota_per_day: 2
+    endpoint: https://api.greptile.com/v2
+    auth: api_key
+    self_hostable: false
+    notes: ""
+
+  - id: bito
+    name: Bito
+    priority: 6
+    free_tier: "30 PR reviews/month"
+    quota_per_day: 1
+    endpoint: https://api.bito.dev/v1
+    auth: api_key
+    self_hostable: false
+    notes: ""

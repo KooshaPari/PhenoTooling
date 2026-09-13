@@ -15,63 +15,12 @@ use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
-use clap::Args as ClapArgs;
-
-/// Upgrade subcommand arguments.
-#[derive(Debug, ClapArgs)]
-pub struct UpgradeArgs {
-    /// Stream to upgrade (e.g. `core-stream`).
-    #[arg(long, default_value = "core-stream")]
-    pub stream: String,
-    /// Target channel (stable, beta, nightly).
-    #[arg(long)]
-    pub channel: Option<Channel>,
-    /// Dry run — print what would be upgraded without applying.
-    #[arg(long)]
-    pub dry_run: bool,
-}
-
-/// Run the upgrade subcommand.
-#[must_use]
-pub fn run(args: UpgradeArgs, _verbosity: u8) -> i32 {
-    let config_path = ChannelsConfig::default_path();
-    let mut config = ChannelsConfig::load_or_default(&config_path)
-        .unwrap_or_default();
-
-    let stream_name = args.stream.clone();
-    let sub = config.get_or_default_mut(&stream_name);
-    if let Some(channel) = args.channel {
-        sub.channel = channel;
-    }
-
-    let display_channel = config.subscriptions[&stream_name].channel;
-    let display_version = config.subscriptions[&stream_name].pinned_version.clone();
-
-    if args.dry_run {
-        println!("Stream: {}", stream_name);
-        println!("Channel: {}", display_channel);
-        println!("Pinned version: {}", display_version);
-        println!("Config path: {}", config_path.display());
-        return super::exit_code::OK;
-    }
-
-    match config.save(&config_path) {
-        Ok(()) => {
-            println!("Upgraded {} to channel {}", stream_name, display_channel);
-            super::exit_code::OK
-        }
-        Err(e) => {
-            eprintln!("error: failed to save channels config: {e}");
-            super::exit_code::SOFTWARE
-        }
-    }
-}
-
 /// Channel a release can be promoted through.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Channel {
     /// Releases with >= 1 week soak on beta.
+    #[default]
     Stable,
     /// Releases with >= 24h soak on nightly.
     Beta,
@@ -105,10 +54,40 @@ impl Channel {
     }
 }
 
-impl Default for Channel {
-    fn default() -> Self {
-        Channel::Stable
+/// CLI args for the `pt upgrade` subcommand (WP-28).
+#[derive(Debug, Clone, clap::Args)]
+pub struct UpgradeArgs {
+    /// Release channel to track (stable, beta, nightly).
+    #[arg(short, long, default_value = "stable")]
+    pub channel: Channel,
+
+    /// Optional version specifier (e.g. "0.2.0" or "latest").
+    #[arg(short, long)]
+    pub version: Option<String>,
+
+    /// Force the upgrade even if the current version is up to date.
+    #[arg(long)]
+    pub force: bool,
+
+    /// Dry run — show what would be upgraded without applying.
+    #[arg(long)]
+    pub dry_run: bool,
+}
+
+/// Execute the `pt upgrade` subcommand.
+///
+/// Currently a stub that validates the channel and prints the target.
+/// Full implementation (WP-28) will download, verify, and install the
+/// release tarball for the specified stream.
+#[must_use]
+pub fn run(args: UpgradeArgs, verbosity: u8) -> i32 {
+    if verbosity > 0 {
+        eprintln!("upgrade: channel={}, force={}, dry_run={}",
+            args.channel, args.force, args.dry_run);
     }
+    let version = args.version.as_deref().unwrap_or("latest");
+    println!("upgrade: {} channel -> {} (not yet implemented)", version, args.channel);
+    super::exit_code::OK
 }
 
 impl std::fmt::Display for Channel {
