@@ -1,10 +1,10 @@
-# Phinbox installer — irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
+# Phinbox installer — irm https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.ps1 | iex
 #
 # Installs Phinbox + phinbox-mcp binaries to ~/.phinbox/bin/
 
 $ErrorActionPreference = "Stop"
 
-$REPO = "Kooshapari/PhenoTooling"
+$REPO = "Kooshapari/phenotype-tooling"
 $INSTALL_DIR = if ($env:PHINBOX_INSTALL_DIR) { $env:PHINBOX_INSTALL_DIR } else { Join-Path $HOME ".phinbox\bin" }
 $VERSION = if ($env:PHINBOX_VERSION) { $env:PHINBOX_VERSION } else { "latest" }
 $GITHUB_API = "https://api.github.com/repos/$REPO"

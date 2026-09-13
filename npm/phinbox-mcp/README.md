@@ -1,13 +1,13 @@
-# @anthropic-ai/phinbox-mcp
+# @kooshapari/phinbox-mcp
 
 Native OS popup elicitation for autonomous agents — prebuilt MCP server binary.
 
 ## Install
 
 ```sh
-npm install -g @anthropic-ai/phinbox-mcp
+npm install -g @kooshapari/phinbox-mcp
 # or
-bun add -g @anthropic-ai/phinbox-mcp
+bun add -g @kooshapari/phinbox-mcp
 ```
 
 ## Usage
@@ -27,5 +27,5 @@ phinbox --help       # CLI
 
 ## Links
 
-- [GitHub](https://github.com/Kooshapari/PhenoTooling/tree/main/crates/phinbox)
-- [Releases](https://github.com/Kooshapari/PhenoTooling/releases)
+- [GitHub](https://github.com/Kooshapari/phenotype-tooling/tree/main/crates/phinbox)
+- [Releases](https://github.com/Kooshapari/phenotype-tooling/releases)

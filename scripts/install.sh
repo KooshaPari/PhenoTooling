@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# phinbox installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
+# phinbox installer — curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.sh | sh
 #
 # Installs phinbox + phinbox-mcp binaries to ~/.phinbox/bin/
 # Supports macOS (arm64, x64), Linux (x64, arm64).
 
-REPO="Kooshapari/PhenoTooling"
+REPO="Kooshapari/phenotype-tooling"
 BINARY_NAMES=("phinbox" "phinbox-mcp")
 INSTALL_DIR="${PHINBOX_INSTALL_DIR:-$HOME/.phinbox/bin}"
 VERSION="${PHINBOX_VERSION:-latest}"

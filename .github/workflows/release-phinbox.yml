@@ -15,7 +15,7 @@ permissions:
 
 env:
   CARGO_TERM_COLOR: always
-  NPM_PACKAGE: "@anthropic-ai/phinbox-mcp"
+  NPM_PACKAGE: "@kooshapari/phinbox-mcp"
 
 concurrency:
   group: release-phinbox-${{ github.ref }}
@@ -217,19 +217,19 @@ jobs:
 
             **macOS / Linux (curl):**
             ```sh
-            curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.sh | sh
+            curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.sh | sh
             ```
 
             **Windows (PowerShell):**
             ```powershell
-            irm https://raw.githubusercontent.com/Kooshapari/PhenoTooling/main/scripts/install.ps1 | iex
+            irm https://raw.githubusercontent.com/Kooshapari/phenotype-tooling/main/scripts/install.ps1 | iex
             ```
 
             **npm / bun:**
             ```sh
-            npm install -g @anthropic-ai/phinbox-mcp
+            npm install -g @kooshapari/phinbox-mcp
             # or
-            bun add -g @anthropic-ai/phinbox-mcp
+            bun add -g @kooshapari/phinbox-mcp
             ```
           files: release-assets/*
           draft: false
