@@ -211,22 +211,59 @@ impl Tray for StaticTray {
 // ── Helpers ─────────────────────────────────────────────────────────────
 
 fn make_placeholder_icon() -> TrayResult<Icon> {
-    // 16×16 RGBA, opaque neutral grey dot.
+    // Try to load branded tray icon from the app bundle's Resources directory.
+    // Falls back to a programmatic 16x16 teal envelope if file not found.
+    let resource_dirs = [
+        std::path::PathBuf::from("/Applications/Phinbox.app/Contents/Resources"),
+        // Also check relative to the running binary (development layout)
+        std::env::current_exe()
+            .ok()
+            .and_then(|p| p.parent().map(|d| d.join("../Resources").canonicalize().unwrap_or_default()))
+            .unwrap_or_default(),
+    ];
+
+    for dir in &resource_dirs {
+        // Prefer @2x for Retina displays
+        let path_2x = dir.join("tray_44.png");
+        let path_1x = dir.join("tray_22.png");
+        let path = if path_2x.exists() { &path_2x } else if path_1x.exists() { &path_1x } else { continue };
+        if let Ok(img) = image::open(path) {
+            let rgba = img.to_rgba8();
+            let (w, h) = rgba.dimensions();
+            return Icon::from_rgba(rgba.into_raw(), w, h)
+                .map_err(|e| TrayError::Icon(e.to_string()));
+        }
+    }
+
+    // Fallback: programmatic teal envelope (16x16, matches brand #7EBAB5)
     const SIZE: u32 = 16;
     let mut rgba = Vec::with_capacity((SIZE * SIZE * 4) as usize);
     for y in 0..SIZE {
         for x in 0..SIZE {
-            let dx = x as i32 - 8;
-            let dy = y as i32 - 8;
-            let inside = (dx * dx + dy * dy) <= 49;
-            let (r, g, b, a) = if inside {
-                if (dx + dy) % 2 == 0 {
-                    (40u8, 40, 40, 255)
+            let cx = x as f32 - 7.5;
+            let cy = y as f32 - 7.5;
+            // Envelope body: rounded rect from (2,4) to (13,12)
+            let in_body = x >= 2 && x <= 13 && y >= 4 && y <= 12;
+            // V-flap: lines from (2,4) to (7.5,8) to (13,4)
+            let t_flap_l = ((y - 4) as f32 / 4.0).clamp(0.0, 1.0);
+            let flap_l_x = 2.0 + t_flap_l * 5.5;
+            let t_flap_r = ((y - 4) as f32 / 4.0).clamp(0.0, 1.0);
+            let flap_r_x = 13.0 - t_flap_r * 5.5;
+            let on_flap = in_body && y >= 4 && y <= 8
+                && ((x as f32 - flap_l_x).abs() < 1.0 || (x as f32 - flap_r_x).abs() < 1.0);
+
+            let (r, g, b, a) = if on_flap {
+                (126u8, 186, 181, 255)  // #7EBAB5
+            } else if in_body {
+                // Check if near edge for outline effect
+                let on_edge = x == 2 || x == 13 || y == 4 || y == 12;
+                if on_edge {
+                    (126u8, 186, 181, 255)  // teal outline
                 } else {
-                    (60, 60, 60, 255)
+                    (25u8, 35, 45, 255)  // dark fill
                 }
             } else {
-                (0, 0, 0, 0)
+                (0, 0, 0, 0)  // transparent
             };
             rgba.extend_from_slice(&[r, g, b, a]);
         }
