@@ -8,21 +8,25 @@ OUTPUT_DIR="${REPO_ROOT}/target/release"
 OUTPUT="${OUTPUT_DIR}/inbox-helper"
 
 echo "Building inbox-helper..."
-echo "  Source: ${SCRIPT_DIR}/main.swift"
+echo "  Source: ${SCRIPT_DIR}/*.swift"
 echo "  Output: ${OUTPUT}"
 
 mkdir -p "${OUTPUT_DIR}"
 
 swiftc \
-    -o "${OUTPUT}" \
-    "${SCRIPT_DIR}/main.swift" \
-    -framework Cocoa \
-    -framework WebKit \
+    -Onone \
     -parse-as-library \
-    -O \
-    -whole-module-optimization
+    -framework Cocoa \
+    -framework SwiftUI \
+    "${SCRIPT_DIR}/Models.swift" \
+    "${SCRIPT_DIR}/InboxManager.swift" \
+    "${SCRIPT_DIR}/Brand.swift" \
+    "${SCRIPT_DIR}/RootView.swift" \
+    "${SCRIPT_DIR}/RowView.swift" \
+    "${SCRIPT_DIR}/DetailView.swift" \
+    "${SCRIPT_DIR}/main.swift" \
+    -o "${OUTPUT}"
 
-# Make executable
 chmod +x "${OUTPUT}"
 
 echo "Build succeeded: ${OUTPUT}"
