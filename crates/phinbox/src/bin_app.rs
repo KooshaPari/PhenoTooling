@@ -108,7 +108,8 @@ fn create_tray_and_run_event_loop(
     owns_daemon: bool,
 ) {
     use objc2_app_kit::{NSApplication, NSApplicationActivationPolicy};
-    use objc2_foundation::MainThreadMarker;
+    use objc2_foundation::{NSTimer, MainThreadMarker};
+    use objc2::rc::Retained;
 
     let mtm = match MainThreadMarker::new() {
         Some(m) => m,
@@ -136,8 +137,26 @@ fn create_tray_and_run_event_loop(
             return;
         }
     };
+    eprintln!("phinbox: tray icon created (backend: {})", tray.backend_name());
 
-    // Spawn tray event pump on background thread
+    // Schedule an NSTimer on the main RunLoop to pump tray events.
+    // This is required because NSStatusItem click/menu events only dispatch
+    // on the main NSRunLoop — a background thread cannot receive them.
+    // scheduledTimerWithTimeInterval automatically adds to the current RunLoop.
+    unsafe {
+        let mut block = block2::StackBlock::new(|_timer: std::ptr::NonNull<NSTimer>| {
+            phinbox::tray::poll_tray();
+        });
+        let _timer: Retained<NSTimer> = NSTimer::scheduledTimerWithTimeInterval_repeats_block(
+            0.1,   // 100ms interval
+            true,  // repeating
+            &mut block,
+        );
+        // Timer is retained by the RunLoop; _timer keeps it alive in this scope.
+    }
+
+    // Dispatch tray events (menu clicks, icon clicks) on a background thread.
+    // poll_tray() feeds events into the channel; this thread consumes them.
     let shutdown = Arc::new(std::sync::atomic::AtomicBool::new(false));
     {
         let tray_ref = tray.clone();
@@ -156,7 +175,7 @@ fn create_tray_and_run_event_loop(
     }
 
     // Run Cocoa event loop on main thread (blocks until app terminates)
-    // This keeps NSStatusItem alive and receiving click/menu events.
+    // The NSTimer fires every 100ms, pumping tray events.
     app.run();
 
     // Cleanup — only stop daemon if we started it

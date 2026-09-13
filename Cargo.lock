@@ -2802,6 +2802,7 @@ version = "0.9.0"
 dependencies = [
  "anyhow",
  "assert_fs",
+ "block2",
  "chrono",
  "clap",
  "crossbeam-channel",

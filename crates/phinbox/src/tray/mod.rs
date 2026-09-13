@@ -132,14 +132,18 @@ pub trait Tray: Send + Sync {
     fn inbox_url(&self) -> Option<&str> {
         None
     }
+    /// Poll for pending tray events and forward them to the event channel.
+    /// On macOS, this must be called from the main thread (NSRunLoop).
+    /// On other platforms, this is a no-op (events arrive via the channel).
+    fn poll(&self) {}
 }
 
 /// Construct a tray matching the compile-time feature set.
 pub fn build_tray(cfg: TrayConfig) -> TrayResult<Arc<dyn Tray>> {
     #[cfg(feature = "tray-native")]
     {
-        match native::NativeTray::new(cfg.clone()) {
-            Ok(t) => Ok(Arc::new(t) as Arc<dyn Tray>),
+        match native::create_native_tray(cfg.clone()) {
+            Ok(t) => Ok(t),
             Err(e) => {
                 tracing::warn!(error = %e, "tray-native build failed; falling back to NoopTray");
                 Ok(Arc::new(NoopTray::new(cfg)))
@@ -203,6 +207,8 @@ impl Tray for NoopTray {
 
 #[cfg(feature = "tray-native")]
 mod native;
+#[cfg(feature = "tray-native")]
+pub use native::poll_tray;
 
 // ============================================================================
 // Tests
