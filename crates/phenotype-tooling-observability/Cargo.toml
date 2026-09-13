@@ -24,10 +24,31 @@ tokio = { version = "1.40", features = ["macros", "rt-multi-thread", "net", "sig
 rand = "0.10"
 url = "2"
 
+# --- argis-monitor dependencies (gated behind `argis-monitor` feature) ---
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"], optional = true }
+hmac = { version = "0.12", optional = true }
+sha2 = { version = "0.10", optional = true }
+tower = { version = "0.5", optional = true }
+tower-http = { version = "0.6", features = ["trace"], optional = true }
+prometheus-client = { version = "0.25", optional = true }
+arc-swap = { version = "1", optional = true }
+rusqlite = { version = "0.32", default-features = false, features = ["bundled"], optional = true }
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"], optional = true }
+serde_yaml = { version = "0.9", optional = true }
+urlencoding = { version = "2", optional = true }
+anyhow = { version = "1", optional = true }
+clap = { version = "4", features = ["derive", "env"], optional = true }
+
 [features]
 default = []
 # Prometheus exporter + axum HTTP server for /metrics and /health
 server = ["dep:prometheus", "dep:axum", "dep:tokio"]
+# Full argis-monitor integration (polling, alerts, webhooks, state store, push)
+argis-monitor = [
+    "dep:reqwest", "dep:hmac", "dep:sha2", "dep:tower", "dep:tower-http",
+    "dep:prometheus-client", "dep:arc-swap", "dep:rusqlite", "dep:chrono",
+    "dep:serde_yaml", "dep:urlencoding", "dep:anyhow", "dep:clap",
+]
 
 [[bin]]
 name = "breach_sim"
