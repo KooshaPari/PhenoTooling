@@ -112,6 +112,12 @@ fn handle_connection(
             ),
         )),
         Route::InboxForm => match id.and_then(|id| load(inbox_root, &id).ok()) {
+            Some(req) if matches!(req.state, RequestState::Expired) => {
+                Some(text_response(
+                    200,
+                    &crate::views::render_expired_html(&req),
+                ))
+            }
             Some(req) => Some(text_response(200, &render_inbox_html(&req))),
             None => Some(simple_text(404, "request not found")),
         },
@@ -132,6 +138,12 @@ fn handle_connection(
                 // Re-render the form so a user who navigates back / lands
                 // here directly sees the same submission UI.
                 match load(inbox_root, &id) {
+                    Ok(req) if matches!(req.state, RequestState::Expired) => {
+                        Some(text_response(
+                            200,
+                            &crate::views::render_expired_html(&req),
+                        ))
+                    }
                     Ok(req) => Some(text_response(200, &render_inbox_html(&req))),
                     Err(_) => Some(simple_text(404, "request not found")),
                 }
@@ -160,9 +172,22 @@ fn handle_connection(
                 if content_length > 0 {
                     reader.read_exact(&mut buf)?;
                 }
-                match super::form::submit_answer(inbox_root, &id, &buf) {
-                    Ok(_) => redirect_response(&mut stream, &format!("/inbox/{}/done", id))?,
-                    Err(e) => Some(text_response(400, &format!("<h1>Error</h1><p>{e}</p>"))),
+                // Reject answers for expired requests.
+                match load(inbox_root, &id) {
+                    Ok(req) if matches!(req.state, RequestState::Expired) => {
+                        Some(text_response(
+                            410,
+                            &format!(
+                                "<h1>Request Expired</h1>\
+                                 <p>This request expired and can no longer be answered.</p>\
+                                 <a href=/inbox>Return to inbox</a>"
+                            ),
+                        ))
+                    }
+                    _ => match super::form::submit_answer(inbox_root, &id, &buf) {
+                        Ok(_) => redirect_response(&mut stream, &format!("/inbox/{}/done", id))?,
+                        Err(e) => Some(text_response(400, &format!("<h1>Error</h1><p>{e}</p>"))),
+                    },
                 }
             }
         }

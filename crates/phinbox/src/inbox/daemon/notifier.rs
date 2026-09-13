@@ -12,7 +12,7 @@ use std::thread;
 use std::time::{Duration, Instant};
 
 use crate::inbox::notify::{NotifyChannels, surface_all};
-use crate::inbox::{finalize, list_pending, RequestState};
+use crate::inbox::{mark_expired_in_place, list_pending, RequestState};
 use crate::tray::{MenuAction, Tray, TrayEvent};
 use tracing::{debug, info, warn};
 
@@ -70,11 +70,15 @@ pub(crate) fn run_notifier_loop(
             Err(e) => warn!(error = %e, "inbox scan failed"),
         }
         // Reap expired requests every minute-ish (cheap, no separate timer).
+        // Expired requests are marked in-place within inbox/ so the inbox UI
+        // can still render them (greyed-out / expired badge). They are NOT
+        // moved to answered/ — that only happens when the user explicitly
+        // answers or cancels.
         if let Ok(reqs) = list_pending(inbox_root) {
             for mut req in reqs {
                 if req.is_expired_now() && !req.is_terminal() {
                     req.state = RequestState::Expired;
-                    if let Err(e) = finalize(inbox_root, &req) {
+                    if let Err(e) = mark_expired_in_place(inbox_root, &req) {
                         warn!(error = %e, request_id = %req.request_id, "failed to expire");
                     }
                 }

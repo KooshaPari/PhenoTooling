@@ -1,261 +1,454 @@
-// Phinbox Inbox Helper - Native macOS WKWebView wrapper
-// Compiles with: swiftc -o inbox-helper main.swift -framework Cocoa -framework WebKit
+// Phinbox Inbox Helper — Native SwiftUI with Liquid Glass
+// Compiles: swiftc -parse-as-library -o inbox-helper main.swift -framework SwiftUI -framework AppKit
 
-import Cocoa
-import WebKit
+import SwiftUI
+import AppKit
 
-// MARK: - Constants
+// MARK: - Brand
 
-let kInboxURL = URL(string: "http://127.0.0.1:7117/inbox/")!
-let kRetryInterval: TimeInterval = 2.0
-let kInitialWidth: CGFloat = 1024
-let kInitialHeight: CGFloat = 768
-let kMinWidth: CGFloat = 640
-let kMinHeight: CGFloat = 480
-let kWindowAutosaveName = "PhinboxWindowFrame"
+extension Color {
+    static let teal = Color(red: 0.494, green: 0.729, blue: 0.710)
+    static let appBG = Color(red: 0.075, green: 0.098, blue: 0.145)
+}
 
-// MARK: - App Delegate
+// MARK: - Models
 
-class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDelegate {
-    var window: NSWindow!
-    var webView: WKWebView!
-    var loadingIndicator: NSProgressIndicator!
-    var loadingLabel: NSTextField!
-    var statusLabel: NSTextField!
-    var retryTimer: Timer?
-    var isRetrying = false
+struct Origin: Decodable, Hashable {
+    let hostname: String
+    let process: String
+    let pid: UInt32
+}
+struct ChoiceOption: Decodable, Hashable {
+    let value: String
+    let label: String
+    let description: String?
+}
+struct FieldSpec: Decodable, Hashable {
+    let kind: String
+    let label: String
+    let options: [ChoiceOption]?
+}
+struct NotesSpec: Decodable, Hashable {
+    let label: String
+    let required: Bool?
+}
+struct PromptSpec: Decodable, Hashable {
+    let title: String
+    let question: String
+    let field: FieldSpec
+    let notes: NotesSpec?
+    let urgency: String?
+}
+struct PendingRequest: Decodable, Identifiable, Hashable {
+    var id: String { request_id }
+    let request_id: String
+    let origin: Origin
+    let spec: PromptSpec
+    let queued_at_ms: UInt64
+    let expires_at_ms: UInt64
+    let state: String
+    func hash(into hasher: inout Hasher) { hasher.combine(request_id) }
+    static func == (lhs: Self, rhs: Self) -> Bool { lhs.request_id == rhs.request_id }
+}
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        setupWindow()
-        setupWebView()
-        setupLoadingIndicator()
-        setupStatusLabel()
-        loadInboxURL()
+// MARK: - Manager
+
+@MainActor
+class InboxManager: ObservableObject {
+    @Published var requests: [PendingRequest] = []
+    @Published var selected: PendingRequest?
+    @Published var submitError: String?
+    private let inboxDir: URL
+    private var timer: Timer?
+
+    init() {
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        inboxDir = home.appendingPathComponent("Library/Application Support/phinbox/inbox")
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
-
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
-    }
-
-    @objc func reloadPage(_ sender: Any?) {
-        webView.reload()
-    }
-
-    // MARK: - Window Setup
-
-    private func setupWindow() {
-        let screenFrame = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 1440, height: 900)
-        let width = min(kInitialWidth, screenFrame.width * 0.8)
-        let height = min(kInitialHeight, screenFrame.height * 0.8)
-        let x = screenFrame.midX - width / 2
-        let y = screenFrame.midY - height / 2
-
-        let contentRect = NSRect(x: x, y: y, width: width, height: height)
-        let styleMask: NSWindow.StyleMask = [.titled, .closable, .miniaturizable, .resizable]
-
-        window = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
-        window.title = "Phinbox"
-        window.minSize = NSSize(width: kMinWidth, height: kMinHeight)
-        window.backgroundColor = NSColor(calibratedRed: 0.059, green: 0.090, blue: 0.165, alpha: 1.0)
-        window.isReleasedWhenClosed = false
-        window.titlebarAppearsTransparent = false
-        window.titleVisibility = .visible
-        window.isMovableByWindowBackground = true
-        window.setFrameAutosaveName(kWindowAutosaveName)
-        window.standardWindowButton(.closeButton)?.toolTip = "Close (Cmd+W)"
-    }
-
-    // MARK: - WebView Setup
-
-    private func setupWebView() {
-        let config = WKWebViewConfiguration()
-        config.preferences.setValue(true, forKey: "developerExtrasEnabled")
-
-        webView = WKWebView(frame: .zero, configuration: config)
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        webView.allowsBackForwardNavigationGestures = true
-        webView.setValue(false, forKey: "drawsBackground")
-
-        webView.layer?.backgroundColor = NSColor(calibratedRed: 0.059, green: 0.090, blue: 0.165, alpha: 1.0).cgColor
-
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        window.contentView?.addSubview(webView)
-
-        if let contentView = window.contentView {
-            NSLayoutConstraint.activate([
-                webView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                webView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                webView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                webView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            ])
+    func start() {
+        refresh()
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in self?.refresh() }
         }
     }
 
-    // MARK: - Loading Indicator
-
-    private func setupLoadingIndicator() {
-        loadingIndicator = NSProgressIndicator()
-        loadingIndicator.style = .spinning
-        loadingIndicator.controlSize = .regular
-        loadingIndicator.isIndeterminate = true
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadingIndicator.isHidden = true
-        window.contentView?.addSubview(loadingIndicator)
-
-        NSLayoutConstraint.activate([
-            loadingIndicator.centerXAnchor.constraint(equalTo: window.contentView!.centerXAnchor),
-            loadingIndicator.centerYAnchor.constraint(equalTo: window.contentView!.centerYAnchor, constant: -20),
-        ])
-    }
-
-    private func setupStatusLabel() {
-        loadingLabel = NSTextField(labelWithString: "Loading inbox...")
-        loadingLabel.textColor = NSColor.secondaryLabelColor
-        loadingLabel.font = NSFont.systemFont(ofSize: 14)
-        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
-        loadingLabel.isHidden = true
-        window.contentView?.addSubview(loadingLabel)
-
-        NSLayoutConstraint.activate([
-            loadingLabel.centerXAnchor.constraint(equalTo: window.contentView!.centerXAnchor),
-            loadingLabel.topAnchor.constraint(equalTo: loadingIndicator.bottomAnchor, constant: 12),
-        ])
-
-        statusLabel = NSTextField(labelWithString: "")
-        statusLabel.textColor = NSColor.secondaryLabelColor
-        statusLabel.font = NSFont.systemFont(ofSize: 12)
-        statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        statusLabel.isHidden = true
-        window.contentView?.addSubview(statusLabel)
-
-        NSLayoutConstraint.activate([
-            statusLabel.centerXAnchor.constraint(equalTo: window.contentView!.centerXAnchor),
-            statusLabel.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 8),
-        ])
-    }
-
-    private func showLoading(_ show: Bool, message: String? = nil) {
-        loadingIndicator.isHidden = !show
-        loadingLabel.isHidden = !show
-        if show {
-            loadingIndicator.startAnimation(nil)
-            if let msg = message {
-                loadingLabel.stringValue = msg
-            }
-        } else {
-            loadingIndicator.stopAnimation(nil)
-            statusLabel.isHidden = true
+    func refresh() {
+        guard let files = try? FileManager.default.contentsOfDirectory(
+            at: inboxDir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles
+        ) else { requests = []; return }
+        var loaded: [PendingRequest] = []
+        for f in files where f.pathExtension == "json" {
+            guard let data = try? Data(contentsOf: f),
+                  let req = try? JSONDecoder().decode(PendingRequest.self, from: data),
+                  req.state == "pending" else { continue }
+            loaded.append(req)
         }
-    }
-
-    // MARK: - URL Loading
-
-    private func loadInboxURL() {
-        showLoading(true, message: "Loading inbox...")
-        stopRetrying()
-
-        let request = URLRequest(url: kInboxURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        webView.load(request)
-    }
-
-    private func startRetrying() {
-        guard !isRetrying else { return }
-        isRetrying = true
-        showLoading(true, message: "Waiting for Phinbox daemon...")
-        statusLabel.stringValue = "Retrying in \(Int(kRetryInterval))s..."
-        statusLabel.isHidden = false
-
-        retryTimer = Timer.scheduledTimer(withTimeInterval: kRetryInterval, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            self.statusLabel.stringValue = "Trying to connect..."
-            self.webView.load(URLRequest(url: kInboxURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10))
+        let uo = ["error": 0, "warning": 1, "info": 2, "secret": 3]
+        loaded.sort { a, b in
+            let ua = uo[a.spec.urgency ?? "info"] ?? 2
+            let ub = uo[b.spec.urgency ?? "info"] ?? 2
+            return ua != ub ? ua < ub : a.queued_at_ms > b.queued_at_ms
         }
+        withAnimation(.spring(response: 0.4)) { requests = loaded }
     }
 
-    private func stopRetrying() {
-        isRetrying = false
-        retryTimer?.invalidate()
-        retryTimer = nil
+    func submit(_ req: PendingRequest, value: String, notes: String?) async {
+        submitError = nil
+        var comps = URLComponents(string: "http://127.0.0.1:7117/inbox/\(req.request_id)/answer")!
+        var items = [URLQueryItem(name: "value", value: value), URLQueryItem(name: "confirm", value: "ok")]
+        if let notes, !notes.isEmpty { items.append(URLQueryItem(name: "notes", value: notes)) }
+        comps.queryItems = items
+        var r = URLRequest(url: comps.url!); r.httpMethod = "POST"
+        do {
+            let (_, resp) = try await URLSession.shared.data(for: r)
+            if let h = resp as? HTTPURLResponse, h.statusCode == 200 {
+                withAnimation { selected = nil }
+                try? await Task.sleep(for: .seconds(0.5)); refresh()
+            } else { submitError = "Server error" }
+        } catch { submitError = error.localizedDescription }
     }
 
-    // MARK: - WKNavigationDelegate
-
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        showLoading(true, message: "Loading inbox...")
-    }
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        showLoading(false)
-        stopRetrying()
-
-        // Inject dark theme CSS for any unstyled elements
-        let css = """
-            html, body {
-                background-color: #0f172a !important;
-                color: #e2e8f0 !important;
-            }
-            """
-        let script = """
-            var style = document.createElement('style');
-            style.textContent = `\(css)`;
-            document.head.appendChild(style);
-            """
-        webView.evaluateJavaScript(script) { _, error in
-            if let error = error {
-                print("CSS injection warning: \(error.localizedDescription)")
-            }
-        }
-    }
-
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        handleLoadError(error)
-    }
-
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        handleLoadError(error)
-    }
-
-    private func handleLoadError(_ error: Error) {
-        let nsError = error as NSError
-        // -1004 = cannot connect, -1003 = cannot find host, -1001 = timed out
-        let retryCodes: Set<Int> = [-1009, -1004, -1003, -1001, -1020]
-        if retryCodes.contains(nsError.code) {
-            startRetrying()
-        } else {
-            showLoading(true, message: "Connection error")
-            statusLabel.stringValue = error.localizedDescription
-            statusLabel.isHidden = false
-            startRetrying()
-        }
-    }
-
-    // MARK: - WKUIDelegate
-
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if navigationAction.targetFrame == nil, let url = navigationAction.request.url {
-            NSWorkspace.shared.open(url)
-        }
-        return nil
+    func timeAgo(_ ms: UInt64) -> String {
+        let now = UInt64(Date().timeIntervalSince1970 * 1000)
+        guard now > ms else { return "just now" }
+        let d = now - ms
+        if d < 60_000 { return "\(d/1000)s" }
+        if d < 3_600_000 { return "\(d/60_000)m" }
+        if d < 86_400_000 { return "\(d/3_600_000)h" }
+        return "\(d/86_400_000)d"
     }
 }
 
-// MARK: - Main Entry Point
+// MARK: - SwiftUI Views
+
+struct RootView: View {
+    @ObservedObject var mgr: InboxManager
+    var body: some View {
+        NavigationSplitView {
+            sidebar
+        } detail: {
+            if let r = mgr.selected { DetailView(request: r, mgr: mgr) }
+            else {
+                VStack(spacing: 16) {
+                    Image(systemName: "tray").font(.system(size: 40, weight: .light))
+                        .foregroundStyle(Color.teal.opacity(0.3))
+                    Text("Select a request").font(.title3).foregroundStyle(.white.opacity(0.5))
+                }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color.appBG)
+            }
+        }
+        .background(Color.appBG.ignoresSafeArea())
+        .tint(Color.teal)
+    }
+
+    private var sidebar: some View {
+        Group {
+            if mgr.requests.isEmpty {
+                VStack(spacing: 16) {
+                    Spacer()
+                    Image(systemName: "tray").font(.system(size: 48, weight: .light))
+                        .foregroundStyle(Color.teal.opacity(0.5))
+                    Text("Inbox Empty").font(.title2).fontWeight(.medium).foregroundStyle(.white)
+                    Text("Requests from AI agents\nwill appear here.")
+                        .font(.subheadline).foregroundStyle(.white.opacity(0.5)).multilineTextAlignment(.center)
+                    Spacer()
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List(selection: $mgr.selected) {
+                    ForEach(mgr.requests) { RowView(request: $0, mgr: mgr).tag($0) }
+                }
+                .listStyle(.sidebar).scrollContentBackground(.hidden)
+            }
+        }
+        .navigationTitle("Inbox")
+        .toolbar { ToolbarItem(placement: .automatic) {
+            Button { mgr.refresh() } label: { Image(systemName: "arrow.clockwise") }
+        }}
+    }
+}
+
+struct RowView: View {
+    let request: PendingRequest
+    let mgr: InboxManager
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                Image(systemName: urgencyIcon).font(.system(size: 11)).foregroundStyle(urgencyColor)
+                Text(request.spec.title).font(.system(.body, weight: .semibold))
+                    .foregroundStyle(.white).lineLimit(1)
+                Spacer()
+                Text(mgr.timeAgo(request.queued_at_ms)).font(.caption).foregroundStyle(.white.opacity(0.35))
+            }
+            Text(request.spec.question).font(.subheadline)
+                .foregroundStyle(.white.opacity(0.55)).lineLimit(2)
+            HStack(spacing: 10) {
+                Label(request.origin.process, systemImage: "terminal")
+                Label(request.spec.field.kind, systemImage: fieldIcon)
+            }.font(.caption).foregroundStyle(.white.opacity(0.35))
+        }.padding(.vertical, 6).contentShape(Rectangle())
+    }
+
+    private var urgencyColor: Color {
+        switch request.spec.urgency {
+        case "error": return .red; case "warning": return .orange; case "secret": return .yellow
+        default: return Color.teal
+        }
+    }
+    private var urgencyIcon: String {
+        switch request.spec.urgency {
+        case "error": return "exclamationmark.circle.fill"
+        case "warning": return "exclamationmark.triangle.fill"
+        case "secret": return "lock.fill"; default: return "envelope.fill"
+        }
+    }
+    private var fieldIcon: String {
+        switch request.spec.field.kind {
+        case "bool": return "switch.2"; case "choice": return "list.bullet"
+        case "text", "long_text": return "text.alignleft"; case "integer": return "number"
+        case "date_time": return "calendar"; default: return "questionmark.circle"
+        }
+    }
+}
+
+struct DetailView: View {
+    let request: PendingRequest
+    @ObservedObject var mgr: InboxManager
+    @State private var choice: String?
+    @State private var boolVal = false
+    @State private var textVal = ""
+    @State private var intVal = ""
+    @State private var notes = ""
+    @State private var submitting = false
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                headerCard; questionCard; formCard; notesCard; actionsRow; errorBanner
+            }.padding(32)
+        }.background(Color.appBG)
+    }
+
+    private var headerCard: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(request.spec.title).font(.largeTitle).bold().foregroundStyle(.white)
+                HStack(spacing: 14) {
+                    Label(request.origin.process, systemImage: "terminal")
+                    Label("on \(request.origin.hostname)", systemImage: "desktopcomputer")
+                    Label(mgr.timeAgo(request.queued_at_ms), systemImage: "clock")
+                }.font(.caption).foregroundStyle(.white.opacity(0.5))
+            }
+            Spacer()
+            badge
+        }.padding(24).background(glass)
+    }
+
+    private var questionCard: some View {
+        Text(request.spec.question).font(.title3).foregroundStyle(.white.opacity(0.85))
+            .fixedSize(horizontal: false, vertical: true).padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color.white.opacity(0.04))
+                .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(Color.white.opacity(0.06))))
+    }
+
+    private var formCard: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text(request.spec.field.label).font(.headline).foregroundStyle(.white)
+            fieldBody
+        }.padding(24).background(glass)
+    }
+
+    @ViewBuilder
+    private var fieldBody: some View {
+        switch request.spec.field.kind {
+        case "bool":
+            Toggle(isOn: $boolVal) { Text(boolVal ? "Yes" : "No").foregroundStyle(.white) }
+                .toggleStyle(.switch).tint(Color.teal)
+        case "choice": choiceList
+        case "text": fieldInput(placeholder: "Enter answer...", binding: $textVal, multiline: false)
+        case "long_text": fieldInput(placeholder: "Enter answer...", binding: $textVal, multiline: true)
+        case "integer": fieldInput(placeholder: "Enter number...", binding: $intVal, multiline: false)
+        case "date_time":
+            DatePicker("Date & time", selection: .constant(Date())).datePickerStyle(.compact).tint(Color.teal)
+        default: Text("Unknown field type").foregroundStyle(.white.opacity(0.5))
+        }
+    }
+
+    private var choiceList: some View {
+        VStack(spacing: 10) {
+            if let opts = request.spec.field.options {
+                ForEach(opts, id: \.value) { opt in choiceRow(opt) }
+            }
+        }
+    }
+
+    private func choiceRow(_ opt: ChoiceOption) -> some View {
+        Button { withAnimation { choice = opt.value } } label: {
+            HStack(spacing: 12) {
+                Circle().fill(choice == opt.value ? Color.teal : Color.clear)
+                    .frame(width: 18, height: 18)
+                    .overlay(Circle().strokeBorder(choice == opt.value ? Color.teal : Color.white.opacity(0.3), lineWidth: 2))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(opt.label).foregroundStyle(.white)
+                    if let d = opt.description { Text(d).font(.caption).foregroundStyle(.white.opacity(0.5)) }
+                }
+                Spacer()
+                if choice == opt.value { Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.teal) }
+            }.padding(14).background(choiceBg(selected: choice == opt.value))
+        }.buttonStyle(.plain)
+    }
+
+    private func choiceBg(selected: Bool) -> some View {
+        RoundedRectangle(cornerRadius: 10, style: .continuous)
+            .fill(selected ? Color.teal.opacity(0.12) : Color.white.opacity(0.04))
+            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(selected ? Color.teal.opacity(0.4) : Color.white.opacity(0.08)))
+    }
+
+    @ViewBuilder
+    private var notesCard: some View {
+        if let ns = request.spec.notes {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text(ns.label).font(.headline).foregroundStyle(.white)
+                    if ns.required == true { Text("*").foregroundStyle(.red) }
+                }
+                fieldInput(placeholder: "Optional notes...", binding: $notes, multiline: true)
+            }
+        }
+    }
+
+    private var actionsRow: some View {
+        HStack(spacing: 12) {
+            Spacer()
+            Button("Cancel") { withAnimation { mgr.selected = nil } }
+                .buttonStyle(.plain).padding(.horizontal, 20).padding(.vertical, 10)
+                .background(Capsule().fill(Color.white.opacity(0.08)).overlay(Capsule().stroke(Color.white.opacity(0.12))))
+                .keyboardShortcut(.cancelAction)
+            Button(action: send) {
+                HStack(spacing: 8) {
+                    if submitting { ProgressView().controlSize(.small).tint(.white) }
+                    else { Image(systemName: "paperplane.fill") }
+                    Text("Submit").fontWeight(.semibold)
+                }.foregroundStyle(.white).padding(.horizontal, 24).padding(.vertical, 10)
+                    .background(Capsule().fill(Color.teal).shadow(color: Color.teal.opacity(0.4), radius: 8, y: 2))
+            }.buttonStyle(.plain).disabled(submitting || !valid).keyboardShortcut(.defaultAction)
+        }
+    }
+
+    @ViewBuilder
+    private var errorBanner: some View {
+        if let e = mgr.submitError {
+            Label(e, systemImage: "exclamationmark.triangle.fill")
+                .font(.subheadline).foregroundStyle(.red).padding(12).frame(maxWidth: .infinity, alignment: .leading)
+                .background(RoundedRectangle(cornerRadius: 10).fill(.red.opacity(0.12))
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.red.opacity(0.25))))
+        }
+    }
+
+    private var glass: some View {
+        RoundedRectangle(cornerRadius: 16, style: .continuous).fill(.ultraThinMaterial)
+            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(Color.white.opacity(0.1)))
+    }
+
+    private var badge: some View {
+        Group {
+            switch request.spec.urgency {
+            case "error": Label("Urgent", systemImage: "exclamationmark.circle.fill").foregroundStyle(.red)
+            case "warning": Label("Warning", systemImage: "exclamationmark.triangle.fill").foregroundStyle(.orange)
+            case "secret": Label("Secret", systemImage: "lock.fill").foregroundStyle(.yellow)
+            default: Label("Info", systemImage: "info.circle.fill").foregroundStyle(Color.teal)
+            }
+        }.font(.caption).fontWeight(.semibold).padding(.horizontal, 12).padding(.vertical, 6)
+            .background(Capsule().fill(.ultraThinMaterial).overlay(Capsule().stroke(.white.opacity(0.15))))
+    }
+
+    private func fieldInput(placeholder: String, binding: Binding<String>, multiline: Bool) -> some View {
+        Group {
+            if multiline {
+                TextEditor(text: binding).scrollContentBackground(.hidden).frame(minHeight: 80, maxHeight: 160).padding(12)
+            } else {
+                TextField(placeholder, text: binding).textFieldStyle(.plain).padding(12)
+            }
+        }.background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.white.opacity(0.04))
+            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.white.opacity(0.1))))
+    }
+
+    private var valid: Bool {
+        switch request.spec.field.kind {
+        case "choice": return choice != nil
+        case "text", "long_text": return !textVal.trimmingCharacters(in: .whitespaces).isEmpty
+        case "integer": return Int(intVal) != nil
+        default: return true
+        }
+    }
+
+    private func send() {
+        let v: String
+        switch request.spec.field.kind {
+        case "bool": v = boolVal ? "true" : "false"
+        case "choice": v = choice ?? ""
+        case "text", "long_text": v = textVal
+        case "integer": v = intVal
+        default: v = ISO8601DateFormatter().string(from: Date())
+        }
+        submitting = true
+        Task { await mgr.submit(request, value: v, notes: notes.isEmpty ? nil : notes); submitting = false }
+    }
+}
+
+// MARK: - Entry Point (no @main, manual NSApplication)
 
 let app = NSApplication.shared
-let delegate = AppDelegate()
-app.delegate = delegate
 app.setActivationPolicy(.regular)
+
+let manager: InboxManager = MainActor.assumeIsolated { InboxManager() }
+
+let screen = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 1200, height: 800)
+let winW = 720.0, winH = 600.0
+let winX = screen.midX - winW / 2, winY = screen.midY - winH / 2
+
+let window = NSWindow(
+    contentRect: NSRect(x: winX, y: winY, width: winW, height: winH),
+    styleMask: [.titled, .closable, .miniaturizable, .resizable],
+    backing: .buffered, defer: false
+)
+window.title = "Phinbox"
+window.minSize = NSSize(width: 520, height: 400)
+window.isReleasedWhenClosed = false
+window.titlebarAppearsTransparent = false
+window.titleVisibility = .visible
+window.isMovableByWindowBackground = true
+
+let hosting = NSHostingView(rootView: RootView(mgr: manager))
+hosting.translatesAutoresizingMaskIntoConstraints = false
+window.contentView = hosting
+if let cv = window.contentView {
+    NSLayoutConstraint.activate([
+        hosting.topAnchor.constraint(equalTo: cv.topAnchor),
+        hosting.bottomAnchor.constraint(equalTo: cv.bottomAnchor),
+        hosting.leadingAnchor.constraint(equalTo: cv.leadingAnchor),
+        hosting.trailingAnchor.constraint(equalTo: cv.trailingAnchor),
+    ])
+}
+
+window.makeKeyAndOrderFront(nil)
 app.activate(ignoringOtherApps: true)
+MainActor.assumeIsolated { manager.start() }
 
-// Create main menu with standard shortcuts
+// SIGUSR1 handler — bring window to front from tray
+signal(30, SIG_IGN)
+let sigSrc = DispatchSource.makeSignalSource(signal: 30, queue: .main)
+sigSrc.setEventHandler {
+    app.activate(ignoringOtherApps: true)
+    window.makeKeyAndOrderFront(nil)
+}
+sigSrc.resume()
+
+// Menu bar
 let mainMenu = NSMenu()
-
-// App menu
 let appMenuItem = NSMenuItem()
 mainMenu.addItem(appMenuItem)
 let appMenu = NSMenu()
@@ -264,7 +457,6 @@ appMenu.addItem(NSMenuItem.separator())
 appMenu.addItem(withTitle: "Quit Phinbox", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 appMenuItem.submenu = appMenu
 
-// Edit menu
 let editMenuItem = NSMenuItem()
 mainMenu.addItem(editMenuItem)
 let editMenu = NSMenu(title: "Edit")
@@ -277,14 +469,10 @@ editMenu.addItem(withTitle: "Paste", action: #selector(NSText.paste(_:)), keyEqu
 editMenu.addItem(withTitle: "Select All", action: #selector(NSText.selectAll(_:)), keyEquivalent: "a")
 editMenuItem.submenu = editMenu
 
-// View menu
 let viewMenuItem = NSMenuItem()
 mainMenu.addItem(viewMenuItem)
 let viewMenu = NSMenu(title: "View")
-viewMenu.addItem(withTitle: "Reload", action: #selector(AppDelegate.reloadPage(_:)), keyEquivalent: "r")
 viewMenuItem.submenu = viewMenu
 
 app.mainMenu = mainMenu
-
-// Run the event loop (window shown in applicationDidFinishLaunching)
 app.run()

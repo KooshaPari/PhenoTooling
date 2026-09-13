@@ -16,8 +16,9 @@ pub use helpers::{
     urgency_class, urgency_label, INBOX_SLUG,
 };
 pub use html::{
-    render_answer_html, render_field_widget, render_form_html, render_full_html,
-    render_inbox_index_html, render_plain_text, render_summary, render_summary_json,
+    render_answer_html, render_expired_html, render_field_widget, render_form_html,
+    render_full_html, render_inbox_index_html, render_plain_text, render_summary,
+    render_summary_json,
 };
 
 // ---- tests ---------------------------------------------------------------
