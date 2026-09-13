@@ -69,7 +69,7 @@ pub struct PromptSpec {
     pub request_id: Option<String>,
 }
 
-const fn default_timeout_secs() -> u32 {
+pub(crate) const fn default_timeout_secs() -> u32 {
     600
 }
 
@@ -292,44 +292,6 @@ impl Default for ElicitResponse {
     }
 }
 
-impl PromptSpec {
-    /// Validate the spec. Returns an error message on the first violation.
-    pub fn validate(&self) -> Result<(), String> {
-        if self.title.is_empty() {
-            return Err("title must not be empty".into());
-        }
-        if self.title.chars().count() > 80 {
-            return Err(format!(
-                "title exceeds 80 chars (got {})",
-                self.title.chars().count()
-            ));
-        }
-        if self.question.chars().count() > 2000 {
-            return Err(format!(
-                "question exceeds 2000 chars (got {})",
-                self.question.chars().count()
-            ));
-        }
-        if let FieldSpec::Choice { options, default_index, .. } = &self.field {
-            if options.is_empty() {
-                return Err("choice field must have at least one option".into());
-            }
-            if let Some(idx) = default_index {
-                if *idx >= options.len() {
-                    return Err(format!(
-                        "default_index {idx} out of range ({} options)",
-                        options.len()
-                    ));
-                }
-            }
-        }
-        if let FieldSpec::Text { pattern: Some(p), .. } = &self.field {
-            regex::Regex::new(p).map_err(|e| format!("invalid pattern regex: {e}"))?;
-        }
-        Ok(())
-    }
-}
-
 impl ElicitResponse {
     /// Returns `true` if the user provided an answer (vs cancelling, timing
     /// out, or the popup failing).
@@ -354,148 +316,5 @@ impl ElicitResponse {
     #[must_use]
     pub fn is_failed(&self) -> bool {
         matches!(self, Self::Failed { .. })
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    fn minimal_text() -> PromptSpec {
-        PromptSpec {
-            title: "Test".into(),
-            question: "?".into(),
-            field: FieldSpec::Text {
-                label: "name".into(),
-                default: None,
-                placeholder: None,
-                max_length: None,
-                secret: false,
-                pattern: None,
-            },
-            notes: None,
-            buttons: None,
-            urgency: Urgency::default(),
-            timeout_secs: default_timeout_secs(),
-            request_id: None,
-        }
-    }
-
-    #[test]
-    fn validate_accepts_minimal() {
-        assert!(minimal_text().validate().is_ok());
-    }
-
-    #[test]
-    fn validate_rejects_empty_title() {
-        let mut s = minimal_text();
-        s.title = "".into();
-        assert!(s.validate().is_err());
-    }
-
-    #[test]
-    fn validate_rejects_long_title() {
-        let mut s = minimal_text();
-        s.title = "x".repeat(81);
-        assert!(s.validate().is_err());
-    }
-
-    #[test]
-    fn validate_rejects_empty_choice() {
-        let mut s = minimal_text();
-        s.field = FieldSpec::Choice {
-            label: "pick".into(),
-            options: vec![],
-            default_index: None,
-        };
-        assert!(s.validate().is_err());
-    }
-
-    #[test]
-    fn validate_rejects_bad_default_index() {
-        let mut s = minimal_text();
-        s.field = FieldSpec::Choice {
-            label: "pick".into(),
-            options: vec![ChoiceOption {
-                value: "a".into(),
-                label: "A".into(),
-                description: None,
-            }],
-            default_index: Some(5),
-        };
-        assert!(s.validate().is_err());
-    }
-
-    #[test]
-    fn validate_rejects_bad_regex() {
-        let mut s = minimal_text();
-        s.field = FieldSpec::Text {
-            label: "x".into(),
-            default: None,
-            placeholder: None,
-            max_length: None,
-            secret: false,
-            pattern: Some("[unclosed".into()),
-        };
-        assert!(s.validate().is_err());
-    }
-
-    #[test]
-    fn response_predicates() {
-        let ans = ElicitResponse::Answered {
-            value: FieldValue::Text("hi".into()),
-            notes: None,
-        };
-        assert!(ans.is_answered());
-        assert!(!ans.is_cancelled());
-
-        let can = ElicitResponse::Cancelled { notes: None };
-        assert!(can.is_cancelled());
-        assert!(!can.is_answered());
-
-        let to = ElicitResponse::TimedOut { elapsed_secs: 1.0 };
-        assert!(to.is_timed_out());
-
-        let f = ElicitResponse::Failed { reason: "x".into() };
-        assert!(f.is_failed());
-    }
-
-    #[test]
-    fn serde_roundtrip_text() {
-        let s = minimal_text();
-        let json = serde_json::to_string(&s).unwrap();
-        let back: PromptSpec = serde_json::from_str(&json).unwrap();
-        assert_eq!(back.title, s.title);
-    }
-
-    #[test]
-    fn serde_roundtrip_choice() {
-        let s = PromptSpec {
-            field: FieldSpec::Choice {
-                label: "target".into(),
-                options: vec![
-                    ChoiceOption {
-                        value: "staging".into(),
-                        label: "Staging".into(),
-                        description: Some("preprod".into()),
-                    },
-                    ChoiceOption {
-                        value: "prod".into(),
-                        label: "Production".into(),
-                        description: None,
-                    },
-                ],
-                default_index: Some(0),
-            },
-            ..minimal_text()
-        };
-        let json = serde_json::to_string(&s).unwrap();
-        let back: PromptSpec = serde_json::from_str(&json).unwrap();
-        if let FieldSpec::Choice { options, .. } = &back.field {
-            assert_eq!(options.len(), 2);
-            assert_eq!(options[0].value, "staging");
-        } else {
-            panic!("round-trip lost choice variant");
-        }
     }
 }
