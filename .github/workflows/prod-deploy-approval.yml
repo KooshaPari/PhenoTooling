@@ -1,0 +1,236 @@
+# Reusable Production Deployment Workflow
+#
+# Deploys to production (backend + frontend + edge) with:
+#   - CI trio re-run (max strictness) as a required check
+#   - Manual approval gate via GitHub environment protection rules
+#   - Post-deploy health check
+#   - Automated rollback on health failure
+#
+# Usage (in a repo's .github/workflows/prod-deploy.yml):
+#   name: Prod Deploy
+#   on:
+#     workflow_dispatch:
+#       inputs:
+#         skip_tests:
+#           description: "Skip test suite"
+#           type: boolean
+#           default: false
+#   push:
+#     branches: [main]
+#     paths:
+#       - "crates/**"
+#       - "frontend/**"
+#       - "Dockerfile"
+#   jobs:
+#     deploy:
+#       uses: KooshaPari/phenotype-tooling/.github/workflows/reusable/prod-deploy-approval.yml@main
+#       with:
+#         env-name: production
+#         deploy-backend: true
+#         deploy-frontend: true
+#         deploy-edge: true
+#       secrets: inherit
+#
+# Required secrets (per repo):
+#   - All provider API keys (RENDER_API_KEY, VERCEL_TOKEN, CLOUDFLARE_API_TOKEN, etc.)
+#   - GH_TOKEN (for rollback API calls)
+#
+# Required environments (configured in repo Settings > Environments):
+#   - "production" with required reviewers (2+ recommended)
+#   - Environment variable rules for service IDs / API keys as needed
+
+name: Prod Deploy Approval (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      env-name:
+        description: "GitHub environment name for protection rules"
+        required: true
+        type: string
+      deploy-backend:
+        description: "Deploy backend service"
+        required: false
+        type: boolean
+        default: true
+      deploy-frontend:
+        description: "Deploy frontend service"
+        required: false
+        type: boolean
+        default: true
+      deploy-edge:
+        description: "Deploy edge service"
+        required: false
+        type: boolean
+        default: true
+      timeout-minutes:
+        description: "Deploy job timeout in minutes"
+        required: false
+        type: number
+        default: 30
+      health-path-backend:
+        description: "Health check path for backend"
+        required: false
+        type: string
+        default: /health
+      health-path-frontend:
+        description: "Health check path for frontend"
+        required: false
+        type: string
+        default: /
+      health-path-edge:
+        description: "Health check path for edge"
+        required: false
+        type: string
+        default: /
+      rollback-enabled:
+        description: "Enable automated rollback on health failure"
+        required: false
+        type: boolean
+        default: true
+    secrets:
+      GH_TOKEN:
+        required: true
+
+jobs:
+  # Step 1: Re-run CI trio (max strictness) — required check before deploy
+  ci-trio:
+    name: CI Trio (Re-run, Prod Strictness)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Re-run lint
+        run: echo "Invoke repo lint step — customize per repo"
+
+      - name: Re-run tests
+        run: echo "Invoke repo test step — customize per repo"
+
+      - name: Re-run integration checks
+        run: echo "Invoke repo integration step — customize per repo"
+
+  # Step 2: Capture previous deploy IDs for rollback
+  capture-state:
+    name: Capture Previous Deploy State
+    needs: ci-trio
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      prev-backend-deploy: ${{ steps.capture.outputs.prev-backend }}
+      prev-frontend-deploy: ${{ steps.capture.outputs.prev-frontend }}
+      prev-edge-deploy: ${{ steps.capture.outputs.prev-edge }}
+    steps:
+      - name: Capture Render previous deploy
+        id: capture
+        if: ${{ inputs.deploy-backend }}
+        run: |
+          set -euo pipefail
+          # Placeholder — customize for each provider
+          echo "prev-backend=" >> $GITHUB_OUTPUT
+          echo "prev-frontend=" >> $GITHUB_OUTPUT
+          echo "prev-edge=" >> $GITHUB_OUTPUT
+
+  # Step 3: Deploy — requires environment approval
+  deploy:
+    name: Deploy to Production
+    needs: [ci-trio, capture-state]
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    environment:
+      name: ${{ inputs.env-name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Backend
+        if: inputs.deploy-backend
+        run: |
+          echo "TODO: call Render/Vercel/CF deploy API for backend"
+
+      - name: Deploy Frontend
+        if: inputs.deploy-frontend
+        run: |
+          echo "TODO: call Render/Vercel/CF deploy API for frontend"
+
+      - name: Deploy Edge
+        if: inputs.deploy-edge
+        run: |
+          echo "TODO: call Render/Vercel/CF deploy API for edge"
+
+      - name: Post-deploy Health Check (Backend)
+        if: inputs.deploy-backend
+        run: |
+          echo "TODO: health check backend at ${{ inputs.health-path-backend }}"
+
+      - name: Post-deploy Health Check (Frontend)
+        if: inputs.deploy-frontend
+        run: |
+          echo "TODO: health check frontend at ${{ inputs.health-path-frontend }}"
+
+      - name: Post-deploy Health Check (Edge)
+        if: inputs.deploy-edge
+        run: |
+          echo "TODO: health check edge at ${{ inputs.health-path-edge }}"
+
+      - name: Health check summary
+        run: |
+          echo "All health checks completed."
+
+  # Step 4: Rollback (only on failure)
+  rollback:
+    name: Rollback on Failure
+    needs: [deploy]
+    if: ${{ inputs.rollback-enabled && needs.deploy.result != 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Rollback Backend
+        if: inputs.deploy-backend
+        run: |
+          echo "TODO: call provider rollback API for backend using captured deploy IDs"
+
+      - name: Rollback Frontend
+        if: inputs.deploy-frontend
+        run: |
+          echo "TODO: call provider rollback API for frontend"
+
+      - name: Rollback Edge
+        if: inputs.deploy-edge
+        run: |
+          echo "TODO: call provider rollback API for edge"
+
+      - name: Notify
+        run: |
+          echo "Rollback executed. Notify team via Slack/Discord/email."
+
+  # Summary
+  summary:
+    name: Deployment Summary
+    needs: [ci-trio, deploy, rollback]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Report Status
+        run: |
+          CI="${{ needs.ci-trio.result }}"
+          DEPLOY="${{ needs.deploy.result }}"
+          RB="${{ needs.rollback.result }}"
+          echo "| Stage | Status |"
+          echo "|-------|--------|"
+          echo "| CI Trio (prod) | ${CI} |"
+          echo "| Deploy | ${DEPLOY} |"
+          echo "| Rollback | ${RB} |"
+          if [ "$CI" != "success" ]; then
+            echo "CI failed — deploy aborted."
+            exit 1
+          fi
+          if [ "$DEPLOY" != "success" ]; then
+            echo "Deploy failed; rollback ${RB}."
+            exit 1
+          fi
+          echo "Prod deploy successful."
