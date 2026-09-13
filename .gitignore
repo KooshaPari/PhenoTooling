@@ -25,3 +25,6 @@ venv/
 .cursor/
 .forgecode/
 .cursorrules.elicitate
+
+# Local agent scratch (per-project sandbox)
+.sandbox/
