@@ -43,6 +43,7 @@ struct PhinboxApp {
         window.titlebarAppearsTransparent = false
         window.titleVisibility = .visible
         window.isMovableByWindowBackground = true
+        window.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
 
         // Set window icon from bundle resource
         if let iconURL = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
