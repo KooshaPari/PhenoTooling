@@ -477,6 +477,13 @@ extension RootView {
 
 let app = NSApplication.shared
 app.setActivationPolicy(.regular)
+app.setName("Phinbox")
+
+// Load branded app icon from bundle
+if let iconURL = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+   let icon = NSImage(contentsOf: iconURL) {
+    app.applicationIconImage = icon
+}
 
 let manager: InboxManager = MainActor.assumeIsolated { InboxManager() }
 
@@ -495,6 +502,12 @@ window.isReleasedWhenClosed = false
 window.titlebarAppearsTransparent = false
 window.titleVisibility = .visible
 window.isMovableByWindowBackground = true
+// Set window icon from bundle resource
+if let iconURL = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+   let icon = NSImage(contentsOf: iconURL) {
+    icon.size = NSSize(width: 16, height: 16)
+    window.contentView?.window?.standardWindowButton(.documentIconButton)?.image = icon
+}
 
 let hosting = NSHostingView(rootView: RootView(mgr: manager))
 hosting.translatesAutoresizingMaskIntoConstraints = false
