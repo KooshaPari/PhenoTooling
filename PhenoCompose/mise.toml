@@ -1,0 +1,5 @@
+# mise (https://mise.jdx.dev) tool version config
+[tools]
+rust = "1.75.0"
+go = "1.21.0"
+node = "20.0.0"

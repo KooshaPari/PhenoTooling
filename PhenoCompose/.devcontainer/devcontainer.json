@@ -1,0 +1,17 @@
+{
+  "name": "PhenoCompose",
+  "image": "mcr.microsoft.com/devcontainers/rust:1.75-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.21"
+    }
+  },
+  "postCreateCommand": "cargo install cargo-nextest cargo-deny release-plz",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer", "tamasfe.even-better-toml"]
+    }
+  },
+  "forwardPorts": [20128],
+  "remoteUser": "vscode"
+}
