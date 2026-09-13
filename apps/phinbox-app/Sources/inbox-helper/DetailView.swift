@@ -25,11 +25,12 @@ struct DetailView: View {
     // Apply default values from spec on first render
     private func applyDefaults() {
         let f = request.spec.field
-        if choice == nil, let def = f.default as? String { choice = def }
-        if let def = f.default as? Bool { boolVal = def }
-        if textVal.isEmpty, let def = f.default as? String { textVal = def }
-        if intVal.isEmpty, let def = f.default as? Int { intVal = "\(def)" }
-        if let def = f.default as? String {
+        guard let anyDef = f.default else { return }
+        if choice == nil, let def = anyDef.value as? String { choice = def }
+        if let def = anyDef.value as? Bool { boolVal = def }
+        if textVal.isEmpty, let def = anyDef.value as? String { textVal = def }
+        if intVal.isEmpty, let def = anyDef.value as? Int { intVal = "\(def)" }
+        if let def = anyDef.value as? String {
             let fmt = ISO8601DateFormatter()
             if let d = fmt.date(from: def) { dateVal = d }
         }

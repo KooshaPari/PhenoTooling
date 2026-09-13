@@ -18,12 +18,22 @@ struct PhinboxApp {
 
         let manager: InboxManager = MainActor.assumeIsolated { InboxManager() }
 
+        // Restore saved window frame
+        let savedFrame = UserDefaults.standard.string(forKey: "PhinboxWindowFrame")
         let screen = NSScreen.main?.visibleFrame ?? NSRect(x: 0, y: 0, width: 1200, height: 800)
         let winW = 720.0, winH = 600.0
         let winX = screen.midX - winW / 2, winY = screen.midY - winH / 2
 
+        var initialFrame = NSRect(x: winX, y: winY, width: winW, height: winH)
+        if let saved = savedFrame, let rect = NSRectFromString(saved) as NSRect?, rect.width > 0, rect.height > 0 {
+            // Ensure the saved frame is still on a visible screen
+            if screen.intersects(rect) {
+                initialFrame = rect
+            }
+        }
+
         let window = NSWindow(
-            contentRect: NSRect(x: winX, y: winY, width: winW, height: winH),
+            contentRect: initialFrame,
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered, defer: false
         )
@@ -56,6 +66,22 @@ struct PhinboxApp {
         window.makeKeyAndOrderFront(nil)
         app.activate(ignoringOtherApps: true)
         MainActor.assumeIsolated { manager.start() }
+
+        // Save window frame on move/resize
+        NotificationCenter.default.addObserver(
+            forName: NSWindow.didMoveNotification,
+            object: window,
+            queue: .main
+        ) { _ in
+            UserDefaults.standard.set(NSStringFromRect(window.frame), forKey: "PhinboxWindowFrame")
+        }
+        NotificationCenter.default.addObserver(
+            forName: NSWindow.didResizeNotification,
+            object: window,
+            queue: .main
+        ) { _ in
+            UserDefaults.standard.set(NSStringFromRect(window.frame), forKey: "PhinboxWindowFrame")
+        }
 
         // SIGUSR1 handler
         signal(30, SIG_IGN)

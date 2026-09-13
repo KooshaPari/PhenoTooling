@@ -137,10 +137,7 @@ fn tray_event_dispatch(
                             activate_inbox_helper(port);
                         }
                         MenuAction::OpenLatest => {
-                            let url = format!("http://127.0.0.1:{}/inbox/latest", port);
-                            let _ = std::process::Command::new("open")
-                                .arg(&url)
-                                .spawn();
+                            activate_inbox_helper(port);
                         }
                         MenuAction::ToggleQuiet => {
                             let _ = tray.set_tooltip("phinbox inbox (quiet)");
