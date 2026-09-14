@@ -1,4 +1,4 @@
-//! String escaping for safe interpolation into AppleScript / PowerShell.
+//! String escaping for safe interpolation into `AppleScript` / PowerShell.
 //!
 //! This is the single most security-critical module in the crate — agent
 //! authored strings get embedded into a shell-out command, so any
@@ -9,7 +9,7 @@
 
 use crate::error::ElicitError;
 
-/// Escape a string for safe interpolation into an AppleScript double-quoted
+/// Escape a string for safe interpolation into an `AppleScript` double-quoted
 /// string literal (e.g., the `text` parameter of `display dialog`).
 ///
 /// Rules applied:
@@ -17,7 +17,7 @@ use crate::error::ElicitError;
 /// - Escapes `\` and `"`.
 /// - Rejects ASCII control chars (0x00..=0x1F except `\t`) — caller should
 ///   sanitize input before passing.
-/// - Rejects non-ASCII characters other than printable Unicode — AppleScript
+/// - Rejects non-ASCII characters other than printable Unicode — `AppleScript`
 ///   encoding is fragile on strings containing weird code points; reject
 ///   to fail safely.
 ///
@@ -85,6 +85,7 @@ pub fn powershell_escape(s: &str) -> Result<String, ElicitError> {
 /// Escape a string for safe use as a single-quoted bash argument.
 ///
 /// Used when shelling out to `zenity` / `kdialog` / `python3` on Linux.
+#[must_use]
 pub fn shell_escape(s: &str) -> String {
     let mut out = String::with_capacity(s.len() + 2);
     out.push('\'');

@@ -1,15 +1,13 @@
 //! Async JSON-RPC server over Unix domain socket.
 
 use std::path::Path;
-use std::sync::Arc;
 use std::time::Duration;
 
-use parking_lot::Mutex;
 use serde::Deserialize;
 use serde_json::{json, Value};
 use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
 use tokio::net::{UnixListener, UnixStream};
-use tokio::sync::{broadcast, Notify};
+use tokio::sync::broadcast;
 use tokio::task::JoinHandle;
 
 use crate::error::ElicitError;
@@ -19,7 +17,7 @@ use crate::inbox::{
 };
 use crate::spec::ElicitResponse;
 
-use super::{ChangeEvent, RpcError, RpcState, Response};
+use super::{RpcState, Response};
 
 // ---------------------------------------------------------------------------
 // Server lifecycle
@@ -48,7 +46,7 @@ pub fn spawn_accept(state: RpcState, listener: UnixListener) -> JoinHandle<()> {
     tokio::spawn(async move {
         loop {
             tokio::select! {
-                _ = state.shutdown.notified() => break,
+                () = state.shutdown.notified() => break,
                 accepted = listener.accept() => {
                     match accepted {
                         Ok((stream, _addr)) => {
@@ -155,7 +153,7 @@ async fn dispatch(state: &RpcState, req: super::Request) -> Response {
                 Ok(None) => Response::err(id, super::ERR_NOT_FOUND, format!("rid={}", p.rid)),
                 Err(e) => Response::err(id, super::ERR_IO, e.to_string()),
             },
-            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.to_string()),
+            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.clone()),
         },
 
         "inbox.answer" => match parse_params::<AnswerParams>(&req.params) {
@@ -163,7 +161,7 @@ async fn dispatch(state: &RpcState, req: super::Request) -> Response {
                 Ok(updated) => Response::ok(id, json!({ "request": updated })),
                 Err(e) => e,
             },
-            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.to_string()),
+            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.clone()),
         },
 
         "inbox.cancel" => match parse_params::<RidParams>(&req.params) {
@@ -171,7 +169,7 @@ async fn dispatch(state: &RpcState, req: super::Request) -> Response {
                 Ok(updated) => Response::ok(id, json!({ "request": updated })),
                 Err(e) => e,
             },
-            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.to_string()),
+            Err(e) => Response::err(id, super::ERR_INVALID_PARAMS, e.clone()),
         },
 
         _ => Response::err(id, super::ERR_METHOD_NOT_FOUND, req.method.clone()),
@@ -255,7 +253,7 @@ async fn handle_subscribe<W: AsyncWriteExt + Unpin>(
     let mut rx = state.changes.subscribe();
     loop {
         tokio::select! {
-            _ = state.shutdown.notified() => return Ok(()),
+            () = state.shutdown.notified() => return Ok(()),
             evt = rx.recv() => match evt {
                 Ok(change) => {
                     let payload = serde_json::to_value(&change).unwrap_or(Value::Null);

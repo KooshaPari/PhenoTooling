@@ -54,6 +54,7 @@ pub(crate) fn write_lockfile(
 
 /// Read and parse an existing lockfile. Returns `None` if the file is
 /// missing or corrupt.
+#[must_use]
 pub fn read_lockfile(root: &Path) -> Option<LockfilePayload> {
     let path = root.join(LOCKFILE_NAME);
     let bytes = std::fs::read(&path).ok()?;
@@ -73,6 +74,7 @@ pub(crate) fn is_port_live(bind: IpAddr, port: u16) -> bool {
 ///
 /// `bind_filter` lets the caller restrict to a particular bind address
 /// (loopback vs. LAN). Pass `None` to accept any bind address.
+#[must_use]
 pub fn live_url(root: &Path, bind_filter: Option<IpAddr>) -> Option<String> {
     let payload = read_lockfile(root)?;
     if let Some(addr) = bind_filter {

@@ -64,7 +64,7 @@ pub struct PromptSpec {
     pub timeout_secs: u32,
 
     /// Request ID for correlation when multiple prompts are queued.
-    /// If omitted, the library auto-generates a UUIDv4.
+    /// If omitted, the library auto-generates a `UUIDv4`.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
 }

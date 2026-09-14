@@ -48,7 +48,7 @@ pub fn render_plain_text(req: &PendingRequest) -> String {
         "[{kind}] {title}: {question}",
         kind = field_kind,
         title = req.spec.title.as_str(),
-        question = &req.spec.question,
+        question = req.spec.question,
     )
 }
 
@@ -57,7 +57,7 @@ pub fn render_plain_text(req: &PendingRequest) -> String {
 pub fn render_summary(req: &PendingRequest) -> String {
     format!(
         "{} — {} ({})",
-        &req.spec.title,
+        req.spec.title,
         req.spec.question,
         field_kind_label(&req.spec.field),
     )

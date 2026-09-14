@@ -6,7 +6,7 @@
 use std::path::PathBuf;
 use std::process::ExitCode;
 
-use clap::{Args, Parser, Subcommand};
+use clap::{Parser, Subcommand};
 
 use phinbox::options::RendererPreference;
 
@@ -69,7 +69,7 @@ impl From<RendererArg> for RendererPreference {
 enum Cmd {
     /// Render a popup from CLI flags, --from-json, or --from-file.
     Ask(ask::AskArgs),
-    /// Print the JSON Schema for PromptSpec (or FieldSpec / ElicitResponse).
+    /// Print the JSON Schema for `PromptSpec` (or `FieldSpec` / `ElicitResponse`).
     Schema(common::SchemaArgs),
     /// Detect platform + renderer kind.
     Detect,
@@ -107,8 +107,14 @@ pub fn main() -> ExitCode {
 
     let result = match cli.cmd {
         Cmd::Ask(args) => ask::cmd_ask(args, renderer, &inbox_dir),
-        Cmd::Schema(args) => Ok(common::cmd_schema(args)),
-        Cmd::Detect => Ok(common::cmd_detect()),
+        Cmd::Schema(args) => {
+            common::cmd_schema(args);
+            Ok(())
+        },
+        Cmd::Detect => {
+            common::cmd_detect();
+            Ok(())
+        },
         Cmd::Smoke(args) => common::cmd_smoke(args, renderer),
         Cmd::Install(args) => install::cmd_install(args, &inbox_dir),
         Cmd::Uninstall(args) => install::cmd_uninstall(args, &inbox_dir),

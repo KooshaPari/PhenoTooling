@@ -60,7 +60,7 @@ pub fn truncate(s: &str, max_chars: usize) -> String {
 /// Map `Urgency` to its CSS class for card styling.
 #[must_use]
 pub fn urgency_class(u: crate::spec::Urgency) -> &'static str {
-    use crate::spec::Urgency::*;
+    use crate::spec::Urgency::{Info, Warning, Error, Secret};
     match u {
         Info => "info",
         Warning => "warn",
@@ -72,7 +72,7 @@ pub fn urgency_class(u: crate::spec::Urgency) -> &'static str {
 /// Map `Urgency` to a short human label.
 #[must_use]
 pub fn urgency_label(u: crate::spec::Urgency) -> &'static str {
-    use crate::spec::Urgency::*;
+    use crate::spec::Urgency::{Info, Warning, Error, Secret};
     match u {
         Info => "Info",
         Warning => "Warning",

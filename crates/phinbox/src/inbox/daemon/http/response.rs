@@ -31,8 +31,7 @@ pub(crate) fn redirect_response(
 ) -> std::io::Result<Option<String>> {
     let body = format!(
         "<!doctype html><meta charset=utf-8><title>redirecting</title>\
-         <body><p>Redirecting to <a href=\"{loc}\">{loc}</a>...</p>",
-        loc = location
+         <body><p>Redirecting to <a href=\"{location}\">{location}</a>...</p>"
     );
     write!(
         stream,

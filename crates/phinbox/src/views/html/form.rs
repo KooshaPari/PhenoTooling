@@ -43,17 +43,12 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
                 .map(|d| format!(r#" value="{}""#, html_attr(d)))
                 .unwrap_or_default();
             let max_len_html = max_length
-                .map(|m| format!(r#" maxlength="{}""#, m))
+                .map(|m| format!(r#" maxlength="{m}""#))
                 .unwrap_or_default();
             let input_type = if *secret { "password" } else { "text" };
             format!(
-                r"<label for=eli-field>{label}</label>\
-                   <input id=eli-field type={input_type} name=value{placeholder}{default}{max_len} required>",
-                label = label_html,
-                input_type = input_type,
-                placeholder = placeholder_html,
-                default = default_html,
-                max_len = max_len_html,
+                r"<label for=eli-field>{label_html}</label>\
+                   <input id=eli-field type={input_type} name=value{placeholder_html}{default_html}{max_len_html} required>",
             )
         }
         FieldSpec::LongText {
@@ -64,10 +59,10 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
             let label_html = html_escape(label);
             let default_html = default
                 .as_deref()
-                .map(|d| html_escape(d))
+                .map(html_escape)
                 .unwrap_or_default();
             let max_len_html = max_length
-                .map(|m| format!(r#" maxlength="{}""#, m))
+                .map(|m| format!(r#" maxlength="{m}""#))
                 .unwrap_or_default();
             format!(
                 r"<label for=eli-field>{label}</label>\
@@ -85,18 +80,14 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
             default,
         } => {
             let label_html = html_escape(label);
-            let min_html = min.map(|m| format!(r#" min="{}""#, m)).unwrap_or_default();
-            let max_html = max.map(|m| format!(r#" max="{}""#, m)).unwrap_or_default();
+            let min_html = min.map(|m| format!(r#" min="{m}""#)).unwrap_or_default();
+            let max_html = max.map(|m| format!(r#" max="{m}""#)).unwrap_or_default();
             let default_html = default
-                .map(|d| format!(r#" value="{}""#, d))
+                .map(|d| format!(r#" value="{d}""#))
                 .unwrap_or_default();
             format!(
-                r"<label for=eli-field>{label}</label>\
-                   <input id=eli-field type=number name=integer{min}{max}{default} required>",
-                label = label_html,
-                min = min_html,
-                max = max_html,
-                default = default_html,
+                r"<label for=eli-field>{label_html}</label>\
+                   <input id=eli-field type=number name=integer{min_html}{max_html}{default_html} required>",
             )
         }
         FieldSpec::Choice {
@@ -109,20 +100,15 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
             for (i, opt) in options.iter().enumerate() {
                 let value = html_attr(&opt.value);
                 let label_text = html_escape(&opt.label);
-                let selected = default_index.map(|d| d == i).unwrap_or(false);
+                let selected = default_index.is_some_and(|d| d == i);
                 let sel_attr = if selected { " selected" } else { "" };
                 opts.push_str(&format!(
-                    r#"<option value="{value}"{sel}>{label}</option>"#,
-                    value = value,
-                    sel = sel_attr,
-                    label = label_text,
+                    r#"<option value="{value}"{sel_attr}>{label_text}</option>"#,
                 ));
             }
             format!(
-                r"<label for=eli-field>{label}</label>\
+                r"<label for=eli-field>{label_html}</label>\
                    <select id=eli-field name=value required>{opts}</select>",
-                label = label_html,
-                opts = opts,
             )
         }
         FieldSpec::Boolean { label, default } => {
@@ -130,10 +116,8 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
             let checked = default.unwrap_or(false);
             let checked_attr = if checked { " checked" } else { "" };
             format!(
-                r"<label class=bool><input type=checkbox name=boolean value=on{checked}> \
-                   <span>{label}</span></label>",
-                checked = checked_attr,
-                label = label_html,
+                r"<label class=bool><input type=checkbox name=boolean value=on{checked_attr}> \
+                   <span>{label_html}</span></label>",
             )
         }
         FieldSpec::DateTime {
@@ -153,11 +137,8 @@ pub fn render_field_widget(field: &FieldSpec) -> String {
                 .map(|d| format!(r#" value="{}""#, html_attr(d)))
                 .unwrap_or_default();
             format!(
-                r"<label for=eli-field>{label}</label>\
-                   <input id=eli-field type={input_type} name=value{default} required>",
-                label = label_html,
-                input_type = input_type,
-                default = default_html,
+                r"<label for=eli-field>{label_html}</label>\
+                   <input id=eli-field type={input_type} name=value{default_html} required>",
             )
         }
     }
@@ -188,11 +169,11 @@ pub fn render_form_html(req: &PendingRequest) -> String {
             let req_attr = if n.required { " required" } else { "" };
             let max_len = n
                 .max_length
-                .map(|m| format!(r#" maxlength="{}""#, m))
+                .map(|m| format!(r#" maxlength="{m}""#))
                 .unwrap_or_default();
             format!(
-                r#"<label for=eli-notes>{nl}</label>\
-                   <textarea id=eli-notes name=notes{req}{max_len}>{default}</textarea>"#,
+                r"<label for=eli-notes>{nl}</label>\
+                   <textarea id=eli-notes name=notes{req}{max_len}>{default}</textarea>",
                 nl = html_escape(&n.label),
                 req = req_attr,
                 max_len = max_len,

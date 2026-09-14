@@ -44,7 +44,7 @@ pub fn cmd_install(args: InstallArgs, inbox_dir: &PathBuf) -> Result<(), String>
     .map(|report| {
         println!("{}", serde_json::to_string_pretty(&report).unwrap_or_default());
     })
-    .map_err(|e| e.to_string())
+    .map_err(|e| e.clone())
 }
 
 pub fn cmd_uninstall(args: UninstallArgs, inbox_dir: &PathBuf) -> Result<(), String> {
@@ -57,5 +57,5 @@ pub fn cmd_uninstall(args: UninstallArgs, inbox_dir: &PathBuf) -> Result<(), Str
     .map(|report| {
         println!("{}", serde_json::to_string_pretty(&report).unwrap_or_default());
     })
-    .map_err(|e| e.to_string())
+    .map_err(|e| e.clone())
 }

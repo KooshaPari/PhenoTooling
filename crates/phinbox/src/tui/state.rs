@@ -9,7 +9,7 @@ use std::time::Duration;
 pub(crate) const MAX_VISIBLE_REQUESTS: usize = 256;
 
 /// How often to re-scan the inbox directory.
-pub(crate) const POLL_INTERVAL: Duration = Duration::from_millis(1_000);
+pub(crate) const POLL_INTERVAL: Duration = Duration::from_secs(1);
 
 /// Outcome of running the TUI to completion.
 #[derive(Debug, Clone, PartialEq, Eq)]

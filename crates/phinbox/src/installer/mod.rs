@@ -2,7 +2,7 @@
 //! `~/.local/bin`), register the inbox daemon with the platform launcher, and
 //! run a smoke test.  Idempotent; re-running refreshes binaries in place.
 //!
-//! - **macOS**: LaunchAgent plist in `~/Library/LaunchAgents`
+//! - **macOS**: `LaunchAgent` plist in `~/Library/LaunchAgents`
 //! - **Windows**: `schtasks` scheduled task + `setx` PATH
 //! - **Linux**: systemd user unit in `~/.config/systemd/user`
 
@@ -87,6 +87,7 @@ pub struct UninstallReport {
 // Shared helpers
 // ---------------------------------------------------------------------------
 
+#[must_use]
 pub fn default_bin_dir() -> PathBuf {
     if let Ok(p) = std::env::var("PHINBOX_BIN") {
         return PathBuf::from(p);
@@ -118,13 +119,14 @@ fn default_inbox_root() -> PathBuf {
     std::env::temp_dir().join("phinbox-inbox")
 }
 
+#[must_use]
 pub fn source_bin_dir() -> PathBuf {
     if let Ok(p) = std::env::var("PHINBOX_SRC_BIN") {
         let p = PathBuf::from(p);
         if p.is_dir() { return p; }
     }
     std::env::current_exe().ok()
-        .and_then(|p| p.parent().map(|d| d.to_path_buf()))
+        .and_then(|p| p.parent().map(std::path::Path::to_path_buf))
         .unwrap_or_else(|| PathBuf::from("."))
 }
 

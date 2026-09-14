@@ -154,12 +154,13 @@ const DEFAULT_TTL_MS: u64 = 24 * 60 * 60 * 1000;
 impl PendingRequest {
     /// Construct a new pending request from a spec, populating `queued_at_ms`
     /// and `expires_at_ms` from the current clock + spec TTL.
+    #[must_use]
     pub fn new(spec: PromptSpec, origin: RequestOrigin) -> Self {
         let now_ms = unix_now_ms();
         let ttl_ms = if spec.timeout_secs == 0 {
             DEFAULT_TTL_MS
         } else {
-            (spec.timeout_secs as u64).saturating_mul(1000)
+            u64::from(spec.timeout_secs).saturating_mul(1000)
         };
         Self {
             request_id: spec
@@ -204,8 +205,7 @@ impl PendingRequest {
 pub fn unix_now_ms() -> u64 {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
-        .map(|d| d.as_millis() as u64)
-        .unwrap_or(0)
+        .map_or(0, |d| d.as_millis() as u64)
 }
 
 /// Where the inbox data lives on disk.
@@ -213,6 +213,7 @@ pub fn unix_now_ms() -> u64 {
 /// Honours `PHINBOX_INBOX_DIR` (overrides everything), falls back to
 /// `$XDG_DATA_HOME/phinbox` / `~/Library/Application Support/phinbox` /
 /// `%LOCALAPPDATA%\phinbox` depending on platform.
+#[must_use]
 pub fn default_inbox_root() -> PathBuf {
     if let Ok(p) = std::env::var("PHINBOX_INBOX_DIR") {
         return PathBuf::from(p);

@@ -24,7 +24,7 @@ use std::sync::Arc;
 
 use parking_lot::Mutex;
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Value};
+use serde_json::Value;
 use tokio::sync::{broadcast, Notify};
 use tokio::net::UnixListener;
 
@@ -41,6 +41,7 @@ pub use server::{bind_listener, spawn_accept};
 // ---------------------------------------------------------------------------
 
 /// Returns the canonical IPC socket path for a given inbox root.
+#[must_use]
 pub fn ipc_socket_path(root: &Path) -> PathBuf {
     root.join("ipc.sock")
 }
@@ -48,6 +49,7 @@ pub fn ipc_socket_path(root: &Path) -> PathBuf {
 /// Best-effort: read the lockfile in `root` and return the IPC socket path.
 /// Returns `None` if the lockfile is missing, malformed, or `ipc_sock` is empty
 /// (older daemons predating IPC).
+#[must_use]
 pub fn live_socket(root: &Path) -> Option<PathBuf> {
     let payload = crate::inbox::daemon::lockfile::read_lockfile(root)?;
     let sock = payload.ipc_sock?;
@@ -186,6 +188,7 @@ fn monotonic_id() -> u64 {
 }
 
 /// Serialize a `RpcState`'s key facts for inclusion in the lockfile.
+#[must_use]
 pub fn state_summary(state: &RpcState) -> HashMap<&'static str, String> {
     let mut m = HashMap::new();
     m.insert("sock_path", state.sock_path.to_string_lossy().to_string());

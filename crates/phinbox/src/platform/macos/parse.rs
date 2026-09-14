@@ -29,7 +29,7 @@ pub(super) fn parse_output(
 
     let status = parts[0];
     let entered = parts[2];
-    let notes_raw = parts.get(3).map(|s| s.to_string());
+    let notes_raw = parts.get(3).map(|s| (*s).to_string());
 
     match status {
         "answered" => {

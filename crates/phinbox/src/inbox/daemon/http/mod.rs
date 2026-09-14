@@ -8,7 +8,7 @@
 pub(crate) mod response;
 pub(crate) mod route;
 
-use std::io::{BufRead, BufReader, Read, Write};
+use std::io::{BufRead, BufReader, Read};
 use std::net::TcpStream;
 use std::path::Path;
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -173,16 +173,14 @@ fn handle_connection(
                     Ok(req) if matches!(req.state, RequestState::Expired) => {
                         Some(text_response(
                             410,
-                            &format!(
-                                "<h1>Request Expired</h1>\
+                            "<h1>Request Expired</h1>\
                                  <p>This request expired and can no longer be answered.</p>\
-                                 <a href=/inbox>Return to inbox</a>"
-                            ),
+                                 <a href=/inbox>Return to inbox</a>",
                         ))
                     }
                     _ => match super::form::submit_answer(inbox_root, &id, &buf) {
-                        Ok(_) => {
-                            redirect_response(&mut stream, &format!("/inbox/{}/done", id))?
+                        Ok(()) => {
+                            redirect_response(&mut stream, &format!("/inbox/{id}/done"))?
                         }
                         Err(e) => Some(text_response(400, &format!("<h1>Error</h1><p>{e}</p>"))),
                     },

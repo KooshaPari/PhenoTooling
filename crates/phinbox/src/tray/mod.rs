@@ -40,6 +40,7 @@ pub enum MenuAction {
 
 impl MenuAction {
     /// Stable menu item id for this action.
+    #[must_use]
     pub fn id(self) -> &'static str {
         match self {
             MenuAction::OpenInbox => "tray.open_inbox",
@@ -50,6 +51,7 @@ impl MenuAction {
     }
 
     /// Human label for the menu item.
+    #[must_use]
     pub fn label(self) -> &'static str {
         match self {
             MenuAction::OpenInbox => "Open Inbox…",
@@ -80,7 +82,7 @@ impl TrayConfig {
     pub fn new(inbox_url: impl Into<String>, inbox_root: impl Into<PathBuf>) -> Self {
         Self {
             tooltip: "phinbox inbox".into(),
-            initial_badge: "".into(),
+            initial_badge: String::new(),
             inbox_root: inbox_root.into(),
             inbox_url: inbox_url.into(),
             quiet: false,
@@ -133,7 +135,7 @@ pub trait Tray: Send + Sync {
         None
     }
     /// Poll for pending tray events and forward them to the event channel.
-    /// On macOS, this must be called from the main thread (NSRunLoop).
+    /// On macOS, this must be called from the main thread (`NSRunLoop`).
     /// On other platforms, this is a no-op (events arrive via the channel).
     fn poll(&self) {}
 }
@@ -172,6 +174,7 @@ pub struct NoopTray {
 }
 
 impl NoopTray {
+    #[must_use]
     pub fn new(cfg: TrayConfig) -> Self {
         Self { cfg }
     }

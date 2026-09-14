@@ -32,15 +32,13 @@ pub fn cmd_inbox(args: InboxArgs, inbox_dir: &PathBuf) -> Result<(), String> {
     // TUI viewer
     if args.tui {
         match phinbox::tui_run(inbox_dir, args.follow) {
-            Ok(phinbox::TuiOutcome::Quit)
-            | Ok(phinbox::TuiOutcome::Answered(_))
-            | Ok(phinbox::TuiOutcome::Dismissed(_)) => return Ok(()),
+            Ok(phinbox::TuiOutcome::Quit | phinbox::TuiOutcome::Answered(_) |
+phinbox::TuiOutcome::Dismissed(_)) => return Ok(()),
             Ok(phinbox::TuiOutcome::NoTty) => {
                 let count = phinbox::tui_render_plain(inbox_dir)?;
                 eprintln!(
-                    "(running plain-text fallback — {} pending request(s); \
-                     run on a real terminal for the full split-pane UI)",
-                    count
+                    "(running plain-text fallback — {count} pending request(s); \
+                     run on a real terminal for the full split-pane UI)"
                 );
                 return Ok(());
             }
@@ -63,7 +61,7 @@ pub fn cmd_inbox(args: InboxArgs, inbox_dir: &PathBuf) -> Result<(), String> {
     if args.open {
         let base = phinbox::inbox_live_url(inbox_dir, None)
             .unwrap_or_else(|| format!("http://127.0.0.1:{}", phinbox::INBOX_DEFAULT_PORT));
-        let url = format!("{}/inbox", base);
+        let url = format!("{base}/inbox");
         println!("{url}");
         let _ = std::process::Command::new(open_cmd())
             .args(open_args(&url))
@@ -87,8 +85,7 @@ pub fn cmd_inbox(args: InboxArgs, inbox_dir: &PathBuf) -> Result<(), String> {
                     .modified()
                     .ok()
                     .and_then(|t| t.duration_since(std::time::UNIX_EPOCH).ok())
-                    .map(|d| d.as_millis() as u64)
-                    .unwrap_or(0);
+                    .map_or(0, |d| d.as_millis() as u64);
                 if now.saturating_sub(mtime) > age_secs * 1000 {
                     std::fs::remove_file(entry.path()).ok();
                     removed += 1;
@@ -122,7 +119,7 @@ pub(crate) fn open_args(url: &str) -> Vec<String> {
     if cfg!(target_os = "macos") {
         vec![url.to_string()]
     } else if cfg!(target_os = "windows") {
-        vec!["/c".into(), "start".into(), "".into(), url.to_string()]
+        vec!["/c".into(), "start".into(), String::new(), url.to_string()]
     } else {
         vec![url.to_string()]
     }

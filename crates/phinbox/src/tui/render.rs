@@ -1,4 +1,4 @@
-//! TUI rendering logic — builds ratatui widgets from ViewerState.
+//! TUI rendering logic — builds ratatui widgets from `ViewerState`.
 
 use std::path::Path;
 

@@ -72,10 +72,10 @@ pub fn cmd_open(args: OpenArgs, inbox_dir: &PathBuf) -> Result<(), String> {
     let url = if args.latest {
         match latest_pending_form_url(inbox_dir, &base) {
             Some(u) => u,
-            None => format!("{}/inbox", base),
+            None => format!("{base}/inbox"),
         }
     } else {
-        format!("{}/inbox", base)
+        format!("{base}/inbox")
     };
 
     println!("{url}");

@@ -8,7 +8,7 @@
 //! - **MCP server** (`phinbox-mcp`) for use as an MCP tool from Forge,
 //!   Codex, Cursor, or any stdio JSON-RPC client.
 //!
-//! The popup is rendered by the operating system — NSAlert on macOS, a
+//! The popup is rendered by the operating system — `NSAlert` on macOS, a
 //! Win32 form on Windows, and a zenity/kdialog/Tk/inquire chain on Linux.
 //! The same [`PromptSpec`] / [`ElicitResponse`] types flow through every
 //! surface; the host agent never sees the platform split.

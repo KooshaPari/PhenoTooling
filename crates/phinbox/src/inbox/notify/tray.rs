@@ -9,6 +9,7 @@ use super::{escape_applescript, escape_powershell, truncate, NotifyAttempt};
 use crate::inbox::{NotificationKind, PendingRequest};
 
 /// Fire a platform-native notification.
+#[must_use]
 pub fn notify_native(req: &PendingRequest) -> NotifyAttempt {
     let result = match crate::platform() {
         crate::Platform::Macos => notify_native_macos(req),
@@ -28,7 +29,7 @@ fn notify_native_macos(req: &PendingRequest) -> Result<String, String> {
         escape_applescript(&truncate(&req.spec.question, 200)),
         escape_applescript(&truncate(&req.spec.title, 60)),
     );
-    super::run_osascript(&script).map(|_| "ok".into())
+    super::run_osascript(&script).map(|()| "ok".into())
 }
 
 fn notify_native_windows(req: &PendingRequest) -> Result<String, String> {

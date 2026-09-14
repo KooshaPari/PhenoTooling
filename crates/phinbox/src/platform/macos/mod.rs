@@ -1,13 +1,13 @@
 //! macOS popup renderer via `osascript`'s `display dialog` command.
 //!
-//! AppleScript's `display dialog` is a thin wrapper over AppKit's NSAlert,
+//! `AppleScript`'s `display dialog` is a thin wrapper over `AppKit`'s `NSAlert`,
 //! which is the canonical modal native popup on macOS. We shell out to
-//! `osascript` rather than linking AppKit because:
+//! `osascript` rather than linking `AppKit` because:
 //!
 //! 1. `osascript` is a system component on every macOS install (since OS 8).
-//! 2. Linking AppKit requires Xcode SDK + a Cocoa build script.
+//! 2. Linking `AppKit` requires Xcode SDK + a Cocoa build script.
 //! 3. The popup is rendered out-of-process, so the MCP server is never
-//!    blocked on the AppKit main thread.
+//!    blocked on the `AppKit` main thread.
 //!
 //! Wire format: we emit a single `display dialog` call with custom
 //! properties (title, default answer, icon, timeout). The user-entered
@@ -37,7 +37,7 @@ pub fn render(spec: &PromptSpec, opts: &ElicitOptions) -> Result<ElicitResponse,
     let script = build_script(spec)?;
     let timeout = opts
         .timeout
-        .unwrap_or(Duration::from_secs(spec.timeout_secs as u64));
+        .unwrap_or(Duration::from_secs(u64::from(spec.timeout_secs)));
 
     let start = Instant::now();
     let mut child = Command::new("osascript")

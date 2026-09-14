@@ -7,7 +7,7 @@
 //! the inbox manually).
 //!
 //! Backends in this module shell out to native utilities rather than
-//! binding to Cocoa/AppKit / WinRT directly. That matches the rest of
+//! binding to Cocoa/AppKit / `WinRT` directly. That matches the rest of
 //! `phinbox` -- zero native dependencies, no cross-compile friction.
 
 mod imessage;
@@ -73,6 +73,7 @@ impl NotifyAttempt {
 /// Surface every notification configured in `cfg` for `req`. Returns the
 /// per-surface outcomes for telemetry. Failures of any one backend do
 /// NOT short-circuit the others.
+#[must_use]
 pub fn surface_all(req: &PendingRequest, cfg: &NotifyChannels) -> Vec<NotifyAttempt> {
     let mut out = Vec::new();
     if cfg.native {
@@ -146,11 +147,13 @@ pub(super) fn open_url(url: &str) -> Result<(), String> {
 }
 
 /// Render the request into the iMessage/email body.
+#[must_use]
 pub fn render_imessage_body(req: &PendingRequest) -> String {
     render_prompt_as_text(&req.spec, &req.request_id)
 }
 
-/// Same as [`render_imessage_body`] but for a bare spec (no PendingRequest).
+/// Same as [`render_imessage_body`] but for a bare spec (no `PendingRequest`).
+#[must_use]
 pub fn render_prompt_as_text(spec: &PromptSpec, request_id: &str) -> String {
     let mut s = String::new();
     s.push_str(&format!("{}\n\n", spec.title));
@@ -169,12 +172,14 @@ pub fn render_prompt_as_text(spec: &PromptSpec, request_id: &str) -> String {
 
 /// The URL the user can open in a browser to land on a fully styled
 /// inbox form for the request.
+#[must_use]
 pub fn inbox_open_url(req: &PendingRequest) -> String {
     inbox_open_url_for(&req.request_id)
 }
 
 /// URL helper -- defaults to the local daemon (`localhost:7117`) unless
 /// `PHINBOX_BASE_URL` is set.
+#[must_use]
 pub fn inbox_open_url_for(request_id: &str) -> String {
     let base = std::env::var("PHINBOX_BASE_URL")
         .unwrap_or_else(|_| "http://localhost:7117".to_string());

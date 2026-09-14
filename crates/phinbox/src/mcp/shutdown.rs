@@ -40,6 +40,7 @@ impl ShutdownCoordinator {
     /// The timeout controls how long [`cancel_all`](Self::cancel_all)
     /// waits for in-flight requests to finish after the shutdown signal
     /// fires.
+    #[must_use]
     pub fn new(shutdown_timeout: Duration) -> Self {
         Self {
             inflight: Arc::new(AtomicUsize::new(0)),
@@ -49,6 +50,7 @@ impl ShutdownCoordinator {
 
     /// Register a new in-flight request. Returns a handle that should
     /// be dropped when the request completes.
+    #[must_use]
     pub fn register(&self) -> InFlightGuard {
         self.inflight.fetch_add(1, Ordering::AcqRel);
         InFlightGuard {
@@ -57,6 +59,7 @@ impl ShutdownCoordinator {
     }
 
     /// Return the current number of in-flight requests.
+    #[must_use]
     pub fn inflight_count(&self) -> usize {
         self.inflight.load(Ordering::Acquire)
     }
@@ -83,6 +86,7 @@ impl ShutdownCoordinator {
     /// When the signal fires, `cancel_all()` is called to drain in-flight
     /// requests before the receiver resolves.
     #[cfg(unix)]
+    #[must_use]
     pub fn install(self: Arc<Self>) -> oneshot::Receiver<()> {
         let (tx, rx) = oneshot::channel();
         let this = self.clone();

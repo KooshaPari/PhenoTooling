@@ -94,7 +94,7 @@ pub(crate) fn install_autostart(cli_path: &Path) -> Result<PathBuf, String> {
             home.display(),
         );
         fs::write(&plist, xml).map_err(|e| e.to_string())?;
-        return Ok(plist);
+        Ok(plist)
     }
     #[cfg(all(unix, not(target_os = "macos")))]
     {

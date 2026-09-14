@@ -8,6 +8,7 @@ use super::{inbox_open_url, NotifyAttempt};
 use crate::inbox::{NotificationKind, PendingRequest};
 
 /// POST a JSON payload to a webhook URL (NTFY, Pushover, Slack).
+#[must_use]
 pub fn notify_webhook(req: &PendingRequest, url: &str) -> NotifyAttempt {
     let payload = serde_json::json!({
         "title": req.spec.title,
@@ -22,7 +23,7 @@ pub fn notify_webhook(req: &PendingRequest, url: &str) -> NotifyAttempt {
         }
     };
     match post_form(url, &json) {
-        Ok(_) => NotifyAttempt::ok(NotificationKind::Webhook, "ok"),
+        Ok(()) => NotifyAttempt::ok(NotificationKind::Webhook, "ok"),
         Err(e) => NotifyAttempt::err(NotificationKind::Webhook, e),
     }
 }

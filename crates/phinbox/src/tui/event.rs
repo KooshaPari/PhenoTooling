@@ -69,7 +69,7 @@ pub(crate) fn handle_key(key: KeyEvent, state: &mut ViewerState) -> Option<TuiOu
             state.toggle_focus();
             None
         }
-        KeyCode::Char('a') | KeyCode::Char('d') => {
+        KeyCode::Char('a' | 'd') => {
             // Answer / Dismiss — pop the selected entry and record the ID.
             let entry = state.selected_entry()?.clone();
             let id = entry.request_id.clone();
@@ -106,13 +106,13 @@ pub(crate) fn run_loop(
     watcher: Option<InboxWatcher>,
 ) -> Result<TuiOutcome, String> {
     let mut state = ViewerState::default();
-    let mut last_poll = Instant::now() - POLL_INTERVAL;
+    let mut last_poll = Instant::now().checked_sub(POLL_INTERVAL).unwrap();
     let mut last_change_gen = 0u64;
     let mut stdout_handle = stdout();
 
     loop {
         let elapsed_ok = last_poll.elapsed() >= POLL_INTERVAL;
-        let changed = watcher.as_ref().map_or(false, |w| {
+        let changed = watcher.as_ref().is_some_and(|w| {
             let gen = w.last_seen();
             let has = gen != last_change_gen;
             if has {

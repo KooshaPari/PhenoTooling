@@ -2,7 +2,7 @@ use crate::error::ElicitError;
 use crate::escape::applescript_escape;
 use crate::spec::{FieldSpec, PromptSpec, Urgency};
 
-/// Build the AppleScript source for a `display dialog` call.
+/// Build the `AppleScript` source for a `display dialog` call.
 pub(super) fn build_script(spec: &PromptSpec) -> Result<String, ElicitError> {
     let body = applescript_escape(&spec.question)?;
     let title = applescript_escape(&format!("phinbox · {}", spec.title))?;
@@ -28,9 +28,7 @@ pub(super) fn build_script(spec: &PromptSpec) -> Result<String, ElicitError> {
 
     let (cancel_label, confirm_label) = spec
         .buttons
-        .as_ref()
-        .map(|b| (b.cancel.clone(), b.confirm.clone()))
-        .unwrap_or_else(|| ("Cancel".to_string(), "OK".to_string()));
+        .as_ref().map_or_else(|| ("Cancel".to_string(), "OK".to_string()), |b| (b.cancel.clone(), b.confirm.clone()));
 
     let timeout_clause = if spec.timeout_secs == 0 {
         String::new()

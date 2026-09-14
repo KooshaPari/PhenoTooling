@@ -12,10 +12,7 @@ use super::state::{snapshot_inbox, TuiOutcome};
 /// Run the TUI viewer to completion. Returns the outcome (quit / answered /
 /// dismissed) or `TuiOutcome::NoTty` if the terminal refused raw mode.
 pub fn run(inbox_root: &Path, follow: bool) -> Result<TuiOutcome, String> {
-    let raw_ok = match event::enter_raw_mode() {
-        Ok(b) => b,
-        Err(e) => return Err(e),
-    };
+    let raw_ok = event::enter_raw_mode()?;
     if !raw_ok {
         return Ok(TuiOutcome::NoTty);
     }
@@ -67,7 +64,7 @@ pub fn render_plain(inbox_root: &Path) -> Result<usize, String> {
     Ok(count)
 }
 
-/// Build a `TuiOutcome::Answered` for the given request_id -- exposed so the
+/// Build a `TuiOutcome::Answered` for the given `request_id` -- exposed so the
 /// CLI can construct the outcome after an external answer step.
 #[must_use]
 pub fn outcome_answered(id: impl Into<String>) -> TuiOutcome {

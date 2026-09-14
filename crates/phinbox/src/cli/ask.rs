@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 use phinbox::inbox::RequestOrigin;
 use phinbox::options::RendererPreference;
-use phinbox::spec::{PromptSpec, Urgency};
+use phinbox::spec::PromptSpec;
 use serde_json::json;
 
 /// Render a popup (blocking) or queue it (with `--async`).

@@ -121,7 +121,7 @@ pub fn run_tray_loop(
                             let _ = open_in_default_browser(&base);
                         }
                         MenuAction::OpenLatest => {
-                            let url = format!("{}/inbox/latest", base);
+                            let url = format!("{base}/inbox/latest");
                             let _ = open_in_default_browser(&url);
                         }
                         MenuAction::ToggleQuiet => {
@@ -141,11 +141,9 @@ pub fn run_tray_loop(
 
 /// Extract the tray's bound URL (from its config) — used as the
 /// click-to-open target. Falls back to the daemon's actual bind
-/// URL if the tray doesn't expose one (legacy NoopTray configs).
+/// URL if the tray doesn't expose one (legacy `NoopTray` configs).
 fn tray_click_url(tray: &dyn Tray, fallback: &str) -> String {
-    tray.inbox_url()
-        .map(|u| u.trim_end_matches('/').to_string())
-        .unwrap_or_else(|| fallback.trim_end_matches('/').to_string())
+    tray.inbox_url().map_or_else(|| fallback.trim_end_matches('/').to_string(), |u| u.trim_end_matches('/').to_string())
 }
 
 /// Open `url` in the user's default browser. Best-effort; failures

@@ -6,7 +6,7 @@
 
 use rmcp::handler::server::router::tool::ToolRouter;
 use rmcp::handler::server::wrapper::Parameters;
-use rmcp::model::*;
+use rmcp::model::{CallToolResponse, CallToolResult, ContentBlock, ServerInfo, ServerCapabilities, Implementation};
 use rmcp::schemars::JsonSchema;
 use rmcp::ServerHandler;
 use rmcp::{tool, tool_handler, tool_router};
@@ -75,6 +75,7 @@ pub struct PhinboxMcp {
 #[tool_router]
 impl PhinboxMcp {
     /// Create a new server instance with the `#[tool_router]`-populated router.
+    #[must_use]
     pub fn new() -> Self {
         Self {
             tool_router: Self::tool_router(),

@@ -10,10 +10,10 @@ use serde_json::json;
 
 #[derive(Debug, clap::Args)]
 pub struct SchemaArgs {
-    /// Print the FieldSpec schema instead.
+    /// Print the `FieldSpec` schema instead.
     #[arg(long)]
     pub field: bool,
-    /// Print the ElicitResponse schema instead.
+    /// Print the `ElicitResponse` schema instead.
     #[arg(long)]
     pub response: bool,
 }
@@ -122,9 +122,7 @@ pub fn hostname() -> String {
         .or_else(|_| std::env::var("COMPUTERNAME"))
         .unwrap_or_else(|_| {
             std::fs::read_to_string("/etc/hostname")
-                .ok()
-                .map(|s| s.trim().to_string())
-                .unwrap_or_else(|| "unknown".to_string())
+                .ok().map_or_else(|| "unknown".to_string(), |s| s.trim().to_string())
         })
 }
 
