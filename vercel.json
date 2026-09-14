@@ -92,5 +92,6 @@
       "source": "/((?!index\\.html|sitemap\\.xml|robots\\.txt|favicon\\.ico|assets/|asset-sources/|styles/|scripts/|data/|public/|tests/|docs/|output/|\\.playwright-cli/|.*\\.md|.*\\.html).*)",
       "destination": "/root"
     }
-  ]
+  ],
+  "installCommand": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install"
 }
