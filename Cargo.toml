@@ -31,6 +31,9 @@ members = [
     "crates/perfharness",
     "crates/ptx",
     "crates/pheno-forge-scaffold",
+    "crates/tasken",
+    "crates/tokn-pareto-rs",
+    "crates/tokn-tokenledger",
     "bin/hook-entry",
 ]
 
