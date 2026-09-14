@@ -36,7 +36,7 @@ required-features = ["mcp"]
 
 [[bin]]
 name = "phinbox-app"
-path = "src/bin_app.rs"
+path = "src/bin_app/mod.rs"
 required-features = ["mcp"]
 
 [dependencies]
