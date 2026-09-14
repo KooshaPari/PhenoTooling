@@ -16,13 +16,13 @@
 //!
 //! ## Module map
 //!
-//! - [`check`]       — local pre-Push / pre-PR gate runner.
-//! - [`wrap`]        — process delegate into any of the Phase 1/2/3
-//!                     sub-crates, mirroring `pt`'s coercion.
-//! - [`manifest`]    — parse `ptx.yaml` governance manifests so PRs
-//!                     can declare their own admission contract.
-//! - [`report`]      — render the final gate verdict to stdout so CI
-//!                     and humans both read the same shape.
+//! - [`check`]       -- local pre-Push / pre-PR gate runner.
+//! - [`wrap`]        -- process delegate into any of the Phase 1/2/3
+//!   sub-crates, mirroring `pt`'s coercion.
+//! - [`manifest`]    -- parse `ptx.yaml` governance manifests so PRs
+//!   can declare their own admission contract.
+//! - [`report`]      -- render the final gate verdict to stdout so CI
+//!   and humans both read the same shape.
 
 #![deny(
     missing_debug_implementations,
@@ -158,7 +158,7 @@ pub enum PtxError {
 ///
 /// This is intentionally a no-op-parsed entry point so that the
 /// integration tests don't spawn child processes.
-#[must_use]
+#[allow(clippy::double_must_use)]
 pub fn run_cli() -> Result<(), PtxError> {
     Ok(())
 }

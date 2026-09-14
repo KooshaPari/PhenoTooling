@@ -549,8 +549,8 @@ mod tests {
     fn parses_qgate_with_flags() {
         let cli = Cli::try_parse_from(["pt", "qgate", "--skip-fmt"]).unwrap();
         match cli.command {
-            Command::QualityGate(args) => assert!(args.skip_fmt),
-            _ => panic!("expected QualityGate"),
+            Command::QGate(args) => assert!(args.skip_fmt),
+            _ => panic!("expected QGate"),
         }
     }
 

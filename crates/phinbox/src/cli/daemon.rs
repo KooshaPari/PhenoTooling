@@ -121,6 +121,7 @@ fn block_on<F: std::future::Future<Output = ()>>(fut: F) {
 }
 
 #[cfg(unix)]
+#[allow(unsafe_code)]
 fn wait_for_termination() {
     use std::os::raw::c_int;
     extern "C" {
@@ -140,6 +141,7 @@ fn wait_for_termination() {
 }
 
 #[cfg(not(unix))]
+#[allow(unsafe_code)]
 fn wait_for_termination() {
     extern "system" {
         fn SetConsoleCtrlHandler(

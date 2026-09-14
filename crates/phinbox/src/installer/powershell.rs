@@ -2,6 +2,7 @@
 use std::path::{Path, PathBuf};
 
 
+#[allow(dead_code)]
 pub(crate) fn update_path_via_setx(bin_dir: &Path) -> Option<PathBuf> {
     #[cfg(windows)]
     {
@@ -23,6 +24,7 @@ pub(crate) fn update_path_via_setx(bin_dir: &Path) -> Option<PathBuf> {
     None
 }
 
+#[allow(dead_code)]
 pub(crate) fn install_scheduled_task(cli_path: &Path) -> Result<PathBuf, String> {
     #[cfg(target_os = "windows")]
     {
@@ -38,6 +40,7 @@ pub(crate) fn install_scheduled_task(cli_path: &Path) -> Result<PathBuf, String>
     { let _ = cli_path; Err("scheduled tasks are only available on Windows".into()) }
 }
 
+#[allow(dead_code)]
 pub(crate) fn remove_scheduled_task() {
     #[cfg(target_os = "windows")]
     { let _ = Command::new("schtasks").args(["/Delete", "/TN", "PhinboxDaemon", "/F"]).status(); }

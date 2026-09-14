@@ -254,8 +254,7 @@ fn mcp_handshake_initialize_and_list_tools() {
 
     assert!(
         names.contains(&"phinbox_mcp"),
-        "tools/list must include 'phinbox_mcp', got: {:?}",
-        names
+        "tools/list must include 'phinbox_mcp', got: {names:?}"
     );
     let _stderr = h.shutdown();
 }
@@ -289,8 +288,7 @@ fn phinbox_version_reports_semver() {
     let stdout = String::from_utf8_lossy(&output.stdout);
     assert!(
         stdout.contains("phinbox"),
-        "expected 'phinbox' in --version output, got: {}",
-        stdout
+        "expected 'phinbox' in --version output, got: {stdout}"
     );
     assert!(output.status.success(), "phinbox --version failed");
 }
@@ -326,8 +324,7 @@ fn phinbox_detect_reports_platform() {
     let stdout = String::from_utf8_lossy(&output.stdout);
     assert!(
         stdout.contains("macos") || stdout.contains("linux") || stdout.contains("windows"),
-        "detect must report a platform, got: {}",
-        stdout
+        "detect must report a platform, got: {stdout}"
     );
     assert!(output.status.success());
 }

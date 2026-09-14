@@ -194,8 +194,7 @@ fn mcp_server_validates_prompt_spec() {
     let r = &resp["result"];
     let is_error = r.get("is_error").and_then(|v| v.as_bool()).unwrap_or(false);
     let has_invalid = serde_json::to_string(r)
-        .map(|s| s.contains("invalid"))
-        .unwrap_or(false);
+        .is_ok_and(|s| s.contains("invalid"));
     assert!(
         is_error || resp.get("error").is_some() || has_invalid,
         "expected error response for invalid spec. got {resp}"

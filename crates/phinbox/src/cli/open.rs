@@ -16,6 +16,7 @@ pub struct OpenArgs {
     pub spawn_if_missing: bool,
 }
 
+#[allow(unsafe_code)]
 pub fn cmd_open(args: OpenArgs, inbox_dir: &PathBuf) -> Result<(), String> {
     use std::process::Command;
 
@@ -105,6 +106,7 @@ fn base_url_host(base: &str) -> String {
         .to_string()
 }
 
+#[allow(unsafe_code)]
 #[cfg(unix)]
 unsafe fn libc_setsid() -> i32 {
     extern "C" {

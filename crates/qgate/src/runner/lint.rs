@@ -5,7 +5,7 @@ use std::path::Path;
 use crate::checks::{CheckCategory, CheckResult, CheckStatus, Thresholds};
 use crate::config::QGateConfig;
 
-use super::checks::{na, run_cmd, skipped};
+use super::checks::{na, run_cmd};
 use super::StackDetector;
 
 pub(crate) async fn run_static_analysis(

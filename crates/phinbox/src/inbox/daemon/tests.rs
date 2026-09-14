@@ -22,7 +22,7 @@ fn start_stop_roundtrip() {
         enable_tray: false,
     };
     let handle = start_daemon(cfg).unwrap();
-    assert!(handle.port == port);
+    assert_eq!(handle.port, port);
     // Health check (retry until the listener is ready)
     let addr = SocketAddr::new(IpAddr::V4(Ipv4Addr::LOCALHOST), handle.port);
     let deadline = std::time::Instant::now() + Duration::from_secs(5);

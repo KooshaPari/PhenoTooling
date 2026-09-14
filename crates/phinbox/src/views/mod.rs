@@ -27,7 +27,7 @@ pub use html::{
 mod tests {
     use super::*;
     use crate::inbox::{PendingRequest, RequestOrigin};
-    use crate::spec::{ButtonSpec, FieldSpec, NotesSpec, PromptSpec, Urgency};
+    use crate::spec::{FieldSpec, PromptSpec, Urgency};
 
     fn sample_pending(id: &str, urgent: Urgency) -> PendingRequest {
         PendingRequest {

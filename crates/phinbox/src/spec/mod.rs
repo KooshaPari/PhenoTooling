@@ -41,7 +41,7 @@ mod tests {
     #[test]
     fn validate_rejects_empty_title() {
         let mut s = minimal_text();
-        s.title = "".into();
+        s.title = String::new();
         assert!(s.validate().is_err());
     }
 

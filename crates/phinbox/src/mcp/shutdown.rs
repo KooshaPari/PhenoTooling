@@ -152,12 +152,12 @@ mod tests {
     #[tokio::test]
     async fn cancel_all_waits_for_inflight_to_drain() {
         let coord = Arc::new(ShutdownCoordinator::new(Duration::from_secs(5)));
-        let _guard = coord.register();
+        let guard = coord.register();
         let coord_clone = coord.clone();
         // Spawn a task that drops the guard after a short delay
         tokio::spawn(async move {
             tokio::time::sleep(Duration::from_millis(50)).await;
-            drop(_guard);
+            drop(guard);
         });
         let remaining = coord_clone.cancel_all().await;
         assert_eq!(remaining, 0);
