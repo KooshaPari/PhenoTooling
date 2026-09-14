@@ -272,8 +272,11 @@ function createPlayer(container) {
 
   /* --- load & parse --- */
 
-  fetch(src)
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  fetch(src, { signal: controller.signal })
     .then(r => {
+      clearTimeout(timeout);
       if (!r.ok) throw new Error(`Failed to load cast file: ${r.status}`);
       return r.text();
     })
