@@ -81,6 +81,9 @@ members = [
     "crates/pheno-tracing",
     "crates/phenovcs-observability",
     "crates/clap-ext",
+    # Quillr HTTP toolkit (absorbed from KooshaPari/zz-merge-unk-Quillr)
+    "crates/httpora-core",
+
     # Absorbed from zz-merge-unk-Logify (structured logging framework)
     "crates/logkit",
     "ports-vcs",
