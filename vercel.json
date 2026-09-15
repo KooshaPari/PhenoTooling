@@ -4,8 +4,8 @@
   "buildCommand": "npm run stage:publication",
   "outputDirectory": "dist",
   "installCommand": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install",
-  "rewrites": [
-    {"source": "/", "destination": "/root"},
+  "routes": [
+    {"handle": "filesystem"},
     {"source": "/engineering", "destination": "/engineering.html"},
     {"source": "/product", "destination": "/product.html"},
     {"source": "/work", "destination": "/work.html"},
@@ -24,12 +24,12 @@
     {"source": "/work/mcpforge", "destination": "/work/mcpforge.html"},
     {"source": "/work/agentapi-plusplus", "destination": "/work/agentapi-plusplus.html"},
     {"source": "/work/cliproxyapi-plusplus", "destination": "/work/cliproxyapi-plusplus.html"},
-    {"source": "/work/(.*)", "destination": "/root"},
     {"source": "/resume", "destination": "/resume.html"},
     {"source": "/contact", "destination": "/contact.html"},
     {"source": "/blog", "destination": "/blog.html"},
     {"source": "/blog/why-we-forked-omniroute", "destination": "/blog/why-we-forked-omniroute.html"},
     {"source": "/archive", "destination": "/archive.html"},
-    {"source": "/((?!index\\.html|sitemap\\.xml|robots\\.txt|favicon\\.ico|assets/|asset-sources/|styles/|bundled/|scripts/|data/|public/|tests/|docs/|output/|\\.playwright-cli/|.*\\.md|.*\\.html|.*\\.css|.*\\.js|.*\\.webp|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.ico|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)", "destination": "/root"}
+    {"source": "/work/(.*)", "destination": "/work.html"},
+    {"source": "/(.*)", "destination": "/root.html"}
   ]
 }
