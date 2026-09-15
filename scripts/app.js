@@ -14,7 +14,7 @@ import { renderContact } from './views/contact.js';
 import { render as renderNotFoundHTML, initCanvas } from './views/not-found.js';
 import { renderBlogIndex } from './views/blog-index.js';
 import { renderBlogPost } from './views/blog-post.js';
-import { initializeConstructionGate } from './construction-gate.js';
+
 import { initScrollReveal, refreshObserver } from './scroll-reveal.js';
 import { initTransitions } from './transitions.js';
 import { initMagnetic } from './magnetic.js';
@@ -151,7 +151,7 @@ readerState.subscribe(() => {
   }
 });
 
-initializeConstructionGate(document);
+
 initScrollReveal();
 
 // Initialize all UI/UX modules

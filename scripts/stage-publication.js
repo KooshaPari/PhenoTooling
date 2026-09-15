@@ -2,7 +2,7 @@ import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { prerenderPosts, prerenderProjects, prerenderTopLevel } from './prerender.js';
-import { injectConstructionGate } from './construction-shell.js';
+
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const publication = join(root, 'dist');
@@ -60,15 +60,7 @@ await prerenderPosts(publication);
 // Runs after prerender so it doesn't affect Node-side parsing.
 await execFileAsync('node', [join(root, 'scripts', 'minify-js.js')]);
 
-async function injectIntoHtml(directory) {
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    const path = join(directory, entry.name);
-    if (entry.isDirectory()) await injectIntoHtml(path);
-    else if (entry.name.endsWith('.html')) await writeFile(path, injectConstructionGate(await readFile(path, 'utf8')));
-  }
-}
 
-await injectIntoHtml(publication);
 
 // Sync to Vercel static output directory for build-output test parity.
 const vercelStatic = join(root, '.vercel', 'output', 'static');
