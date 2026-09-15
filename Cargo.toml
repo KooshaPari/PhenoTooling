@@ -34,7 +34,18 @@ members = [
     "crates/tasken",
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
+    # PhenoJourneys Rust CLI (absorbed from KooshaPari/zz-merge-unk-PhenoJourneys)
+    "crates/phenotype-journey-core",
+    "crates/klipdot-capture",
+    "crates/phenotype-journeys-observability",
+    # PhenoPlugins (absorbed from KooshaPari/zz-merge-unk-PhenoPlugins)
+    "crates/phenotype-plugins/pheno-plugin-core",
+    "crates/phenotype-plugins/pheno-plugin-git",
+    "crates/phenotype-plugins/pheno-plugin-sqlite",
+    "crates/phenotype-plugins/pheno-plugin-vessel",
+    "crates/phenotype-plugins/pheno-plugin-examples",
     "bin/hook-entry",
+    "bin/phenotype-journey",
 ]
 
 [workspace.package]
@@ -65,6 +76,13 @@ uuid = { version = "1.23", features = ["v4", "serde"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 criterion = { version = "0.8", features = ["html_reports"] }
+# PhenoPlugins additions
+async-trait = "0.1"
+git2 = "0.21"
+rusqlite = { version = "0.32", features = ["bundled"] }
+tempfile = "3"
+# PhenoPlugins internal path deps
+pheno-plugin-core = { path = "crates/phenotype-plugins/pheno-plugin-core" }
 
 [patch.crates-io]
 # pheno-tracing v0.4.0 (ADR-012) is a private git-dep that cannot be
