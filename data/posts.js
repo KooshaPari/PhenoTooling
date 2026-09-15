@@ -83,4 +83,77 @@ export const POSTS = [
       { type: 'note', text: "If you're working on AI infrastructure and want to talk shop, find me on LinkedIn or open an issue in KooshaPari/OmniRoute." },
     ],
   },
+  {
+    slug: 'what-keycaps-taught-me-about-systems',
+    title: 'What 4,900 keycap sets taught me about systems engineering',
+    excerpt:
+      'I ran a mechanical keyboard group buy that sold 4,900 units across 10 countries in 30 days. The operational lessons map directly to how I build software systems.',
+    date: '2026-09-10',
+    readingTime: '7 min',
+    tags: ['Systems Engineering', 'Physical Products', 'Lessons'],
+    provenance: 'Personal experience',
+    body: [
+      { type: 'para', text: "In 2021 I launched GMK Arch, a mechanical keyboard keycap set designed around Arch Linux visual language. It sold approximately 4,900 units across roughly 10 countries in 30 days, generating approximately $432K in revenue. The project involved supplier coordination, demand forecasting, pricing strategy, and international fulfillment logistics — all managed by one person with no prior hardware shipping experience." },
+      { type: 'para', text: "That experience shaped how I think about software systems more than any single engineering project. Here's why." },
+
+      { type: 'heading', level: 2, text: 'Demand forecasting is a systems problem' },
+      { type: 'para', text: "When you run a group buy, you don't know the final demand until orders close. You commit to manufacturing quantities weeks before you know the real number. I started with an expectation of approximately 15 units for WITF (a later project), watched interest climb toward approximately 100, then watched it settle back to approximately 50 as timing and market conditions shifted." },
+      { type: 'para', text: "This is the same problem as capacity planning in distributed systems. You don't know the real load until production traffic arrives. You commit resources based on projections. The systems that work are the ones that degrade gracefully when projections are wrong — not the ones that require perfect forecasts." },
+      { type: 'para', text: "When I built Substrate's provider routing layer, I applied the same principle: design for the capacity you expect, but make the degradation path explicit when reality diverges from the plan. Circuit breakers, fallback chains, and budget enforcement are the software equivalent of renegotiating with your supplier mid-production." },
+
+      { type: 'heading', level: 2, text: 'Supplier coordination is dependency management' },
+      { type: 'para', text: "GMK Arch required coordinating with GMK (the manufacturer), 10+ regional vendors across US, Canada, South America, EU, Oceania, Southeast Asia, UK, Korea, China, and Norway, plus designers, material suppliers, and logistics providers. Each had their own timeline, constraints, and failure modes." },
+      { type: 'para', text: "The software parallel is dependency management in a multi-service system. Each provider (Anthropic, OpenAI, Gemini, Groq) has different rate limits, different failure modes, different cooldown semantics. When I built OmniRoute's routing intelligence, the lessons from supplier coordination were immediately applicable: map the failure modes of each dependency, build explicit fallback paths, and don't assume one provider's behavior generalizes to all." },
+
+      { type: 'heading', level: 2, text: 'Cost reduction is architecture optimization' },
+      { type: 'para', text: "Through supplier negotiation and manufacturing process optimization, I reduced the per-unit cost of the WITF Board from over $500 to approximately $350 all-in — a reduction of more than 40%. The savings came from understanding the manufacturing process deeply enough to identify where costs could be reduced without compromising quality." },
+      { type: 'para', text: "This maps directly to performance optimization in software. The biggest gains come from understanding the system deeply enough to find the real bottlenecks, not from applying generic optimizations. When I optimized ShareCLI's process observation layer, the 40% reduction in overhead came from understanding the Linux kernel's process accounting well enough to avoid redundant syscalls — the same principle as understanding your supplier's cost structure well enough to negotiate effectively." },
+
+      { type: 'heading', level: 2, text: 'Fulfillment is deployment' },
+      { type: 'para', text: "Getting 4,900 units from a factory in China to 10 countries with different customs regulations, shipping carriers, and delivery expectations is a logistics problem that parallels software deployment. You need rollback paths (what happens when a shipment is delayed?), monitoring (tracking numbers, delivery confirmations), and graceful degradation (what happens when one region's customs process blocks imports?)." },
+      { type: 'para', text: "The WITF Board taught me this more viscerally. When our external pick-and-pack provider changed terms mid-fulfillment, I had to adapt the distribution model in real time. That's the same as a cloud provider changing their API mid-deployment — you need the architecture to absorb the change without failing the entire release." },
+
+      { type: 'heading', level: 2, text: 'The durable lesson' },
+      { type: 'para', text: "The durable lesson from physical product work is that systems engineering isn't just about code. It's about understanding constraints, mapping failure modes, building explicit fallback paths, and designing for graceful degradation — whether the system is a keycap group buy or a multi-provider AI routing layer." },
+      { type: 'para', text: "The 4,900 units shipped. The 10-region retail network held. The $432K in revenue arrived. And the engineering lessons from that process continue to shape how I build software systems today." },
+
+      { type: 'hr' },
+      { type: 'note', text: "All figures are approximate and sourced from canonical user facts documented in the project evidence ledger. Line items are not customers." },
+    ],
+  },
+  {
+    slug: 'building-at-the-systems-boundary',
+    title: 'Building at the systems boundary',
+    excerpt:
+      'Where process management, provider routing, and runtime constraints shape what software can actually do — and why I choose to work there.',
+    date: '2026-09-12',
+    readingTime: '6 min',
+    tags: ['Systems Engineering', 'Rust', 'Architecture'],
+    provenance: 'Personal experience',
+    body: [
+      { type: 'para', text: "There's a boundary in software engineering where the abstractions stop working. It's the place where your process management code hits the Linux kernel's scheduler, where your provider routing hits a real rate limit, where your FUSE mount hits the filesystem's actual behavior. Most software is written above this boundary, relying on abstractions that usually hold. I choose to work at the boundary itself." },
+
+      { type: 'heading', level: 2, text: 'What the boundary looks like' },
+      { type: 'para', text: "When I built ShareCLI — a Rust runtime for observing and coordinating hundreds of concurrent AI coding agents — the boundary was everywhere. Process observation required understanding how the kernel reports process state. FUSE-backed views required understanding how the filesystem actually behaves under concurrent access. Thermal pressure monitoring required understanding how hardware throttling affects user-visible performance." },
+      { type: 'para', text: "The abstractions don't hide these details. They expose them. The engineering challenge is deciding which details matter for the user-visible behavior and which are noise." },
+
+      { type: 'heading', level: 2, text: 'Why systems work is different' },
+      { type: 'para', text: "Application-level engineering is about features, UX, and business logic. Systems engineering is about constraints, failure modes, and observable behavior under load. The skill set overlaps but the mindset is different." },
+      { type: 'para', text: "When I built Substrate's provider routing layer — an OpenAI-compatible dispatch gateway with SSE streaming, token-bucket rate limiting, full-jitter retry, circuit breakers, and budget enforcement — every design decision was shaped by real provider behavior. Anthropic's TPM behavior differs from OpenAI's RPM behavior, which differs from Groq's burst handling. The system had to be correct under all of these behaviors simultaneously." },
+      { type: 'para', text: "This isn't a theoretical exercise. When a provider fails at 3 AM, the system needs to degrade gracefully, route around the failure, and maintain latency budgets — all without human intervention. The engineering that makes that work lives at the boundary between your routing logic and the provider's actual behavior." },
+
+      { type: 'heading', level: 2, text: 'The verification problem' },
+      { type: 'para', text: "The hardest part of systems work isn't building the system — it's verifying it works. Application code can be tested with unit tests and integration tests. Systems code needs to be tested against real hardware, real providers, real concurrent load, and real failure modes." },
+      { type: 'para', text: "When I built phenotype-omlx — an Apple Silicon inference research fork with Rust performance cores and multi-backend routing — the verification required running actual inference workloads across MLX, Metal, C, Rust, Zig, Mojo, and Nim backends. Each backend had different memory bandwidth characteristics, different quantization behaviors, and different concurrency limits. The evaluation harness had to measure real performance, not synthetic benchmarks." },
+      { type: 'para', text: "This is why I value evidence-led engineering. Every claim about system behavior needs to be backed by observable evidence. The evidence ledger approach — documenting what was observed, when, and under what conditions — isn't bureaucracy. It's the only reliable way to verify that a systems-level claim is true." },
+
+      { type: 'heading', level: 2, text: 'Why I choose this work' },
+      { type: 'para', text: "Working at the boundary is harder than working above it. The failure modes are more complex. The verification is more difficult. The debugging requires understanding multiple layers of the stack simultaneously." },
+      { type: 'para', text: "But the work is more interesting, and the engineering decisions are more consequential. A well-designed routing layer affects every request that passes through it. A well-designed process observer affects every agent that runs on the system. The leverage is higher, and the lessons transfer across projects." },
+      { type: 'para', text: "That's where I build. At the boundary. Where the abstractions stop and the real behavior begins." },
+
+      { type: 'hr' },
+      { type: 'note', text: "If you're working on systems-level infrastructure and want to compare notes, find me on LinkedIn or GitHub." },
+    ],
+  },
 ];
