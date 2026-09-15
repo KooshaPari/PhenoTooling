@@ -89,6 +89,9 @@ members = [
     "ports-vcs",
     # Gateway (absorbed from KooshaPari/zz-merge-unk-Gateway)
     "packages/router",
+    # FleetOps (absorbed from zz-pause-FleetOps)
+    "crates/phenotype-manifest",
+
     # PhenoCompose (absorbed from zz-merge-unk-PhenoCompose)
     "crates/pheno-compose-agentctl",
     "crates/pheno-compose-apple-container-adapter",
