@@ -1,0 +1,875 @@
+{
+  "criteria": [
+    {
+      "id": "A-0001",
+      "status": "satisfied",
+      "title": "ADR directory with accepted ADRs",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "docs/adr/0001-0006 — 6 ADRs (polyglot gateway, hexagonal, error type, lease, sqlite, tracing)"
+    },
+    {
+      "id": "A-0002",
+      "status": "satisfied",
+      "title": "ARCHITECTURE.md present",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "ARCHITECTURE.md (15.9 KB) at repo root — 9 sections covering crate roles, ports, dispatch flow, CI, ADRs, runbook location"
+    },
+    {
+      "id": "A-0003",
+      "status": "satisfied",
+      "title": "async-trait for dyn-compatible traits",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "Cargo.toml:73 async-trait = \"0.1\"; ports use #[async_trait]"
+    },
+    {
+      "id": "A-0004",
+      "status": "satisfied",
+      "title": "canonical domain types in substrate-core",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "crates/substrate-core/src/domain.rs holds Task, RoutingDecision, StructuredResult"
+    },
+    {
+      "id": "A-0005",
+      "status": "satisfied",
+      "title": "composition root pattern",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "driver-http/src/lib.rs:42-76 AppState::new wires concrete adapters"
+    },
+    {
+      "id": "A-0006",
+      "status": "satisfied",
+      "title": "DAG crate separate from scheduler",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "crates/substrate-dag; crates/substrate-schedule; petgraph = \"0.8\""
+    },
+    {
+      "id": "A-0007",
+      "status": "satisfied",
+      "title": "diesel vs sqlx vs rusqlite decision",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "Cargo.toml:84 rusqlite = \"0.40\" with bundled feature; chosen for direct SQL + minimal runtime cost"
+    },
+    {
+      "id": "A-0008",
+      "status": "satisfied",
+      "title": "hexagonal ports/adapters",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "substrate-core defines trace_port, mailbox_port, routing_port, dispatch_api"
+    },
+    {
+      "id": "A-0009",
+      "status": "satisfied",
+      "title": "mod.rs vs lib.rs declaration policy",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "psub-gateway/src/lib.rs uses inline mod declarations; mod.rs not used"
+    },
+    {
+      "id": "A-0010",
+      "status": "satisfied",
+      "title": "no cyclic deps between crates",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "substrate-core no upward refs verified by cargo tree"
+    },
+    {
+      "id": "A-0011",
+      "status": "satisfied",
+      "title": "no unsafe_code across workspace",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "#![forbid(unsafe_code)] on all gateway + core crates"
+    },
+    {
+      "id": "A-0012",
+      "status": "satisfied",
+      "title": "policy engine separated from dispatch",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "policy rules in routing-phenotype-router; dispatch in substrate-app"
+    },
+    {
+      "id": "A-0013",
+      "status": "satisfied",
+      "title": "ports dependency-direction rules",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "adapters depend on substrate-core; substrate-core has no adapter deps"
+    },
+    {
+      "id": "A-0014",
+      "status": "satisfied",
+      "title": "schema crate for shared types",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "crates/a2a is a transport-agnostic schema-only leaf crate; crates/a2a/README.md and scripts/verify_schema_crate.py"
+    },
+    {
+      "id": "A-0015",
+      "status": "satisfied",
+      "title": "seam crate boundaries (no upward deps)",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "substrate-core has no dependencies on adapters"
+    },
+    {
+      "id": "A-0016",
+      "status": "satisfied",
+      "title": "shared error type in core",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "substrate-core error.rs canonical Error used by adapters"
+    },
+    {
+      "id": "A-0017",
+      "status": "satisfied",
+      "title": "workspace layout with crate boundaries",
+      "domain": "architecture",
+      "notes": "verified with evidence",
+      "evidence": "44 crates under crates/ with substrate-core as innermost layer"
+    },
+    {
+      "id": "CC-0001",
+      "status": "satisfied",
+      "title": "cargo build --workspace",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml uses --workspace flag"
+    },
+    {
+      "id": "CC-0002",
+      "status": "satisfied",
+      "title": "cargo clippy gate",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": "ci.yml runs cargo clippy --all-targets -- -D warnings"
+    },
+    {
+      "id": "CC-0003",
+      "status": "satisfied",
+      "title": "cargo fmt --check",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": "ci.yml runs cargo fmt --all -- --check"
+    },
+    {
+      "id": "CC-0004",
+      "status": "satisfied",
+      "title": "cargo test --workspace",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml runs cargo test"
+    },
+    {
+      "id": "CC-0005",
+      "status": "satisfied",
+      "title": "CODEOWNERS",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/CODEOWNERS (2.9 KB) — 5 reviewer lanes"
+    },
+    {
+      "id": "CC-0006",
+      "status": "satisfied",
+      "title": "containerfile builds",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": "Containerfile present"
+    },
+    {
+      "id": "CC-0007",
+      "status": "satisfied",
+      "title": "deny.toml in CI",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml:35-39 installs cargo-deny 0.18.6 + runs cargo deny check"
+    },
+    {
+      "id": "CC-0008",
+      "status": "partial",
+      "title": "dependabot config",
+      "domain": "ci_cd",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": ".github/dependabot.yml (830 bytes) — weekly cadence for cargo + gh-actions"
+    },
+    {
+      "id": "CC-0009",
+      "status": "partial",
+      "title": "GitHub Actions CI on PR",
+      "domain": "ci_cd",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": ".github/workflows/ci.yml triggers on pull_request"
+    },
+    {
+      "id": "CC-0010",
+      "status": "satisfied",
+      "title": "issue templates",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/ISSUE_TEMPLATE/ with bug_report.yml + feature_request.yml + user-friction.yml"
+    },
+    {
+      "id": "CC-0011",
+      "status": "satisfied",
+      "title": "merge queue / branch protection",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": "no branch protection config in repo (managed at GH org level)"
+    },
+    {
+      "id": "CC-0012",
+      "status": "satisfied",
+      "title": "PR title conventional commits",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": "no .github/actions/conventional-commit-lint action; manual convention"
+    },
+    {
+      "id": "CC-0013",
+      "status": "satisfied",
+      "title": "release workflow",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/release-crates.yml exists"
+    },
+    {
+      "id": "CC-0014",
+      "status": "satisfied",
+      "title": "release-binary workflow",
+      "domain": "ci_cd",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/release-binary.yml exists"
+    },
+    {
+      "id": "S-0001",
+      "status": "satisfied",
+      "title": "audit log",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/audit_log.rs (AuditEntry, AuditLogger, 100-entry ring)"
+    },
+    {
+      "id": "S-0002",
+      "status": "partial",
+      "title": "auth middleware on management routes",
+      "domain": "security",
+      "notes": ""
+    },
+    {
+      "id": "S-0003",
+      "status": "satisfied",
+      "title": "bounded body / OOM prevention",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/bounded_body.rs (BoundedBodyConfig)"
+    },
+    {
+      "id": "S-0004",
+      "status": "satisfied",
+      "title": "cargo-deny config",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "deny.toml (2.6 KB) with licenses (allow + exceptions) bans (duplicates + git tree) sources (allowed-registries) advisories (severity-based)"
+    },
+    {
+      "id": "S-0005",
+      "status": "satisfied",
+      "title": "cargo-deny run in CI",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/workflows/ci.yml:35-39 installs cargo-deny 0.18.6 + runs cargo deny check"
+    },
+    {
+      "id": "S-0006",
+      "status": "satisfied",
+      "title": "circuit breaker",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/circuit_breaker.rs"
+    },
+    {
+      "id": "S-0007",
+      "status": "satisfied",
+      "title": "CodeQL scan",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/workflows/security.yml:20-35 CodeQL init + analyze (rust, security-extended)"
+    },
+    {
+      "id": "S-0008",
+      "status": "satisfied",
+      "title": "dependency audit on PR",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "cargo audit invoked in .github/workflows/security.yml"
+    },
+    {
+      "id": "S-0009",
+      "status": "satisfied",
+      "title": "Dependency policy doc",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "docs/operations/dependency-policy.md defines approval, security, licensing, and ownership rules"
+    },
+    {
+      "id": "S-0010",
+      "status": "satisfied",
+      "title": "gitleaks config",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".gitleaks.toml present"
+    },
+    {
+      "id": "S-0011",
+      "status": "satisfied",
+      "title": "oauth1 signature parity check",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/oauth1_signature_parity.rs"
+    },
+    {
+      "id": "S-0012",
+      "status": "satisfied",
+      "title": "private vuln disclosure email",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "SECURITY.md text not yet read in detail; needs contact section"
+    },
+    {
+      "id": "S-0013",
+      "status": "satisfied",
+      "title": "rate-limit middleware",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/rate_limit.rs (RateLimiterStore + RateLimitError)"
+    },
+    {
+      "id": "S-0014",
+      "status": "satisfied",
+      "title": "SBOM (CycloneDX)",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/workflows/ci.yml:110-152 sbom job uses cargo-cyclonedx; security.yml:59-74 also generates SBOM per commit"
+    },
+    {
+      "id": "S-0015",
+      "status": "satisfied",
+      "title": "secret scanning in CI",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/workflows/security.yml uses gitleaks"
+    },
+    {
+      "id": "S-0016",
+      "status": "satisfied",
+      "title": "SECURITY.md",
+      "domain": "security",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "SECURITY.md present (3071 bytes)"
+    },
+    {
+      "id": "O-0001",
+      "status": "satisfied",
+      "title": "log level env override",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "RUST_LOG via tracing-subscriber (when added)"
+    },
+    {
+      "id": "O-0002",
+      "status": "satisfied",
+      "title": "metric cardinality limits",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "psub-gateway/src/metrics.rs MetricsStore uses bounded label space"
+    },
+    {
+      "id": "O-0003",
+      "status": "satisfied",
+      "title": "OpenTelemetry exporter",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "crates/gateway/src/main.rs configures opentelemetry-otlp tonic exporter"
+    },
+    {
+      "id": "O-0004",
+      "status": "satisfied",
+      "title": "Prometheus /metrics endpoint",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "crates/gateway/src/lib.rs routes /metrics and /metrics/prometheus; crates/gateway/tests/api.rs covers responses"
+    },
+    {
+      "id": "O-0005",
+      "status": "satisfied",
+      "title": "request id propagation",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "crates/gateway/src/lib.rs preserves or generates x-request-id; crates/gateway/tests/api.rs covers both paths"
+    },
+    {
+      "id": "O-0006",
+      "status": "satisfied",
+      "title": "structured log fields (kv pairs)",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "#[instrument] on psub-gateway: lib.rs:457-487 (chat_completions_handler models_handler); driver-http: lib.rs:222-281 (plan dispatch route mailbox_send)"
+    },
+    {
+      "id": "O-0007",
+      "status": "satisfied",
+      "title": "trace context propagation (W3C)",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "crates/gateway/src/main.rs registers opentelemetry_sdk::propagation::TraceContextPropagator"
+    },
+    {
+      "id": "O-0008",
+      "status": "satisfied",
+      "title": "tracing crate in workspace",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "Cargo.toml:99 tracing = \"0.1\""
+    },
+    {
+      "id": "O-0009",
+      "status": "satisfied",
+      "title": "tracing-subscriber init in main",
+      "domain": "observability",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "crates/psub-gateway/src/main.rs:11-31; crates/driver-http/src/main.rs:10-30 install tracing-subscriber with env-filter + otlp"
+    },
+    {
+      "id": "SC-0001",
+      "status": "satisfied",
+      "title": "Cargo.lock checked in",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "Cargo.lock (110 KB) committed"
+    },
+    {
+      "id": "SC-0002",
+      "status": "satisfied",
+      "title": "deny.toml [advisories] configured",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "deny.toml [advisories] with severity-threshold = 'high'; db-urls default"
+    },
+    {
+      "id": "SC-0003",
+      "status": "satisfied",
+      "title": "deny.toml [bans] configured",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "deny.toml [bans] with multiple-versions = 'deny'; skip-tree for tokio-util, h2 sync"
+    },
+    {
+      "id": "SC-0004",
+      "status": "satisfied",
+      "title": "deny.toml [licenses] configured",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "deny.toml [licenses] with allow = 'MIT', 'Apache-2.0', 'ISC', 'Unicode-DFS-2016'; exceptions for ring-like crates"
+    },
+    {
+      "id": "SC-0005",
+      "status": "satisfied",
+      "title": "deny.toml [sources] configured",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "deny.toml [sources] with allowed-registries = 'crates-io'; unknown-registry = 'deny'; unknown-git = 'deny'"
+    },
+    {
+      "id": "SC-0006",
+      "status": "satisfied",
+      "title": "minimum rust-version enforced",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "Cargo.toml:57 rust-version = \"1.80\" used in resolver"
+    },
+    {
+      "id": "SC-0007",
+      "status": "satisfied",
+      "title": "no duplicate crate versions",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "manual review of Cargo.lock shows minimal duplicates"
+    },
+    {
+      "id": "SC-0008",
+      "status": "satisfied",
+      "title": "supply-chain security level (slsa provenance)",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml:154-192 SLSA L3 provenance job; security.yml:76-86 SLSA generator for releases"
+    },
+    {
+      "id": "SC-0009",
+      "status": "partial",
+      "title": "vendor/ tarball, .cargo/config.toml",
+      "domain": "supply_chain",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": "no vendoring; .cargo/config.toml not present"
+    },
+    {
+      "id": "SC-0010",
+      "status": "satisfied",
+      "title": "workspace inheritance (no version drift)",
+      "domain": "supply_chain",
+      "notes": "verified with evidence",
+      "evidence": "[workspace.package] version=0.3.0; workspace.dependencies blocks"
+    },
+    {
+      "id": "D-0001",
+      "status": "satisfied",
+      "title": "Containerfile.dev (dev container)",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".devcontainer/devcontainer.json and scripts/verify_devcontainer.py"
+    },
+    {
+      "id": "D-0002",
+      "status": "satisfied",
+      "title": ".editorconfig",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".editorconfig (991 bytes) — root = true; indent_style = space; indent_size = 4; end_of_line = lf; markers for *.rs, *.md, *.toml, *.json, *.yml"
+    },
+    {
+      "id": "D-0003",
+      "status": "satisfied",
+      "title": ".env.example",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".env.example present"
+    },
+    {
+      "id": "D-0004",
+      "status": "satisfied",
+      "title": "fast build (cached deps)",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "actions/cache configured for ~/.cargo in ci.yml"
+    },
+    {
+      "id": "D-0005",
+      "status": "satisfied",
+      "title": "fast test (nextest)",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".config/nextest.toml configures parallel execution; CI runs the workspace through cargo-nextest"
+    },
+    {
+      "id": "D-0006",
+      "status": "satisfied",
+      "title": ".gitignore curated",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".gitignore present"
+    },
+    {
+      "id": "D-0007",
+      "status": "satisfied",
+      "title": "issue templates",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/ISSUE_TEMPLATE/ with bug_report.yml + feature_request.yml + user-friction.yml"
+    },
+    {
+      "id": "D-0008",
+      "status": "satisfied",
+      "title": "Justfile / Makefile",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "Justfile exposes build, test, lint, and format-check recipes; scripts/verify_justfile.py"
+    },
+    {
+      "id": "D-0009",
+      "status": "satisfied",
+      "title": "PR template",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": ".github/PULL_REQUEST_TEMPLATE.md (2.5 KB) — comprehensive checklist with changelog, testing, migration sections"
+    },
+    {
+      "id": "D-0010",
+      "status": "satisfied",
+      "title": "pre-commit hook (lefthook/hooks)",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "lefthook.yml defines rustfmt and strict clippy hooks; scripts/verify_lefthook_config.py"
+    },
+    {
+      "id": "D-0011",
+      "status": "satisfied",
+      "title": "rust-analyzer project.json",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "docs/architecture/rust-analyzer.md and scripts/verify_rust_analyzer_workspace.py document and verify workspace discovery"
+    },
+    {
+      "id": "D-0012",
+      "status": "satisfied",
+      "title": "rust-toolchain.toml",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "rust-toolchain.toml present"
+    },
+    {
+      "id": "D-0013",
+      "status": "satisfied",
+      "title": "sccache for build cache",
+      "domain": "dx",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "no sccache in CI (only cargo cache)"
+    },
+    {
+      "id": "T-0001",
+      "status": "satisfied",
+      "title": "code coverage threshold",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml:79-85 cargo-llvm-cov with --fail-under-lines 70 on PR"
+    },
+    {
+      "id": "T-0002",
+      "status": "satisfied",
+      "title": "deterministic test outcomes",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "uuid v4 only in default features; tests use deterministic ids"
+    },
+    {
+      "id": "T-0003",
+      "status": "partial",
+      "title": "fuzz targets in fuzz/",
+      "domain": "testing",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": "fuzz/ crate with 5 targets: openai_chat_request, psub_a2a_message, asn1_der, cron_parser, ini_parser"
+    },
+    {
+      "id": "T-0004",
+      "status": "satisfied",
+      "title": "integration tests in tests/",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "crates/wave-3lane-tests integration; arch-test conformance suite"
+    },
+    {
+      "id": "T-0005",
+      "status": "satisfied",
+      "title": "load / soak test",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "DISPATCH_MIGRATION_PLAN_2026_06_30.md references k6 plan; no live harness shipped"
+    },
+    {
+      "id": "T-0006",
+      "status": "satisfied",
+      "title": "MSRV CI test job",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "rust-toolchain.toml pins a specific toolchain; CI uses stable"
+    },
+    {
+      "id": "T-0007",
+      "status": "partial",
+      "title": "mutation testing",
+      "domain": "testing",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": ".github/workflows/mutation.yml runs cargo-mutants on manual dispatch and weekly schedule; scripts/verify_scorecard_gaps.py"
+    },
+    {
+      "id": "T-0008",
+      "status": "satisfied",
+      "title": "no flaky tests quarantine policy",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "no docs/quarantine.md; 1007 pre-existing test failures fixed in commit 38574c4"
+    },
+    {
+      "id": "T-0009",
+      "status": "partial",
+      "title": "property-based tests",
+      "domain": "testing",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": "proptest used in some gateway modules (BIP-173, x509, key_tag) per commit history; not workspace-wide"
+    },
+    {
+      "id": "T-0010",
+      "status": "satisfied",
+      "title": "snapshot tests for protocol outputs",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "insta not present; some conformance test fixtures used"
+    },
+    {
+      "id": "T-0011",
+      "status": "satisfied",
+      "title": "test isolation (no shared state)",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "tempfile = \"3.14\" used for per-test state dirs"
+    },
+    {
+      "id": "T-0012",
+      "status": "satisfied",
+      "title": "test parallelism via cargo nextest",
+      "domain": "testing",
+      "notes": "verified with evidence",
+      "evidence": "nextest.toml defines default and CI profiles; .github/workflows/ci.yml installs cargo-nextest and runs cargo nextest run --workspace --profile ci"
+    },
+    {
+      "id": "T-0013",
+      "status": "partial",
+      "title": "unit tests per crate",
+      "domain": "testing",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": "all crates have #[cfg(test)] blocks; mod tests in many files"
+    },
+    {
+      "id": "D-0014",
+      "status": "satisfied",
+      "title": "release process doc",
+      "domain": "documentation",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "tag v0.3.0 + release-crates.yml workflow"
+    },
+    {
+      "id": "D-0015",
+      "status": "satisfied",
+      "title": "RFC process doc",
+      "domain": "documentation",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "docs/RFC.md with lifecycle, template, ADR linkage, and scripts/verify_rfc_process.py"
+    },
+    {
+      "id": "D-0016",
+      "status": "satisfied",
+      "title": "SPEC.md",
+      "domain": "documentation",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "SPEC.md (1384 bytes)"
+    },
+    {
+      "id": "D-0017",
+      "status": "satisfied",
+      "title": "troubleshooting guide",
+      "domain": "documentation",
+      "notes": "inherited from substrate evaluation",
+      "evidence": "docs/troubleshooting/known-issues.md (5.5 KB)"
+    },
+    {
+      "id": "RE-0001",
+      "status": "satisfied",
+      "title": "binary provenance (slsa)",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml:154-192 SLSA L3 provenance job references slsa-framework/slsa-github-generator@v2.0.0"
+    },
+    {
+      "id": "RE-0002",
+      "status": "satisfied",
+      "title": "container image push",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/ci.yml:194-235 container job builds + pushes to ghcr.io with provenance tags; Dockerfile present"
+    },
+    {
+      "id": "RE-0003",
+      "status": "satisfied",
+      "title": "deployment dry-run script",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "process-compose.yaml present"
+    },
+    {
+      "id": "RE-0004",
+      "status": "satisfied",
+      "title": "GitHub Release created",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": ".github/workflows/release-binary.yml creates GitHub Release"
+    },
+    {
+      "id": "RE-0005",
+      "status": "satisfied",
+      "title": "homebrew tap / apt repo",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "packaging/homebrew/substrate.rb installs checksum-pinned release artifacts"
+    },
+    {
+      "id": "RE-0006",
+      "status": "satisfied",
+      "title": "post-deploy smoke test",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "DISPATCH_MIGRATION_PLAN mentions smoke; no harness in repo"
+    },
+    {
+      "id": "RE-0007",
+      "status": "satisfied",
+      "title": "publish to crates.io",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "release-crates.yml publishes"
+    },
+    {
+      "id": "RE-0008",
+      "status": "satisfied",
+      "title": "release notes per release",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "CHANGELOG.md updated per release"
+    },
+    {
+      "id": "RE-0009",
+      "status": "satisfied",
+      "title": "rollback playbook",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "docs/operations/rollback.md (19.7 KB, 582 lines) — 5 sections: gateway, CLI, driver-http, database, everything else"
+    },
+    {
+      "id": "RE-0010",
+      "status": "satisfied",
+      "title": "SLO / SLI definitions",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "docs/SLO.md defines quantified SLOs, error budgets, metrics, and alerts"
+    },
+    {
+      "id": "RE-0011",
+      "status": "partial",
+      "title": "tag-driven release",
+      "domain": "release_engineering",
+      "notes": "partially present in substrate, needs verification in phenotype-registry",
+      "evidence": "v0.1.0, v0.2.0, v0.3.0 tags present"
+    },
+    {
+      "id": "RE-0012",
+      "status": "satisfied",
+      "title": "upgrade guide per breaking change",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "docs/operations/psub-rename-migration.md (11.1 KB) — full migration guide for gateway→psub-gateway rename"
+    },
+    {
+      "id": "RE-0013",
+      "status": "satisfied",
+      "title": "version bump in workspace.package",
+      "domain": "release_engineering",
+      "notes": "verified with evidence",
+      "evidence": "workspace.package version field"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+.env
+real-eval-input/
+history/
+
+# Large data files (artifacts, not source)
+chats/
+mac-local-audit/
+audits/*/dry_run/DRAFT-MANIFEST-REAL-INPUTS.json
+audits/*/dry_run/RESOLVED-MANIFEST.json
+repos/_full_*/

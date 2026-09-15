@@ -1,0 +1,387 @@
+{
+  "OpenSSF_Scorecard": {
+    "version": "v2.0",
+    "checks": [
+      {
+        "id": "Binary-Artifacts",
+        "name": "Binary-Artifacts",
+        "weight": 2,
+        "risk": "high"
+      },
+      {
+        "id": "Branch-Protection",
+        "name": "Branch-Protection",
+        "weight": 10,
+        "risk": "high"
+      },
+      {
+        "id": "CI-Tests",
+        "name": "CI-Tests",
+        "weight": 8,
+        "risk": "medium"
+      },
+      {
+        "id": "Code-Review",
+        "name": "Code-Review",
+        "weight": 8,
+        "risk": "medium"
+      },
+      {
+        "id": "Dangerous-Workflow",
+        "name": "Dangerous-Workflow",
+        "weight": 10,
+        "risk": "high"
+      },
+      {
+        "id": "Dependency-Update-Tool",
+        "name": "Dependency-Update-Tool",
+        "weight": 6,
+        "risk": "medium"
+      },
+      {
+        "id": "Fuzzing",
+        "name": "Fuzzing",
+        "weight": 7,
+        "risk": "medium"
+      },
+      {
+        "id": "License",
+        "name": "License",
+        "weight": 2,
+        "risk": "low"
+      },
+      {
+        "id": "Pinned-Dependencies",
+        "name": "Pinned-Dependencies",
+        "weight": 7,
+        "risk": "high"
+      },
+      {
+        "id": "SAST",
+        "name": "SAST",
+        "weight": 7,
+        "risk": "high"
+      },
+      {
+        "id": "Security-Policy",
+        "name": "Security-Policy",
+        "weight": 4,
+        "risk": "medium"
+      },
+      {
+        "id": "Signed-Releases",
+        "name": "Signed-Releases",
+        "weight": 8,
+        "risk": "high"
+      },
+      {
+        "id": "Token-Permissions",
+        "name": "Token-Permissions",
+        "weight": 6,
+        "risk": "high"
+      },
+      {
+        "id": "Vulnerabilities",
+        "name": "Vulnerabilities",
+        "weight": 10,
+        "risk": "high"
+      },
+      {
+        "id": "Webhooks-Active",
+        "name": "Webhooks-Active",
+        "risk": "low",
+        "weight": 1
+      }
+    ]
+  },
+  "SLSA": {
+    "version": "v1.0",
+    "levels": [
+      {
+        "level": 1,
+        "name": "Build provenance exists"
+      },
+      {
+        "level": 2,
+        "name": "Signed provenance, hosted build"
+      },
+      {
+        "level": 3,
+        "name": "Hardened builds, isolated"
+      },
+      {
+        "level": 4,
+        "name": "Two-party review, hermetic"
+      }
+    ],
+    "requirements": [
+      "provenance",
+      "signed",
+      "isolated",
+      "verified"
+    ]
+  },
+  "OWASP_Top_10_2021": [
+    "A01:2021-Broken Access Control",
+    "A02:2021-Cryptographic Failures",
+    "A03:2021-Injection",
+    "A04:2021-Insecure Design",
+    "A05:2021-Security Misconfiguration",
+    "A06:2021-Vulnerable and Outdated Components",
+    "A07:2021-Identification and Authentication Failures",
+    "A08:2021-Software and Data Integrity Failures",
+    "A09:2021-Security Logging and Monitoring Failures",
+    "A10:2021-Server-Side Request Forgery (SSRF)"
+  ],
+  "OWASP_ASVS_v4": {
+    "version": "4.0.3",
+    "chapters": [
+      {
+        "id": "V1",
+        "name": "Architecture",
+        "requirements": 14
+      },
+      {
+        "id": "V2",
+        "name": "Authentication",
+        "requirements": 25
+      },
+      {
+        "id": "V3",
+        "name": "Session Management",
+        "requirements": 14
+      },
+      {
+        "id": "V4",
+        "name": "Access Control",
+        "requirements": 13
+      },
+      {
+        "id": "V5",
+        "name": "Validation, Sanitization and Encoding",
+        "requirements": 19
+      },
+      {
+        "id": "V6",
+        "name": "Stored Cryptography",
+        "requirements": 11
+      },
+      {
+        "id": "V7",
+        "name": "Error Handling and Logging",
+        "requirements": 9
+      },
+      {
+        "id": "V8",
+        "name": "Data Protection",
+        "requirements": 12
+      },
+      {
+        "id": "V9",
+        "name": "Communication",
+        "requirements": 9
+      },
+      {
+        "id": "V10",
+        "name": "Malicious Code",
+        "requirements": 5
+      },
+      {
+        "id": "V11",
+        "name": "Business Logic",
+        "requirements": 9
+      },
+      {
+        "id": "V12",
+        "name": "Files and Resources",
+        "requirements": 9
+      },
+      {
+        "id": "V13",
+        "name": "API and Web Service",
+        "requirements": 11
+      },
+      {
+        "id": "V14",
+        "name": "Configuration",
+        "requirements": 12
+      }
+    ]
+  },
+  "NIST_SSDF": {
+    "version": "1.1",
+    "practices": [
+      {
+        "id": "PO.1",
+        "name": "Define Security Requirements"
+      },
+      {
+        "id": "PO.2",
+        "name": "Define Roles and Responsibilities"
+      },
+      {
+        "id": "PO.3",
+        "name": "Define Supporting Tools"
+      },
+      {
+        "id": "PO.4",
+        "name": "Define and Use Metrics"
+      },
+      {
+        "id": "PO.5",
+        "name": "Define and Use Metrics"
+      },
+      {
+        "id": "PS.1",
+        "name": "Protect Software"
+      },
+      {
+        "id": "PS.2",
+        "name": "Provide a Mechanism for Verifying Software Release Integrity"
+      },
+      {
+        "id": "PS.3",
+        "name": "Archive and Protect Each Software Release"
+      },
+      {
+        "id": "PW.1",
+        "name": "Design Software to Meet Security Requirements"
+      },
+      {
+        "id": "PW.2",
+        "name": "Review the Software Design"
+      },
+      {
+        "id": "PW.3",
+        "name": "Reuse Existing, Well-Secured Software Components"
+      },
+      {
+        "id": "PW.4",
+        "name": "Use Source Code Repositories"
+      },
+      {
+        "id": "PW.5",
+        "name": "Use Separate Build Environments"
+      },
+      {
+        "id": "PW.6",
+        "name": "Configure Compilation"
+      },
+      {
+        "id": "PW.7",
+        "name": "Review and Analyze Human-Readable Code"
+      },
+      {
+        "id": "PW.8",
+        "name": "Test Executable Code"
+      },
+      {
+        "id": "RV.1",
+        "name": "Identify and Confirm Vulnerabilities"
+      },
+      {
+        "id": "RV.2",
+        "name": "Assess, Prioritize, and Remediate Vulnerabilities"
+      },
+      {
+        "id": "RV.3",
+        "name": "Analyze Root Causes"
+      }
+    ]
+  },
+  "CIS_Controls_v8": {
+    "version": "8.0",
+    "groups": [
+      {
+        "id": "1",
+        "name": "Inventory and Control of Enterprise Assets",
+        "controls": 5
+      },
+      {
+        "id": "2",
+        "name": "Inventory and Control of Software Assets",
+        "controls": 7
+      },
+      {
+        "id": "3",
+        "name": "Data Protection",
+        "controls": 14
+      },
+      {
+        "id": "4",
+        "name": "Secure Configuration of Enterprise Assets and Software",
+        "controls": 12
+      },
+      {
+        "id": "5",
+        "name": "Account Management",
+        "controls": 6
+      },
+      {
+        "id": "6",
+        "name": "Access Control Management",
+        "controls": 8
+      },
+      {
+        "id": "7",
+        "name": "Continuous Vulnerability Management",
+        "controls": 7
+      },
+      {
+        "id": "8",
+        "name": "Audit Log Management",
+        "controls": 12
+      },
+      {
+        "id": "9",
+        "name": "Email and Web Browser Protections",
+        "controls": 9
+      },
+      {
+        "id": "10",
+        "name": "Malware Defenses",
+        "controls": 7
+      },
+      {
+        "id": "11",
+        "name": "Data Recovery",
+        "controls": 5
+      },
+      {
+        "id": "12",
+        "name": "Network Infrastructure Management",
+        "controls": 8
+      },
+      {
+        "id": "13",
+        "name": "Network Monitoring and Defense",
+        "controls": 11
+      },
+      {
+        "id": "14",
+        "name": "Security Awareness and Skills Training",
+        "controls": 9
+      },
+      {
+        "id": "15",
+        "name": "Service Provider Management",
+        "controls": 7
+      },
+      {
+        "id": "16",
+        "name": "Application Software Security",
+        "controls": 14
+      },
+      {
+        "id": "17",
+        "name": "Incident Response Management",
+        "controls": 9
+      },
+      {
+        "id": "18",
+        "name": "Penetration Testing",
+        "controls": 5
+      }
+    ]
+  }
+}

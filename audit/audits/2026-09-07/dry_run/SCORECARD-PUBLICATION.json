@@ -1,0 +1,1836 @@
+{
+  "schema": "scorecard-v3-publication",
+  "version": "v1.0",
+  "generated_at": "2026-09-12T08:23:00Z",
+  "evaluator": "dry-run-evaluator v1",
+  "rubric_version": "v1",
+  "rubric_criteria_count": 4503,
+  "subject": "substrate",
+  "status": "PUBLISHED",
+  "publication_allowed": false,
+  "readiness_grade": null,
+  "finding": {
+    "type": "real_failing_outcome",
+    "description": "phenotype-registry fails 100% of evaluated criteria",
+    "severity": "critical",
+    "affected_product": "phenotype-registry",
+    "criteria_evaluated": 109,
+    "criteria_failed": 109,
+    "criteria_passed": 0
+  },
+  "products": {
+    "Melosviz": {
+      "criteria_evaluated": 109,
+      "criteria_passed": 96,
+      "criteria_failed": 13,
+      "pass_rate": 88.1
+    },
+    "SessionLedger": {
+      "criteria_evaluated": 109,
+      "criteria_passed": 93,
+      "criteria_failed": 16,
+      "pass_rate": 85.3
+    },
+    "Tracera-wtrees": {
+      "criteria_evaluated": 47,
+      "criteria_passed": 47,
+      "criteria_failed": 0,
+      "pass_rate": 100.0
+    },
+    "phenotype-registry": {
+      "criteria_evaluated": 109,
+      "criteria_passed": 0,
+      "criteria_failed": 109,
+      "pass_rate": 0.0
+    },
+    "sharecli": {
+      "criteria_evaluated": 109,
+      "criteria_passed": 34,
+      "criteria_failed": 75,
+      "pass_rate": 31.2
+    },
+    "substrate": {
+      "criteria_evaluated": 127,
+      "criteria_passed": 114,
+      "criteria_failed": 13,
+      "pass_rate": 89.8
+    }
+  },
+  "criteria": [
+    {
+      "id": "A-0001",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "0x4D31/airt/module1.html",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0002",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "0x4D31/airt/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0003",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "13eth-a/390_project/program.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0004",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "1979139113/0day-today-exploits/11791.txt",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0005",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "a16z-infra/llm-app-stack/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0006",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "a5c-ai/babysitter/library/specializations/ai-agents-conversational/skills/phoenix-arize-setup/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0007",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "a5c-ai/babysitter/library/specializations/ai-agents-conversational/skills/phoenix-arize-setup/SKILL.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0008",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "Abhilashb1/Docs/consolidated",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0009",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "Abhilashb1/Docs/fail",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0010",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "Abhilashb1/Docs/garak",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0011",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "A-EVO-Lab/a-evolve/CLAUDE.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0012",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "affaan-m/JARVIS/backend/eval/__init__.py",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0013",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "agentrhq/webcmd/benchmarks/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0014",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "agentsope/SkillAlchemy/skills/agentsop-tool-scoping/SKILL.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0015",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "AGI-Edgerunners/LLM-Agents-Papers/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0016",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "ai-boost/awesome-harness-engineering/README.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "A-0017",
+      "source": "agentic-research",
+      "domain": "agentic-github",
+      "title": "ai-boost/awesome-prompts/prompts/agent_data_injection_attack_auditor.txt",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "CC-0001",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 1: Inventory and Control of Enterprise Assets (5 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0002",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 10: Malware Defenses (7 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0003",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 11: Data Recovery (5 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0004",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 12: Network Infrastructure Management (8 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0005",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 13: Network Monitoring and Defense (11 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0006",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 14: Security Awareness and Skills Training (9 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0007",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 15: Service Provider Management (7 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0008",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 16: Application Software Security (14 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0009",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 17: Incident Response Management (9 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0010",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 18: Penetration Testing (5 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0011",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 2: Inventory and Control of Software Assets (7 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0012",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 3: Data Protection (14 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0013",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 4: Secure Configuration of Enterprise Assets and Software (12 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CC-0014",
+      "source": "CIS",
+      "domain": "CIS_Controls",
+      "title": "CIS 5: Account Management (6 controls)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "CQ-0001",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "centralized error context",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0002",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "clippy strict mode in CI",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0003",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "const fn where possible",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied"
+      }
+    },
+    {
+      "id": "CQ-0004",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "#![deny(missing_docs)]",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0005",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "Display+Debug on all public types",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0006",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "edition 2021",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied"
+      }
+    },
+    {
+      "id": "CQ-0007",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "modules public surface minimal",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0008",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "MSRV pinned",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0009",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no dead_code warnings",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied"
+      }
+    },
+    {
+      "id": "CQ-0010",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no panic paths in lib code",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0011",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no unused imports CI gate",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0012",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no .unwrap() in non-test code",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0013",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no-todo / no-fixme enforced",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0014",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "no-unsafe policy",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0015",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "Result return types on fallible fns",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0016",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "rustfmt config",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0017",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "strsim for CLI suggestions",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "CQ-0018",
+      "source": "substrate-v3",
+      "domain": "code_quality",
+      "title": "thiserror on all error types",
+      "aggregated_status": "satisfied",
+      "per_card": {
+        "substrate": "satisfied"
+      }
+    },
+    {
+      "id": "D-0001",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "ADR directory",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0002",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "AGENTS.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0003",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "API reference generated",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0004",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "ARCHITECTURE.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0005",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "CHANGELOG.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0006",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "CONTRIBUTING.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0007",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "deployment guide",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0008",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "FAQ",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0009",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "glossary",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0010",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "LICENSE file (MIT OR Apache-2.0)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0011",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "operations runbook",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0012",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "per-crate rustdoc on public items",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0013",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "README with quickstart",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0014",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "release process doc",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0015",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "RFC process doc",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0016",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "SPEC.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "D-0017",
+      "source": "substrate-v3",
+      "domain": "documentation",
+      "title": "troubleshooting guide",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "satisfied"
+      }
+    },
+    {
+      "id": "O-0001",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "log level env override",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0002",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "metric cardinality limits",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0003",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "OpenTelemetry exporter",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0004",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "Prometheus /metrics endpoint",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0005",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "request id propagation",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0006",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "structured log fields (kv pairs)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0007",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "trace context propagation (W3C)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0008",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "tracing crate in workspace",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "O-0009",
+      "source": "substrate-v3",
+      "domain": "observability",
+      "title": "tracing-subscriber init in main",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0001",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "binary provenance (slsa)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0002",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "container image push",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0003",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "deployment dry-run script",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0004",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "GitHub Release created",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0005",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "homebrew tap / apt repo",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0006",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "post-deploy smoke test",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0007",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "publish to crates.io",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0008",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "release notes per release",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0009",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "rollback playbook",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0010",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "SLO / SLI definitions",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0011",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "tag-driven release",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0012",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "upgrade guide per breaking change",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "RE-0013",
+      "source": "substrate-v3",
+      "domain": "release_engineering",
+      "title": "version bump in workspace.package",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "unsatisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0001",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "audit log",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0002",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "auth middleware on management routes",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0003",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "bounded body / OOM prevention",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0004",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "cargo-deny config",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0005",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "cargo-deny run in CI",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0006",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "circuit breaker",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0007",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "CodeQL scan",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0008",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "dependency audit on PR",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0009",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "Dependency policy doc",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0010",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "gitleaks config",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0011",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "oauth1 signature parity check",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0012",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "private vuln disclosure email",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0013",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "rate-limit middleware",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0014",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "SBOM (CycloneDX)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0015",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "secret scanning in CI",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "S-0016",
+      "source": "substrate-v3",
+      "domain": "security",
+      "title": "SECURITY.md",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "unsatisfied",
+        "Tracera-wtrees": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0001",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "Cargo.lock checked in",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0002",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "deny.toml [advisories] configured",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0003",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "deny.toml [bans] configured",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0004",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "deny.toml [licenses] configured",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0005",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "deny.toml [sources] configured",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0006",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "minimum rust-version enforced",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0007",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "no duplicate crate versions",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0008",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "supply-chain security level (slsa provenance)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0009",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "vendor/ tarball, .cargo/config.toml",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "SC-0010",
+      "source": "substrate-v3",
+      "domain": "supply_chain",
+      "title": "workspace inheritance (no version drift)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0001",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "code coverage threshold",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0002",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "deterministic test outcomes",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0003",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "fuzz targets in fuzz/",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0004",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "integration tests in tests/",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0005",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "load / soak test",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0006",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "MSRV CI test job",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0007",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "mutation testing",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0008",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "no flaky tests quarantine policy",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0009",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "property-based tests",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0010",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "snapshot tests for protocol outputs",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0011",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "test isolation (no shared state)",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0012",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "test parallelism via cargo nextest",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "satisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    },
+    {
+      "id": "T-0013",
+      "source": "substrate-v3",
+      "domain": "testing",
+      "title": "unit tests per crate",
+      "aggregated_status": "unsatisfied",
+      "per_card": {
+        "substrate": "unsatisfied",
+        "Melosviz": "satisfied",
+        "SessionLedger": "satisfied",
+        "phenotype-registry": "unsatisfied",
+        "sharecli": "unsatisfied"
+      }
+    }
+  ],
+  "metadata": {
+    "session_id": "2026-09-12-jcode-resume",
+    "v0_requirements_met": [
+      "real_failing_outcome_detected",
+      "correctly_owned_bounded_action",
+      "repair_experiment_within_authority",
+      "independent_verification",
+      "registry_delivery_honest",
+      "false_pass_rejected",
+      "no_unrelated_maturity_claim"
+    ],
+    "artifacts": [
+      "SESSION-HANDOFF.md",
+      "test_planted_false_pass.py (14 tests)",
+      "DRAFT-MANIFEST-REAL-INPUTS.json",
+      "INDEPENDENT-VERIFICATION-REPORT.md (26/26)",
+      "PROPOSED-MAPPING.json",
+      "REVIEWER-DECISION-PACKET.md",
+      "RESOLVED-MAPPING.json",
+      "REAL-FAILING-OUTCOME.md"
+    ]
+  }
+}

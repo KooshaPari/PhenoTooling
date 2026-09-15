@@ -1,0 +1,5 @@
+OWASP Top Ten Web Application Security Risks | OWASP Foundation
+OWASP Top Ten Web Application Security Risks
+The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
+Globally recognized by developers as the first step towards more secure coding.
+Translations in progress - check back soon!

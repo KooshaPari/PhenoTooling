@@ -1,0 +1,691 @@
+{
+  "evaluated_at": "2026-09-12T08:47:00Z",
+  "products": {
+    "phenotype-registry": {
+      "source": "scorecards/phenotype-registry-audit.json",
+      "format": "criteria",
+      "total": 122,
+      "satisfied": 0,
+      "partial": 42,
+      "missing": 80,
+      "avg_score": 17.2
+    },
+    "substrate": {
+      "source": "scorecards/substrate-audit.json",
+      "format": "criteria",
+      "total": 140,
+      "satisfied": 126,
+      "partial": 14,
+      "missing": 0,
+      "avg_score": 95.0
+    },
+    "SessionLedger": {
+      "source": "scorecards/SessionLedger-audit.json",
+      "format": "criteria",
+      "total": 122,
+      "satisfied": 106,
+      "partial": 16,
+      "missing": 0,
+      "avg_score": 93.4
+    },
+    "sharecli": {
+      "source": "scorecards/sharecli-audit.json",
+      "format": "criteria",
+      "total": 122,
+      "satisfied": 47,
+      "partial": 75,
+      "missing": 0,
+      "avg_score": 69.3
+    },
+    "Melosviz": {
+      "source": "scorecards/Melosviz-audit.json",
+      "format": "criteria",
+      "total": 122,
+      "satisfied": 109,
+      "partial": 13,
+      "missing": 0,
+      "avg_score": 94.7
+    },
+    "Tracera-wtrees": {
+      "source": "scorecards/Tracera-wtrees-audit.json",
+      "format": "criteria",
+      "total": 47,
+      "satisfied": 47,
+      "partial": 0,
+      "missing": 0,
+      "avg_score": 100.0
+    }
+  },
+  "coverage_analysis": {
+    "evaluated_at": "2026-09-12T09:59:55.369733+00:00",
+    "rubric_total_unique_criteria": 3598,
+    "matched_criteria": 127,
+    "unmatched_criteria": 3471,
+    "coverage_percent": 3.5,
+    "total_scorecards": 25,
+    "total_domains": 3598,
+    "domains_with_unmatched": 33
+  },
+  "domain_expansions": {
+    "git-history": {
+      "file": "domain-expansion-git-history.json",
+      "unmatched_count": 1362,
+      "products": [
+        "Agentora-wtrees-wt-206",
+        "AgilePlus-recovered-20260822",
+        "HeliosLab",
+        "Melosviz",
+        "OmniRoute",
+        "PhenoPlugins",
+        "PhenoVCS",
+        "SessionLedger",
+        "Tokn",
+        "Tracera-wtrees",
+        "argis-extensions",
+        "cliproxyapi-plusplus",
+        "hwLedger",
+        "nanovms",
+        "pheno-crates-hexa-kit",
+        "pheno-crates-hexa-kit-templates-appgen",
+        "pheno-harness",
+        "phenoAI",
+        "phenotype-registry",
+        "phenotype-tooling-mergify",
+        "portage",
+        "sharecli",
+        "substrate",
+        "tgt",
+        "thegent"
+      ]
+    },
+    "agentic-github": {
+      "file": "domain-expansion-agentic-github.json",
+      "unmatched_count": 438,
+      "products": [
+        "Agentora-wtrees-wt-206",
+        "AgilePlus-recovered-20260822",
+        "HeliosLab",
+        "Melosviz",
+        "OmniRoute",
+        "PhenoPlugins",
+        "PhenoVCS",
+        "SessionLedger",
+        "Tokn",
+        "Tracera-wtrees",
+        "argis-extensions",
+        "cliproxyapi-plusplus",
+        "hwLedger",
+        "nanovms",
+        "pheno-crates-hexa-kit",
+        "pheno-crates-hexa-kit-templates-appgen",
+        "pheno-harness",
+        "phenoAI",
+        "phenotype-registry",
+        "phenotype-tooling-mergify",
+        "portage",
+        "sharecli",
+        "substrate",
+        "tgt",
+        "thegent"
+      ]
+    },
+    "third-party": {
+      "file": "domain-expansion-third-party.json",
+      "unmatched_count": 434,
+      "products": [
+        "Agentora-wtrees-wt-206",
+        "AgilePlus-recovered-20260822",
+        "HeliosLab",
+        "Melosviz",
+        "OmniRoute",
+        "PhenoPlugins",
+        "PhenoVCS",
+        "SessionLedger",
+        "Tokn",
+        "Tracera-wtrees",
+        "argis-extensions",
+        "cliproxyapi-plusplus",
+        "hwLedger",
+        "nanovms",
+        "pheno-crates-hexa-kit",
+        "pheno-crates-hexa-kit-templates-appgen",
+        "pheno-harness",
+        "phenoAI",
+        "phenotype-registry",
+        "phenotype-tooling-mergify",
+        "portage",
+        "sharecli",
+        "substrate",
+        "tgt",
+        "thegent"
+      ]
+    },
+    "narrative": {
+      "file": "domain-expansion-narrative.json",
+      "unmatched_count": 413,
+      "products": [
+        "Agentora-wtrees-wt-206",
+        "AgilePlus-recovered-20260822",
+        "HeliosLab",
+        "Melosviz",
+        "OmniRoute",
+        "PhenoPlugins",
+        "PhenoVCS",
+        "SessionLedger",
+        "Tokn",
+        "Tracera-wtrees",
+        "argis-extensions",
+        "cliproxyapi-plusplus",
+        "hwLedger",
+        "nanovms",
+        "pheno-crates-hexa-kit",
+        "pheno-crates-hexa-kit-templates-appgen",
+        "pheno-harness",
+        "phenoAI",
+        "phenotype-registry",
+        "phenotype-tooling-mergify",
+        "portage",
+        "sharecli",
+        "substrate",
+        "tgt",
+        "thegent"
+      ]
+    },
+    "github": {
+      "file": "domain-expansion-github.json",
+      "unmatched_count": 285,
+      "products": [
+        "Agentora-wtrees-wt-206",
+        "AgilePlus-recovered-20260822",
+        "HeliosLab",
+        "Melosviz",
+        "OmniRoute",
+        "PhenoPlugins",
+        "PhenoVCS",
+        "SessionLedger",
+        "Tokn",
+        "Tracera-wtrees",
+        "argis-extensions",
+        "cliproxyapi-plusplus",
+        "hwLedger",
+        "nanovms",
+        "pheno-crates-hexa-kit",
+        "pheno-crates-hexa-kit-templates-appgen",
+        "pheno-harness",
+        "phenoAI",
+        "phenotype-registry",
+        "phenotype-tooling-mergify",
+        "portage",
+        "sharecli",
+        "substrate",
+        "tgt",
+        "thegent"
+      ]
+    }
+  },
+  "per_product_coverage": {
+    "Agentora-wtrees-wt-206": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "AgilePlus-recovered-20260822": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "HeliosLab": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "Melosviz": {
+      "total_assessed": 122,
+      "matched_to_rubric": 109,
+      "unique_rubric_ids_covered": 109
+    },
+    "OmniRoute": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "PhenoPlugins": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "PhenoVCS": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "SessionLedger": {
+      "total_assessed": 122,
+      "matched_to_rubric": 109,
+      "unique_rubric_ids_covered": 109
+    },
+    "Tokn": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "Tracera-wtrees": {
+      "total_assessed": 47,
+      "matched_to_rubric": 47,
+      "unique_rubric_ids_covered": 47
+    },
+    "argis-extensions": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "cliproxyapi-plusplus": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "hwLedger": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "nanovms": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "pheno-crates-hexa-kit": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "pheno-crates-hexa-kit-templates-appgen": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "pheno-harness": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "phenoAI": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "phenotype-registry": {
+      "total_assessed": 109,
+      "matched_to_rubric": 109,
+      "unique_rubric_ids_covered": 109
+    },
+    "phenotype-tooling-mergify": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "portage": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "sharecli": {
+      "total_assessed": 122,
+      "matched_to_rubric": 109,
+      "unique_rubric_ids_covered": 109
+    },
+    "substrate": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "tgt": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    },
+    "thegent": {
+      "total_assessed": 140,
+      "matched_to_rubric": 127,
+      "unique_rubric_ids_covered": 127
+    }
+  },
+  "domain_coverage": {
+    "git-history": {
+      "total": 1647,
+      "matched": 0,
+      "unmatched": 1647,
+      "coverage_percent": 0.0
+    },
+    "agentic-github": {
+      "total": 469,
+      "matched": 17,
+      "unmatched": 452,
+      "coverage_percent": 3.6
+    },
+    "third-party": {
+      "total": 447,
+      "matched": 13,
+      "unmatched": 434,
+      "coverage_percent": 2.9
+    },
+    "narrative": {
+      "total": 413,
+      "matched": 0,
+      "unmatched": 413,
+      "coverage_percent": 0.0
+    },
+    "github": {
+      "total": 285,
+      "matched": 0,
+      "unmatched": 285,
+      "coverage_percent": 0.0
+    },
+    "github-commits": {
+      "total": 205,
+      "matched": 0,
+      "unmatched": 205,
+      "coverage_percent": 0.0
+    },
+    "era-research-github": {
+      "total": 159,
+      "matched": 0,
+      "unmatched": 159,
+      "coverage_percent": 0.0
+    },
+    "git-branches": {
+      "total": 141,
+      "matched": 0,
+      "unmatched": 141,
+      "coverage_percent": 0.0
+    },
+    "github-prs": {
+      "total": 76,
+      "matched": 0,
+      "unmatched": 76,
+      "coverage_percent": 0.0
+    },
+    "workflow": {
+      "total": 69,
+      "matched": 0,
+      "unmatched": 69,
+      "coverage_percent": 0.0
+    },
+    "user-scorecard": {
+      "total": 30,
+      "matched": 0,
+      "unmatched": 30,
+      "coverage_percent": 0.0
+    },
+    "mac-local": {
+      "total": 25,
+      "matched": 0,
+      "unmatched": 25,
+      "coverage_percent": 0.0
+    },
+    "owasp-asvs": {
+      "total": 32,
+      "matched": 9,
+      "unmatched": 23,
+      "coverage_percent": 28.1
+    },
+    "nist-ssdf": {
+      "total": 21,
+      "matched": 0,
+      "unmatched": 21,
+      "coverage_percent": 0.0
+    },
+    "Anthropic_RSP": {
+      "total": 20,
+      "matched": 0,
+      "unmatched": 20,
+      "coverage_percent": 0.0
+    },
+    "EU_AI_Act": {
+      "total": 19,
+      "matched": 0,
+      "unmatched": 19,
+      "coverage_percent": 0.0
+    },
+    "NIST_SSDF": {
+      "total": 19,
+      "matched": 0,
+      "unmatched": 19,
+      "coverage_percent": 0.0
+    },
+    "MITRE_ATLAS": {
+      "total": 17,
+      "matched": 0,
+      "unmatched": 17,
+      "coverage_percent": 0.0
+    },
+    "OpenSSF_Scorecard": {
+      "total": 15,
+      "matched": 0,
+      "unmatched": 15,
+      "coverage_percent": 0.0
+    },
+    "agileplus": {
+      "total": 31,
+      "matched": 17,
+      "unmatched": 14,
+      "coverage_percent": 54.8
+    },
+    "cis-v8": {
+      "total": 14,
+      "matched": 0,
+      "unmatched": 14,
+      "coverage_percent": 0.0
+    },
+    "OWASP_ASVS": {
+      "total": 14,
+      "matched": 0,
+      "unmatched": 14,
+      "coverage_percent": 0.0
+    },
+    "ISO_42001": {
+      "total": 13,
+      "matched": 0,
+      "unmatched": 13,
+      "coverage_percent": 0.0
+    },
+    "METR": {
+      "total": 10,
+      "matched": 0,
+      "unmatched": 10,
+      "coverage_percent": 0.0
+    },
+    "OWASP_Agentic": {
+      "total": 10,
+      "matched": 0,
+      "unmatched": 10,
+      "coverage_percent": 0.0
+    },
+    "OWASP_LLM": {
+      "total": 10,
+      "matched": 0,
+      "unmatched": 10,
+      "coverage_percent": 0.0
+    },
+    "OWASP_Top10": {
+      "total": 10,
+      "matched": 0,
+      "unmatched": 10,
+      "coverage_percent": 0.0
+    },
+    "Holistic_Evaluation": {
+      "total": 9,
+      "matched": 0,
+      "unmatched": 9,
+      "coverage_percent": 0.0
+    },
+    "ML_Model_Card": {
+      "total": 9,
+      "matched": 0,
+      "unmatched": 9,
+      "coverage_percent": 0.0
+    },
+    "RAGAS": {
+      "total": 9,
+      "matched": 0,
+      "unmatched": 9,
+      "coverage_percent": 0.0
+    },
+    "ISO_9001": {
+      "total": 7,
+      "matched": 0,
+      "unmatched": 7,
+      "coverage_percent": 0.0
+    },
+    "SWE_bench": {
+      "total": 6,
+      "matched": 0,
+      "unmatched": 6,
+      "coverage_percent": 0.0
+    },
+    "COBIT_2019": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "CMMI_5_levels": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "FDA_21_CFR_Part_11": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "GDPR_Article_25": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "HIPAA": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "ITIL_4": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "OpenAI_Preparedness": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "Six_Sigma_DMAIC": {
+      "total": 5,
+      "matched": 0,
+      "unmatched": 5,
+      "coverage_percent": 0.0
+    },
+    "CIS_Controls": {
+      "total": 18,
+      "matched": 14,
+      "unmatched": 4,
+      "coverage_percent": 77.8
+    },
+    "DeepEval": {
+      "total": 18,
+      "matched": 17,
+      "unmatched": 1,
+      "coverage_percent": 94.4
+    },
+    "architecture": {
+      "total": 17,
+      "matched": 17,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "ci_cd": {
+      "total": 14,
+      "matched": 14,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "code_quality": {
+      "total": 18,
+      "matched": 18,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "documentation": {
+      "total": 17,
+      "matched": 17,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "dx": {
+      "total": 13,
+      "matched": 13,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "observability": {
+      "total": 9,
+      "matched": 9,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "owasp-top10": {
+      "total": 5,
+      "matched": 5,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "release_engineering": {
+      "total": 13,
+      "matched": 13,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "security": {
+      "total": 16,
+      "matched": 16,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "SLSA": {
+      "total": 4,
+      "matched": 4,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "slsa": {
+      "total": 12,
+      "matched": 12,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "SOX": {
+      "total": 5,
+      "matched": 5,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "supply_chain": {
+      "total": 10,
+      "matched": 10,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    },
+    "testing": {
+      "total": 13,
+      "matched": 13,
+      "unmatched": 0,
+      "coverage_percent": 100.0
+    }
+  }
+}

@@ -1,0 +1,602 @@
+[
+  {
+    "message": "ci: add org automation set (#8)\n\n* ci: add automation (dependabot auto-merge, drift audit, scorecard, templates)\n\n* ci: add automation (dependabot auto-merge, drift audit, scorecard, templates)\n\n* ci:",
+    "repo": "Obsidian-Solutions/.github",
+    "sha": "af4cf710b0dffe76495fabe1329793de481fcbd3",
+    "url": "https://github.com/Obsidian-Solutions/.github/commit/af4cf710b0dffe76495fabe1329793de481fcbd3"
+  },
+  {
+    "message": "feat(security): implement OpenSSF Scorecard automated supply-chain audit\n\nAdd .github/workflows/scorecard.yml for automated OpenSSF Scorecard audits, upload SARIF results to GitHub Security tab, and a",
+    "repo": "MeRideBike/antigravity_playground",
+    "sha": "eced5074f09104e608d1a3bc67f1d6b54f4d8fc7",
+    "url": "https://github.com/MeRideBike/antigravity_playground/commit/eced5074f09104e608d1a3bc67f1d6b54f4d8fc7"
+  },
+  {
+    "message": "Rename: Industrial Brand Credibility Scorecard -> The Online Credibility Audit\n\n- New primary routes: /audit and /audit/r/:slug (admin moves to /audit/admin)\n- Permanent redirect /scorecard/:path* -> ",
+    "repo": "nexubis-hq/nexubis-web",
+    "sha": "ee78ef85e55dbf595e3bf904d8a817de4fd85cfc",
+    "url": "https://github.com/nexubis-hq/nexubis-web/commit/ee78ef85e55dbf595e3bf904d8a817de4fd85cfc"
+  },
+  {
+    "message": "Rename why-audit/four-requirements-scorecard.md to why-audit/references/four-requirements-scorecard.md",
+    "repo": "consultrevops/GTM-Skills",
+    "sha": "d6beb554c7482dd8dacb621326ad05fdc9f46423",
+    "url": "https://github.com/consultrevops/GTM-Skills/commit/d6beb554c7482dd8dacb621326ad05fdc9f46423"
+  },
+  {
+    "message": "feat: add nightly security audit, OSSF Scorecard, and package type checks\n\n- nightly-audit.yml: npm audit with auto-issue creation/updates\n- scorecard.yml: OSSF Scorecard for supply-chain security gra",
+    "repo": "lgriffin/ESI.ts",
+    "sha": "6a490f1d600c59174f16d274ab3b53de62ffe6d9",
+    "url": "https://github.com/lgriffin/ESI.ts/commit/6a490f1d600c59174f16d274ab3b53de62ffe6d9"
+  },
+  {
+    "message": "feat(governance): compliance report & scorecard (UC 44/45/73)\n\n- compliance_service: audit summary, recent audit, MFA count, prod-stack\n  approval check, weighted scorecard (quota/approval/notify/logi",
+    "repo": "Treon-Studio/radas",
+    "sha": "163524bb814dd87d14422cea08ccec51e5933648",
+    "url": "https://github.com/Treon-Studio/radas/commit/163524bb814dd87d14422cea08ccec51e5933648"
+  },
+  {
+    "message": "Merge pull request #14 from ViktorUJ/fix/ci-audit-and-scorecard\n\nfix(ci): resolve npm audit vulnerabilities and Scorecard gcr.io failure",
+    "repo": "ViktorUJ/obsidian-cloud-kms",
+    "sha": "a216b01354e938367dd2cf86b70bc7d893cffa7a",
+    "url": "https://github.com/ViktorUJ/obsidian-cloud-kms/commit/a216b01354e938367dd2cf86b70bc7d893cffa7a"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 10 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensh",
+    "repo": "sass-maker/app-health",
+    "sha": "db88da26a38882dfeece6094e4d4b7b34f86ffdf",
+    "url": "https://github.com/sass-maker/app-health/commit/db88da26a38882dfeece6094e4d4b7b34f86ffdf"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/looptv",
+    "sha": "3b9318b57509e89af903595cf6b5dc6bad00fdeb",
+    "url": "https://github.com/Significant-Hobbies/looptv/commit/3b9318b57509e89af903595cf6b5dc6bad00fdeb"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/chatgpt-memory-insights",
+    "sha": "6436001338f8c7202617b5ccb3893129c552c874",
+    "url": "https://github.com/Significant-Hobbies/chatgpt-memory-insights/commit/6436001338f8c7202617b5ccb3893129c552c874"
+  },
+  {
+    "message": "audit: cold-start round 3 scorecard (#970)\n\n* audit: cold-start round 3 scorecard against 3.2.1\n\n* audit: one passing confirmation round is done; routed items stay open against criterion 3",
+    "repo": "autumngarage/touchstone",
+    "sha": "fac01a150b71af98a3f8974a3f523141d939965a",
+    "url": "https://github.com/autumngarage/touchstone/commit/fac01a150b71af98a3f8974a3f523141d939965a"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 11 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensh",
+    "repo": "Significant-Hobbies/swe-interview-prep",
+    "sha": "26f71e55ec42ab756b8519ef45c20eeba4e34870",
+    "url": "https://github.com/Significant-Hobbies/swe-interview-prep/commit/26f71e55ec42ab756b8519ef45c20eeba4e34870"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/aliveville",
+    "sha": "c39f49dca9506e41bea33a49927465197832dc04",
+    "url": "https://github.com/sarthakagrawal927/aliveville/commit/c39f49dca9506e41bea33a49927465197832dc04"
+  },
+  {
+    "message": "ci(security): resolve #2912 \u2014 add freshness gate for .cargo/audit.toml ignore list (#3006)\n\n* ci(security): resolve #2912 \u2014 add freshness gate for .cargo/audit.toml ignore list\n\n* fix(scorecard): refr",
+    "repo": "anchapin/fluxion",
+    "sha": "3adeb4c346bb4e12d7099828a85f925c96794f0a",
+    "url": "https://github.com/anchapin/fluxion/commit/3adeb4c346bb4e12d7099828a85f925c96794f0a"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 2 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Codevetter/codevetter",
+    "sha": "ce7c0282cfc3f3fa5471ea8355143b86677d7f52",
+    "url": "https://github.com/Codevetter/codevetter/commit/ce7c0282cfc3f3fa5471ea8355143b86677d7f52"
+  },
+  {
+    "message": "audit: add SCORECARD_AUDIT.md \u2014 full read-only audit of scorecard",
+    "repo": "krishnanrvijay-afk/KRV-SCANNER-COMMAND-CENTER",
+    "sha": "9b69611fff16014ec09eff2bc3aaf2c0dd0b0763",
+    "url": "https://github.com/krishnanrvijay-afk/KRV-SCANNER-COMMAND-CENTER/commit/9b69611fff16014ec09eff2bc3aaf2c0dd0b0763"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/materia",
+    "sha": "5043fe1a395b1052c59c9e05757fc80ddb15eae2",
+    "url": "https://github.com/Significant-Hobbies/materia/commit/5043fe1a395b1052c59c9e05757fc80ddb15eae2"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/chatgpt-connections",
+    "sha": "2e7dbab1d313fc4c41ba7764cfed942dd7b06e54",
+    "url": "https://github.com/sass-maker/chatgpt-connections/commit/2e7dbab1d313fc4c41ba7764cfed942dd7b06e54"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/protein-index",
+    "sha": "345a688018bf71580b6304741daae3abff8748b7",
+    "url": "https://github.com/Significant-Hobbies/protein-index/commit/345a688018bf71580b6304741daae3abff8748b7"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/mashup",
+    "sha": "4ed3031d4b9ad04bd7d27d95c72004d25de3700b",
+    "url": "https://github.com/sass-maker/mashup/commit/4ed3031d4b9ad04bd7d27d95c72004d25de3700b"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/open-historia",
+    "sha": "1068963c15ac3d0efe21264fb96f2469a94d8623",
+    "url": "https://github.com/sarthakagrawal927/open-historia/commit/1068963c15ac3d0efe21264fb96f2469a94d8623"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/chess",
+    "sha": "8ddfbe6b79ec9dc9f9177b4133c93038b24642b1",
+    "url": "https://github.com/Significant-Hobbies/chess/commit/8ddfbe6b79ec9dc9f9177b4133c93038b24642b1"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 9 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/site-health",
+    "sha": "54569c29ece6ed084997ec3df5c62eed6fc3aa3a",
+    "url": "https://github.com/sass-maker/site-health/commit/54569c29ece6ed084997ec3df5c62eed6fc3aa3a"
+  },
+  {
+    "message": "Merge pull request #12 from rachanashende/fix/client-nav-overview-audit-scorecard\n\nClient nav: only Overview, Audit, My Scorecard",
+    "repo": "rachanashende/RIOS",
+    "sha": "ff1f4c2149939dabdb9e6484c9d516ec169ce0cb",
+    "url": "https://github.com/rachanashende/RIOS/commit/ff1f4c2149939dabdb9e6484c9d516ec169ce0cb"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/calorie",
+    "sha": "d39bb68b6266870b7b959e6389b5cd13f8221356",
+    "url": "https://github.com/Significant-Hobbies/calorie/commit/d39bb68b6266870b7b959e6389b5cd13f8221356"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/verified-bases",
+    "sha": "ec3dbcb47ec98ff54c9d1cf2e4e60ab583937ab8",
+    "url": "https://github.com/sass-maker/verified-bases/commit/ec3dbcb47ec98ff54c9d1cf2e4e60ab583937ab8"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 2 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "PostTrainLLM/posttrainllm",
+    "sha": "b6e320ee675263d29fb05ca7210b5940d13190eb",
+    "url": "https://github.com/PostTrainLLM/posttrainllm/commit/b6e320ee675263d29fb05ca7210b5940d13190eb"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/significanthobbies",
+    "sha": "b44dff5806cccc21d33932131716ab84242000e6",
+    "url": "https://github.com/Significant-Hobbies/significanthobbies/commit/b44dff5806cccc21d33932131716ab84242000e6"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/free-ai",
+    "sha": "bf3ccb01925cf2ae00a51f9653a1b57ba1c92941",
+    "url": "https://github.com/sass-maker/free-ai/commit/bf3ccb01925cf2ae00a51f9653a1b57ba1c92941"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 2 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/field-track",
+    "sha": "cadac271ff57716e1490a1609fae27c11e88395d",
+    "url": "https://github.com/sass-maker/field-track/commit/cadac271ff57716e1490a1609fae27c11e88395d"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/drank",
+    "sha": "03baa0a5b41dcb4c5f63a7f15eb3a806296750d1",
+    "url": "https://github.com/sass-maker/drank/commit/03baa0a5b41dcb4c5f63a7f15eb3a806296750d1"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "High-Signal-App/research-subreddit",
+    "sha": "5fc84afa5cf9acb294fd52ed729564fbb2c66e9f",
+    "url": "https://github.com/High-Signal-App/research-subreddit/commit/5fc84afa5cf9acb294fd52ed729564fbb2c66e9f"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/reel-pipeline",
+    "sha": "36a83294e4312f7eb7fcb93822ae6b1830bc8f80",
+    "url": "https://github.com/sass-maker/reel-pipeline/commit/36a83294e4312f7eb7fcb93822ae6b1830bc8f80"
+  },
+  {
+    "message": "audit(v38): sharecli C04 scorecard \u2014 Security (L31-L40) (#131)\n\n* chore(release): update CHANGELOG for v0.2.0\n\n* audit(v38): sharecli C03 scorecard \u2014 Agent Readiness L30.1-L30.12\n\nAuthored by codex st",
+    "repo": "KooshaPari/sharecli",
+    "sha": "e5d447ce687ffbd92e25b8d78e45eab5b5994748",
+    "url": "https://github.com/KooshaPari/sharecli/commit/e5d447ce687ffbd92e25b8d78e45eab5b5994748"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/web-playables",
+    "sha": "6a77431d828e7b3c67630f807875da5d303d2769",
+    "url": "https://github.com/sarthakagrawal927/web-playables/commit/6a77431d828e7b3c67630f807875da5d303d2769"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/knowledge-base",
+    "sha": "7021a3835344845ea86f1663af917dce48548478",
+    "url": "https://github.com/sass-maker/knowledge-base/commit/7021a3835344845ea86f1663af917dce48548478"
+  },
+  {
+    "message": "audit(v38): sync SessionLedger C00-C11 + SCORECARD\n\nSyncs audit-v38 scorecard output for SessionLedger: C00..C11 pillar files plus SCORECARD.md. 13 files added; no edits outside audit-v38/output/Sessi",
+    "repo": "KooshaPari/zz-archive-phenotype-org-audits",
+    "sha": "259443389792fee4698985c9670e9b2f6dd55802",
+    "url": "https://github.com/KooshaPari/zz-archive-phenotype-org-audits/commit/259443389792fee4698985c9670e9b2f6dd55802"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/gitstat",
+    "sha": "d6304d9832bcab76779afaeea813bcc111e6e489",
+    "url": "https://github.com/sass-maker/gitstat/commit/d6304d9832bcab76779afaeea813bcc111e6e489"
+  },
+  {
+    "message": "fix(scorecards): retire control-pane debt cohort (fak docs)\n\nReduce authoritative control-pane debt from 405 to 350 while preserving 47 measured scorecards and zero errors. Improve existing code struc",
+    "repo": "anthony-chaudhary/fak",
+    "sha": "96e4584ec9fb9fc6bdca2843f1519b8806a60fff",
+    "url": "https://github.com/anthony-chaudhary/fak/commit/96e4584ec9fb9fc6bdca2843f1519b8806a60fff"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/on-record",
+    "sha": "5ac626f238e89111c443fc42245d76c5cff63c35",
+    "url": "https://github.com/Significant-Hobbies/on-record/commit/5ac626f238e89111c443fc42245d76c5cff63c35"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 2 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "actions-marketplace-validations/sarthakagrawal927_code-reviewer-action",
+    "sha": "ce7c0282cfc3f3fa5471ea8355143b86677d7f52",
+    "url": "https://github.com/actions-marketplace-validations/sarthakagrawal927_code-reviewer-action/commit/ce7c0282cfc3f3fa5471ea8355143b86677d7f52"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/anime-list",
+    "sha": "5222134e86d9a2282c880dac4b578db8578abca8",
+    "url": "https://github.com/Significant-Hobbies/anime-list/commit/5222134e86d9a2282c880dac4b578db8578abca8"
+  },
+  {
+    "message": "feat: implement information set audit and scorecard rendering\n\n- Add information-set audit functionality to identify discrepancies in player scores.\n- Create scorecard rendering logic to display detai",
+    "repo": "Dimitriuses/transport-network-simulator",
+    "sha": "3db87380e890e47f9c01c0ac41c1bc4eede2df3c",
+    "url": "https://github.com/Dimitriuses/transport-network-simulator/commit/3db87380e890e47f9c01c0ac41c1bc4eede2df3c"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "High-Signal-App/everythingrated",
+    "sha": "6601e17d7bf2458ce64f0ae47d4d036d2a004e3e",
+    "url": "https://github.com/High-Signal-App/everythingrated/commit/6601e17d7bf2458ce64f0ae47d4d036d2a004e3e"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 7 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/journal",
+    "sha": "f88567280d805ada7bb54571ea24a66631345d19",
+    "url": "https://github.com/Significant-Hobbies/journal/commit/f88567280d805ada7bb54571ea24a66631345d19"
+  },
+  {
+    "message": "add OpenSSF Scorecard CI action + pip/npm audit job\n\n- New .github/workflows/scorecards.yml: runs ossf/scorecard-action on\n  schedule (weekly) and pushes to main, uploads SARIF results\n- ci.yml: new '",
+    "repo": "deghosal-2026/mcp-fabric",
+    "sha": "7423f5dfe03b22ac2c4e9efd4b58ffa0ec52436d",
+    "url": "https://github.com/deghosal-2026/mcp-fabric/commit/7423f5dfe03b22ac2c4e9efd4b58ffa0ec52436d"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/veg-protein-food",
+    "sha": "9962fafbd226ed5050f2b818990ac21adacc0fd6",
+    "url": "https://github.com/Significant-Hobbies/veg-protein-food/commit/9962fafbd226ed5050f2b818990ac21adacc0fd6"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 10 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensh",
+    "repo": "Significant-Hobbies/karte",
+    "sha": "00683c0fd33f061bbc38303092b269b514e3b29c",
+    "url": "https://github.com/Significant-Hobbies/karte/commit/00683c0fd33f061bbc38303092b269b514e3b29c"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/forecast-lab",
+    "sha": "f2d5a8feb3270ff0bf38d3ab1c8bcd250e4e8c2f",
+    "url": "https://github.com/sarthakagrawal927/forecast-lab/commit/f2d5a8feb3270ff0bf38d3ab1c8bcd250e4e8c2f"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/issue-pages",
+    "sha": "e2c3af280204442f732e72f05a868a70f4086f71",
+    "url": "https://github.com/sarthakagrawal927/issue-pages/commit/e2c3af280204442f732e72f05a868a70f4086f71"
+  },
+  {
+    "message": "audit(v38): MelosViz C00-C11 scorecard mirror\n\nMirrors the audit-v38 scorecard template to MelosViz output (C00..C11 + SCORECARD.md). All 12 files are new content; no edits outside the audit-v38/outpu",
+    "repo": "KooshaPari/zz-archive-phenotype-org-audits",
+    "sha": "b68f32708aaac30809a0004297e689742a5c1c5f",
+    "url": "https://github.com/KooshaPari/zz-archive-phenotype-org-audits/commit/b68f32708aaac30809a0004297e689742a5c1c5f"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/mobile-dev-cockpit",
+    "sha": "dd3c442aa88e2a262addbf7a7b6b8f36caaa0b58",
+    "url": "https://github.com/sarthakagrawal927/mobile-dev-cockpit/commit/dd3c442aa88e2a262addbf7a7b6b8f36caaa0b58"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/reader",
+    "sha": "7691a9d1c4ad1cc7bf59a160baa1dab206529215",
+    "url": "https://github.com/Significant-Hobbies/reader/commit/7691a9d1c4ad1cc7bf59a160baa1dab206529215"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "64e22e55686a5348d30f7a7167ca8ee0ab3a3974",
+    "url": "https://github.com/preston-check/preston-check/commit/64e22e55686a5348d30f7a7167ca8ee0ab3a3974"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/india-standards",
+    "sha": "59c2948d535d124d7002bbc533bd831267492367",
+    "url": "https://github.com/Significant-Hobbies/india-standards/commit/59c2948d535d124d7002bbc533bd831267492367"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/psi-swarm",
+    "sha": "ada761a3f04d2c49a90ac8239e3839855bc8d10d",
+    "url": "https://github.com/sass-maker/psi-swarm/commit/ada761a3f04d2c49a90ac8239e3839855bc8d10d"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 11 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensh",
+    "repo": "Significant-Hobbies/rolepatch",
+    "sha": "8c68dac8102518d13a64f08844534bcfb84b0f93",
+    "url": "https://github.com/Significant-Hobbies/rolepatch/commit/8c68dac8102518d13a64f08844534bcfb84b0f93"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "9a072c12aaff1a5920d71cb422ac590fd0449670",
+    "url": "https://github.com/preston-check/preston-check/commit/9a072c12aaff1a5920d71cb422ac590fd0449670"
+  },
+  {
+    "message": "Decouple control-plane reads and audit acceptance from scorecard refresh\n\nFixes #129 (P0). Run 42 exposed one coupled failure boundary across status\nreads, audit acceptance, evidence generation, and s",
+    "repo": "camodeny/new_dnd_testing_lol",
+    "sha": "cfac541902eddfa9564aba4d59bddedcd05184a6",
+    "url": "https://github.com/camodeny/new_dnd_testing_lol/commit/cfac541902eddfa9564aba4d59bddedcd05184a6"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/live",
+    "sha": "9fa4d4ee735ffaaa52b66794152b8ff510e22a64",
+    "url": "https://github.com/Significant-Hobbies/live/commit/9fa4d4ee735ffaaa52b66794152b8ff510e22a64"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 6 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/setline",
+    "sha": "93167af8354609d3e07001f95f84410f4bb20f98",
+    "url": "https://github.com/Significant-Hobbies/setline/commit/93167af8354609d3e07001f95f84410f4bb20f98"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "21829a7713a400d97dccf7a33151db94f910c233",
+    "url": "https://github.com/preston-check/preston-check/commit/21829a7713a400d97dccf7a33151db94f910c233"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "b31311292326a4e2900dc6b1f1e66381538414ad",
+    "url": "https://github.com/preston-check/preston-check/commit/b31311292326a4e2900dc6b1f1e66381538414ad"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/portfolio",
+    "sha": "8e520d5ec54d80735a702358ef0003c93d7bb42f",
+    "url": "https://github.com/sarthakagrawal927/portfolio/commit/8e520d5ec54d80735a702358ef0003c93d7bb42f"
+  },
+  {
+    "message": "audit: report criteria, constraints, attempts and rejected Port writes\n\nThe scorecard level now comes from the committed Port scorecard, so the audit cannot claim a level Port disagrees with.",
+    "repo": "Kushaan-N/brightData",
+    "sha": "65265f7f56efc7fc4cd860f58c71dc6e94de225d",
+    "url": "https://github.com/Kushaan-N/brightData/commit/65265f7f56efc7fc4cd860f58c71dc6e94de225d"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "1d3d51f562d20c8babeb0125b24338439cad536c",
+    "url": "https://github.com/preston-check/preston-check/commit/1d3d51f562d20c8babeb0125b24338439cad536c"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "cd1f77fe6fc82dfdb4b6ca12c2518a2665c3a90c",
+    "url": "https://github.com/preston-check/preston-check/commit/cd1f77fe6fc82dfdb4b6ca12c2518a2665c3a90c"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "54ac78d1d127e7ac392b1c48ab3d2a9d3c07e38b",
+    "url": "https://github.com/preston-check/preston-check/commit/54ac78d1d127e7ac392b1c48ab3d2a9d3c07e38b"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/what-it-takes-to-win",
+    "sha": "302e06c4a407d6cbdd033aed4235f6f224a99b3d",
+    "url": "https://github.com/Significant-Hobbies/what-it-takes-to-win/commit/302e06c4a407d6cbdd033aed4235f6f224a99b3d"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 2 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sarthakagrawal927/truehire",
+    "sha": "1aa9e195f751fe0d855481d3eef45d9528268313",
+    "url": "https://github.com/sarthakagrawal927/truehire/commit/1aa9e195f751fe0d855481d3eef45d9528268313"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 5 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "High-Signal-App/research-papers",
+    "sha": "1201836f2410aeeaa54532b1166f297d38a6937e",
+    "url": "https://github.com/High-Signal-App/research-papers/commit/1201836f2410aeeaa54532b1166f297d38a6937e"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "HeyPace/companion-robot",
+    "sha": "7ffff62f6358b6c9d988177222a60022fd19fcea",
+    "url": "https://github.com/HeyPace/companion-robot/commit/7ffff62f6358b6c9d988177222a60022fd19fcea"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "ba892407041c51c398ffe18fc6ab42baa5468d43",
+    "url": "https://github.com/preston-check/preston-check/commit/ba892407041c51c398ffe18fc6ab42baa5468d43"
+  },
+  {
+    "message": "Remediate OpenSSF Scorecard findings (#5)\n\n* Remediate OpenSSF Scorecard findings\n\n* Harden repository policy audit\n\n* Harden repository policy audit\n\n* probe\n\n* Harden security policy URL validation\n",
+    "repo": "PPadgett/m365-copilot-vscode",
+    "sha": "53b19fe404d5f3d0c7b7751363d2ac12e6dd5eea",
+    "url": "https://github.com/PPadgett/m365-copilot-vscode/commit/53b19fe404d5f3d0c7b7751363d2ac12e6dd5eea"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "39a22d0f8cff7a9a3a2c88dfdd7643fdbb9fccb1",
+    "url": "https://github.com/preston-check/preston-check/commit/39a22d0f8cff7a9a3a2c88dfdd7643fdbb9fccb1"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "sass-maker/saas-maker",
+    "sha": "d37760d4bdd6f14cf23d9dc773d84d7611b6882d",
+    "url": "https://github.com/sass-maker/saas-maker/commit/d37760d4bdd6f14cf23d9dc773d84d7611b6882d"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "e9012558bbeffe29ec0e65b776cf8ca5e85bd60c",
+    "url": "https://github.com/preston-check/preston-check/commit/e9012558bbeffe29ec0e65b776cf8ca5e85bd60c"
+  },
+  {
+    "message": "chore(design): commit landing-audit scorecards and before/after evidence\n\nAdds 1 audit artifacts from the 2026-08-24..29 landing-audit sweep:\nscorecards, Lighthouse reports, and before/after screensho",
+    "repo": "Significant-Hobbies/email-manager",
+    "sha": "3355e06fbfe46f579ed2fb4071fbc55ebb8d3b68",
+    "url": "https://github.com/Significant-Hobbies/email-manager/commit/3355e06fbfe46f579ed2fb4071fbc55ebb8d3b68"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "6362d8696a7d401558bb1878b67792c30c069466",
+    "url": "https://github.com/preston-check/preston-check/commit/6362d8696a7d401558bb1878b67792c30c069466"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "443c71f42cdf885656abd1e48bef7196a9e8669a",
+    "url": "https://github.com/preston-check/preston-check/commit/443c71f42cdf885656abd1e48bef7196a9e8669a"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "91b8833a1749753a8e0968bc03106ba7f1900f62",
+    "url": "https://github.com/preston-check/preston-check/commit/91b8833a1749753a8e0968bc03106ba7f1900f62"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "21590eb1be9c4156d7a70b7d5215559e2e91a872",
+    "url": "https://github.com/preston-check/preston-check/commit/21590eb1be9c4156d7a70b7d5215559e2e91a872"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "de606c3ad91b102a311a515a65d9487489b45bc8",
+    "url": "https://github.com/preston-check/preston-check/commit/de606c3ad91b102a311a515a65d9487489b45bc8"
+  },
+  {
+    "message": "Merge pull request #85 from ViSiON-3/docs/audit-scorecard\n\ndocs: audit scorecard + ranked refactoring plan (Step 2)",
+    "repo": "ViSiON-3/vision-3-bbs",
+    "sha": "a28aab4b8de1b48558688b3149d5404b28d65640",
+    "url": "https://github.com/ViSiON-3/vision-3-bbs/commit/a28aab4b8de1b48558688b3149d5404b28d65640"
+  },
+  {
+    "message": "Add full-lifecycle audit framework + kit-insert cross-audits (BIO 169/156/147)\n\n- SKILL.md: mandatory 18-section Full-Lifecycle Section Audit (Purpose, Sample,\n  Procedure, Limitations, Rejection, Saf",
+    "repo": "saif27217/sop-auditor",
+    "sha": "b787c0ab88ff844da046ae3a8c6fa484f2395e8c",
+    "url": "https://github.com/saif27217/sop-auditor/commit/b787c0ab88ff844da046ae3a8c6fa484f2395e8c"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "758c396945561d8f46b27e1be66c2e184824aef0",
+    "url": "https://github.com/preston-check/preston-check/commit/758c396945561d8f46b27e1be66c2e184824aef0"
+  },
+  {
+    "message": "docs(audits): Civis 71+/80-pillar scorecard 2026-07-08\n\nSpine charter companion: pins the sharecli v38 scorecard with the 80-pillar audit cursor and corrections log.\n\n- scorecard: 71+/80 pillars score",
+    "repo": "KooshaPari/zz-archive-phenotype-org-audits",
+    "sha": "8d0fe67f642439d715269cc6d61444956ed0fc82",
+    "url": "https://github.com/KooshaPari/zz-archive-phenotype-org-audits/commit/8d0fe67f642439d715269cc6d61444956ed0fc82"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "7c4b95a648841647aa7e4544269d177d8f15af8d",
+    "url": "https://github.com/preston-check/preston-check/commit/7c4b95a648841647aa7e4544269d177d8f15af8d"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "41e7553566853e3347153788806dca264a6454f1",
+    "url": "https://github.com/preston-check/preston-check/commit/41e7553566853e3347153788806dca264a6454f1"
+  },
+  {
+    "message": "chore(scorecards): refresh product scorecard stamp after audit remediation",
+    "repo": "ZegJoker/CodeEditorView",
+    "sha": "74296f8cb69c20913563e684896f3982a65f751e",
+    "url": "https://github.com/ZegJoker/CodeEditorView/commit/74296f8cb69c20913563e684896f3982a65f751e"
+  },
+  {
+    "message": "Merge pull request #325 from ludodulac/ai/survey-audit-scorecard-v01\n\nAdd reproducible SurveyAudit benchmark scorecard",
+    "repo": "ludodulac/lego-app",
+    "sha": "cdea4ea2bb8ab687b24bd109af2295e5a4d707fc",
+    "url": "https://github.com/ludodulac/lego-app/commit/cdea4ea2bb8ab687b24bd109af2295e5a4d707fc"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "817c93eb46fc7c491ad33fc5977f25b99cc6c6a9",
+    "url": "https://github.com/preston-check/preston-check/commit/817c93eb46fc7c491ad33fc5977f25b99cc6c6a9"
+  },
+  {
+    "message": "Supply-chain hardening per OpenSSF: Scorecard, provenance, egress audit\n\n- OpenSSF Scorecard workflow (published results + README badge)\n- actions/dependency-review on PRs (actions + docker ecosystems",
+    "repo": "neb-abera/modern-cpp-template",
+    "sha": "999040cd332900a201282c93a39e223bca3e594a",
+    "url": "https://github.com/neb-abera/modern-cpp-template/commit/999040cd332900a201282c93a39e223bca3e594a"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "c58fd68f4318db6aa7cb78bf29d38098b8cd8e55",
+    "url": "https://github.com/preston-check/preston-check/commit/c58fd68f4318db6aa7cb78bf29d38098b8cd8e55"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "c2bab36ad2e164c44a8ca7ab6ec86e079e404a3a",
+    "url": "https://github.com/preston-check/preston-check/commit/c2bab36ad2e164c44a8ca7ab6ec86e079e404a3a"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "ada38352af2fb1aca0c6d0bd79267875682b1d6b",
+    "url": "https://github.com/preston-check/preston-check/commit/ada38352af2fb1aca0c6d0bd79267875682b1d6b"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "8e6b992be080415134287b7d0161f9311d8c4a05",
+    "url": "https://github.com/preston-check/preston-check/commit/8e6b992be080415134287b7d0161f9311d8c4a05"
+  },
+  {
+    "message": "Audit scorecard: time-of-audit input (frontend + scorecard fn source)\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+    "repo": "SPEEKS-Technology/speeksnet",
+    "sha": "af5cbe80f49d47a51e31ba7edf5304f168512f99",
+    "url": "https://github.com/SPEEKS-Technology/speeksnet/commit/af5cbe80f49d47a51e31ba7edf5304f168512f99"
+  },
+  {
+    "message": "audit: daily dual-use audit scorecard",
+    "repo": "preston-check/preston-check",
+    "sha": "e701405a3bf8b000b81649ccf97fc091ec2cb505",
+    "url": "https://github.com/preston-check/preston-check/commit/e701405a3bf8b000b81649ccf97fc091ec2cb505"
+  },
+  {
+    "message": "docs: add AUDIT.md \u2014 reality audit, interviewer Q&A, claim scorecard, safe resume",
+    "repo": "kalel-commits/PipelineMax",
+    "sha": "3054fd72e9398ac936451fab28fbb5505251db9a",
+    "url": "https://github.com/kalel-commits/PipelineMax/commit/3054fd72e9398ac936451fab28fbb5505251db9a"
+  }
+]

@@ -1,0 +1,14 @@
+CIS Critical Security Controls Version 8
+The CIS Critical Security Controls (CIS Controls) are a prioritized set of CIS Safeguards to defend against the most prevalent cyber attacks against systems and networks. They are mapped to and referenced by multiple legal, regulatory, and policy frameworks.Download CIS Controls v8
+Want to learn more about the CIS Controls? Check out our video below.
+CIS Controls are selected, dropped, and prioritized based on data and on specific knowledge of attacker behavior and how to stop it.
+All CIS Controls, especially for Implementation Group 1, must be measurable.
+Controls v8 is available in these translations:
+Have Questions? We're here to help. Go to Controls FAQs.
+Get the Latest Version of the CIS Controls Today!
+CIS Controls v8.1 help you keep on top of your evolving workplace, the technology you need to support it, and the threats confronting those systems. It places specific emphasis on moving to a hybrid or fully cloud environment and managing security across your supply chain.
+Download CIS Controls v8.1
+CIS Controls v7.1 along with supporting tools and resources are available for download.
+Learn more about CIS Controls v7.1
+Explore CIS Controls Resources
+Get access to CIS Controls companion guides, policy templates, mappings, and more.
