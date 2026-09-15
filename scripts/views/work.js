@@ -128,7 +128,7 @@ function featuredProject(project) {
 
 function compactProject(project) {
   const family = FAMILY_MAP[project.slug];
-  const attrs = { class: 'work-catalog__specimen' };
+  const attrs = { class: 'work-catalog__specimen', 'data-reveal': 'up' };
   if (family) {
     attrs['data-family'] = family;
     attrs.style = `--family-accent: var(--family-${family}-active, var(--family-${family}))`;

@@ -55,6 +55,23 @@
   min-height: 2.75rem;
   padding: 0.8rem 0;
   text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.home-primary-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-primary-links a:hover::after {
+  width: 100%;
 }
 
 .home-primary-links a:last-child {
@@ -74,6 +91,24 @@
   padding: clamp(1.2rem, 2.5vw, 2.5rem);
   border: 1px solid var(--rule);
   background: var(--surface-raised);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+  transform-origin: center center;
+}
+
+.artifact:hover {
+  transform: perspective(800px) rotateX(-0.5deg) rotateY(0.3deg) translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-color: var(--precision-rule-strong);
+}
+
+.artifact:active {
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition-duration: 0.08s;
 }
 
 .artifact::before {
@@ -102,8 +137,10 @@
   text-transform: uppercase;
   padding: 0.3rem 0.55rem;
   border-radius: var(--radius-control);
-  background: color-mix(in oklch, var(--ink) 8%, transparent);
+  background: color-mix(in oklch, var(--ink) 14%, transparent);
   color: var(--ink-muted);
+  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in oklch, var(--ink) 8%, transparent);
 }
 
 .artifact-header {
