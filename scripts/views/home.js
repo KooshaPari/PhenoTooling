@@ -18,18 +18,18 @@ export function orderFeaturedProjects(projects, lens) {
 
 function identityBlock(lens) {
   const reading = lens === 'product'
-    ? 'Product decisions are read through demand, economics, manufacturing, fulfillment, and outcomes.'
-    : 'Engineering decisions are read through architecture, runtime constraints, interfaces, and verification.';
+    ? 'Product lens: demand, economics, manufacturing, fulfillment, and outcomes.'
+    : 'Engineering lens: architecture, runtime constraints, interfaces, and verification.';
 
   return el(
     'div',
     { class: 'home-identity' },
     el('p', { class: 'atelier-label' }, `${IDENTITY.legalName} / Technical Atelier`),
-    el('h1', {}, 'Software systems, technical products, and the infrastructure between them.'),
+    el('h1', {}, 'I build software systems and technical products — from distributed routing infrastructure to physical hardware launches.'),
     el(
       'p',
       { class: 'home-intro' },
-      'A working studio archive spanning systems software, technical product and program leadership, computational research, and complex physical products.',
+      'This is where I show the work.',
     ),
     el('p', { class: 'home-reading', 'aria-live': 'polite' }, reading),
     el(
@@ -79,8 +79,8 @@ export function renderHome(root, { projects, lens = 'engineering' }) {
         'header',
         { class: 'home-featured-heading' },
         el('p', { class: 'atelier-label' }, `${lens} lens / selected studies`),
-        el('h2', { id: titleId }, 'Artifacts, systems sheets, and experiment notes'),
-        el('p', {}, 'The same practice, reordered by the decisions each lens brings forward.'),
+        el('h2', { id: titleId }, 'Selected projects'),
+        el('p', {}, 'Same work, reordered by the decisions each lens brings forward.'),
       ),
       el(
         'div',

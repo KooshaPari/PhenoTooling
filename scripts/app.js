@@ -49,7 +49,7 @@ function setPageMetadata(route) {
   const labels = {
     home: 'Technical Atelier',
     engineering: 'Engineering Work',
-    product: 'Product / Program Work',
+    product: 'Product Work',
     work: 'Work Index',
     resume: 'Resume',
     contact: 'Contact',
@@ -57,7 +57,7 @@ function setPageMetadata(route) {
   };
   const title = project?.title ?? post?.title ?? labels[route.view] ?? 'Page not found';
   const description = project?.summary ?? post?.excerpt
-    ?? 'Software systems, technical products, and the infrastructure between them.';
+    ?? 'Software engineer and technical product leader building systems, shipping hardware, and running AI workloads.';
 
   document.title = `${title} — Koosha Paridehpour`;
   const canonicalPath = project
