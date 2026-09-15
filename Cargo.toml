@@ -78,6 +78,8 @@ members = [
     "crates/pheno-tracing",
     "crates/phenovcs-observability",
     "crates/clap-ext",
+    # Absorbed from zz-merge-unk-Logify (structured logging framework)
+    "crates/logkit",
     "ports-vcs",
 ]
 
@@ -122,6 +124,10 @@ pheno-tracing = { path = "crates/pheno-tracing", default-features = false }
 clap-ext = { path = "crates/clap-ext" }
 phenovcs-observability = { path = "crates/phenovcs-observability" }
 pheno-vcs-core = { path = "crates/pheno-vcs-core" }
+
+# Absorbed from zz-merge-unk-Logify
+logkit = { path = "crates/logkit" }
+parking_lot = "0.12"
 
 [profile.release]
 lto = "thin"
