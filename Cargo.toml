@@ -35,6 +35,7 @@ members = [
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
     "bin/hook-entry",
+    "crates/klipdot",
 ]
 
 [workspace.package]
