@@ -71,6 +71,11 @@ function setPageMetadata(route) {
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
+  const ogImageUrl = project?.hero?.startsWith('/')
+    ? `https://kooshapari.com${project.hero}`
+    : 'https://kooshapari.com/og-image.png';
+  document.querySelector('meta[property="og:image"]')?.setAttribute('content', ogImageUrl);
+  document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', ogImageUrl);
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', document.title);
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description);
 }
