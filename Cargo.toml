@@ -46,7 +46,7 @@ members = [
     "crates/phenotype-plugins/pheno-plugin-examples",
     "bin/hook-entry",
     "bin/phenotype-journey",
-    # New phenotype crates from main
+
     "crates/phenotype-cache-adapter",
     "crates/phenotype-contracts",
     "crates/phenotype-cost-core",
