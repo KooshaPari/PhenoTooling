@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>Secure Software Development Framework | CSRC</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-config" content="/CSRC/Media/images/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="google-site-verification" content="xbrnrVYDgLD-Bd64xHLCt4XsPXzUhQ-4lGMj4TdUUTA" />
+    
+
+        <meta name="description" content="NIST has finalized SP 800-218A, Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile. This publication augments SP 800-218&#160;by adding practices, tasks, recommendations, considerations, notes,..." />
+
+    <!-- dcterms meta information -->
+    <meta name="dcterms.title" content="Secure Software Development Framework | CSRC | CSRC" />
+    <meta name="dcterms.description" content="NIST has finalized SP 800-218A, Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile. This publication augments SP 800-218&#160;by adding practices, tasks, recommendations, considerations, notes,..." />
+    <meta name="dcterms.creator" content="Computer Security Division, Information Technology Laboratory, National Institute of Standards and Technology, U.S. Department of Commerce" />
+    <meta name="dcterms.date.created" scheme="ISO8601" content="2021-02-25" />
+    <meta name="dcterms.date.reviewed" scheme="ISO8601" content="2026-04-13" />
+    <meta name="dcterms.language" scheme="DCTERMS.RFC1766" content="EN-US" />
+
+    <!-- Facebook OpenGraph Tags -->
+    <meta name="og:site_name" content="CSRC | NIST" />
+    <meta name="og:type" content="article" />
+    <meta name="og:url" content="https://csrc.nist.gov/Projects/ssdf" />
+    <meta name="og:title" content="Secure Software Development Framework | CSRC | CSRC" />
+    <meta name="og:description" content="NIST has finalized SP 800-218A, Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile. This publication augments SP 800-218&#160;by adding practices, tasks, recommendations, considerations, notes, and informative references that are specific to AI model development throughout the software development life cycle.  NIST has recently added a Community Profiles section to this page. It will contain links to SSDF Community Profiles developed by NIST and by third parties. Contact us at ssdf@nist.gov&#160;if you have a published SSDF Community Profile that you&#39;d like added to the list.&#160;   &#160;  NIST Special Publication (SP) 800-218, Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities has been posted as final, along with a Microsoft Excel version of the SSDF 1.1 table. SP 800-218 includes mappings from Executive Order (EO) 14028&#160;Section 4e clauses to the SSDF practices and tasks that help address..." />
+
+    <meta name="article:tag" content="systems security engineering; vulnerability management; artificial intelligence; software &amp; firmware; Executive Order 14028" />
+    <meta name="article:published_time" content="2021-02-25" />
+        <meta name="article:modified_time" content="2026-04-13" />
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/images/icons/manifest.json" />
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#000000" />
+    <link href="/CSRC/Media/images/favicons/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link href="/CSRC/Media/images/favicons/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="/dist/app.css" rel="stylesheet" />
+    
+    <!-- Highlight.js -->
+    <link href="/dist/highlight-js/github.css" rel="stylesheet" />
+    
+    <!-- USWDS Top -->
+    <link href="/dist/uswds/css/uswds.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/dist/uswds/js/uswds-init.min.js"></script>
+
+    <!-- reCAPTCHA v3 -->
+    <style>
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+    </style>
+
+    
+
+
+    <script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=nist&subagency=csrc&pua=UA-66610693-15&yt=true&exts=xsd,xml,wav,mpg,mpeg,avi,rtf,webm,ogg,ogv,oga,map,otf,eot,svg,ttf,woff"></script>
+    <style id="antiClickjackCss">
+        body > * {
+            display: none !important;
+        }
+        #antiClickjack {
+            display: block !important;
+        }
+    </style>
+    <noscript>
+        <style id="antiClickjackNoScript">
+            body > * { display: block !important; }
+            #antiClickjack {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+    <script type="text/javascript" id="antiClickjackScript">
+        if (self === top) {
+            // no clickjacking
+            var antiClickjack = document.getElementById("antiClickjackCss"); antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            setTimeout(tryForward(), 5000);
+        }
+        function tryForward() {
+            top.location = self.location;
+        }
+    </script>
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSQ0PLGJZP"></script> 
+    <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-TSQ0PLGJZP'); </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MZQC4NCJ');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZQC4NCJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="antiClickjack" style="display: none;">
+        <strong style="font-size: 1.6rem;">You are viewing this page in an unauthorized frame window.</strong>
+        <p>This is a potential security issue, you are being redirected to <a href="https://csrc.nist.gov">https://csrc.nist.gov</a>.</p>
+    </div>
+
+    <section
+    class="usa-banner"
+    aria-label="Official website of the United States government">
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <noscript>
+                <p style="font-size: 0.85rem; font-weight: bold;">You have JavaScript disabled. This site requires JavaScript to be enabled for complete site functionality.</p>
+            </noscript>
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img
+                        aria-hidden="true"
+                        class="usa-banner__header-flag"
+                        src="/dist/uswds/img/us_flag_small.png"
+                        alt=""/>
+                </div>
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <p class="usa-banner__header-action">Here’s how you know</p>
+                </div>
+                <button
+                    type="button"
+                    class="usa-accordion__button usa-banner__button"
+                    aria-expanded="false"
+                    aria-controls="gov-banner-default">
+                    <span class="usa-banner__button-text">Here’s how you know</span>
+                </button>
+            </div>
+        </header>
+        <div
+            class="usa-banner__content usa-accordion__content"
+            id="gov-banner-default">
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img
+                        class="usa-banner__icon usa-media-block__img"
+                        src="/dist/uswds/img/icon-dot-gov.svg"
+                        role="img"
+                        alt=""
+                        aria-hidden="true"/>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong><br/>A
+                            <strong>.gov</strong> website belongs to an official government
+                            organization in the United States.
+                        </p>
+                    </div>
+                </div>
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img
+                        class="usa-banner__icon usa-media-block__img"
+                        src="/dist/uswds/img/icon-https.svg"
+                        role="img"
+                        alt=""
+                        aria-hidden="true"/>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong><br/>A
+                            <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="52"
+                                    height="64"
+                                    viewBox="0 0 52 64"
+                                    class="usa-banner__lock-image"
+                                    role="img"
+                                    aria-labelledby="banner-lock-description-default"
+                                    focusable="false">
+                                    <title id="banner-lock-title-default">Lock</title>
+                                    <desc id="banner-lock-description-default">Locked padlock icon</desc>
+                                    <path
+                                        fill="#000000"
+                                        fill-rule="evenodd"
+                                        d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/>
+                                </svg>
+                            </span
+                            >) or <strong>https://</strong> means you’ve safely connected to
+                            the .gov website. Share sensitive information only on official,
+                            secure websites.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <nav id="navbar" class="navbar">
+    <div id="nist-menu-container" class="container">
+        <div class="row">
+            <!-- Brand -->
+            <div class="col-xs-6 col-md-4 navbar-header">
+                <a class="navbar-brand" href="https://www.nist.gov" target='_blank' rel="noopener noreferrer" id="navbar-brand-image">
+                    <img src="/CSRC/media/images/svg/nist-logo.svg" alt="National Institute of Standards and Technology" width="110" height="30">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-8 navbar-nist-logo">
+                <div class="form-inline hidden-sm hidden-xs">
+                    <form name="site-search" id="site-search-form" action="/search" method="GET">
+                        <label for="search-csrc-query" class="element-invisible">Search</label>
+                        <input autocomplete="off" class="form-control" id="search-csrc-query" name="keywords" type="text" size="15" maxlength="128" placeholder="Search CSRC" />
+                        <input type="hidden" name="ipp" value="25" />
+                        <input type="hidden" name="sortBy" value="relevance" />
+                        <input type="hidden" name="showOnly" value="publications,projects,news,events,presentations,glossary,topics" />
+                        <input type="hidden" name="topicsMatch" value="ANY" />
+                        <input type="hidden" name="status" value="Final,Draft" />
+                        <button type="submit" id="search-csrc-submit-btn" class="form-submit">
+                            <span class="element-invisible">Search</span>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <span id="nvd-menu-button" class="pull-right">
+                    <a href="#" id="nvd-menu-button-link">
+                        <span class="fa fa-bars"></span>
+                        <span id="nvd-menu-full-text">CSRC MENU</span>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-inline hidden-md hidden-lg">
+        <form name="site-search-mobile" id="site-search-form-mobile" action="/search" method="GET">
+            <label for="search-csrc-query-mobile" class="element-invisible">Search</label>
+            <input autocomplete="off" class="form-control" id="search-csrc-query-mobile" name="keywords" type="text" size="15" maxlength="128" placeholder="Search CSRC" />
+            <button type="submit" id="search-csrc-submit-btn-mobile" class="form-submit">
+                <span class="element-invisible">Search</span>
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+    <div class="main-menu-row container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="main-menu-drop" class="col-lg-12" style="display: none;">
+            <ul>
+                <li><a href="/projects">Projects</a></li>
+                <li>
+                    <a href="/publications">
+                        Publications
+                        <span class="expander fa fa-plus" id="main-menu-pubs-expander" data-expander-name="publications" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="publications" id="main-menu-pubs-expanded">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p><a href="/publications/drafts-open-for-comment">Drafts for Public Comment</a></p>
+                                <p><a href="/publications/draft-pubs">All Public Drafts</a></p>
+                                <p><a href="/publications/final-pubs">Final Pubs</a></p>
+                                <p><a href="/publications/fips">FIPS <small>(standards)</small></a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/publications/sp">Special Publications (SP<small>s</small>)</a></p>
+                                <p><a href="/publications/ir">IR <small>(interagency/internal reports)</small></a></p>
+                                <p><a href="/publications/cswp">CSWP <small>(cybersecurity white papers)</small></a></p>
+                                <p><a href="/publications/itl-bulletin">ITL Bulletins</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/publications/project-description">Project Descriptions</a></p>
+                                <p><a href="/publications/journal-article">Journal Articles</a></p>
+                                <p><a href="/publications/conference-paper">Conference Papers</a></p>
+                                <p><a href="/publications/book">Books</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="/topics">
+                        Topics
+                        <span class="expander fa fa-plus" id="main-menu-topics-expander" data-expander-name="topics" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="topics" id="main-menu-topics-expanded">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Security-and-Privacy">Security & Privacy</a></p>
+                                <p><a href="/Topics/Applications">Applications</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Technologies">Technologies</a></p>
+                                <p><a href="/Topics/Sectors">Sectors</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Laws-and-Regulations">Laws & Regulations</a></p>
+                                <p><a href="/Topics/Activities-and-Products">Activities & Products</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/news">News & Updates</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/glossary">Glossary</a></li>
+                <li>
+                    <a href="/about">
+                        About CSRC
+                        <span class="expander fa fa-plus" id="main-menu-about-expander" data-expander-name="about" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="about" id="main-menu-about-expanded">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p>
+                                    <strong><a href="/Groups/Computer-Security-Division">Computer Security Division</a></strong><br />
+                                    <ul>
+                                        <li><a href="/Groups/Computer-Security-Division/Cryptographic-Technology">Cryptographic Technology</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/software-security-group">Software Security Group</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/hardware-security-group">Hardware Security Group</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/Security-Engineering-and-Risk-Management">Security Engineering and Risk Management</a></li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p>
+                                    <strong><a href="/Groups/Applied-Cybersecurity-Division">Applied Cybersecurity Division</a></strong><br />
+                                    <ul>
+                                        <li><a href="/Groups/Applied-Cybersecurity-Division/Cybersecurity-and-Privacy-Applications">Cybersecurity and Privacy Applications</a></li>
+                                        <li><a href="/Groups/Applied-Cybersecurity-Division/National-Cybersecurity-Center-of-Excellence">National Cybersecurity Center of Excellence (NCCoE)</a></li>
+                                        <li><a href="https://www.nist.gov/nice/">National Initiative for Cybersecurity Education (NICE)</a></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    <a href="/contact">
+                                        Contact Us
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- /#mobile-nav-container -->
+    </div>
+
+</nav>
+
+    <section id="itl-header" class="has-menu">
+        <div class="itl-background"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="hidden-xs hidden-sm" id="itl-header-lg">
+                            <a href="https://www.nist.gov/itl" target='_blank' rel="noopener noreferrer" id="itl-header-link">Information Technology Laboratory</a>
+                        </div>
+                        <div class="hidden-xs hidden-sm" id="csrc-header-lg">
+                            <a href="/" id="csrc-header-link-lg">Computer Security Resource Center</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="hidden-xs hidden-sm hidden-md">
+                            <a id="logo-csrc-lg" href="/"><img id="img-logo-csrc-lg" src="/CSRC/Media/images/nist-logo-csrc-white.svg" alt="CSRC Logo" class="csrc-header-logo"></a>
+                        </div>
+                        <div class="hidden-lg">
+                            <a id="logo-csrc-sm" href="/"><img id="img-logo-csrc-sm" src="/CSRC/Media/images/nist-logo-csrc-white.svg" alt="CSRC Logo" class="csrc-header-logo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div id="body-section" class="container">
+        
+        
+
+
+
+
+<div class="breadcrumb">
+        <a href="/projects" class="breadcrumb-link">Projects</a>
+</div>
+
+
+    <h1 id="projectName">Secure Software Development Framework <small id="project-acronym">SSDF</small></h1>
+
+
+<div class="page-social-buttons" id=&quot;news-social-buttons&quot;>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fssdf" class="social-facebook"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i><span class="sr-only">Share to Facebook</span></a>
+    <a href="https://x.com/share?url=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fssdf" class="social-twitter"><i class="fa-brands fa-x-twitter"></i><span class="sr-only">Share to X</span></a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fssdf&amp;source=csrc.nist.gov" class="social-linked-in"><i class="fa fa-linkedin fa-fw" aria-hidden="true"></i><span class="sr-only">Share to LinkedIn</span></a>
+    <a href="/cdn-cgi/l/email-protection#9ca3efe9fef6f9ffe8a1ffefeeffb2f2f5efe8b2fbf3eabafdf1eca7fef3f8e5a1dff4f9fff7bcf3e9e8bce8f4f5efbceff5e8f9bcf4e8e8ecefa6b3b3ffefeeffb2f2f5efe8b2fbf3eab3cceef3f6f9ffe8efb3efeff8fa" class="social-email"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i><span class="sr-only">Share ia Email</span></a>
+</div>
+
+<div class="row visible-sm visible-xs visible-md">
+	<div class="col-sm-12">
+        <div class="bs-callout bs-callout-subnav" id="projectLinksContainer-sm">
+            <h4><i class="fa fa-link"></i> Project Links</h4>
+            <div class="project-icons-container">
+                <span>
+                    <a href="/projects/ssdf" id="NavOverviewLink-sm">
+                        <i class="fa fa-info-circle"></i> Overview
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/ssdf/news" id="NavNewsLink-sm" data-count="9">
+                        <i class="fa fa-newspaper-o"></i> News &amp; Updates
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/ssdf/events" id="NavEventsLink-sm" data-count="3">
+                        <i class="fa fa-calendar-o"></i> Events
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/ssdf/publications" id="NavPubsLink-sm" data-count="3">
+                        <i class="fa fa-file-text"></i> Publications
+                    </a>
+                </span>
+                            </div>
+        </div>
+	</div>
+</div>
+<div class="row">
+
+
+        <div class="col-lg-8 col-sm-12">
+<h3>Overview</h3>
+
+<div id="overview">
+
+
+    <a id="top" name="top"></a>
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">
+<p>NIST has finalized SP 800-218A, <em><a data-csrc-pub-link="true" data-node-guid="5d34ffcd-af8d-492c-9419-c2b7c0a76225" href="/pubs/sp/800/218/a/final">Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile</a></em>. This publication augments <a data-csrc-pub-link="true" data-node-guid="125d92a0-fcfc-4ba9-a995-a50c2c57c021" href="/pubs/sp/800/218/final">SP 800-218</a>&nbsp;by adding practices, tasks, recommendations, considerations, notes, and informative references that are specific to AI model development throughout the software development life cycle.</p>
+
+<p>NIST has recently added a <a href="#community-profiles">Community Profiles</a> section to this page. It will contain links to SSDF Community Profiles developed by NIST and by third parties. Contact us at <a href="/cdn-cgi/l/email-protection#bac9c9dedcfad4d3c9ce94ddd5cc"><span class="__cf_email__" data-cfemail="eb98988f8dab8582989fc58c849d">[email&#160;protected]</span></a>&nbsp;if you have a published SSDF Community Profile that you'd like added to the list.&nbsp;</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>NIST Special Publication (SP) 800-218, <em><a data-csrc-pub-link="true" data-node-guid="125d92a0-fcfc-4ba9-a995-a50c2c57c021" href="/pubs/sp/800/218/final">Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities</a></em> has been posted as final, along with a Microsoft Excel version of the SSDF 1.1 table. SP 800-218 includes mappings from Executive Order (EO) 14028&nbsp;Section 4e clauses to the SSDF practices and tasks that help address each clause. Also, see a summary of changes from version 1.1 and plans for the SSDF.</p>
+
+<p style="text-align:center"><a href="#ssdf-practices">SSDF Practices</a> | <a href="#ssdf-use">SSDF Use</a> | <a href="#new-in-version-1-1">New in Version 1.1</a> | <a href="#community-profiles">Community Profiles</a>&nbsp;|&nbsp;<a href="#nist-plans">NIST Plans</a> | <a href="#contact-us">Contact Us</a></p>
+
+<p>The Secure Software Development Framework (SSDF) is a set of fundamental, sound, and secure software development practices based on established secure software development practice documents from organizations such as <a href="https://www.bsa.org/">BSA</a>, <a href="https://owasp.org/">OWASP</a>, and <a href="https://safecode.org/">SAFECode</a>. Few software development life cycle (SDLC) models explicitly address software security in detail, so practices like those in the SSDF need to be added to and integrated with each SDLC implementation.</p>
+
+<p>Following the SSDF practices should help software producers reduce the number of vulnerabilities in released software, reduce the potential impact of the exploitation of undetected or unaddressed vulnerabilities, and address the root causes of vulnerabilities to prevent recurrences. Also, because the SSDF provides a common language for describing secure software development practices, software producers and acquirers can use it to foster their communications for procurement processes and other management activities.</p>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+<a id="ssdf-practices" name="ssdf-practices"></a>
+
+<h4>SSDF Practices</h4>
+
+<p>The SSDF practices are organized into four groups:</p>
+
+<ul>
+	<li><strong>Prepare the Organization (PO)</strong>: Ensure that the organization’s people, processes, and technology are prepared to perform secure software development at the organization level and, in some cases, for individual development groups or projects.</li>
+	<li><strong>Protect the Software (PS)</strong>: Protect all components of the software from tampering and unauthorized access.</li>
+	<li><strong>Produce Well-Secured Software (PW)</strong>: Produce well-secured software with minimal security vulnerabilities in its releases.</li>
+	<li><strong>Respond to Vulnerabilities (RV)</strong>: Identify residual vulnerabilities in software releases and respond appropriately to address those vulnerabilities and prevent similar vulnerabilities from occurring in the future.</li>
+</ul>
+
+<p>Each practice is defined with the following elements:</p>
+
+<ul>
+	<li><strong>Practice</strong>: The name of the practice and a unique identifier, followed by a brief explanation of what the practice is and why it is beneficial.</li>
+	<li><strong>Task</strong>: An action that may be needed to perform a practice.</li>
+	<li><strong>Notional Implementation Example</strong>: A notional example of types of tools, processes, or other method that could be used to help implement a task. No examples or combination of examples are required, and the stated examples are not the only feasible options.</li>
+	<li><strong>Reference</strong>: A pointer to an established secure development practice document and its mappings to a particular task.</li>
+</ul>
+
+<p>SSDF version 1.1 is defined in NIST SP 800-218,&nbsp;<em><a data-csrc-pub-link="true" data-pub-guid="d7f0d0e1-e771-4d2a-beb7-903076aee1db" href="/pubs/sp/800/218/final">Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities</a>.&nbsp;</em>NIST SP 800-218 replaces the&nbsp;NIST Cybersecurity White Paper, <em><a data-csrc-pub-link="true" data-pub-guid="19e939ad-17ca-48a4-9482-539723a894f2" href="/pubs/cswp/13/mitigating-risk-of-software-vulnerabilities-ssdf/final">Mitigating the Risk of Software Vulnerabilities by Adopting a Secure Software Development Framework (SSDF)</a></em>&nbsp;that defined SSDF version 1.0.</p>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+<a id="ssdf-use" name="ssdf-use"></a>
+
+<h4>SSDF Use</h4>
+
+<p>The SSDF can help an organization to align and prioritize its secure software development activities with its business/mission requirements, risk tolerances, and resources. The SSDF’s practices are outcome-based. Comparing the outcomes an organization is currently achieving to the SSDF’s practices may reveal gaps to be addressed. An action plan to address these gaps can aid in setting priorities that take into consideration the organization’s mission and business needs and its risk management processes.</p>
+
+<p>In addition to <strong>risk</strong>, factors such as <strong>cost</strong>, <strong>feasibility</strong>, and <strong>applicability</strong> should be considered when deciding which SSDF practices to use and how much time and resources to devote to each practice. <strong>Automatability</strong> is an important factor to consider, especially for implementing practices at scale. Also, some practices are more advanced than others and have <strong>dependencies</strong> on certain foundational practices already being in place.</p>
+
+<p>The SSDF’s practices, tasks, and implementation examples represent a starting point to consider; they are meant to be changed and customized, and to evolve over time. The intention of the SSDF is not to create a checklist to follow, but instead to provide a basis for planning and implementing a risk-based approach to adopting secure software development practices and continuously improving software development.</p>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+
+<p><a id="new-in-version-1-1" name="new-in-version-1-1"></a></p>
+
+<h4>New in Version 1.1</h4>
+
+<p>The most noteworthy changes in SSDF from the original to version 1.1 are:</p>
+
+<ul>
+	<li><strong>Practices</strong>: Added PO.5, “Implement and Maintain Secure Environments for Software Development”</li>
+	<li><strong>Tasks</strong>:
+	<ul style="list-style-type:circle">
+		<li>Added PO.1.2 on documenting security requirements for organization-developed software to meet</li>
+		<li>Added PS.3.2 on collecting and sharing provenance data for all components of software releases</li>
+		<li>Added PW.1.2 on tracking software security requirements, risks, and design decisions</li>
+	</ul>
+	</li>
+	<li><strong>Notional Implementation Examples</strong>:
+	<ul style="list-style-type:circle">
+		<li>Added numerous examples suggested in public comments</li>
+		<li>Numbered the examples for each task</li>
+	</ul>
+	</li>
+	<li><strong>References</strong>: Added 11 references, including
+	<ul style="list-style-type:circle">
+		<li>Cloud Native Computing Foundation, <cite><a href="https://github.com/cncf/tag-security/tree/main/supply-chain-security/supply-chain-security-paper" style="color:blue; text-decoration:underline">Software Supply Chain Best Practices</a></cite></li>
+		<li>International Electrotechnical Commission (IEC), <cite><a href="https://webstore.iec.ch/publication/33615" style="color:blue; text-decoration:underline">Security for industrial automation and control systems – Part 4-1: Secure product development lifecycle requirements, IEC 62443-4-1</a></cite></li>
+		<li>International Organization for Standardization (ISO)/International Electrotechnical Commission (IEC), <cite><a href="https://www.iso.org/standard/72311.html" style="color:blue; text-decoration:underline">Information technology – Security techniques – Vulnerability disclosure, ISO/IEC 29147:2018</a></cite>, and <cite><a href="https://www.iso.org/standard/69725.html" style="color:blue; text-decoration:underline">Information technology – Security techniques – Vulnerability handling processes, ISO/IEC 30111:2019</a></cite></li>
+		<li>NIST, <cite><a href="https://doi.org/10.6028/NIST.SP.800-161r1-draft2" style="color:blue; text-decoration:underline">Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations, SP 800-161 Revision 1</a></cite></li>
+		<li>Open Web Application Security Project, <cite><a href="https://github.com/OWASP/Software-Component-Verification-Standard" style="color:blue; text-decoration:underline">OWASP Software Component Verification Standard, Version 1.0</a></cite></li>
+	</ul>
+	</li>
+	<li><strong>Other</strong>: Created Appendix A, which maps <a href="https://www.nist.gov/itl/executive-order-improving-nations-cybersecurity" style="color:blue; text-decoration:underline">Executive Order (EO) 14028</a> Section 4e clauses to the SSDF practices and tasks that help address each clause</li>
+</ul>
+
+<p>For more details, see the change log in Appendix C of <a data-csrc-pub-link="true" data-pub-guid="d7f0d0e1-e771-4d2a-beb7-903076aee1db" href="/pubs/sp/800/218/final">SP 800-218</a>. The&nbsp;<a data-csrc-pub-link="true" data-pub-guid="d7f0d0e1-e771-4d2a-beb7-903076aee1db" href="/pubs/sp/800/218/final">SP 800-218 landing page</a>&nbsp;also includes supplemental files showing the significant changes from the original SSDF version 1.0 white paper and from the SP 800-218 public draft.</p>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+<a id="community-profiles" name="community-profiles"></a>
+
+<h4>SSDF Community Profiles</h4>
+
+<p>An SSDF Community Profile (Profile) is a baseline of SSDF practices and tasks that have been enhanced to address a particular use case. A Profile may add recommendations, considerations, notes, implementation examples, informative references, and other information specific to a use case. Profiles supplement what the SSDF already includes and are intended to be used in conjunction with the SSDF. Profile users should utilize the implementation examples and informative references defined in the SSDF for additional information on how to perform each SSDF practice and task for all types of software development.</p>
+
+<p>NIST-provided Community Profiles:</p>
+
+<ul>
+	<li>SP 800-218A, <em><a data-csrc-pub-link="true" data-node-guid="5d34ffcd-af8d-492c-9419-c2b7c0a76225" href="/pubs/sp/800/218/a/final">Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile</a></em></li>
+</ul>
+As of this writing, NIST is not aware of any SSDF Community Profiles developed by third parties. Contact us at <a href="/cdn-cgi/l/email-protection#562525323016383f252278313920"><span class="__cf_email__" data-cfemail="6310100705230d0a10174d040c15">[email&#160;protected]</span></a>&nbsp;if you have a published SSDF Community Profile that you'd like listed here.
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+<a id="nist-plans" name="nist-plans"></a>
+
+<h4>NIST Plans</h4>
+
+<p>NIST has been considering next steps for the evolution of the SSDF. It will be updated periodically to reflect your inputs and feedback, and we encourage you to share your thoughts with us as you implement the SSDF within your own organization and software development efforts. Having inputs from a variety of software producers will be particularly helpful to us in refining and revising the SSDF.</p>
+
+<p>Additional actions under consideration include the following:</p>
+
+<ul>
+	<li>Moving reference mappings to an interactive online repository for ease of use and to provide a machine-readable format</li>
+	<li>Illustrating how the SSDF can be applied to particular SDLC models, especially transitioning DevOps implementations to DevSecOps<strong> (</strong>for more information on this, see the NIST&nbsp;<a href="https://csrc.nist.gov/projects/devsecops">DevSecOps</a>&nbsp;project site)</li>
+	<li>Developing an SSDF baseline targeting open-source software (leveraging the fundamental practices and tasks, and augmenting them with open-source specific examples)</li>
+	<li>Developing a practical demonstration of the use of the SSDF for a specific software development model, languages, technologies, etc. for open-source software</li>
+</ul>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+<a id="contact-us" name="contact-us"></a>
+
+<h4>Contact Us</h4>
+
+<p>Your comments and suggestions for the SSDF project are always welcome. Contact us at <a href="/cdn-cgi/l/email-protection#9cefeff8fadcf2f5efe8b2fbf3ea"><span class="__cf_email__" data-cfemail="e497978082a48a8d9790ca838b92">[email&#160;protected]</span></a>.</p>
+
+<p style="text-align:right"><a href="#top"><em>Back to Top</em></a></p>
+
+</div>
+
+        </div>
+
+
+        <div class="col-lg-4 hidden-xs hidden-sm hidden-md">
+
+            <div class="project-nav-container">
+                <div class="bs-callout bs-callout-subnav" id="projectLinksContainer-lg">
+<h4><i class="fa fa-link"></i> Project Links</h4>
+<div class="project-icons-container">
+    <span>
+        <a href="/projects/ssdf" id="SideNavOverviewLink">
+            <i class="fa fa-info-circle"></i> Overview
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/ssdf/news" id="SideNavNewsLink" data-count="9">
+            <i class="fa fa-newspaper-o"></i> News &amp; Updates
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/ssdf/events" id="SideNavEventsLink" data-count="3">
+            <i class="fa fa-calendar-o"></i> Events
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/ssdf/publications" id="SideNavPubsLink" data-count="3">
+            <i class="fa fa-file-text"></i> Publications
+        </a>
+    </span>
+    </div>
+
+    <h4>Additional Pages</h4>
+    <div id="projectPagesCallout-lg">
+
+<a class="csrc-add-page" data-node-level="0" data-node-order="1" href="/Projects/ssdf/references" id="projPage0" style="border-left: solid 0rem transparent;">References</a>
+
+
+    </div>
+
+                </div>
+            </div>
+
+    <div class="bs-callout bs-callout-success" id="contactsCallout-lg">
+        <h4><i class="fa fa-user"></i> Contacts</h4>
+            <p id="projContact0"><span class='contact-display'><strong data-field='full-name'> <span data-field='firstname'>SSDF</span>   <span data-field='lastname'>Inquiries</span> </strong><br/><a href="/cdn-cgi/l/email-protection#d0a3a3b4b690beb9a3a4feb7bfa6" data-field='email'><span class="__cf_email__" data-cfemail="8ffcfcebe9cfe1e6fcfba1e8e0f9">[email&#160;protected]</span></a><br/></span></p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="owningGroupCallout-lg">
+        <h4><i class="fa fa-sitemap"></i> Group</h4>
+        <a href="/Groups/Computer-Security-Division/Software-Security-Group">Software Security Group</a>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="topicsCallout-lg">
+        <h4><i class="fa fa-tag"></i> Topics</h4>
+
+            <p>
+                <strong id="catName0-lg">Security and Privacy:</strong>
+                    <a id="catTopLink0-0-lg" href="/Topics/Security-and-Privacy/systems-security-engineering">systems security engineering</a>,                     <a id="catTopLink0-1-lg" href="/Topics/Security-and-Privacy/risk-management/vulnerabilities/vulnerability-management">vulnerability management</a>            </p>
+            <p>
+                <strong id="catName1-lg">Technologies:</strong>
+                    <a id="catTopLink1-0-lg" href="/Topics/technologies/artificial-intelligence">artificial intelligence</a>,                     <a id="catTopLink1-1-lg" href="/Topics/technologies/software-firmware">software &amp; firmware</a>            </p>
+            <p>
+                <strong id="catName2-lg">Laws and Regulations:</strong>
+                    <a id="catTopLink2-0-lg" href="/Topics/Laws-and-Regulations/executive-documents/Executive-Order-14028">Executive Order 14028</a>            </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-warning" id="relatedProjectsCallout-lg">
+        <h4>Related Projects</h4>
+            <a href="/Projects/cybersecurity-framework" id="relProjLink0">Cybersecurity Framework</a><br/>
+            <a href="/Projects/devsecops" id="relProjLink1">DevSecOps | NCCoE</a><br/>
+            <a href="/Projects/national-initiative-for-cybersecurity-education" id="relProjLink2">National Initiative for Cybersecurity Education</a><br/>
+            <a href="/Projects/nsrl-national-software-reference-library" id="relProjLink3">National Software Reference Library</a><br/>
+            <a href="/Projects/national-vulnerability-database" id="relProjLink4">National Vulnerability Database</a><br/>
+            <a href="/Projects/olir" id="relProjLink5">OLIR</a><br/>
+            <a href="/Projects/samate-software-assurance-metrics-tool-evaluation" id="relProjLink6">SAMATE: Software Assurance Metrics And Tool Evaluation</a><br/>
+            <a href="/Projects/software-identification-swid" id="relProjLink7">Software Identification Tagging</a><br/>
+            <a href="/Projects/systems-security-engineering-project" id="relProjLink8">Systems Security Engineering (SSE) Project</a><br/>
+            <a href="/Projects/vulnerability-disclosure-guidelines" id="relProjLink9">Vulnerability Disclosure Guidelines</a><br/>
+    </div>
+
+
+        </div>
+
+</div>
+    <div class="row visible-sm visible-xs visible-md">
+
+        <div class="col-sm-12">
+
+<div class="bs-callout bs-callout-subnav" id="projectPagesCallout-sm">
+    <h4>Additional Pages</h4>
+    <p>
+
+<a class="csrc-add-page" data-node-level="0" data-node-order="1" href="/Projects/ssdf/references" id="projPage0-sm" style="border-left: solid 0rem transparent;">References</a>
+
+
+    </p>
+</div>
+
+
+    <div class="bs-callout bs-callout-subnav" id="contactsCallout-sm">
+        <h4><i class="fa fa-user"></i> Contacts</h4>
+        <p style="padding-left: 15px;">
+            <span id="projContact0-sm"><span class='contact-display'><strong data-field='full-name'> <span data-field='firstname'>SSDF</span>   <span data-field='lastname'>Inquiries</span> </strong><br/><a href="/cdn-cgi/l/email-protection#addedec9cbedc3c4ded983cac2db" data-field='email'><span class="__cf_email__" data-cfemail="691a1a0d0f2907001a1d470e061f">[email&#160;protected]</span></a><br/></span></span><br/>
+        </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="owningGroupCallout-sm">
+        <h4><i class="fa fa-sitemap"></i> Group</h4>
+        <a href="/Groups/Computer-Security-Division/Software-Security-Group">Software Security Group</a>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="topicsCallout-sm">
+        <h4><i class="fa fa-tag"></i> Topics</h4>
+
+            <p>
+                <strong id="catName0-sm">Security and Privacy:</strong>
+                    <a id="catTopLink0-0-sm" href="/Topics/Security-and-Privacy/systems-security-engineering">systems security engineering</a>,                     <a id="catTopLink0-1-sm" href="/Topics/Security-and-Privacy/risk-management/vulnerabilities/vulnerability-management">vulnerability management</a>            </p>
+            <p>
+                <strong id="catName1-sm">Technologies:</strong>
+                    <a id="catTopLink1-0-sm" href="/Topics/technologies/artificial-intelligence">artificial intelligence</a>,                     <a id="catTopLink1-1-sm" href="/Topics/technologies/software-firmware">software &amp; firmware</a>            </p>
+            <p>
+                <strong id="catName2-sm">Laws and Regulations:</strong>
+                    <a id="catTopLink2-0-sm" href="/Topics/Laws-and-Regulations/executive-documents/Executive-Order-14028">Executive Order 14028</a>            </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-warning" id="relatedProjectsCallout-sm">
+        <h4>Related Projects</h4>
+        <p>
+            <a href="/Projects/cybersecurity-framework" id="relProjLink0-sm">Cybersecurity Framework</a><br/>
+            <a href="/Projects/devsecops" id="relProjLink1-sm">DevSecOps | NCCoE</a><br/>
+            <a href="/Projects/national-initiative-for-cybersecurity-education" id="relProjLink2-sm">National Initiative for Cybersecurity Education</a><br/>
+            <a href="/Projects/nsrl-national-software-reference-library" id="relProjLink3-sm">National Software Reference Library</a><br/>
+            <a href="/Projects/national-vulnerability-database" id="relProjLink4-sm">National Vulnerability Database</a><br/>
+            <a href="/Projects/olir" id="relProjLink5-sm">OLIR</a><br/>
+            <a href="/Projects/samate-software-assurance-metrics-tool-evaluation" id="relProjLink6-sm">SAMATE: Software Assurance Metrics And Tool Evaluation</a><br/>
+            <a href="/Projects/software-identification-swid" id="relProjLink7-sm">Software Identification Tagging</a><br/>
+            <a href="/Projects/systems-security-engineering-project" id="relProjLink8-sm">Systems Security Engineering (SSE) Project</a><br/>
+            <a href="/Projects/vulnerability-disclosure-guidelines" id="relProjLink9-sm">Vulnerability Disclosure Guidelines</a><br/>
+        </p>
+    </div>
+
+
+        </div>
+
+    </div>
+
+<div class="row">
+    <div class="col-md-12 historical-data-area" id="historical-data-area">
+
+            <span>Created <span id="page-created-date">February 25, 2021</span>, Updated <span id="page-updated-date">April 13, 2026</span></span>
+    </div>
+</div>
+
+
+
+
+
+
+        <div id="footer-pusher"></div>
+
+    </div>
+
+    
+
+    <footer id="footer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <span class="hidden-xs">
+                    <a href="https://www.nist.gov" title="National Institute of Standards and Technology" rel="home" target='_blank' rel="noopener noreferrer" class="footer-nist-logo" id="footer-nist-logo-link">
+                        <img src="/CSRC/Media/images/nist-logo-brand-white.svg" alt="National Institute of Standards and Technology logo" id="footer-nist-logo" />
+                    </a>
+                </span>
+
+                <div class="row footer-contact-container">
+                    <div class="col-sm-12" id="footer-address">
+                        <strong>HEADQUARTERS</strong><br>
+                        100 Bureau Drive<br>
+                        Gaithersburg, MD 20899
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <ul class="social-list text-right" style="display: block;">
+                    <li class="field-item servi

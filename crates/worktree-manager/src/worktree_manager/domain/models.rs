@@ -113,7 +113,12 @@ pub struct WorktreeResult {
 
 impl WorktreeResult {
     pub fn success(worktree: Worktree) -> Self {
-        Self { success: true, worktree: Some(worktree), error: None, warnings: Vec::new() }
+        Self {
+            success: true,
+            worktree: Some(worktree),
+            error: None,
+            warnings: Vec::new(),
+        }
     }
 
     pub fn failure(error: impl ToString) -> Self {
@@ -193,5 +198,25 @@ mod tests {
         let failure = WorktreeResult::failure("test error");
         assert!(!failure.success);
         assert_eq!(failure.error, Some("test error".to_string()));
+    }
+
+    #[test]
+    fn test_worktree_is_stale() {
+        // Same head: never stale, regardless of is_main.
+        let mut wt = Worktree::new(
+            BranchName::new("feature/test"),
+            PathBuf::from("/wt/a"),
+            "abc123".to_string(),
+        );
+        assert!(!wt.is_stale("abc123"));
+
+        // Different head + is_main=true: main is never stale.
+        let mut main_wt = Worktree::main(PathBuf::from("/repo"), "old".to_string());
+        main_wt.is_main = true;
+        assert!(!main_wt.is_stale("new"));
+
+        // Different head + is_main=false: stale.
+        wt.head = "old".to_string();
+        assert!(wt.is_stale("new"));
     }
 }

@@ -25,7 +25,10 @@ where
     B: BranchOperations,
 {
     pub fn new(repository: R, branches: B) -> Self {
-        Self { repository, branches }
+        Self {
+            repository,
+            branches,
+        }
     }
 
     /// List all worktrees in a repository
@@ -39,7 +42,7 @@ where
         repo_path: &Path,
         branch_name: BranchName,
         worktree_path: &Path,
-        _start_point: Option<&str>,
+        start_point: Option<&str>,
     ) -> WorktreeResult {
         // Check if branch already exists
         match self.branches.exists(repo_path, &branch_name) {
@@ -53,8 +56,11 @@ where
             _ => {}
         }
 
-        // Create worktree
-        match self.repository.create(repo_path, &branch_name, worktree_path) {
+        // Create worktree (start_point defaults to HEAD in the adapter)
+        match self
+            .repository
+            .create(repo_path, &branch_name, worktree_path, start_point)
+        {
             Ok(worktree) => WorktreeResult::success(worktree),
             Err(e) => WorktreeResult::failure(e.to_string()),
         }

@@ -1,0 +1,32 @@
+OWASP Application Security Verification Standard (ASVS) | OWASP Foundation
+OWASP Application Security Verification Standard (ASVS)
+The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.
+Use as guidance - Provide guidance to security control developers as to what to build into security controls in order to satisfy application security requirements, and
+Use during procurement - Provide a basis for specifying application security verification requirements in contracts.
+Get the latest stable version of the ASVS (5.0.0) from the Downloads page.
+How To Reference ASVS Requirements
+Each requirement has an identifier in the format <chapter>.<section>.<requirement>, where each element is a number. For example, 1.11.3.
+The <chapter> value corresponds to the chapter from which the requirement comes; for example, all 1.#.# requirements are from the ‘Encoding and Sanitization’ chapter.
+The <section> value corresponds to the section within that chapter where the requirement appears, for example: all 1.2.# requirements are in the ‘Injection Prevention’ section of the ‘Encoding and Sanitization’ chapter.
+The <requirement> value identifies the specific requirement within the chapter and section, for example, 1.2.5 which as of version 5.0.0 of this standard is:
+If identifiers are used without including the v<version> element then they should be assumed to refer to the latest Application Security Verification Standard content. As the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+OWASP Top Ten Proactive Controls (2018)
+OWASP Top Ten Risks (2017)
+Two of our working group, Shanni Prutchi and Ryan Armstrong will be delivering a short talk about the ASVS project and the latest developments and plans.
+(Ryan and Shanni are also doing their own excellent talks at the conference so dont forget to check those out here and here!)
+Shortly afterwards, Aram Hovsepyan will be giving a talk about “Maturing Your Application Security Program with ASVS-Driven Development”. In the talk Aram explains how leveraging ASVS for deriving security test cases can create a common theme across all stages of the software development lifecycle.
+There was also an update on the current status of the standard and time allocated to work on the upcoming version 5.0.
+Additionally, we would love to get more community members involved in the ASVS and other than working on the standard we also have information about other volunteering opportunities to help develop and promote the project! See the “Get Involved” tab above!.
+Within the ASVS project, we gratefully recognise the following organizations who support the OWASP Application Security Verification Standard project through monetary donations or allowing contributors to spend significant time working on the standard as part of their work with the organization.
+We recognise various tiers of support and the amount of time the supporter is recognised for depends on the supporter level.
+Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
+The OWASP Foundation sponsored the OWASP Application Security Verification Standard Project during the OWASP Summer of Code 2008.
+Building the standard
+We are always looking for people to help out with building the standards and discussing what should be in there.
+You can find information on contributing to the standard in the Contribution Guide.
+The latest list of roles is here:
+CREST OWASP Verification Standard (OVS) Programme
+The CREST OWASP OVS Programme accredits companies that provide app security testing services to the application development industry. The testing to be performed is based on the ASVS (and MASVS) projects.
+Inspectiv - “We use ASVS in our pen tests in order to have a comprehensive, vendor neutral, guideline for testing the security of applications and websites.”
+NVISO - “We use the ASVS as a baseline for our Web Application Penetration Tests.”

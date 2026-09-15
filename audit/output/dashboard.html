@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Audit Dashboard</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, system-ui, sans-serif; background:#0f172a; color:#e2e8f0; padding:2rem; }
+  h1 { font-size:1.5rem; margin-bottom:0.5rem; }
+  .meta { color:#94a3b8; margin-bottom:2rem; font-size:0.875rem; }
+  .summary { display:flex; gap:2rem; margin-bottom:2rem; }
+  .card { background:#1e293b; border-radius:8px; padding:1.5rem; min-width:180px; }
+  .card .label { color:#94a3b8; font-size:0.75rem; text-transform:uppercase; }
+  .card .value { font-size:2rem; font-weight:bold; margin-top:0.25rem; }
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; padding:0.75rem; border-bottom:2px solid #334155; color:#94a3b8; font-size:0.75rem; text-transform:uppercase; }
+  td { padding:0.75rem; border-bottom:1px solid #1e293b; }
+  .text-right { text-align:right; }
+  .text-green { color:#22c55e; }
+  .text-red { color:#ef4444; }
+  .font-mono { font-family:monospace; }
+  .font-bold { font-weight:bold; }
+  .bar-bg { background:#334155; border-radius:4px; height:8px; width:120px; display:inline-block; vertical-align:middle; }
+  .bar-fill { height:100%; border-radius:4px; }
+  .rate { margin-left:0.5rem; font-size:0.875rem; }
+</style>
+</head>
+<body>
+<h1>Audit Dashboard</h1>
+<div class="meta">Generated 2026-09-13T00:07:50.003906+00:00 | Rubric v1 (4503 criteria)</div>
+<div class="summary">
+  <div class="card"><div class="label">Products</div><div class="value">25</div></div>
+  <div class="card"><div class="label">Rubric Criteria</div><div class="value">4503</div></div>
+  <div class="card"><div class="label">Avg Pass Rate</div><div class="value">76.6%</div></div>
+</div>
+<table>
+<thead><tr><th>Product</th><th class="text-right">Source</th><th class="text-right">Criteria</th><th class="text-right">Passed</th><th class="text-right">Partial</th><th class="text-right">Failed</th><th>Pass Rate</th></tr></thead>
+<tbody>
+        <tr>
+            <td class="font-mono font-bold">tgt</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">140</td>
+            <td class="text-right text-green">23</td>
+            <td class="text-right" style="color:#fbbf24">73</td>
+            <td class="text-right text-red">44</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:16.4%;background:#ef4444"></div>
+                    <div class="bar-fill" style="width:52.142857142857146%;background:#fbbf24;margin-left:-52.142857142857146%;opacity:0.5"></div>
+                </div>
+                <span class="rate">16.4%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">sharecli</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">109</td>
+            <td class="text-right text-green">50</td>
+            <td class="text-right" style="color:#fbbf24">59</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:45.9%;background:#ef4444"></div>
+                    <div class="bar-fill" style="width:54.12844036697248%;background:#fbbf24;margin-left:-54.12844036697248%;opacity:0.5"></div>
+                </div>
+                <span class="rate">45.9%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">PhenoVCS</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">61</td>
+            <td class="text-right" style="color:#fbbf24">53</td>
+            <td class="text-right text-red">13</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:48.0%;background:#ef4444"></div>
+                    <div class="bar-fill" style="width:41.732283464566926%;background:#fbbf24;margin-left:-41.732283464566926%;opacity:0.5"></div>
+                </div>
+                <span class="rate">48.0%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">Tokn</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">70</td>
+            <td class="text-right" style="color:#fbbf24">57</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:55.1%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:44.881889763779526%;background:#fbbf24;margin-left:-44.881889763779526%;opacity:0.5"></div>
+                </div>
+                <span class="rate">55.1%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">hwLedger</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">74</td>
+            <td class="text-right" style="color:#fbbf24">53</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:58.3%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:41.732283464566926%;background:#fbbf24;margin-left:-41.732283464566926%;opacity:0.5"></div>
+                </div>
+                <span class="rate">58.3%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">portage</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">79</td>
+            <td class="text-right" style="color:#fbbf24">48</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:62.2%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:37.79527559055118%;background:#fbbf24;margin-left:-37.79527559055118%;opacity:0.5"></div>
+                </div>
+                <span class="rate">62.2%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">thegent</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">79</td>
+            <td class="text-right" style="color:#fbbf24">48</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:62.2%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:37.79527559055118%;background:#fbbf24;margin-left:-37.79527559055118%;opacity:0.5"></div>
+                </div>
+                <span class="rate">62.2%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">Agentora-wtrees-wt-206</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">91</td>
+            <td class="text-right" style="color:#fbbf24">36</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:71.7%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:28.346456692913385%;background:#fbbf24;margin-left:-28.346456692913385%;opacity:0.5"></div>
+                </div>
+                <span class="rate">71.7%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">HeliosLab</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">91</td>
+            <td class="text-right" style="color:#fbbf24">36</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:71.7%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:28.346456692913385%;background:#fbbf24;margin-left:-28.346456692913385%;opacity:0.5"></div>
+                </div>
+                <span class="rate">71.7%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">pheno-crates-hexa-kit</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">91</td>
+            <td class="text-right" style="color:#fbbf24">36</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:71.7%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:28.346456692913385%;background:#fbbf24;margin-left:-28.346456692913385%;opacity:0.5"></div>
+                </div>
+                <span class="rate">71.7%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">pheno-crates-hexa-kit-templates-appgen</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">91</td>
+            <td class="text-right" style="color:#fbbf24">36</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:71.7%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:28.346456692913385%;background:#fbbf24;margin-left:-28.346456692913385%;opacity:0.5"></div>
+                </div>
+                <span class="rate">71.7%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">AgilePlus-recovered-20260822</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">101</td>
+            <td class="text-right" style="color:#fbbf24">26</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:79.5%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:20.47244094488189%;background:#fbbf24;margin-left:-20.47244094488189%;opacity:0.5"></div>
+                </div>
+                <span class="rate">79.5%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">argis-extensions</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">101</td>
+            <td class="text-right" style="color:#fbbf24">26</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:79.5%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:20.47244094488189%;background:#fbbf24;margin-left:-20.47244094488189%;opacity:0.5"></div>
+                </div>
+                <span class="rate">79.5%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">cliproxyapi-plusplus</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">101</td>
+            <td class="text-right" style="color:#fbbf24">26</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:79.5%;background:#f59e0b"></div>
+                    <div class="bar-fill" style="width:20.47244094488189%;background:#fbbf24;margin-left:-20.47244094488189%;opacity:0.5"></div>
+                </div>
+                <span class="rate">79.5%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">Melosviz</td>
+            <td class="text-right"><span style="color:#94a3b8">mapping</span></td>
+            <td class="text-right">109</td>
+            <td class="text-right text-green">96</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">13</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:88.1%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">88.1%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">substrate</td>
+            <td class="text-right"><span style="color:#94a3b8">mapping</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">113</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">14</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:89.0%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">89.0%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">phenotype-registry</td>
+            <td class="text-right"><span style="color:#94a3b8">mapping</span></td>
+            <td class="text-right">109</td>
+            <td class="text-right text-green">100</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">9</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:91.7%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">91.7%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">OmniRoute</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">118</td>
+            <td class="text-right" style="color:#fbbf24">9</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:92.9%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:7.086614173228346%;background:#fbbf24;margin-left:-7.086614173228346%;opacity:0.5"></div>
+                </div>
+                <span class="rate">92.9%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">PhenoPlugins</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">118</td>
+            <td class="text-right" style="color:#fbbf24">9</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:92.9%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:7.086614173228346%;background:#fbbf24;margin-left:-7.086614173228346%;opacity:0.5"></div>
+                </div>
+                <span class="rate">92.9%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">phenoAI</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">118</td>
+            <td class="text-right" style="color:#fbbf24">9</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:92.9%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:7.086614173228346%;background:#fbbf24;margin-left:-7.086614173228346%;opacity:0.5"></div>
+                </div>
+                <span class="rate">92.9%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">phenotype-tooling-mergify</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">127</td>
+            <td class="text-right text-green">118</td>
+            <td class="text-right" style="color:#fbbf24">9</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:92.9%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:7.086614173228346%;background:#fbbf24;margin-left:-7.086614173228346%;opacity:0.5"></div>
+                </div>
+                <span class="rate">92.9%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">SessionLedger</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">109</td>
+            <td class="text-right text-green">109</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:100.0%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">100.0%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">Tracera-wtrees</td>
+            <td class="text-right"><span style="color:#94a3b8">mapping</span></td>
+            <td class="text-right">47</td>
+            <td class="text-right text-green">47</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:100.0%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">100.0%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">nanovms</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">140</td>
+            <td class="text-right text-green">140</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:100.0%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">100.0%</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="font-mono font-bold">pheno-harness</td>
+            <td class="text-right"><span style="color:#60a5fa">audit</span></td>
+            <td class="text-right">140</td>
+            <td class="text-right text-green">140</td>
+            <td class="text-right" style="color:#fbbf24">0</td>
+            <td class="text-right text-red">0</td>
+            <td>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width:100.0%;background:#22c55e"></div>
+                    <div class="bar-fill" style="width:0.0%;background:#fbbf24;margin-left:-0.0%;opacity:0.5"></div>
+                </div>
+                <span class="rate">100.0%</span>
+            </td>
+        </tr></tbody>
+</table>
+</body>
+</html>

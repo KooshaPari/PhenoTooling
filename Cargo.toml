@@ -46,6 +46,23 @@ members = [
     "crates/phenotype-plugins/pheno-plugin-examples",
     "bin/hook-entry",
     "bin/phenotype-journey",
+
+    # Absorbed from zz-merge-unk-PhenoUtils (CLI shells, async FS, crypto, network, testing)
+    "crates/pheno-shell",
+    "crates/pheno-fs",
+    "crates/pheno-crypto",
+    "crates/pheno-net",
+    "crates/pheno-testing",
+    "crates/pheno-schema-port",
+    "crates/pheno-terminal",
+
+    # Absorbed from PhenoVCS
+    "crates/airlock-v2",
+    "crates/pheno-vcs-core",
+    "crates/pheno-tracing",
+    "crates/phenovcs-observability",
+    "crates/clap-ext",
+    "ports-vcs",
 ]
 
 [workspace.package]
@@ -84,13 +101,11 @@ tempfile = "3"
 # PhenoPlugins internal path deps
 pheno-plugin-core = { path = "crates/phenotype-plugins/pheno-plugin-core" }
 
-[patch.crates-io]
-# pheno-tracing v0.4.0 (ADR-012) is a private git-dep that cannot be
-# resolved in offline / CI environments. Redirect to a local stub
-# crate in `bin/pheno-tracing-stub/` that re-exports the canonical
-# `tracing` crate on crates.io. When pheno-tracing is published or
-# vendored, remove this patch and the stub crate.
-pheno-tracing = { path = "bin/pheno-tracing-stub" }
+# Absorbed from PhenoVCS
+pheno-tracing = { path = "crates/pheno-tracing", default-features = false }
+clap-ext = { path = "crates/clap-ext" }
+phenovcs-observability = { path = "crates/phenovcs-observability" }
+pheno-vcs-core = { path = "crates/pheno-vcs-core" }
 
 [profile.release]
 lto = "thin"

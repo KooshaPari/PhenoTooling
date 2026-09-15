@@ -1,0 +1,206 @@
+protocol:
+  name: "Product Evaluation Protocol"
+  version: "0.2"
+  artifact_kind: "bootstrap-assignment"
+  slice: "first-vertical-slice"
+  status: "DRAFT_ONLY"
+  authorization: "NONE"
+  approval: "NONE"
+
+assignment:
+  id: "audit-system-dry-run-first-vertical-slice"
+  title: "Bounded audit-system dry-run CLI evaluation"
+  status: "PROPOSED_UNRESOLVED"
+  owner: "UNASSIGNED"
+  created_at: "2026-09-11"
+  statement: "This document proposes one bounded evaluation assignment; it does not authorize execution, migration, publication, scoring, or a maturity claim."
+
+source_basis:
+  protocol:
+    path: null
+    status: "REFERENCED_BUT_NOT_LOCATED_IN_SNAPSHOT"
+    required: true
+  agent_start:
+    path: null
+    status: "REFERENCED_BUT_NOT_LOCATED_IN_SNAPSHOT"
+    required: true
+  audit_artifacts:
+    - path: "research/audit-system/audits/2026-09-07/DRY-RUN-SPEC.md"
+      role: "dry-run contract and gates"
+    - path: "research/audit-system/audits/2026-09-07/AUDIT-HANDOFF.md"
+      role: "scope, evidence, and limitations"
+    - path: "research/audit-system/audits/2026-09-07/dry_run/README.md"
+      role: "synthetic-only boundary and API"
+    - path: "research/audit-system/audits/2026-09-07/dry_run/CONTROL-READINESS.md"
+      role: "unresolved control register"
+    - path: "research/audit-system/audits/2026-09-07/dry_run/REVIEW-PACKET.md"
+      role: "mapping, applicability, and lineage decisions"
+    - path: "research/audit-system/audits/2026-09-07/dry_run/SOURCE-BINDING-STATUS.md"
+      role: "source identity and binding limits"
+
+mandate:
+  intent: "Test whether a single, explicitly bounded dry-run slice can produce reviewable evidence while preserving input bytes and failing closed on unresolved identity."
+  permitted_intent: "Prepare a reviewable assignment and witness specification only."
+  forbidden_inference: "Do not infer subject identity, readiness, approval, source equivalence, applicability, score, or maturity from existing artifacts."
+
+beneficiary_outcome:
+  beneficiary:
+    primary: "Audit-system sponsor and independent reviewer"
+    secondary: "Future evaluator/operator who needs a reproducible, fail-closed handoff"
+  intended_outcome: "A reviewer can decide whether this one slice has a fully identified subject, locked evaluator, and sufficient evidence for a separately authorized synthetic probe."
+  success_boundary: "The output is a decision-ready packet or an explicit blocked decision; it is not a scorecard or certification."
+
+subject:
+  selection_basis: "PROPOSAL"
+  proposal:
+    name: "audit-system dry-run CLI"
+    target_path: "research/audit-system/audits/2026-09-07/dry_run/dry_run.py"
+    subject_form: "bounded synthetic dry-run module/API boundary; executable CLI entrypoint is not established"
+    proposed_scope:
+      - "Explicit synthetic manifest validation"
+      - "Input-byte fingerprint and row-accounting diagnostics"
+      - "Qualified-key, quarantine, lineage, applicability, and fail-closed reporting"
+      - "Additive candidate diagnostics only"
+    rationale: "The local README describes a synthetic-only, explicit-input dry-run contract suitable for a narrow proposal."
+  resolved_identity:
+    status: "UNRESOLVED"
+    canonical_name: null
+    immutable_revision: null
+    source_path: null
+    source_sha256: null
+    executable_entrypoint: null
+    equivalence_to_any_live_or_native_subject: "NOT_ESTABLISHED"
+
+non_goals:
+  - "No real snapshot execution or migration"
+  - "No score, readiness grade, compliance certification, or maturity claim"
+  - "No source, rubric, scorer, scorecard, infrastructure, or remote modification"
+  - "No network, hosted check, build, install, test run, or corpus recollection"
+  - "No mapping by bare ID, normalization, position, first/last winner, majority, or substitution"
+  - "No resolution of the missing Tracera or Substrate source bindings"
+  - "No promotion of this draft into authorization or approval"
+
+evaluator_lock:
+  status: "PROPOSED_NOT_LOCKED"
+  lock_intent: "If separately authorized, freeze every evaluator input before a probe; unresolved values remain blockers."
+  fields:
+    protocol_version: "Product Evaluation Protocol v0.2"
+    assignment_id: "audit-system-dry-run-first-vertical-slice"
+    subject_identity: null
+    subject_revision_or_export_hash: null
+    input_manifest_hash: null
+    implementation_version: "dry_run.py hash is recorded in audit artifacts, but evaluator binding is not reviewed"
+    implementation_sha256: "999702a1bf4d5c5e81517864aec2196e94c15a219b4bbb20422876a07a80f087"
+    rubric_identity_version_hash: null
+    scorer_identity_version_hash: null
+    prompt_or_manifest_hash: null
+    runner_identity_version_hash: null
+    environment_identity_hash: null
+    tool_schema_and_allowlist_hash: null
+    verifier_identity_version_hash: null
+    capture_timestamp: null
+    network_policy: "OFFLINE_ONLY"
+    mutation_policy: "READ_ONLY_INPUTS; ADDITIVE_OUTPUTS_ONLY"
+    evaluator_authority: "UNASSIGNED"
+  lock_rule: "A null or unreviewed field keeps the assignment non-scoreable and blocked."
+
+witness_plan:
+  status: "PROPOSED_NOT_EXECUTED"
+  good:
+    id: "good-synthetic-explicit-manifest"
+    purpose: "Show that a fully explicit synthetic manifest can be validated and yield deterministic, additive diagnostics without changing inputs."
+    fixture_requirements:
+      - "Small synthetic inputs with complete frozen byte hashes and reviewed baseline"
+      - "Complete qualified keys using exact [criterion-v2, source, domain, legacy_id] identity"
+      - "Explicit reviewed applicability and finite nonnegative weights"
+      - "Complete subject, conversion, rubric/scorer, capture, and lineage bindings"
+    expected_witness: "Validation succeeds structurally; publication_allowed remains false; readiness_grade remains null; input bytes remain unchanged; outputs are content-addressed and reproducible."
+    evidence_to_capture: "Manifest hash, input hashes/lengths, output hashes, validation result, and exact environment/implementation identities."
+  bad:
+    id: "bad-unresolved-or-ambiguous-manifest"
+    purpose: "Show that unresolved identity or unsafe mappings cannot become a score or approval."
+    fault_injections:
+      - "Duplicate complete qualified key"
+      - "Bare-ID-only or normalized mapping"
+      - "Unknown subject or missing source hash/path"
+      - "Unresolved applicable key or incomplete lineage"
+      - "Invalid, negative, or non-finite weight"
+      - "Input byte drift or pre-existing candidate output directory"
+    expected_witness: "Validation fails or quarantines the affected rows; publication_allowed remains false; readiness_grade remains null; no replacement or inferred source is emitted."
+    evidence_to_capture: "Stable reason codes, preserved original row locators/values, unchanged input hashes, and absence of promoted output."
+
+evidence_needs:
+  status: "BLOCKED_PENDING_REVIEW"
+  required_before_authorization:
+    - "Locate and review Product Evaluation Protocol v0.2 and START-HERE-AGENT.md; record exact paths and hashes"
+    - "Resolve the proposed subject to an authoritative identity, immutable revision/export, and exact entrypoint or leave it unresolved"
+    - "Freeze an explicit synthetic input manifest, baseline count/hash, and all input byte hashes"
+    - "Freeze implementation, rubric, scorer, parser/template, runner, verifier, and environment identities"
+    - "Record an explicit applicability set and qualified mapping; quarantine duplicates/conflicts/unresolved rows"
+    - "Define capture timestamp, evaluator authority, and review record before any run"
+  available_but_non_proving:
+    - "Existing dry-run contract and synthetic test artifacts"
+    - "Existing implementation hash and deterministic synthetic reproducibility report"
+    - "Existing audit reports documenting missing mappings, source drift, and blocked publication"
+  evidence_class: "PLANNING_ONLY"
+
+stop_conditions:
+  hard_stop:
+    - "Any requested action exceeds this synthetic, read-only, additive slice"
+    - "Protocol, agent-start instructions, subject identity, or evaluator lock is missing/unreviewed"
+    - "Input, implementation, runner, verifier, environment, or capture identity changes after lock"
+    - "A mapping is ambiguous, duplicate, conflicting, bare-ID, normalized, positional, inferred, or substituted"
+    - "Any applicable key is unresolved, or assessed/unassessed accounting cannot reconcile"
+    - "Any source bytes drift, output would overwrite existing artifacts, or a readiness grade would be produced"
+    - "Network, build, install, test, migration, publication, or source mutation is requested"
+  disposition: "QUARANTINE_AND_RETURN_TO_REVIEW"
+
+epoch:
+  status: "PROPOSED_NOT_STARTED"
+  id: "audit-system-dry-run-first-vertical-slice-epoch-001"
+  ordinal: 0
+  meaning: "One bounded assignment lifecycle from review packet freeze through a separately authorized synthetic probe, if authorized."
+  start_event: "UNSET"
+  end_event: "UNSET"
+  frozen_at: null
+  restart_policy: "Never resume across a changed subject, evaluator lock, input manifest, implementation, or authorization; create a new epoch."
+
+restart_packet:
+  status: "REQUIRED_BEFORE_ANY_RESUME"
+  fields:
+    assignment_id: "audit-system-dry-run-first-vertical-slice"
+    prior_epoch_id: null
+    new_epoch_id: null
+    last_event_id: null
+    subject_identity_revision_hash: null
+    evaluator_lock_hash: null
+    input_manifest_hash: null
+    implementation_hash: "999702a1bf4d5c5e81517864aec2196e94c15a219b4bbb20422876a07a80f087"
+    witness_id_and_state: null
+    evidence_artifact_hashes: []
+    stop_reason: null
+    authorization_record: null
+    reviewer: null
+    review_timestamp_utc: null
+    next_bounded_action: null
+  acceptance: "Every field must be filled or explicitly marked UNRESOLVED with a reason; a restart packet is not itself authorization."
+
+registration_outbox:
+  status: "PENDING_REVIEW"
+  destination: "UNRESOLVED_REVIEW_REGISTRY"
+  entries:
+    - event: "assignment_draft_created"
+      assignment_id: "audit-system-dry-run-first-vertical-slice"
+      epoch_id: "audit-system-dry-run-first-vertical-slice-epoch-001"
+      payload_status: "DRAFT_ONLY"
+      authorization: "NONE"
+      approval: "NONE"
+      subject_status: "PROPOSAL_ONLY_UNRESOLVED"
+      evaluator_lock_status: "PROPOSED_NOT_LOCKED"
+      witness_status: "PROPOSED_NOT_EXECUTED"
+      readiness_grade: null
+      evidence_refs:
+        - "research/audit-system/audits/2026-09-07/dry_run/BOOTSTRAP-ASSIGNMENT-DRAFT.yaml"
+        - "research/audit-system/audits/2026-09-07/dry_run/CONTROL-READINESS.md"
+        - "research/audit-system/audits/2026-09-07/dry_run/REVIEW-DECISIONS-PACKET.md"
+      next_action: "Obtain separate review and authorization decisions; otherwise retain as draft and do not execute."
