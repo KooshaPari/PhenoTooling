@@ -53,6 +53,14 @@ members = [
 
     "bin/hook-entry",
 
+    # Eye-tracking library (absorbed from KooshaPari/zz-merge-unk-eyetracker)
+    "crates/eyetracker-domain",
+    "crates/eyetracker-math",
+    "crates/eyetracker-core",
+    "crates/eyetracker-camera",
+    "crates/eyetracker-inference",
+    "crates/eyetracker-cli",
+    "crates/eyetracker-ffi",
     # Absorbed from PhenoVCS
     "crates/airlock-v2",
     "crates/pheno-vcs-core",
@@ -79,7 +87,7 @@ clap = { version = "4.5", features = ["derive"] }
 anyhow = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-tokio = { version = "1.52", features = ["rt-multi-thread", "macros", "fs"] }
+tokio = { version = "1.52", features = ["rt-multi-thread", "macros", "fs", "time", "sync"] }
 walkdir = "2.5"
 thiserror = "2.0"
 regex = "1.11"
