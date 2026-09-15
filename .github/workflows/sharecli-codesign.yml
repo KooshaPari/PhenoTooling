@@ -1,0 +1,162 @@
+# =============================================================================
+# C11 L112 — Codesign hard gate (promotes from soft gate)
+# =============================================================================
+# All sign + notarize + staple steps must pass for main builds.
+# Windows signing is continue-on-error until Azure Key Vault is configured.
+# =============================================================================
+
+name: Code Signing (Hard Gate)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codesign-hard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos-sign:
+    name: macOS codesign + notarize (hard gate — Infisical-backed Apple secrets)
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fetch Apple secrets from Infisical
+        id: infisical
+        env:
+          INFISICAL_TOKEN: ${{ secrets.INFISICAL_TOKEN }}
+          INFISICAL_PROJECT_ID: ${{ vars.INFISICAL_PROJECT_ID || secrets.INFISICAL_PROJECT_ID || '8efe392e-56a6-4c3c-89f9-8141183dd7e8' }}
+          INFISICAL_ENV: ${{ vars.INFISICAL_ENV || 'prod' }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$INFISICAL_TOKEN" ]]; then
+            echo "::error::INFISICAL_TOKEN secret not configured in repo settings"
+            exit 1
+          fi
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            brew install infisical/get-cli/infisical
+          else
+            # S6506: enforce HTTPS-only (no protocol downgrade across redirects).
+            # Fetch the setup script to a file, then execute — avoids the
+            # curl | sudo bash antipattern and keeps errors visible.
+            curl -1sSfL --proto '=https' --tlsv1.2 \
+              "https://dl.cloudsmith.io/public/infisical/infisical-cli/setup.deb.sh" \
+              -o "$RUNNER_TEMP/infisical-setup.deb.sh"
+            sudo -E bash "$RUNNER_TEMP/infisical-setup.deb.sh"
+            sudo apt-get install -y infisical
+          fi
+          infisical export \
+            --projectId "$INFISICAL_PROJECT_ID" \
+            --env "$INFISICAL_ENV" \
+            --token "$INFISICAL_TOKEN" \
+            --format=dotenv > "$RUNNER_TEMP/infisical.env"
+
+          # Load only the 5 Apple signing secrets into GITHUB_ENV (masked by GitHub).
+          declare -a WANTED=(APPLE_CERTIFICATE APPLE_CERTIFICATE_PWD APPLE_ID APPLE_TEAM_ID APPLE_APP_PASSWORD)
+          for key in "${WANTED[@]}"; do
+            line=$(grep -E "^${key}=" "$RUNNER_TEMP/infisical.env" || true)
+            if [[ -z "$line" ]]; then
+              echo "::error::${key} not found in Infisical env '${INFISICAL_ENV}'"
+              exit 1
+            fi
+            echo "$line" >> "$GITHUB_ENV"
+          done
+          echo "All Apple signing secrets fetched from Infisical"
+
+      - name: Re-wrap p12 to legacy PBES1 (macOS import compatibility)
+        # macOS SecKeychainItemImport silently rejects PBES2 (AES-256/SHA-256) p12s
+        # produced by `security export -P` from the login keychain, even though openssl
+        # reads the same file fine. Re-wrap on the runner to legacy PBES1 (RC2-40 cert + 3DES
+        # key + SHA-1 MAC) which `security import` accepts reliably.
+        env:
+          APPLE_CERTIFICATE_PWD: ${{ env.APPLE_CERTIFICATE_PWD }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$APPLE_CERTIFICATE" | base64 --decode > "$RUNNER_TEMP/apple_in.p12"
+          openssl pkcs12 -in "$RUNNER_TEMP/apple_in.p12" \
+            -passin "pass:${APPLE_CERTIFICATE_PWD}" \
+            -out "$RUNNER_TEMP/apple_legacy.p12" \
+            -passout "pass:${APPLE_CERTIFICATE_PWD}" \
+            -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-RC2-40 -macalg sha1
+          # Verify the re-wrap is self-readable (catches any passphrase mismatch early)
+          openssl pkcs12 -in "$RUNNER_TEMP/apple_legacy.p12" \
+            -passin "pass:${APPLE_CERTIFICATE_PWD}" -nokeys -info >/dev/null
+          APPLE_CERTIFICATE=$(base64 -i "$RUNNER_TEMP/apple_legacy.p12" | tr -d '\n')
+          echo "APPLE_CERTIFICATE=$APPLE_CERTIFICATE" >> "$GITHUB_ENV"
+          echo "Re-wrapped p12 to legacy PBES1 for macOS import compatibility"
+
+      - name: Import Apple certificate
+        uses: apple-actions/import-codesign-certs@5142e029c445c10ffc7149d172e540235a065466 # v7.0.0
+        with:
+          p12-file-base64: ${{ env.APPLE_CERTIFICATE }}
+          p12-password: ${{ env.APPLE_CERTIFICATE_PWD }}
+
+      - name: Build release binary
+        run: cargo build --release --locked 2>&1 | tail -5
+
+      - name: Codesign release binary
+        run: codesign --force --sign "-" target/release/sharecli
+
+      - name: Notarize release binary
+        env:
+          APPLE_ID: ${{ env.APPLE_ID }}
+          APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
+          APPLE_APP_PASSWORD: ${{ env.APPLE_APP_PASSWORD }}
+        run: |
+          ditto -c -k --keepParent target/release/sharecli sharecli.zip
+          xcrun notarytool submit sharecli.zip \
+            --apple-id "$APPLE_ID" \
+            --team-id "$APPLE_TEAM_ID" \
+            --password "$APPLE_APP_PASSWORD" \
+            --wait
+
+      - name: Staple notarization ticket
+        run: xcrun stapler staple target/release/sharecli
+
+      - name: Verify codesign
+        run: codesign --verify --deep --strict target/release/sharecli
+
+  windows-sign:
+    name: Windows Authenticode sign (soft — continue-on-error)
+    runs-on: windows-latest
+    timeout-minutes: 20
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build release binary
+        run: cargo build --release --locked 2>&1 | tail -5
+
+      - name: Sign Windows binary (Azure Key Vault)
+        if: env.AZURE_KEY_VAULT_URL != ''
+        env:
+          AZURE_KEY_VAULT_URL: ${{ secrets.AZURE_KEY_VAULT_URL }}
+          AZURE_KEY_VAULT_CLIENT_ID: ${{ secrets.AZURE_KEY_VAULT_CLIENT_ID }}
+          AZURE_KEY_VAULT_CLIENT_SECRET: ${{ secrets.AZURE_KEY_VAULT_CLIENT_SECRET }}
+          AZURE_KEY_VAULT_TENANT_ID: ${{ secrets.AZURE_KEY_VAULT_TENANT_ID }}
+        run: |
+          dotnet tool install -g AzureSignTool
+          AzureSignTool sign \
+            -kvu "$AZURE_KEY_VAULT_URL" \
+            -kvi "$AZURE_KEY_VAULT_CLIENT_ID" \
+            -kvs "$AZURE_KEY_VAULT_CLIENT_SECRET" \
+            -kvt "$AZURE_KEY_VAULT_TENANT_ID" \
+            -kvc "$AZURE_KEY_VAULT_CERTIFICATE" \
+            target/release/sharecli.exe
+
+      - name: Sign Windows binary (skip - no Azure KV)
+        if: env.AZURE_KEY_VAULT_URL == ''
+        env:
+          AZURE_KEY_VAULT_URL: ${{ secrets.AZURE_KEY_VAULT_URL }}
+        run: |
+          echo "::notice::Windows Authenticode signing not configured (Azure Key Vault secrets missing). Binary will be unsigned."
