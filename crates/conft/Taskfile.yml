@@ -1,0 +1,87 @@
+version: "3"
+
+vars:
+  LANGUAGE: TypeScript
+  PACKAGE_MANAGER: bun
+  CONFT_PACKAGE: typescript/packages/conft
+
+tasks:
+  ensure-deps:
+    internal: true
+    desc: Install {{.LANGUAGE}} package dependencies when missing
+    cmds:
+      - |
+        set -eu
+        if [ ! -d "{{.CONFT_PACKAGE}}/node_modules" ]; then
+          cd {{.CONFT_PACKAGE}} && bun install
+        fi
+
+  build:
+    desc: Build the {{.LANGUAGE}} package with {{.PACKAGE_MANAGER}}
+    deps: [ensure-deps]
+    cmds:
+      - cd {{.CONFT_PACKAGE}} && bun run build
+
+  test:
+    desc: Run the {{.LANGUAGE}} test suite when tests are present
+    deps: [ensure-deps]
+    cmds:
+      - |
+        set -eu
+        if find \
+          {{.CONFT_PACKAGE}}/src \
+          {{.CONFT_PACKAGE}}/tests \
+          {{.CONFT_PACKAGE}}/test \
+          -type f \
+          \( \
+            -name '*.test.ts' -o -name '*.test.tsx' -o \
+            -name '*.spec.ts' -o -name '*.spec.tsx' -o \
+            -name '*.test.js' -o -name '*.test.jsx' -o \
+            -name '*.spec.js' -o -name '*.spec.jsx' \
+          \) 2>/dev/null | grep -q .; then
+          cd {{.CONFT_PACKAGE}} && bun run test
+        else
+          echo "Skipping TypeScript tests (no test files found)"
+        fi
+
+  lint:
+    desc: Run the {{.LANGUAGE}} linter when configuration is present
+    deps: [ensure-deps]
+    cmds:
+      - |
+        set -eu
+        has_eslint_config=0
+        for cfg in \
+          .eslintrc \
+          .eslintrc.json \
+          .eslintrc.js \
+          .eslintrc.cjs \
+          eslint.config.js \
+          eslint.config.mjs \
+          eslint.config.cjs
+        do
+          if [ -f "{{.CONFT_PACKAGE}}/$cfg" ]; then
+            has_eslint_config=1
+            break
+          fi
+        done
+
+        if [ "$has_eslint_config" -eq 1 ]; then
+          cd {{.CONFT_PACKAGE}} && bun run lint
+        else
+          echo "Skipping TypeScript lint (no ESLint config found)"
+        fi
+
+  clean:
+    desc: Remove generated {{.LANGUAGE}} artifacts
+    cmds:
+      - |
+        set -eu
+        rm -rf \
+          {{.CONFT_PACKAGE}}/dist \
+          {{.CONFT_PACKAGE}}/coverage \
+          {{.CONFT_PACKAGE}}/.turbo \
+          {{.CONFT_PACKAGE}}/.vite \
+          {{.CONFT_PACKAGE}}/docs/.vitepress/dist \
+          {{.CONFT_PACKAGE}}/docs/.vitepress/cache \
+          {{.CONFT_PACKAGE}}/*.tsbuildinfo
