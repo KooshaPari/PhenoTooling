@@ -4,8 +4,7 @@
   "buildCommand": "npm run stage:publication",
   "outputDirectory": "dist",
   "installCommand": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install",
-  "routes": [
-    {"handle": "filesystem"},
+  "rewrites": [
     {"source": "/engineering", "destination": "/engineering.html"},
     {"source": "/product", "destination": "/product.html"},
     {"source": "/work", "destination": "/work.html"},
@@ -29,7 +28,6 @@
     {"source": "/blog", "destination": "/blog.html"},
     {"source": "/blog/why-we-forked-omniroute", "destination": "/blog/why-we-forked-omniroute.html"},
     {"source": "/archive", "destination": "/archive.html"},
-    {"source": "/work/(.*)", "destination": "/work.html"},
-    {"source": "/(.*)", "destination": "/root.html"}
+    {"source": "/((?!index\\.html|sitemap\\.xml|robots\\.txt|favicon\\.ico|assets/|asset-sources/|styles/|bundled/|scripts/|data/|public/|tests/|docs/|output/|\\.playwright-cli/|.*\\.md|.*\\.html|.*\\.css|.*\\.js|.*\\.webp|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.ico|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)", "destination": "/root.html"}
   ]
 }
