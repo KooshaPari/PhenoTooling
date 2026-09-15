@@ -58,6 +58,9 @@ members = [
     # Absorbed from zz-merge-unk-PhenoUtils (CLI shells, async FS, crypto, network, testing)
     "crates/pheno-shell",
     "crates/pheno-fs",
+
+    # Logify (absorbed from KooshaPari/zz-merge-unk-Logify)
+    "crates/logify",
     "crates/pheno-crypto",
     "crates/pheno-net",
     "crates/pheno-testing",
