@@ -41,6 +41,14 @@ members = [
     "crates/phenotype-plugins/pheno-plugin-vessel",
     "crates/phenotype-plugins/pheno-plugin-examples",
 
+    "crates/phenotype-cache-adapter",
+    "crates/phenotype-contracts",
+    "crates/phenotype-cost-core",
+    "crates/phenotype-event-sourcing",
+    "crates/phenotype-observability",
+    "crates/phenotype-policy-engine",
+    "crates/phenotype-state-machine",
+
     # Absorbed from zz-merge-unk-PhenoUtils (CLI shells, async FS, crypto, network, testing)
     "crates/pheno-shell",
     "crates/pheno-fs",
@@ -51,6 +59,14 @@ members = [
     "crates/pheno-terminal",
     "bin/hook-entry",
 
+    # Eye-tracking library (absorbed from KooshaPari/zz-merge-unk-eyetracker)
+    "crates/eyetracker-domain",
+    "crates/eyetracker-math",
+    "crates/eyetracker-core",
+    "crates/eyetracker-camera",
+    "crates/eyetracker-inference",
+    "crates/eyetracker-cli",
+    "crates/eyetracker-ffi",
     # Absorbed from PhenoVCS
     "crates/airlock-v2",
     "crates/pheno-vcs-core",
@@ -77,7 +93,7 @@ clap = { version = "4.5", features = ["derive"] }
 anyhow = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-tokio = { version = "1.52", features = ["rt-multi-thread", "macros", "fs"] }
+tokio = { version = "1.52", features = ["rt-multi-thread", "macros", "fs", "time", "sync"] }
 walkdir = "2.5"
 thiserror = "2.0"
 regex = "1.11"
