@@ -3,6 +3,10 @@ target/
 .DS_Store
 *.swp
 docs/.vitepress/dist/
+.vercel
+.playwright-cli/
+.cache/
+bundled/
 
 # ===== Standard auto-generated hygiene ignores (do not edit manually) =====
 .env
