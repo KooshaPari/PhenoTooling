@@ -1,0 +1,273 @@
+{
+  "SWE_bench": {
+    "version": "Verified",
+    "purpose": "Real-world software engineering tasks",
+    "metrics": [
+      "pass@1",
+      "pass@5"
+    ],
+    "criteria": [
+      "code correctness",
+      "test passing",
+      "minimal changes",
+      "format compliance",
+      "style match",
+      "documentation"
+    ]
+  },
+  "Anthropic_RSP": {
+    "version": "2.0",
+    "levels": [
+      "ASL-1",
+      "ASL-2",
+      "ASL-3",
+      "ASL-4",
+      "ASL-5"
+    ],
+    "capability_criteria": [
+      "AI R&D: autonomous replication, scaling R&D investment",
+      "Cyber: vulnerability discovery at expert level",
+      "Biosecurity: enabling actor to cause severe biological harm",
+      "Chemical: enabling expert synthesis of novel chemical weapons",
+      "Radiological/Nuclear: comparable nuclear risks",
+      "Autonomy: long-horizon autonomous task completion",
+      "Persuasion: targeted large-scale persuasion campaigns",
+      "Self-improvement: recursively self-improving capabilities",
+      "Sandbagging: capability hiding under evaluation",
+      "Deception: strategic deception in contexts of high stakes",
+      "Sleeper agents: hidden backdoors activated by triggers",
+      "Cyberwarfare: state-level cyberweapon capabilities",
+      " CBRN: catastrophic misuse potential",
+      "Critical infrastructure: modeling/sabotaging",
+      "Weapons: enabling mass casualty events",
+      "Total Societal Effect: mass destabilization",
+      "Constitutional compliance: prompt injection resistance",
+      "Jailbreak resistance",
+      "Bias/fairness evaluation",
+      "Privacy preservation"
+    ]
+  },
+  "OpenAI_Preparedness": {
+    "version": "v2",
+    "tracked_risks": [
+      "Cyberthreats",
+      "Biological/chemical threats",
+      "Persuasion risks",
+      "Model autonomy risks",
+      "Economic disruption"
+    ],
+    "score_dimensions": [
+      "low",
+      "medium",
+      "high",
+      "critical"
+    ]
+  },
+  "OWASP_LLM_Top10": [
+    "LLM01: Prompt Injection",
+    "LLM02: Insecure Output Handling",
+    "LLM03: Training Data Poisoning",
+    "LLM04: Model Denial of Service",
+    "LLM05: Supply Chain Vulnerabilities",
+    "LLM06: Sensitive Information Disclosure",
+    "LLM07: Insecure Plugin Design",
+    "LLM08: Excessive Agency",
+    "LLM09: Overreliance",
+    "LLM10: Model Theft"
+  ],
+  "OWASP_Agentic_Top10": [
+    "AAI01: Agent Goal Hijack",
+    "AAI02: Tool Misuse",
+    "AAI03: Identity & Role Abuse",
+    "AAI04: Supply Chain Compromise",
+    "AAI05: Code Execution Risks",
+    "AAI06: Memory Poisoning",
+    "AAI07: Insecure Inter-Agent Communication",
+    "AAI08: Cascading Failures",
+    "AAI09: Human Trust Exploitation",
+    "AAI10: Rogue Agents"
+  ],
+  "MITRE_ATLAS": [
+    "Reconnaissance (AML.TA0001)",
+    "Resource Development (AML.TA0002)",
+    "Initial Access (AML.TA0003)",
+    "ML Model Inference (AML.TA0004)",
+    "ML Attack Staging (AML.TA0005)",
+    "Cyber Threat Intel (AML.TA0006)",
+    "Persistence (AML.TA0007)",
+    "Defense Evasion (AML.TA0008)",
+    "Discovery (AML.TA0009)",
+    "Collection (AML.TA0010)",
+    "ML Model Access (AML.TA0011)",
+    "Exfiltration (AML.TA0012)",
+    "Impact (AML.TA0013)",
+    "Impersonation (AML.TA0014)",
+    "Evade ML Model (AML.TA0015)",
+    "Exploit Public-Facing Application",
+    "Valid Accounts"
+  ],
+  "Garak_RedTeam": {
+    "categories": [
+      "dan",
+      "davidjl",
+      "encoding",
+      "glitch",
+      "goodside",
+      "inject",
+      "latinjapanese",
+      "leak",
+      "lmrc",
+      "malwaregen",
+      "misleading",
+      "packagehallucination",
+      "promptinject",
+      "realtoxicityprompts",
+      "snowball",
+      "suffix",
+      "topic",
+      "typo",
+      "xss",
+      "AV evasion",
+      "buffer overflow",
+      "DAN jailbreak",
+      "data leak",
+      "hallucination",
+      "jailbreak",
+      "prompt extraction",
+      "toxicity",
+      "sexual content",
+      "violent content",
+      "self-harm content",
+      "illegal content",
+      "graphic content",
+      "harmful bias"
+    ]
+  },
+  "DeepEval_Metrics": [
+    "Answer Relevancy",
+    "Faithfulness",
+    "Contextual Relevancy",
+    "Contextual Precision",
+    "Contextual Recall",
+    "Hallucination",
+    "Toxicity",
+    "Bias",
+    "Summarization",
+    "G-Eval",
+    "Coherence",
+    "Consistency",
+    "Fluency",
+    "Helpfulness",
+    "Role Adherence",
+    "JSON Correctness",
+    "Prompt Alignment",
+    "Code Correctness"
+  ],
+  "RAGAS_Metrics": [
+    "Faithfulness",
+    "Answer Relevancy",
+    "Context Precision",
+    "Context Recall",
+    "Answer Correctness",
+    "Answer Similarity",
+    "Context Entity Recall",
+    "Noise Robustness",
+    "Aspect Critique"
+  ],
+  "Holistic_Evaluation": [
+    "Inclusivity",
+    "Accessibility",
+    "Cultural sensitivity",
+    "Comprehensiveness",
+    "Depth",
+    "Actionability",
+    "Objectivity",
+    "Balance",
+    "Trustworthiness"
+  ],
+  "METR_Evaluation": {
+    "categories": [
+      "task complexity (time to expert completion)",
+      "autonomy (duration of autonomous operation)",
+      "reliability (success rate on tasks)",
+      "robustness (performance under perturbation)",
+      "tool use (breadth and depth of tool selection)",
+      "code quality (readability, correctness, maintainability)",
+      "planning (multi-step reasoning quality)",
+      "self-correction (recovery from mistakes)",
+      "long-horizon reasoning",
+      "decision quality under uncertainty"
+    ]
+  },
+  "ML_Model_Card": {
+    "sections": [
+      "Model details",
+      "Intended use",
+      "Factors",
+      "Metrics",
+      "Evaluation data",
+      "Training data",
+      "Quantitative analyses",
+      "Ethical considerations",
+      "Caveats and recommendations"
+    ]
+  },
+  "EU_AI_Act_2024": {
+    "risk_levels": [
+      "unacceptable",
+      "high",
+      "limited",
+      "minimal"
+    ],
+    "high_risk_areas": [
+      "Biometrics",
+      "Critical infrastructure",
+      "Education",
+      "Employment",
+      "Essential services",
+      "Law enforcement",
+      "Migration",
+      "Justice/democracy",
+      "Safety components"
+    ],
+    "transparency_obligations": [
+      "Disclosure of AI interaction",
+      "Generative AI labeling",
+      "Deepfake disclosure",
+      "Risk management system",
+      "Data governance",
+      "Technical documentation",
+      "Record-keeping",
+      "Transparency and user information",
+      "Human oversight",
+      "Accuracy, robustness, cybersecurity"
+    ]
+  },
+  "ISO_42001": {
+    "version": "AI Management System",
+    "clauses": [
+      "Context of organization",
+      "Leadership",
+      "Planning",
+      "Support",
+      "Operation",
+      "Performance evaluation",
+      "Improvement"
+    ],
+    "controls": [
+      "AI policy",
+      "Roles and responsibilities",
+      "Risk assessment",
+      "AI risk treatment",
+      "Data quality",
+      "Bias mitigation",
+      "Transparency and explainability",
+      "Human oversight",
+      "AI system lifecycle",
+      "Third-party management",
+      "Documentation and records",
+      "Incident management",
+      "Continual improvement"
+    ]
+  }
+}

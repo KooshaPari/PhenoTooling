@@ -1,0 +1,10 @@
+#!/bin/zsh
+# cockpit-dashboard-wrapper — launched by com.kooshapari.cockpit-dashboard
+# Regenerates the static HTML dashboard every 30s so the live cockpit tick
+# is reflected in the open browser tab. Output goes to a per-cycle log.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export HOME="/Users/kooshapari"
+
+# Run one cycle then exit (launchd StartInterval handles periodicity)
+exec /usr/bin/env python3 /Users/kooshapari/bin/cockpit-dashboard.py >> /Users/kooshapari/Library/Logs/resume-all/cockpit-dashboard.log 2>&1

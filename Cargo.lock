@@ -92,6 +92,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "airlock-v2"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "serde",
+ "serde_json",
+ "tempfile",
+]
+
+[[package]]
 name = "alloca"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -850,6 +862,16 @@ checksum = "473c7e07f409a8d772161724aa8db6a765a2532a70f9667eeb7b49d3d02fbdca"
 dependencies = [
  "clap_builder",
  "clap_derive",
+]
+
+[[package]]
+name = "clap-ext"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "thiserror 2.0.20",
+ "tracing-subscriber",
 ]
 
 [[package]]
@@ -3904,11 +3926,19 @@ dependencies = [
 name = "pheno-tracing"
 version = "0.4.0"
 dependencies = [
+ "async-trait",
+ "criterion",
  "serde",
- "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.20",
+ "tokio",
  "tracing",
- "tracing-subscriber",
+]
+
+[[package]]
+name = "pheno-vcs-core"
+version = "0.1.0"
+dependencies = [
+ "thiserror 2.0.20",
 ]
 
 [[package]]
@@ -4001,6 +4031,13 @@ dependencies = [
  "tracing-subscriber",
  "url",
  "urlencoding",
+]
+
+[[package]]
+name = "phenovcs-observability"
+version = "0.1.0"
+dependencies = [
+ "pheno-tracing",
 ]
 
 [[package]]
@@ -6673,6 +6710,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "accd4ea62f7bb7a82fe23066fb0957d48ef677f6eeb8215f372f52e48bb32426"
 
 [[package]]
+name = "vcs-ports"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "pheno-vcs-core",
+ "tokio",
+]
+
+[[package]]
 name = "version_check"
 version = "0.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7410,10 +7456,14 @@ dependencies = [
  "assert_cmd",
  "chrono",
  "clap",
+ "clap-ext",
+ "pheno-vcs-core",
+ "phenovcs-observability",
  "serde",
  "serde_json",
  "tempfile",
  "thiserror 2.0.20",
+ "tokio",
  "tracing",
  "tracing-subscriber",
 ]

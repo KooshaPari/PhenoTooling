@@ -1,0 +1,602 @@
+[
+  {
+    "message": "feat: add comprehensive audit & assurance capabilities\n\nAdded 6 new audit workflows:\n- Workflow 40: Risk Assessment\n- Workflow 41: Internal Audit\n- Workflow 42: Quality Audit\n- Workflow 43: Process Au",
+    "repo": "saileshkushwaha/AgenticWorld",
+    "sha": "462ac3b15a5d587ffa54a23b8e4f921e10f64e72",
+    "url": "https://github.com/saileshkushwaha/AgenticWorld/commit/462ac3b15a5d587ffa54a23b8e4f921e10f64e72"
+  },
+  {
+    "message": "Add PCI DSS audit templates and module reports\n\n* Add PCI DSS audit templates and module reports\n\n* Add PCI DSS audit templates and module reports\n\n* Add PCI DSS audit templates and module reports\n\n* ",
+    "repo": "jacobevci-lab/Fornost-GRC",
+    "sha": "118e1b65be42cbec79c8b232e8e5b340aa42dd0f",
+    "url": "https://github.com/jacobevci-lab/Fornost-GRC/commit/118e1b65be42cbec79c8b232e8e5b340aa42dd0f"
+  },
+  {
+    "message": "feat: add audit statement template (#4)\n\n* docs: define audit statement template\n\n* docs: plan audit statement template\n\n* feat: add audit statement template\n\n* feat: explain audit statement template\n",
+    "repo": "hbarcenas88/cfo-personal-v7",
+    "sha": "8e8008ca12e483f19cb471f279432d47c66f1169",
+    "url": "https://github.com/hbarcenas88/cfo-personal-v7/commit/8e8008ca12e483f19cb471f279432d47c66f1169"
+  },
+  {
+    "message": "fix(p7): correct OpenSearch ISM/template index patterns so audit retention applies\n\nThe audit-trail-policy ISM template used index pattern audit-trail-*,\nwhich matches none of the actual indices (trad",
+    "repo": "munisp/singlewindow",
+    "sha": "b05f102e5ccf12c0cfec670cb038a10c8325135c",
+    "url": "https://github.com/munisp/singlewindow/commit/b05f102e5ccf12c0cfec670cb038a10c8325135c"
+  },
+  {
+    "message": "ci: add org automation set (#8)\n\n* ci: add automation (dependabot auto-merge, drift audit, scorecard, templates)\n\n* ci: add automation (dependabot auto-merge, drift audit, scorecard, templates)\n\n* ci:",
+    "repo": "Obsidian-Solutions/.github",
+    "sha": "af4cf710b0dffe76495fabe1329793de481fcbd3",
+    "url": "https://github.com/Obsidian-Solutions/.github/commit/af4cf710b0dffe76495fabe1329793de481fcbd3"
+  },
+  {
+    "message": "Audit reports workflow and add import templates (#58)\n\n* Add report audit guards and CSV templates\n\n* Style report audit and template controls\n\n* Load report audit and template helpers",
+    "repo": "alliliya2405-cyber/my-assistant",
+    "sha": "f6eb1b3d3acbbc3f687d012fe4a238df612c531c",
+    "url": "https://github.com/alliliya2405-cyber/my-assistant/commit/f6eb1b3d3acbbc3f687d012fe4a238df612c531c"
+  },
+  {
+    "message": "docs: organize README audit and templates\n\nMove the dated README audit into the canonical docs/audits directory and normalize its filename to the repository audit convention. Store the reusable plugin",
+    "repo": "nerymurillohnd/codex-essentials",
+    "sha": "576b3cf248db4ae5a5f93babcf423362d724af69",
+    "url": "https://github.com/nerymurillohnd/codex-essentials/commit/576b3cf248db4ae5a5f93babcf423362d724af69"
+  },
+  {
+    "message": "Fix Stage 2 audit findings: audit-template lifecycle, missing blocker field (#4)\n\nFix Stage 2 audit findings: audit-template lifecycle, missing blocker field",
+    "repo": "LouPineWays/Loop-Dee-Loup",
+    "sha": "c2879085597bba011c40f3a92f6b8e296404e6f3",
+    "url": "https://github.com/LouPineWays/Loop-Dee-Loup/commit/c2879085597bba011c40f3a92f6b8e296404e6f3"
+  },
+  {
+    "message": "feat(ops): Tier-1 \u2014 audit trail, template versioning/restore, camera scan-verify, printer presets & print history\n\n- audit_logs / printers / print_jobs / template_versions tables + RLS.\n- Audit trail:",
+    "repo": "mithunccdev/Qr-Final-Design",
+    "sha": "3a6a68a7200e2740780c1abec3f78c55380a5526",
+    "url": "https://github.com/mithunccdev/Qr-Final-Design/commit/3a6a68a7200e2740780c1abec3f78c55380a5526"
+  },
+  {
+    "message": "SC-013: Audit Creation & Templates\n\nAdds an organisation-level Audit Template library and makes audit creation quick\nand consistent \u2014 plus enables Site Managers to create audits on site.\n\n- Schema (ad",
+    "repo": "SiteComply/SiteComply",
+    "sha": "c78f1ed1aff64811e7c6488f7a8a102ae90828a4",
+    "url": "https://github.com/SiteComply/SiteComply/commit/c78f1ed1aff64811e7c6488f7a8a102ae90828a4"
+  },
+  {
+    "message": "Build DentMemo Consent v2 clinic settings audit and templates\n\n* Build Consent v2 clinic settings audit and templates\n\n* Extend Consent domain types for clinic profile audit and users\n\n* Wire Consent ",
+    "repo": "thejusj90/Dent-memo-app",
+    "sha": "beb5f3f22f465e70a716297d30b1e8bbed743cbd",
+    "url": "https://github.com/thejusj90/Dent-memo-app/commit/beb5f3f22f465e70a716297d30b1e8bbed743cbd"
+  },
+  {
+    "message": "rendering(base_academic): audit report + chart generation scripts\n\n- generate_audit_report.py: markdown audit report from score/audit/plagiarism\n  results, records to academic_report_history with repo",
+    "repo": "NikhilVijayakumar/Kriti",
+    "sha": "fa17ce70c426526430a1a3b6d9fca02fa8d81142",
+    "url": "https://github.com/NikhilVijayakumar/Kriti/commit/fa17ce70c426526430a1a3b6d9fca02fa8d81142"
+  },
+  {
+    "message": "Rename Protools/PROSE/template_repository_audit.md to Protools/PROSE/Template System/template_repository_audit.md",
+    "repo": "vervenveda/proresource_hub.github.io",
+    "sha": "765e3c2aa4edc62cab2c7235b12f92be90b244b9",
+    "url": "https://github.com/vervenveda/proresource_hub.github.io/commit/765e3c2aa4edc62cab2c7235b12f92be90b244b9"
+  },
+  {
+    "message": "feat: Add standardized MD-to-PDF audit reporting template and exporter (#79) (#80)\n\n* feat: add standardized MD-to-PDF audit reporting template and exporter (#79)\n\n* refactor: move audit reports to gi",
+    "repo": "wakqasahmed/ai-visibility-skills",
+    "sha": "289ccd4ca8e780256bdd445b948b4aaacc5f50c6",
+    "url": "https://github.com/wakqasahmed/ai-visibility-skills/commit/289ccd4ca8e780256bdd445b948b4aaacc5f50c6"
+  },
+  {
+    "message": "Merge pull request #17 from CodeForFee/godkit/templates-audit\n\ntemplates audit: one source per fact, nothing orphaned",
+    "repo": "CodeForFee/godkit",
+    "sha": "fae2add2b22d7ec5f9766dc3edeefeaaebadad4f",
+    "url": "https://github.com/CodeForFee/godkit/commit/fae2add2b22d7ec5f9766dc3edeefeaaebadad4f"
+  },
+  {
+    "message": "fix(skill): bundle self-contained scoring rubric and report template in references/ (#93)\n\n* fix(skill): bundle self-contained scoring rubric and report template in references/ (closes #91)\n\n* fix(ski",
+    "repo": "wakqasahmed/ai-visibility-skills",
+    "sha": "bd6a12a42bc40b893d1f1772a1b35fea859a8ca7",
+    "url": "https://github.com/wakqasahmed/ai-visibility-skills/commit/bd6a12a42bc40b893d1f1772a1b35fea859a8ca7"
+  },
+  {
+    "message": "templates(base_academic): restructure to generation/ + report/ per proposal\n\n- Move templates/generation/document/ \u2192 templates/generation/markdown/\n- Move templates/audit/report/ \u2192 templates/report/ma",
+    "repo": "NikhilVijayakumar/Kriti",
+    "sha": "4831f0945eab2d6b0bbfc9acba46dcff75e7eef5",
+    "url": "https://github.com/NikhilVijayakumar/Kriti/commit/4831f0945eab2d6b0bbfc9acba46dcff75e7eef5"
+  },
+  {
+    "message": "SC-013 follow-up: Director audits RBAC \u2014 create/edit + template curation\n\nResolves an inconsistency exposed while reviewing SC-013: Director was in\nAUDIT_TEMPLATE_MANAGE_ROLES (so could edit and delet",
+    "repo": "SiteComply/SiteComply",
+    "sha": "6e0ffb0e1ba4b0bb8f2b1d5c16b5bb6e7229bca0",
+    "url": "https://github.com/SiteComply/SiteComply/commit/6e0ffb0e1ba4b0bb8f2b1d5c16b5bb6e7229bca0"
+  },
+  {
+    "message": "Merge pull request #12 from itanaka66/add-financial-audit-template\n\nAdd a financial services/audit industry template",
+    "repo": "itanaka66/AI-PMO-Platform",
+    "sha": "f9b28a11ac7d428a52ae059c9850555980c8d5f1",
+    "url": "https://github.com/itanaka66/AI-PMO-Platform/commit/f9b28a11ac7d428a52ae059c9850555980c8d5f1"
+  },
+  {
+    "message": "refactor(cli): extract audit helper group (#89) (#102)\n\nMove template-run metrics helpers (domain resolution, retry attribution,\naggregate metrics, and usage counters) into audit_template_metrics.py.\n",
+    "repo": "sungjunlee/finjuice",
+    "sha": "74cce96f1aff02cef358af6f87636768f665fe32",
+    "url": "https://github.com/sungjunlee/finjuice/commit/74cce96f1aff02cef358af6f87636768f665fe32"
+  },
+  {
+    "message": "feat(M6-M8): template extraction from studies, processing-chain recommender, layout discipline audit\n\n- M6: extract_from_study / extract_study_auto derive draft templates from a\n  completed study (con",
+    "repo": "CYberkra/gprmax-simulation-skill",
+    "sha": "58927c42958b7731d20db0720035f02961ac9fc5",
+    "url": "https://github.com/CYberkra/gprmax-simulation-skill/commit/58927c42958b7731d20db0720035f02961ac9fc5"
+  },
+  {
+    "message": "Add v15 audit templates alongside v10 as an inactive alternate\n\nSeeds the v15 \"Store Hygiene\"/\"Audit\" checklists as the active templates\nand the v10 checklists as inactive versioned alternates (\"... (",
+    "repo": "dditsupport/workpulse",
+    "sha": "00575e5fed2310876646fc5e99b41f74f0d0b442",
+    "url": "https://github.com/dditsupport/workpulse/commit/00575e5fed2310876646fc5e99b41f74f0d0b442"
+  },
+  {
+    "message": "implement: add audit and plan templates to Forge default pinned entries\n\nAdd docs/audits/audit-0000-template.md and docs/plans/plan-0000-template.md\nto DEFAULT_PINNED_ENTRIES in pinned-init.ts. These ",
+    "repo": "syrokomskyi/forge",
+    "sha": "362b7a84d293c5a97c0ac2555a348f09ab427e1e",
+    "url": "https://github.com/syrokomskyi/forge/commit/362b7a84d293c5a97c0ac2555a348f09ab427e1e"
+  },
+  {
+    "message": "Adding templates: Audit_Tables/manifest\nAdding templates: Audit_Tables/Audit_Tables",
+    "repo": "X2JCBOLLES/MaximoWork",
+    "sha": "8875f075abe04b4ed81f52be1e9614a678b5d3de",
+    "url": "https://github.com/X2JCBOLLES/MaximoWork/commit/8875f075abe04b4ed81f52be1e9614a678b5d3de"
+  },
+  {
+    "message": "Merge pull request #30 from AichiroFunakoshi/codex/add-input-templates-audit\n\nAdd local input templates and audit",
+    "repo": "AichiroFunakoshi/keiba-prediction-lab",
+    "sha": "1de525b7672ed059f6dad698d2f008b6920d1247",
+    "url": "https://github.com/AichiroFunakoshi/keiba-prediction-lab/commit/1de525b7672ed059f6dad698d2f008b6920d1247"
+  },
+  {
+    "message": "fix: clean up completed audit files and move stories to stories/ dir; add audit template\n\n- Remove completed audit files (V2.21/S7, V2.22/S4, t10, t11, t12)\n- Move audit stories to doc/execution/audit",
+    "repo": "deeprnd/tickoni",
+    "sha": "dd9c827084714285c899eb55bf9ccd12c05dda78",
+    "url": "https://github.com/deeprnd/tickoni/commit/dd9c827084714285c899eb55bf9ccd12c05dda78"
+  },
+  {
+    "message": "Rename PROSE_template_repository_audit.md to PROSE/template_repository_audit.md",
+    "repo": "vervenveda/proresource_hub.github.io",
+    "sha": "982bb6aea64b47d3b4dccde5ad58bad18a06e46b",
+    "url": "https://github.com/vervenveda/proresource_hub.github.io/commit/982bb6aea64b47d3b4dccde5ad58bad18a06e46b"
+  },
+  {
+    "message": "Merge pull request #166 from teslimsadiqnevo/fix/api-audit-template-paths\n\nfix(scripts): count template-literal API paths in the contract audit",
+    "repo": "teslimsadiqnevo/nevo-frontend-2.0",
+    "sha": "881de24b32e1647e15c26f56fe4c7d4c1dfc80ff",
+    "url": "https://github.com/teslimsadiqnevo/nevo-frontend-2.0/commit/881de24b32e1647e15c26f56fe4c7d4c1dfc80ff"
+  },
+  {
+    "message": "feat: dynamic BOM material template per product category\n\n- schema: product_categories.fields, registscan.fields_snapshot, product_categories_audit (audit trail siapa/apa/kapan)\n- rules/bom-match: rul",
+    "repo": "mdatagas-dev/ac-system-dynamic",
+    "sha": "baeacb52276bcc336a51b85ca7226471bf3df620",
+    "url": "https://github.com/mdatagas-dev/ac-system-dynamic/commit/baeacb52276bcc336a51b85ca7226471bf3df620"
+  },
+  {
+    "message": "Create audit report template for Open Omics ML\n\nAdded a comprehensive audit report template for Open Omics ML reanalysis, including sections for paper summary, reproduction attempt, pitfall audit, rea",
+    "repo": "open-omics-ml/student-repo-template",
+    "sha": "b71257fc30bfb18aae6a5b857dd9e27682214ffd",
+    "url": "https://github.com/open-omics-ml/student-repo-template/commit/b71257fc30bfb18aae6a5b857dd9e27682214ffd"
+  },
+  {
+    "message": "Add audit template SQL file for database activity\n\nThis SQL file serves as a template for creating an audit schema, including guidelines for audit records, triggers, and functions. It outlines permitt",
+    "repo": "iamthenop/infurnet-skills",
+    "sha": "a07f92739e4aef1a4f0b26ce7cb3ed1b181028d4",
+    "url": "https://github.com/iamthenop/infurnet-skills/commit/a07f92739e4aef1a4f0b26ce7cb3ed1b181028d4"
+  },
+  {
+    "message": "fix: template craft audit \u2014 layout-audit clean across 16 briefs\n\nClear Playwright layout-audit for all critique templates; restore enter motion; quiet catalogue reprints; opaque vacancy fills; instant",
+    "repo": "ashishpatill/tell-proof",
+    "sha": "f076120d4a99e6230aa34c192fb39545c5930315",
+    "url": "https://github.com/ashishpatill/tell-proof/commit/f076120d4a99e6230aa34c192fb39545c5930315"
+  },
+  {
+    "message": "fix: CORE-426 \u2014 SPEC templates cross-ref\n\nSPEC.md:55's templates-roster clause cited docs/MIGRATION.md \u00a71.2.1\nfor the whole roster (tasknote templates, spec/loop-heartbeat/\naudit-overlay/subagent-prob",
+    "repo": "fakeneuron/flowtron",
+    "sha": "49c0dadf0d3a0931d5a61137b4912a358cdf0f3b",
+    "url": "https://github.com/fakeneuron/flowtron/commit/49c0dadf0d3a0931d5a61137b4912a358cdf0f3b"
+  },
+  {
+    "message": "Rename PROSE/template_repository_audit.md to Protools/PROSE/template_repository_audit.md",
+    "repo": "vervenveda/proresource_hub.github.io",
+    "sha": "b358136714d87b32c91312a1852f50f567be8387",
+    "url": "https://github.com/vervenveda/proresource_hub.github.io/commit/b358136714d87b32c91312a1852f50f567be8387"
+  },
+  {
+    "message": "GitHub Actions CI/CD \u2014 automated audit pipeline\n\n- GitHub Actions workflow (.github/workflows/audit-runner.yml)\n- Triggered by issue creation with audit labels (site-audit, keyword-audit, page-audit, ",
+    "repo": "loftenter/zenfusion-audits",
+    "sha": "172efd50b22757d57f2111d07986abd627075a60",
+    "url": "https://github.com/loftenter/zenfusion-audits/commit/172efd50b22757d57f2111d07986abd627075a60"
+  },
+  {
+    "message": "Phase 7 slice 3: starter templates (modular, saas, api)\n\n- forge new --template modular|saas|api: templates are the base files plus\n  ordered overlays (saas = admin overlay; api = admin migrator + a h",
+    "repo": "carllaw6885/forge",
+    "sha": "eaeb154908ca7ed51a95079d2bcb3c46f4376c58",
+    "url": "https://github.com/carllaw6885/forge/commit/eaeb154908ca7ed51a95079d2bcb3c46f4376c58"
+  },
+  {
+    "message": "Fix template_file join and run a real live-HTML audit (#6)\n\nFix template_file join and run a real live-HTML audit",
+    "repo": "jvto-devteam/jvto-ekosistem",
+    "sha": "d588fc23b5530627434fde95c3109155411cb93a",
+    "url": "https://github.com/jvto-devteam/jvto-ekosistem/commit/d588fc23b5530627434fde95c3109155411cb93a"
+  },
+  {
+    "message": "Build the complete Statutory Audit module\n\n69 doctypes across planning, execution, and review/reporting, all\nhung off a fleshed-out Statutory Audit Engagement (client + client\nengagement link, client ",
+    "repo": "soulreaper767/ca_firm",
+    "sha": "09e126fc13c70f22370aaea93b5b1b6ffffd4d8f",
+    "url": "https://github.com/soulreaper767/ca_firm/commit/09e126fc13c70f22370aaea93b5b1b6ffffd4d8f"
+  },
+  {
+    "message": "Merge pull request #1563 from olisedavid/feature/1516-1517-1518-1519-nvmrc-pr-template-audit-k8s\n\nchore: add .nvmrc, shop-api PR template, security audit workflow, and\u2026",
+    "repo": "SaboStudios/Tycoon-Monorepo",
+    "sha": "430706e1e046b7389f8d2b579c97b9d1a0d8189c",
+    "url": "https://github.com/SaboStudios/Tycoon-Monorepo/commit/430706e1e046b7389f8d2b579c97b9d1a0d8189c"
+  },
+  {
+    "message": "Merge pull request #132 from Jolls/feature/129-frontend-templates-tooling-audit\n\nAudit: frontend templates & tooling (#129)",
+    "repo": "Jolls/enshu",
+    "sha": "9c7961c4ee2179fd7a2064320e89bae46144566a",
+    "url": "https://github.com/Jolls/enshu/commit/9c7961c4ee2179fd7a2064320e89bae46144566a"
+  },
+  {
+    "message": "chore: update screenshot gallery and add audit artifacts\n\n- Update screenshots/gallery.js to include new template and cinema-template\n  screenshots\n- Add cinema-template-browse-audit.png and template-",
+    "repo": "deangilmoreremix/remix-new-editor",
+    "sha": "332c5363adc2ed94215e67f134f1be499e8a8f77",
+    "url": "https://github.com/deangilmoreremix/remix-new-editor/commit/332c5363adc2ed94215e67f134f1be499e8a8f77"
+  },
+  {
+    "message": "Create AUDIT.md \u2014 initial repository audit template",
+    "repo": "lavishj2025-ctrl/python-basics-25bcon1100",
+    "sha": "bef940dcbf4bd541682c4138b481a123bb05b6ac",
+    "url": "https://github.com/lavishj2025-ctrl/python-basics-25bcon1100/commit/bef940dcbf4bd541682c4138b481a123bb05b6ac"
+  },
+  {
+    "message": "Merge pull request #20 from svblab/epic/EPIC-011-template-audit-and-permissions\n\nfeat(EPIC-011): template audit logging and permissions confirmation",
+    "repo": "svblab/HR-deck",
+    "sha": "f8de16c6b509b8635d3ed666604b285daf5ce493",
+    "url": "https://github.com/svblab/HR-deck/commit/f8de16c6b509b8635d3ed666604b285daf5ce493"
+  },
+  {
+    "message": "fix: SMARTSPEND_UPDATED_MANUSCRIPT.docx \u2014 correct line spacing to match templates\n\n- All new body paragraphs now use ls=480 (double-spaced, auto) matching both\n  Lorma templates exactly (was incorrect",
+    "repo": "Zushikina-kun/smartspend-app",
+    "sha": "dcf069808b75a8e13d9557016b7e83caa686a1cd",
+    "url": "https://github.com/Zushikina-kun/smartspend-app/commit/dcf069808b75a8e13d9557016b7e83caa686a1cd"
+  },
+  {
+    "message": "Add Reasoning Audit Framework and audit record template\n\ncore/reasoning-audit-framework.md NEW\n  Reasoning Audit Framework v1.0.0. Six audit layers mapped to Mind\n  Dimensions: Intelligence (Dim 1) \u00b7 ",
+    "repo": "SportMind/SportMind",
+    "sha": "5fc66e6da72f011c073213a605f19b5a42bdd54f",
+    "url": "https://github.com/SportMind/SportMind/commit/5fc66e6da72f011c073213a605f19b5a42bdd54f"
+  },
+  {
+    "message": "Audit templates auto-populate table-based requirements\n\nReplace the audit control picker and tab workspace with a filterable requirements register. Auto-populate SOC 2 and ISO 27001 requirements when ",
+    "repo": "jacobevci-lab/Fornost-GRC",
+    "sha": "528064e49e26640398218001511e9f4e8a3b9f46",
+    "url": "https://github.com/jacobevci-lab/Fornost-GRC/commit/528064e49e26640398218001511e9f4e8a3b9f46"
+  },
+  {
+    "message": "Add automation suite: SEO audit, content generator, backlink outreach\n\n- SEO Audit Tool: Automated on-page SEO auditing for all pages\n- Blog Content Generator: 20 high-traffic keyword topics with temp",
+    "repo": "team229/compliancebridge",
+    "sha": "65b4130ea5119fe0837ebc99acf9a7bfda7c07a6",
+    "url": "https://github.com/team229/compliancebridge/commit/65b4130ea5119fe0837ebc99acf9a7bfda7c07a6"
+  },
+  {
+    "message": "Rename \ud83e\uddfe_token_integrity_audit_template.yaml to \ud83e\uddfe_token_integrity_audit_template.yaml",
+    "repo": "josefsbreakfast/Polaris-Protocol",
+    "sha": "f8c885fbb7c9cfb10e8eeb926e7788e8f1351b4d",
+    "url": "https://github.com/josefsbreakfast/Polaris-Protocol/commit/f8c885fbb7c9cfb10e8eeb926e7788e8f1351b4d"
+  },
+  {
+    "message": "Merge pull request #44 from ngohuynhducdev/fix/template-audit\n\nFix/template audit",
+    "repo": "ngohuynhducdev/web-studio",
+    "sha": "ad57eb6907e41df2e33341fb210796a97c080783",
+    "url": "https://github.com/ngohuynhducdev/web-studio/commit/ad57eb6907e41df2e33341fb210796a97c080783"
+  },
+  {
+    "message": "fix: stop pointing at skills that only exist privately\n\naudit-all listed firestore-audit and redis-audit in its family and its\napplicability table, and the AGENTS template pointed at redis-patterns\nan",
+    "repo": "Timonwa/timonwa-skills",
+    "sha": "73c24d3ee512331456f4d286f24dbe494e47cda8",
+    "url": "https://github.com/Timonwa/timonwa-skills/commit/73c24d3ee512331456f4d286f24dbe494e47cda8"
+  },
+  {
+    "message": "feat: add configuration management and auditing tools for Flask projects\n\n- Introduced a configuration module to manage project settings via TOML files.\n- Implemented architecture auditing tool to che",
+    "repo": "yemibalogun/flask-production-mcp",
+    "sha": "19aa614c51b1d799c88d063fe28cd41be0200740",
+    "url": "https://github.com/yemibalogun/flask-production-mcp/commit/19aa614c51b1d799c88d063fe28cd41be0200740"
+  },
+  {
+    "message": "Merge pull request #58 from betabitplus-template-lab/experiment/template-system-final-audit-20260801\n\nexp: finalize template system audit",
+    "repo": "betabitplus-template-lab/lab-control",
+    "sha": "d6134f7580429453678b5564027173e5f89969c1",
+    "url": "https://github.com/betabitplus-template-lab/lab-control/commit/d6134f7580429453678b5564027173e5f89969c1"
+  },
+  {
+    "message": "Refactor: Decouple templates from Wasm binaries and implement generic HTTP/gRPC engines\n- Removed all hardcoded JSON/YAML templates (`resources/*`) from individual plugin directories.\n- Updated `packa",
+    "repo": "techken-in/valayam-plugins",
+    "sha": "1f0f2a42d71d9d52329d9ed1810db83ef5ec77e2",
+    "url": "https://github.com/techken-in/valayam-plugins/commit/1f0f2a42d71d9d52329d9ed1810db83ef5ec77e2"
+  },
+  {
+    "message": "docs(reasoning): template-ladder mapping guide, audit refresh\n\ngguf_dump recipe, per-family ladder table, template-analysis\nfalse-negative caveat, store audit recipe. Wired-flag lists ~26 -> ~27\n(+ --",
+    "repo": "allanschramm/local-model-autotuning",
+    "sha": "61964f754c98b895279795fc3502aca9f6caf258",
+    "url": "https://github.com/allanschramm/local-model-autotuning/commit/61964f754c98b895279795fc3502aca9f6caf258"
+  },
+  {
+    "message": "Audit Template Builder build 31: building name gets ' - Audit Template' suffix in the XML (#152)\n\nPremisesName now ends ' - Audit Template' (e.g. '1837 Alden Road - Janesville -\nImproved - Audit Templ",
+    "repo": "nwood3764-sys/ees-platform",
+    "sha": "e346a61522a38c6c0e3d5419e725a73e98965521",
+    "url": "https://github.com/nwood3764-sys/ees-platform/commit/e346a61522a38c6c0e3d5419e725a73e98965521"
+  },
+  {
+    "message": "Complete risk/ and audit/ template batches + README fix\n\nAdd 8 templates to complete the 8-domain structure:\n- risk/: asset-inventory, risk-assessment-worksheet, executive-risk-summary, risk-communica",
+    "repo": "xenprotocol/grc-templates",
+    "sha": "724d010c8b2c33091d27ce57bf4d1164556a9d83",
+    "url": "https://github.com/xenprotocol/grc-templates/commit/724d010c8b2c33091d27ce57bf4d1164556a9d83"
+  },
+  {
+    "message": "fix(skills): correct audit-template reference path\n\nThe three report-producing audit skills and CLAUDE.md referenced the shared\nreporting contract at `.claude/guidelines/audit-template.md`, but the fi",
+    "repo": "guidodinello/claude-dotfiles",
+    "sha": "fdae4a917295c67491ee5249cfc6f716c6ceecc5",
+    "url": "https://github.com/guidodinello/claude-dotfiles/commit/fdae4a917295c67491ee5249cfc6f716c6ceecc5"
+  },
+  {
+    "message": "feat(epic10): finish audit writer semantics (#135)\n\n* feat(audit): attribute tenant export actors correctly\n\n* feat(audit): pass tenant export session actor\n\n* test(audit): distinguish export creator ",
+    "repo": "GithubLarsKomo/master-diagnostics",
+    "sha": "16880977c8cc2cc7299d4554847611c3ccab9fc9",
+    "url": "https://github.com/GithubLarsKomo/master-diagnostics/commit/16880977c8cc2cc7299d4554847611c3ccab9fc9"
+  },
+  {
+    "message": "Deactivate the pre-existing Audit 2026 / Store Hygine templates\n\nTesting on UAT surfaced two templates that were already live before this\nwork and are unrelated to the v10/v15 conditions sheet: \"Audit",
+    "repo": "dditsupport/workpulse",
+    "sha": "1c08786192099724a2af811a39c03dd4206ede40",
+    "url": "https://github.com/dditsupport/workpulse/commit/1c08786192099724a2af811a39c03dd4206ede40"
+  },
+  {
+    "message": "Add parallel task sessions, file leases, and NUI audit templates.\n\nIntroduce per-session gates and path claims for concurrent tasks, extend\nMCP tools, and refresh fivem audit/skill templates plus pane",
+    "repo": "fx-mind/fxmind",
+    "sha": "b52cbd267bd376433257d42afb3f632b052d6e46",
+    "url": "https://github.com/fx-mind/fxmind/commit/b52cbd267bd376433257d42afb3f632b052d6e46"
+  },
+  {
+    "message": "fix(gemma4): upgrade stale chat templates\n\n* fix(gemma4): upgrade stale chat templates\n\n* ci: provision temporary Studio audit env\n\n* Revert \"ci: provision temporary Studio audit env\"\n\nThis reverts co",
+    "repo": "raullenchai/Rapid-MLX",
+    "sha": "678ee5e7e5fbeb3342706403659376d7a0ede1d8",
+    "url": "https://github.com/raullenchai/Rapid-MLX/commit/678ee5e7e5fbeb3342706403659376d7a0ede1d8"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "wole001/HRMS_2.0",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/wole001/HRMS_2.0/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "fix: migrate template storage from hermes/templates to enodios/templates\n\nTemplateManager hardcoded 'hermes/templates' while conversations and the\naudit log default to 'enodios' (chatSaveFolder). Poin",
+    "repo": "techne-tools/enodios",
+    "sha": "9daf90692d8f00ce6c1cfdb72cd17e0693a27f6d",
+    "url": "https://github.com/techne-tools/enodios/commit/9daf90692d8f00ce6c1cfdb72cd17e0693a27f6d"
+  },
+  {
+    "message": "Merge pull request #7 from Inference-LAB/feat/khadija-html-template_dynamic-audit-version\n\nFeat/khadija html template dynamic audit version",
+    "repo": "Inference-LAB/inference-audit",
+    "sha": "360d0a6beb737ad10857600b386c6cc642f61e3e",
+    "url": "https://github.com/Inference-LAB/inference-audit/commit/360d0a6beb737ad10857600b386c6cc642f61e3e"
+  },
+  {
+    "message": "Complete pattern metadata audit and normalize template header/footer classes.\n\nAdd Description and Keywords to all pattern PHP headers, remove redundant site-footer className from templates (footer pa",
+    "repo": "atakidevelopers/chairforce-2026",
+    "sha": "4e397bf7f0b59381bc2dc0eeba9dc58af73d5bff",
+    "url": "https://github.com/atakidevelopers/chairforce-2026/commit/4e397bf7f0b59381bc2dc0eeba9dc58af73d5bff"
+  },
+  {
+    "message": "Create Audit Evidence Request List template\n\nAdded a comprehensive template for the Audit Evidence Request List, detailing required evidence, ownership, due dates, and status for various audit categor",
+    "repo": "BAKROOT/it-general-controls-101",
+    "sha": "121ef7a73798bda9837b24f9c04a5a4c8834cb33",
+    "url": "https://github.com/BAKROOT/it-general-controls-101/commit/121ef7a73798bda9837b24f9c04a5a4c8834cb33"
+  },
+  {
+    "message": "docs: rename tool-audit.md \u2192 tool-audit-template.md\n\nConvert machine-specific audit into a reusable template with placeholders\nfor other pi agent machines to fill out.",
+    "repo": "aposner2/pi-tools",
+    "sha": "9bcc3d57bf7a2b4bcd7eeeaffcf9be8e750315b4",
+    "url": "https://github.com/aposner2/pi-tools/commit/9bcc3d57bf7a2b4bcd7eeeaffcf9be8e750315b4"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "moezmir-ai/horilla-hr-zlink",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/moezmir-ai/horilla-hr-zlink/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "handy212/hr",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/handy212/hr/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "Add directional audit template to general prompts\n\nAdded a new template for directional audit and drift detection to the general prompts.",
+    "repo": "manojvermamv/docs",
+    "sha": "c247bb987909453b769432bbddb491c6d039c186",
+    "url": "https://github.com/manojvermamv/docs/commit/c247bb987909453b769432bbddb491c6d039c186"
+  },
+  {
+    "message": "feat(ci): add scheduled template drift audit workflow\n\nAdds .github/workflows/template-drift-audit.yml \u2014 runs scripts/audit-template-versions.sh weekly (Monday 09:00) and on workflow_dispatch. Opens a",
+    "repo": "danielvm-git/.github",
+    "sha": "55897b8ab993001e978a2d15d116cc404554938c",
+    "url": "https://github.com/danielvm-git/.github/commit/55897b8ab993001e978a2d15d116cc404554938c"
+  },
+  {
+    "message": "Add approval signatures, history, and audit comparison\n\n* Apply approval and audit updates to core/admin.py\n\n* Apply approval and audit updates to core/forms.py\n\n* Apply approval and audit updates to ",
+    "repo": "junhaj27-jpg/medtrace-ra",
+    "sha": "adfc4468ba96fc6446134fcba59b0952cb5dcb5e",
+    "url": "https://github.com/junhaj27-jpg/medtrace-ra/commit/adfc4468ba96fc6446134fcba59b0952cb5dcb5e"
+  },
+  {
+    "message": "Merge pull request #1339 from t3x-dev/codex/template-ownership-audit\n\nfeat(security): add template ownership and audit ledger",
+    "repo": "t3x-dev/t3x-core",
+    "sha": "15796546f80980e7e7060d6748ada533a2007cc3",
+    "url": "https://github.com/t3x-dev/t3x-core/commit/15796546f80980e7e7060d6748ada533a2007cc3"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "mohansailearn/hrms-portal-creation",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/mohansailearn/hrms-portal-creation/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "feat(phase-363): enterprise workspace with departments, templates, and audit\n\n- Department management within organizations (hierarchical)\n- Workspace template system for quick org setup\n- Audit dashbo",
+    "repo": "paudelprabeeyeesh-cmd/AstrovoxAi",
+    "sha": "e47759077d52674793fa66cb1f4def77e9509dc3",
+    "url": "https://github.com/paudelprabeeyeesh-cmd/AstrovoxAi/commit/e47759077d52674793fa66cb1f4def77e9509dc3"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "naveed2707/horilla-hr",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/naveed2707/horilla-hr/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "Add approval history and audit log tools\n\n* Add approval history and audit tools to core/tests.py\n\n* Add approval history and audit tools to core/urls.py\n\n* Add approval history and audit tools to cor",
+    "repo": "junhaj27-jpg/medtrace-ra",
+    "sha": "e4738a71d2cac10f0e277c15a7f1e09991791249",
+    "url": "https://github.com/junhaj27-jpg/medtrace-ra/commit/e4738a71d2cac10f0e277c15a7f1e09991791249"
+  },
+  {
+    "message": "feat(templates): implement multichannel notification templates engine with audit and security",
+    "repo": "felixyz-code/psychology-app-backend",
+    "sha": "8c569fcdf411a497316e6f3a6f20c94f46e68495",
+    "url": "https://github.com/felixyz-code/psychology-app-backend/commit/8c569fcdf411a497316e6f3a6f20c94f46e68495"
+  },
+  {
+    "message": "Merge pull request #81 from Salmanlaghari/audit-3d-keyframes-ai-templates\n\nv7.3 audit: make 3D masks, keyframe presets, AI Hub tools and templates real",
+    "repo": "Salmanlaghari/PowerCut-Editor",
+    "sha": "2ca4dc8c73d5b5bdd3bd5657a4d9c493f86a9740",
+    "url": "https://github.com/Salmanlaghari/PowerCut-Editor/commit/2ca4dc8c73d5b5bdd3bd5657a4d9c493f86a9740"
+  },
+  {
+    "message": "Merge pull request #779 from 5throck/pr/20260830-142505-fix-templates-sync-scaffold-audit-fixes-\n\nfix(templates): sync scaffold audit fixes into L1/L2 templates \u2014 register handbook scripts in L1 SCRIP",
+    "repo": "5throck/ai-workspace-standards",
+    "sha": "d904ab19ae60f3f561ae550df59a8f76f1def20b",
+    "url": "https://github.com/5throck/ai-workspace-standards/commit/d904ab19ae60f3f561ae550df59a8f76f1def20b"
+  },
+  {
+    "message": "Create cybersecurity expert audit issue template\n\nAdd a template for cybersecurity expert audits focusing on vulnerabilities and architectural updates.",
+    "repo": "WVGlobal/Planetary-Energy-Routing-Protocol",
+    "sha": "26085848ce9635a4f4d3e32efd623c7445d9dd8a",
+    "url": "https://github.com/WVGlobal/Planetary-Energy-Routing-Protocol/commit/26085848ce9635a4f4d3e32efd623c7445d9dd8a"
+  },
+  {
+    "message": "Merge pull request #23 from Smoke516/fix/audit-undo-and-templates\n\nAudit: undo lost the file, and templates were unreachable",
+    "repo": "Smoke516/scribble",
+    "sha": "9bd229c36c006774ca287d2866ad10d8bd7216c5",
+    "url": "https://github.com/Smoke516/scribble/commit/9bd229c36c006774ca287d2866ad10d8bd7216c5"
+  },
+  {
+    "message": "Update git submodules\n\n* Update python-watcherclient from branch 'master'\n  to 36952b46e803c005d352a897942157a13b7e910f\n  - Add default_parameters support to Audit Template\n    \n    Adds support for t",
+    "repo": "openstack/openstack",
+    "sha": "ef08dbad3acfc1e6d3a2773b20d3cd38be911aa2",
+    "url": "https://github.com/openstack/openstack/commit/ef08dbad3acfc1e6d3a2773b20d3cd38be911aa2"
+  },
+  {
+    "message": "Audit Template Builder: proposals no longer require the DOE audit-template uploads (#594)\n\nThe HOMES Proposal, Final Invoice, Sealed proposal/invoice, and workbook buttons were\ngated on atAll \u2014 all FO",
+    "repo": "nwood3764-sys/ees-platform",
+    "sha": "9fed9c4c701c36cad966095800d5233512983687",
+    "url": "https://github.com/nwood3764-sys/ees-platform/commit/9fed9c4c701c36cad966095800d5233512983687"
+  },
+  {
+    "message": "Audit Template Builder build 41: optional DOE Audit Template document uploads feed the deliverables (#164)\n\nNew optional upload row (4 slots, drag-and-drop like the source reports):\nBaseline/Improved ",
+    "repo": "nwood3764-sys/ees-platform",
+    "sha": "6b94c84c59b824687134b6f22f776a086205327b",
+    "url": "https://github.com/nwood3764-sys/ees-platform/commit/6b94c84c59b824687134b6f22f776a086205327b"
+  },
+  {
+    "message": "audit: add ADCS ESC1-4/9 certificate-template rules\n\nESC-vulnerable certificate templates were only surfaced in the\nCertificateTemplates CSV, never in the audit JSON, because the audit\nsnapshot did no",
+    "repo": "joda32/adit",
+    "sha": "68fb2689aab9e2111ce5bb8a2f6f3ac49f8c488a",
+    "url": "https://github.com/joda32/adit/commit/68fb2689aab9e2111ce5bb8a2f6f3ac49f8c488a"
+  },
+  {
+    "message": "P3-08 template change history audit (#117)\n\n* Add template change history audit trail\n\n* Address template audit review feedback\n\n* Fix template audit review edge cases\n\n---------\n\nCo-authored-by: tsin",
+    "repo": "TommyKammy/VeriDoc",
+    "sha": "2c91d041139311b3899ccb719224933ae97c6bb7",
+    "url": "https://github.com/TommyKammy/VeriDoc/commit/2c91d041139311b3899ccb719224933ae97c6bb7"
+  },
+  {
+    "message": "Revise GEO Audit Template for Small Businesses\n\nUpdated the GEO audit template to focus on small businesses, enhancing clarity and structure while providing specific recommendations for improvement.",
+    "repo": "ayeshakhansa/geo-learning-portfolio",
+    "sha": "f3e63453d790ecaca1eebdf41784cbd75aa9b019",
+    "url": "https://github.com/ayeshakhansa/geo-learning-portfolio/commit/f3e63453d790ecaca1eebdf41784cbd75aa9b019"
+  },
+  {
+    "message": "feat(audit): add audit-latest-change skill\n\n- README.md: add project overview and usage instructions\n- SKILL.md: define audit-latest-change skill specification\n- templates/audit-readme.md: add templat",
+    "repo": "c1r5/audit-skill",
+    "sha": "48cb0ee623375e7f79c50566ade55ff2152ec7de",
+    "url": "https://github.com/c1r5/audit-skill/commit/48cb0ee623375e7f79c50566ade55ff2152ec7de"
+  },
+  {
+    "message": "Audit fixes + new templates for the AI CV Builder (operator-only) (#53)\n\nAudit fixes + new templates for the AI CV Builder (operator-only)",
+    "repo": "deepakbanarjee/printosky",
+    "sha": "1bb278a8c9f3461509feaa28416236da10fe619f",
+    "url": "https://github.com/deepakbanarjee/printosky/commit/1bb278a8c9f3461509feaa28416236da10fe619f"
+  },
+  {
+    "message": "Brand Outreach D4-D7: brand page + audit template + CRM + sample audit\n\n- /for-brands/ page: free visibility snapshot -> $199/$499/$1,200 audit ladder\n- pet-tech-audit-template.md: 12-section reusable",
+    "repo": "muchengxian-lab/smartpetguide",
+    "sha": "b4223ec9ae9845fdf515111e47f9ae2b5c19dbe5",
+    "url": "https://github.com/muchengxian-lab/smartpetguide/commit/b4223ec9ae9845fdf515111e47f9ae2b5c19dbe5"
+  },
+  {
+    "message": "feat(audit): add schema and email templates for transformation audit submission\n\n- Introduced a comprehensive schema for the transformation audit, defining various field types and steps.\n- Implemented",
+    "repo": "karthikeh02/aditya-coach",
+    "sha": "70d58781164df81461cecc96ad843c8360ee10ed",
+    "url": "https://github.com/karthikeh02/aditya-coach/commit/70d58781164df81461cecc96ad843c8360ee10ed"
+  },
+  {
+    "message": "refactor: deploy audit-packages as a direct chezmoi template, not a symlink\n\nMoves home/scripts/audit-packages.sh to home/dot_local/bin/executable_audit-packages.tmpl,\nreplacing the symlink_audit-pack",
+    "repo": "cearley/dotfiles",
+    "sha": "42c093b13eb157387c49dc8dc44271cb5a53ce8b",
+    "url": "https://github.com/cearley/dotfiles/commit/42c093b13eb157387c49dc8dc44271cb5a53ce8b"
+  },
+  {
+    "message": "[FEAT] SETTINGS: Merge History Tags and Audit Tracking into Audit & History page\n\nHistory Tags and Audit Tracking were separate settings pages and menu items.\nThey are now consolidated into one Audit ",
+    "repo": "Cyus07/horilla-hrms",
+    "sha": "e7f4b599f5507bc9556701258deb908a01f38ece",
+    "url": "https://github.com/Cyus07/horilla-hrms/commit/e7f4b599f5507bc9556701258deb908a01f38ece"
+  },
+  {
+    "message": "fix(admin): embed Audit Checklist Templates into Templates tab\n\n- AuditChecklistTemplateAdminView now renders below Assessment Templates when view=templates\n\n- No more hidden quick action \u2014 checklists",
+    "repo": "isoenthusiast/sams-app",
+    "sha": "2214f9ee38bd637711405b4156eedef5de10c59f",
+    "url": "https://github.com/isoenthusiast/sams-app/commit/2214f9ee38bd637711405b4156eedef5de10c59f"
+  },
+  {
+    "message": "Use auditable public profile-statistics templates (#9)\n\nReplace custom-generated statistics with pinned public templates and an auditable scheduled workflow.",
+    "repo": "JawadRouen/JawadRouen",
+    "sha": "c2330edf48bc8a176d3efc30a4a46b35a1d639cb",
+    "url": "https://github.com/JawadRouen/JawadRouen/commit/c2330edf48bc8a176d3efc30a4a46b35a1d639cb"
+  },
+  {
+    "message": "fix(content): update penetration-test-template and server-sent-events-node\n\n- Update penetration-test-template content and audit report\n- Update server-sent-events-node content and audit report\n- Rege",
+    "repo": "MathiasPaulenko/stack-practices-web",
+    "sha": "94ce75e701cc088e1998539a8bef22148019463a",
+    "url": "https://github.com/MathiasPaulenko/stack-practices-web/commit/94ce75e701cc088e1998539a8bef22148019463a"
+  },
+  {
+    "message": "Add audit report template schema\n\nIntroduce `schema/audit-report-template.md` as a standardized Chronicle audit report format. The template includes report metadata, severity summary, structured findi",
+    "repo": "Miguel-Morales-G/chronicle",
+    "sha": "d98b24b62b8782f028e4ed11ec64a120626bb5e2",
+    "url": "https://github.com/Miguel-Morales-G/chronicle/commit/d98b24b62b8782f028e4ed11ec64a120626bb5e2"
+  },
+  {
+    "message": "Commit 7/23/2026\n\nToday's Work Update 7/23/2026\n\nToday, I first integrated the Heat Map API for both the Hazard and Near Miss modules. After that, I implemented role-based access for both modules.\n\nTh",
+    "repo": "connect-codeswift/neptune-app-fe",
+    "sha": "559154f53759b899fa284647da2b5f3855c6db76",
+    "url": "https://github.com/connect-codeswift/neptune-app-fe/commit/559154f53759b899fa284647da2b5f3855c6db76"
+  },
+  {
+    "message": "Fold content-audit-template into content-audits keeper (template table, score formula, link-depth rules)\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+    "repo": "kdash-coder/kasradash-com",
+    "sha": "222822d5ca88e2f0be418676027422ab05abe959",
+    "url": "https://github.com/kdash-coder/kasradash-com/commit/222822d5ca88e2f0be418676027422ab05abe959"
+  }
+]

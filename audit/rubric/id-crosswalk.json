@@ -1,0 +1,846 @@
+{
+  "generated": true,
+  "count": 140,
+  "mappings": [
+    {
+      "legacy_id": "CQ-11",
+      "unified_id": "CQ-0001",
+      "domain": "code_quality",
+      "title": "centralized error context"
+    },
+    {
+      "legacy_id": "CQ-05",
+      "unified_id": "CQ-0002",
+      "domain": "code_quality",
+      "title": "clippy strict mode in CI"
+    },
+    {
+      "legacy_id": "CQ-15",
+      "unified_id": "CQ-0003",
+      "domain": "code_quality",
+      "title": "const fn where possible"
+    },
+    {
+      "legacy_id": "CQ-06",
+      "unified_id": "CQ-0004",
+      "domain": "code_quality",
+      "title": "#![deny(missing_docs)]"
+    },
+    {
+      "legacy_id": "CQ-16",
+      "unified_id": "CQ-0005",
+      "domain": "code_quality",
+      "title": "Display+Debug on all public types"
+    },
+    {
+      "legacy_id": "CQ-02",
+      "unified_id": "CQ-0006",
+      "domain": "code_quality",
+      "title": "edition 2021"
+    },
+    {
+      "legacy_id": "CQ-12",
+      "unified_id": "CQ-0007",
+      "domain": "code_quality",
+      "title": "modules public surface minimal"
+    },
+    {
+      "legacy_id": "CQ-03",
+      "unified_id": "CQ-0008",
+      "domain": "code_quality",
+      "title": "MSRV pinned"
+    },
+    {
+      "legacy_id": "CQ-13",
+      "unified_id": "CQ-0009",
+      "domain": "code_quality",
+      "title": "no dead_code warnings"
+    },
+    {
+      "legacy_id": "CQ-17",
+      "unified_id": "CQ-0010",
+      "domain": "code_quality",
+      "title": "no panic paths in lib code"
+    },
+    {
+      "legacy_id": "CQ-14",
+      "unified_id": "CQ-0011",
+      "domain": "code_quality",
+      "title": "no unused imports CI gate"
+    },
+    {
+      "legacy_id": "CQ-10",
+      "unified_id": "CQ-0012",
+      "domain": "code_quality",
+      "title": "no .unwrap() in non-test code"
+    },
+    {
+      "legacy_id": "CQ-07",
+      "unified_id": "CQ-0013",
+      "domain": "code_quality",
+      "title": "no-todo / no-fixme enforced"
+    },
+    {
+      "legacy_id": "CQ-01",
+      "unified_id": "CQ-0014",
+      "domain": "code_quality",
+      "title": "no-unsafe policy"
+    },
+    {
+      "legacy_id": "CQ-09",
+      "unified_id": "CQ-0015",
+      "domain": "code_quality",
+      "title": "Result return types on fallible fns"
+    },
+    {
+      "legacy_id": "CQ-04",
+      "unified_id": "CQ-0016",
+      "domain": "code_quality",
+      "title": "rustfmt config"
+    },
+    {
+      "legacy_id": "CQ-18",
+      "unified_id": "CQ-0017",
+      "domain": "code_quality",
+      "title": "strsim for CLI suggestions"
+    },
+    {
+      "legacy_id": "CQ-08",
+      "unified_id": "CQ-0018",
+      "domain": "code_quality",
+      "title": "thiserror on all error types"
+    },
+    {
+      "legacy_id": "ARCH-06",
+      "unified_id": "A-0001",
+      "domain": "architecture",
+      "title": "ADR directory with accepted ADRs"
+    },
+    {
+      "legacy_id": "ARCH-05",
+      "unified_id": "A-0002",
+      "domain": "architecture",
+      "title": "ARCHITECTURE.md present"
+    },
+    {
+      "legacy_id": "ARCH-08",
+      "unified_id": "A-0003",
+      "domain": "architecture",
+      "title": "async-trait for dyn-compatible traits"
+    },
+    {
+      "legacy_id": "ARCH-04",
+      "unified_id": "A-0004",
+      "domain": "architecture",
+      "title": "canonical domain types in substrate-core"
+    },
+    {
+      "legacy_id": "ARCH-10",
+      "unified_id": "A-0005",
+      "domain": "architecture",
+      "title": "composition root pattern"
+    },
+    {
+      "legacy_id": "ARCH-13",
+      "unified_id": "A-0006",
+      "domain": "architecture",
+      "title": "DAG crate separate from scheduler"
+    },
+    {
+      "legacy_id": "ARCH-17",
+      "unified_id": "A-0007",
+      "domain": "architecture",
+      "title": "diesel vs sqlx vs rusqlite decision"
+    },
+    {
+      "legacy_id": "ARCH-02",
+      "unified_id": "A-0008",
+      "domain": "architecture",
+      "title": "hexagonal ports/adapters"
+    },
+    {
+      "legacy_id": "ARCH-07",
+      "unified_id": "A-0009",
+      "domain": "architecture",
+      "title": "mod.rs vs lib.rs declaration policy"
+    },
+    {
+      "legacy_id": "ARCH-15",
+      "unified_id": "A-0010",
+      "domain": "architecture",
+      "title": "no cyclic deps between crates"
+    },
+    {
+      "legacy_id": "ARCH-16",
+      "unified_id": "A-0011",
+      "domain": "architecture",
+      "title": "no unsafe_code across workspace"
+    },
+    {
+      "legacy_id": "ARCH-12",
+      "unified_id": "A-0012",
+      "domain": "architecture",
+      "title": "policy engine separated from dispatch"
+    },
+    {
+      "legacy_id": "ARCH-03",
+      "unified_id": "A-0013",
+      "domain": "architecture",
+      "title": "ports dependency-direction rules"
+    },
+    {
+      "legacy_id": "ARCH-14",
+      "unified_id": "A-0014",
+      "domain": "architecture",
+      "title": "schema crate for shared types"
+    },
+    {
+      "legacy_id": "ARCH-09",
+      "unified_id": "A-0015",
+      "domain": "architecture",
+      "title": "seam crate boundaries (no upward deps)"
+    },
+    {
+      "legacy_id": "ARCH-11",
+      "unified_id": "A-0016",
+      "domain": "architecture",
+      "title": "shared error type in core"
+    },
+    {
+      "legacy_id": "ARCH-01",
+      "unified_id": "A-0017",
+      "domain": "architecture",
+      "title": "workspace layout with crate boundaries"
+    },
+    {
+      "legacy_id": "TEST-05",
+      "unified_id": "T-0001",
+      "domain": "testing",
+      "title": "code coverage threshold"
+    },
+    {
+      "legacy_id": "TEST-11",
+      "unified_id": "T-0002",
+      "domain": "testing",
+      "title": "deterministic test outcomes"
+    },
+    {
+      "legacy_id": "TEST-04",
+      "unified_id": "T-0003",
+      "domain": "testing",
+      "title": "fuzz targets in fuzz/"
+    },
+    {
+      "legacy_id": "TEST-02",
+      "unified_id": "T-0004",
+      "domain": "testing",
+      "title": "integration tests in tests/"
+    },
+    {
+      "legacy_id": "TEST-09",
+      "unified_id": "T-0005",
+      "domain": "testing",
+      "title": "load / soak test"
+    },
+    {
+      "legacy_id": "TEST-12",
+      "unified_id": "T-0006",
+      "domain": "testing",
+      "title": "MSRV CI test job"
+    },
+    {
+      "legacy_id": "TEST-08",
+      "unified_id": "T-0007",
+      "domain": "testing",
+      "title": "mutation testing"
+    },
+    {
+      "legacy_id": "TEST-13",
+      "unified_id": "T-0008",
+      "domain": "testing",
+      "title": "no flaky tests quarantine policy"
+    },
+    {
+      "legacy_id": "TEST-03",
+      "unified_id": "T-0009",
+      "domain": "testing",
+      "title": "property-based tests"
+    },
+    {
+      "legacy_id": "TEST-07",
+      "unified_id": "T-0010",
+      "domain": "testing",
+      "title": "snapshot tests for protocol outputs"
+    },
+    {
+      "legacy_id": "TEST-10",
+      "unified_id": "T-0011",
+      "domain": "testing",
+      "title": "test isolation (no shared state)"
+    },
+    {
+      "legacy_id": "TEST-06",
+      "unified_id": "T-0012",
+      "domain": "testing",
+      "title": "test parallelism via cargo nextest"
+    },
+    {
+      "legacy_id": "TEST-01",
+      "unified_id": "T-0013",
+      "domain": "testing",
+      "title": "unit tests per crate"
+    },
+    {
+      "legacy_id": "OBS-09",
+      "unified_id": "O-0001",
+      "domain": "observability",
+      "title": "log level env override"
+    },
+    {
+      "legacy_id": "OBS-08",
+      "unified_id": "O-0002",
+      "domain": "observability",
+      "title": "metric cardinality limits"
+    },
+    {
+      "legacy_id": "OBS-04",
+      "unified_id": "O-0003",
+      "domain": "observability",
+      "title": "OpenTelemetry exporter"
+    },
+    {
+      "legacy_id": "OBS-05",
+      "unified_id": "O-0004",
+      "domain": "observability",
+      "title": "Prometheus /metrics endpoint"
+    },
+    {
+      "legacy_id": "OBS-06",
+      "unified_id": "O-0005",
+      "domain": "observability",
+      "title": "request id propagation"
+    },
+    {
+      "legacy_id": "OBS-03",
+      "unified_id": "O-0006",
+      "domain": "observability",
+      "title": "structured log fields (kv pairs)"
+    },
+    {
+      "legacy_id": "OBS-07",
+      "unified_id": "O-0007",
+      "domain": "observability",
+      "title": "trace context propagation (W3C)"
+    },
+    {
+      "legacy_id": "OBS-01",
+      "unified_id": "O-0008",
+      "domain": "observability",
+      "title": "tracing crate in workspace"
+    },
+    {
+      "legacy_id": "OBS-02",
+      "unified_id": "O-0009",
+      "domain": "observability",
+      "title": "tracing-subscriber init in main"
+    },
+    {
+      "legacy_id": "SEC-14",
+      "unified_id": "S-0001",
+      "domain": "security",
+      "title": "audit log"
+    },
+    {
+      "legacy_id": "SEC-13",
+      "unified_id": "S-0002",
+      "domain": "security",
+      "title": "auth middleware on management routes"
+    },
+    {
+      "legacy_id": "SEC-12",
+      "unified_id": "S-0003",
+      "domain": "security",
+      "title": "bounded body / OOM prevention"
+    },
+    {
+      "legacy_id": "SEC-05",
+      "unified_id": "S-0004",
+      "domain": "security",
+      "title": "cargo-deny config"
+    },
+    {
+      "legacy_id": "SEC-06",
+      "unified_id": "S-0005",
+      "domain": "security",
+      "title": "cargo-deny run in CI"
+    },
+    {
+      "legacy_id": "SEC-11",
+      "unified_id": "S-0006",
+      "domain": "security",
+      "title": "circuit breaker"
+    },
+    {
+      "legacy_id": "SEC-07",
+      "unified_id": "S-0007",
+      "domain": "security",
+      "title": "CodeQL scan"
+    },
+    {
+      "legacy_id": "SEC-09",
+      "unified_id": "S-0008",
+      "domain": "security",
+      "title": "dependency audit on PR"
+    },
+    {
+      "legacy_id": "SEC-16",
+      "unified_id": "S-0009",
+      "domain": "security",
+      "title": "Dependency policy doc"
+    },
+    {
+      "legacy_id": "SEC-03",
+      "unified_id": "S-0010",
+      "domain": "security",
+      "title": "gitleaks config"
+    },
+    {
+      "legacy_id": "SEC-15",
+      "unified_id": "S-0011",
+      "domain": "security",
+      "title": "oauth1 signature parity check"
+    },
+    {
+      "legacy_id": "SEC-02",
+      "unified_id": "S-0012",
+      "domain": "security",
+      "title": "private vuln disclosure email"
+    },
+    {
+      "legacy_id": "SEC-10",
+      "unified_id": "S-0013",
+      "domain": "security",
+      "title": "rate-limit middleware"
+    },
+    {
+      "legacy_id": "SEC-08",
+      "unified_id": "S-0014",
+      "domain": "security",
+      "title": "SBOM (CycloneDX)"
+    },
+    {
+      "legacy_id": "SEC-04",
+      "unified_id": "S-0015",
+      "domain": "security",
+      "title": "secret scanning in CI"
+    },
+    {
+      "legacy_id": "SEC-01",
+      "unified_id": "S-0016",
+      "domain": "security",
+      "title": "SECURITY.md"
+    },
+    {
+      "legacy_id": "DOC-06",
+      "unified_id": "D-0001",
+      "domain": "documentation",
+      "title": "ADR directory"
+    },
+    {
+      "legacy_id": "DOC-03",
+      "unified_id": "D-0002",
+      "domain": "documentation",
+      "title": "AGENTS.md"
+    },
+    {
+      "legacy_id": "DOC-10",
+      "unified_id": "D-0003",
+      "domain": "documentation",
+      "title": "API reference generated"
+    },
+    {
+      "legacy_id": "DOC-04",
+      "unified_id": "D-0004",
+      "domain": "documentation",
+      "title": "ARCHITECTURE.md"
+    },
+    {
+      "legacy_id": "DOC-07",
+      "unified_id": "D-0005",
+      "domain": "documentation",
+      "title": "CHANGELOG.md"
+    },
+    {
+      "legacy_id": "DOC-05",
+      "unified_id": "D-0006",
+      "domain": "documentation",
+      "title": "CONTRIBUTING.md"
+    },
+    {
+      "legacy_id": "DOC-11",
+      "unified_id": "D-0007",
+      "domain": "documentation",
+      "title": "deployment guide"
+    },
+    {
+      "legacy_id": "DOC-16",
+      "unified_id": "D-0008",
+      "domain": "documentation",
+      "title": "FAQ"
+    },
+    {
+      "legacy_id": "DOC-15",
+      "unified_id": "D-0009",
+      "domain": "documentation",
+      "title": "glossary"
+    },
+    {
+      "legacy_id": "DOC-08",
+      "unified_id": "D-0010",
+      "domain": "documentation",
+      "title": "LICENSE file (MIT OR Apache-2.0)"
+    },
+    {
+      "legacy_id": "DOC-12",
+      "unified_id": "D-0011",
+      "domain": "documentation",
+      "title": "operations runbook"
+    },
+    {
+      "legacy_id": "DOC-09",
+      "unified_id": "D-0012",
+      "domain": "documentation",
+      "title": "per-crate rustdoc on public items"
+    },
+    {
+      "legacy_id": "DOC-01",
+      "unified_id": "D-0013",
+      "domain": "documentation",
+      "title": "README with quickstart"
+    },
+    {
+      "legacy_id": "DOC-14",
+      "unified_id": "D-0014",
+      "domain": "documentation",
+      "title": "release process doc"
+    },
+    {
+      "legacy_id": "DOC-17",
+      "unified_id": "D-0015",
+      "domain": "documentation",
+      "title": "RFC process doc"
+    },
+    {
+      "legacy_id": "DOC-02",
+      "unified_id": "D-0016",
+      "domain": "documentation",
+      "title": "SPEC.md"
+    },
+    {
+      "legacy_id": "DOC-13",
+      "unified_id": "D-0017",
+      "domain": "documentation",
+      "title": "troubleshooting guide"
+    },
+    {
+      "legacy_id": "CI-02",
+      "unified_id": "CC-0001",
+      "domain": "ci_cd",
+      "title": "cargo build --workspace"
+    },
+    {
+      "legacy_id": "CI-04",
+      "unified_id": "CC-0002",
+      "domain": "ci_cd",
+      "title": "cargo clippy gate"
+    },
+    {
+      "legacy_id": "CI-05",
+      "unified_id": "CC-0003",
+      "domain": "ci_cd",
+      "title": "cargo fmt --check"
+    },
+    {
+      "legacy_id": "CI-03",
+      "unified_id": "CC-0004",
+      "domain": "ci_cd",
+      "title": "cargo test --workspace"
+    },
+    {
+      "legacy_id": "CI-13",
+      "unified_id": "CC-0005",
+      "domain": "ci_cd",
+      "title": "CODEOWNERS"
+    },
+    {
+      "legacy_id": "CI-12",
+      "unified_id": "CC-0006",
+      "domain": "ci_cd",
+      "title": "containerfile builds"
+    },
+    {
+      "legacy_id": "CI-06",
+      "unified_id": "CC-0007",
+      "domain": "ci_cd",
+      "title": "deny.toml in CI"
+    },
+    {
+      "legacy_id": "CI-07",
+      "unified_id": "CC-0008",
+      "domain": "ci_cd",
+      "title": "dependabot config"
+    },
+    {
+      "legacy_id": "CI-01",
+      "unified_id": "CC-0009",
+      "domain": "ci_cd",
+      "title": "GitHub Actions CI on PR"
+    },
+    {
+      "legacy_id": "CI-14",
+      "unified_id": "CC-0010",
+      "domain": "ci_cd",
+      "title": "issue templates"
+    },
+    {
+      "legacy_id": "CI-09",
+      "unified_id": "CC-0011",
+      "domain": "ci_cd",
+      "title": "merge queue / branch protection"
+    },
+    {
+      "legacy_id": "CI-08",
+      "unified_id": "CC-0012",
+      "domain": "ci_cd",
+      "title": "PR title conventional commits"
+    },
+    {
+      "legacy_id": "CI-10",
+      "unified_id": "CC-0013",
+      "domain": "ci_cd",
+      "title": "release workflow"
+    },
+    {
+      "legacy_id": "CI-11",
+      "unified_id": "CC-0014",
+      "domain": "ci_cd",
+      "title": "release-binary workflow"
+    },
+    {
+      "legacy_id": "SC-01",
+      "unified_id": "SC-0001",
+      "domain": "supply_chain",
+      "title": "Cargo.lock checked in"
+    },
+    {
+      "legacy_id": "SC-05",
+      "unified_id": "SC-0002",
+      "domain": "supply_chain",
+      "title": "deny.toml [advisories] configured"
+    },
+    {
+      "legacy_id": "SC-03",
+      "unified_id": "SC-0003",
+      "domain": "supply_chain",
+      "title": "deny.toml [bans] configured"
+    },
+    {
+      "legacy_id": "SC-02",
+      "unified_id": "SC-0004",
+      "domain": "supply_chain",
+      "title": "deny.toml [licenses] configured"
+    },
+    {
+      "legacy_id": "SC-04",
+      "unified_id": "SC-0005",
+      "domain": "supply_chain",
+      "title": "deny.toml [sources] configured"
+    },
+    {
+      "legacy_id": "SC-07",
+      "unified_id": "SC-0006",
+      "domain": "supply_chain",
+      "title": "minimum rust-version enforced"
+    },
+    {
+      "legacy_id": "SC-06",
+      "unified_id": "SC-0007",
+      "domain": "supply_chain",
+      "title": "no duplicate crate versions"
+    },
+    {
+      "legacy_id": "SC-10",
+      "unified_id": "SC-0008",
+      "domain": "supply_chain",
+      "title": "supply-chain security level (slsa provenance)"
+    },
+    {
+      "legacy_id": "SC-09",
+      "unified_id": "SC-0009",
+      "domain": "supply_chain",
+      "title": "vendor/ tarball, .cargo/config.toml"
+    },
+    {
+      "legacy_id": "SC-08",
+      "unified_id": "SC-0010",
+      "domain": "supply_chain",
+      "title": "workspace inheritance (no version drift)"
+    },
+    {
+      "legacy_id": "RE-13",
+      "unified_id": "RE-0001",
+      "domain": "release_engineering",
+      "title": "binary provenance (slsa)"
+    },
+    {
+      "legacy_id": "RE-06",
+      "unified_id": "RE-0002",
+      "domain": "release_engineering",
+      "title": "container image push"
+    },
+    {
+      "legacy_id": "RE-12",
+      "unified_id": "RE-0003",
+      "domain": "release_engineering",
+      "title": "deployment dry-run script"
+    },
+    {
+      "legacy_id": "RE-03",
+      "unified_id": "RE-0004",
+      "domain": "release_engineering",
+      "title": "GitHub Release created"
+    },
+    {
+      "legacy_id": "RE-07",
+      "unified_id": "RE-0005",
+      "domain": "release_engineering",
+      "title": "homebrew tap / apt repo"
+    },
+    {
+      "legacy_id": "RE-11",
+      "unified_id": "RE-0006",
+      "domain": "release_engineering",
+      "title": "post-deploy smoke test"
+    },
+    {
+      "legacy_id": "RE-05",
+      "unified_id": "RE-0007",
+      "domain": "release_engineering",
+      "title": "publish to crates.io"
+    },
+    {
+      "legacy_id": "RE-02",
+      "unified_id": "RE-0008",
+      "domain": "release_engineering",
+      "title": "release notes per release"
+    },
+    {
+      "legacy_id": "RE-09",
+      "unified_id": "RE-0009",
+      "domain": "release_engineering",
+      "title": "rollback playbook"
+    },
+    {
+      "legacy_id": "RE-10",
+      "unified_id": "RE-0010",
+      "domain": "release_engineering",
+      "title": "SLO / SLI definitions"
+    },
+    {
+      "legacy_id": "RE-01",
+      "unified_id": "RE-0011",
+      "domain": "release_engineering",
+      "title": "tag-driven release"
+    },
+    {
+      "legacy_id": "RE-08",
+      "unified_id": "RE-0012",
+      "domain": "release_engineering",
+      "title": "upgrade guide per breaking change"
+    },
+    {
+      "legacy_id": "RE-04",
+      "unified_id": "RE-0013",
+      "domain": "release_engineering",
+      "title": "version bump in workspace.package"
+    },
+    {
+      "legacy_id": "DX-09",
+      "unified_id": "D-0001",
+      "domain": "dx",
+      "title": "Containerfile.dev (dev container)"
+    },
+    {
+      "legacy_id": "DX-06",
+      "unified_id": "D-0002",
+      "domain": "dx",
+      "title": ".editorconfig"
+    },
+    {
+      "legacy_id": "DX-08",
+      "unified_id": "D-0003",
+      "domain": "dx",
+      "title": ".env.example"
+    },
+    {
+      "legacy_id": "DX-01",
+      "unified_id": "D-0004",
+      "domain": "dx",
+      "title": "fast build (cached deps)"
+    },
+    {
+      "legacy_id": "DX-02",
+      "unified_id": "D-0005",
+      "domain": "dx",
+      "title": "fast test (nextest)"
+    },
+    {
+      "legacy_id": "DX-13",
+      "unified_id": "D-0006",
+      "domain": "dx",
+      "title": ".gitignore curated"
+    },
+    {
+      "legacy_id": "DX-11",
+      "unified_id": "D-0007",
+      "domain": "dx",
+      "title": "issue templates"
+    },
+    {
+      "legacy_id": "DX-10",
+      "unified_id": "D-0008",
+      "domain": "dx",
+      "title": "Justfile / Makefile"
+    },
+    {
+      "legacy_id": "DX-12",
+      "unified_id": "D-0009",
+      "domain": "dx",
+      "title": "PR template"
+    },
+    {
+      "legacy_id": "DX-04",
+      "unified_id": "D-0010",
+      "domain": "dx",
+      "title": "pre-commit hook (lefthook/hooks)"
+    },
+    {
+      "legacy_id": "DX-05",
+      "unified_id": "D-0011",
+      "domain": "dx",
+      "title": "rust-analyzer project.json"
+    },
+    {
+      "legacy_id": "DX-07",
+      "unified_id": "D-0012",
+      "domain": "dx",
+      "title": "rust-toolchain.toml"
+    },
+    {
+      "legacy_id": "DX-03",
+      "unified_id": "D-0013",
+      "domain": "dx",
+      "title": "sccache for build cache"
+    }
+  ]
+}
