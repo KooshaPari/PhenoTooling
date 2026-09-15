@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
   "buildCommand": "npm run stage:publication",
   "outputDirectory": "dist",
   "installCommand": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install",
