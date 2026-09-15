@@ -1,0 +1,27 @@
+name: OpenAPI Drift
+
+on:
+  pull_request:
+    paths:
+      - "src/commands/serve.rs"
+      - "docs/openapi/**"
+      - "scripts/check-openapi-drift.py"
+      - ".github/workflows/openapi-drift.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/commands/serve.rs"
+      - "docs/openapi/**"
+      - "scripts/check-openapi-drift.py"
+
+permissions:
+  contents: read
+
+jobs:
+  openapi-drift:
+    name: OpenAPI ↔ serve routes
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check OpenAPI drift (C00 L2)
+        run: python3 scripts/check-openapi-drift.py

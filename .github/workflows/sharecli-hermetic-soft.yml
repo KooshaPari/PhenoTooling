@@ -1,0 +1,40 @@
+name: Hermetic build (soft)
+
+# C06 L54 — fetch then --offline build. Soft until network-blocked runners land.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hermetic-soft:
+    name: Offline build after fetch (soft)
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29 # v2.0.6
+        with:
+          version: 0.14.1
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          shared-key: hermetic-soft
+      - name: Fetch locked deps
+        run: cargo fetch --locked
+      - name: Offline build (sharecli)
+        run: cargo build --locked --offline -p sharecli
+      - name: Soft network-block smoke (poisoned proxy + offline)
+        env:
+          HTTP_PROXY: http://127.0.0.1:9
+          HTTPS_PROXY: http://127.0.0.1:9
+          ALL_PROXY: http://127.0.0.1:9
+        run: cargo build --locked --offline -p sharecli
+      - name: Soft runbook present
+        run: test -f docs/ops/hermetic-builds.md

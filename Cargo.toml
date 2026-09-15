@@ -89,7 +89,7 @@ members = [
     "ports-vcs",
     # Gateway (absorbed from KooshaPari/zz-merge-unk-Gateway)
     "packages/router",
-# PhenoCompose (absorbed from zz-merge-unk-PhenoCompose)
+    # PhenoCompose (absorbed from zz-merge-unk-PhenoCompose)
     "crates/pheno-compose-agentctl",
     "crates/pheno-compose-apple-container-adapter",
     "crates/pheno-compose-bindings",
@@ -113,6 +113,26 @@ members = [
     "crates/teamcomm-mcp",
     "crates/teamcomm-protocol",
     "crates/teamcomm-smoke",
+
+    # sharecli: process/resource runtime for high-concurrency agent workloads
+    # (absorbed from KooshaPari/sharecli)
+    "crates/sharecli",
+    "crates/sharecli-core",
+    "crates/sharecli-fleet",
+    "crates/sharecli-fuse",
+    "crates/sharecli-ipc",
+    "crates/sharecli-mesh",
+    "crates/sharecli-session",
+    "crates/sharecli-sync",
+    "crates/sharecli-thermal-tui",
+    "crates/sharecli-ffi",
+    "crates/sharecli-tray-linux",
+    "crates/sharecli-tray-windows",
+    "crates/spawn-core-sys",
+    "crates/spawn-core",
+    "crates/harness-native",
+    "crates/fuse-smoke-runner",
+    "crates/gateway-tools",
 ]
 
 [workspace.package]

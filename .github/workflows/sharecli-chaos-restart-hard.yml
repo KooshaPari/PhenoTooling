@@ -1,0 +1,47 @@
+name: Chaos restart (hard)
+
+# C05 L50 — SIGKILL restart recovery gate (T-630 / FR-003).
+# Promotion: docs/ops/chaos-restart-hard-gate.md phase 4.
+# Aggregated into CI Success via .github/workflows/ci.yml `chaos-restart-hard` job.
+
+on:
+  schedule:
+    - cron: "45 8 * * *"
+  workflow_dispatch:
+  # PR coverage lives in ci.yml `chaos-restart-hard` (ci-success aggregator). This
+  # workflow keeps cron/dispatch + path-filtered main push for drift detection
+  # without double-running chaos on every PR.
+  push:
+    branches: [main]
+    paths:
+      - "scripts/load/chaos_restart.sh"
+      - "scripts/load/README.md"
+      - "docs/ops/chaos-restart-hard-gate.md"
+      - "docs/ops/soak-chaos.md"
+      - ".github/workflows/chaos-restart-hard.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  chaos-restart-hard:
+    name: chaos restart (hard)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          shared-key: chaos-restart-hard
+      - name: Build sharecli (release)
+        run: cargo build --locked --release -p sharecli
+      - name: Chaos restart /healthz recovery
+        env:
+          SHARECLI_LOAD_URL: http://127.0.0.1:9000/healthz
+          SHARECLI_SERVE_BIND: 127.0.0.1:9000
+          SHARECLI_SERVE_BIN: ./target/release/sharecli
+          SHARECLI_CHAOS_RECOVER_SEC: "30"
+        run: bash scripts/load/chaos_restart.sh
