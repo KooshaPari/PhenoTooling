@@ -1,0 +1,22 @@
+{
+  "control_schema_version": "dry-run-controls-draft/v1",
+  "draft_status": "UNREVIEWED",
+  "sponsor_reviewed": false,
+  "publication_allowed": false,
+  "readiness_grade": null,
+  "required_fields": ["assessed_subject","source_path","source_hash","declared_subject","declared_date","conversion_identity","conversion_version","rubric_hash","rubric_version","scorer_hash","scorer_version","capture_timestamp","applicability_set"],
+  "unknown_value_shape": {"value": null, "status": "unknown"},
+  "approved_lineage": {"status":"unknown","reviewed":false},
+  "cards": [
+    {"card_path":"scorecards/Melosviz-audit.json","recorded_source_path":{"value":"repos/Melosviz/audit/SCORECARD.md","status":"recorded_unverified"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}},
+    {"card_path":"scorecards/SessionLedger-audit.json","recorded_source_path":{"value":"repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/audit/SCORECARD.md","status":"recorded_unverified"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}},
+    {"card_path":"scorecards/Tracera-wtrees-audit.json","recorded_source_path":{"value":"repos/Tracera/fix-contract-tests-20260901/audit/SCORECARD-FULL-2026-08-30.md","status":"missing"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}},
+    {"card_path":"scorecards/phenotype-registry-audit.json","recorded_source_path":{"value":"repos/phenotype-registry/audits/org-audit-snapshots/audit-v38/output/MelosViz/SCORECARD.md","status":"recorded_subject_mismatch"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}},
+    {"card_path":"scorecards/sharecli-audit.json","recorded_source_path":{"value":"repos/sharecli/audit/SCORECARD-v38.md","status":"recorded_unverified"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}},
+    {"card_path":"scorecards/substrate-audit.json","recorded_source_path":{"value":null,"status":"absent"},"assessed_subject":{"value":null,"status":"unknown"},"source_hash":{"value":null,"status":"unknown"},"conversion":{"value":null,"status":"unknown"},"capture_timestamp":{"value":null,"status":"unknown"}}
+  ],
+  "verified_unreviewed_candidates": [
+    {"card_path":"scorecards/Tracera-wtrees-audit.json","candidate_path":"repos/Tracera-wtrees/fix-contract-tests-20260901/audit/SCORECARD-FULL-2026-08-30.md","candidate_sha256":"256d03913ef633b6f11340487353a6f2dbf620f7f059f0f2e4600519d7c762de","candidate_declared_subject":"tracera","candidate_declared_date":"2026-08-30","candidate_status":"verified_bytes_unreviewed","recorded_path_status":"missing","conversion_status":"unknown_no_native_to_unified_selection_rule","aggregation_status":"435_weighted_prioritized_subset_of_480_rule_unknown"},
+    {"card_path":"scorecards/substrate-audit.json","candidate_path":"repos/substrate/audit_scorecard.json","candidate_sha256":"ad4662b6b6a441588bbf606b439d45083f8b32e033c6b81ae6e573388ed27148","candidate_declared_subject":"kooshapari/substrate","candidate_declared_date":"2026-07-22","candidate_status":"verified_bytes_unreviewed","recorded_path_status":"absent","conversion_status":"crosswalk_reproduces_example_but_current_input_mapping_order_drift","replacement_status":"not_drop_in_replacement"}
+  ]
+}
