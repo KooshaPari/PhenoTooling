@@ -34,6 +34,7 @@ members = [
     "crates/tasken",
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
+    "crates/apisync",
     "bin/hook-entry",
 ]
 
