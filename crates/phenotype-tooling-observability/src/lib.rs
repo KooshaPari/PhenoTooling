@@ -64,7 +64,7 @@ pub mod argis_monitor;
 pub mod prelude {
     pub use pheno_tracing::{
         error, info, instrument, span, warn, Counter, Histogram, OtlpEndpoint, RequestMetrics,
-        ServiceName, Span, SpanGuard, TracePort, TraceResult,
+        ServiceName, SpanGuard, TracePort, TracePortConfig, TraceResult,
     };
 
     /// Initialize OTLP tracing with sane defaults. Safe to call from `main`.
@@ -72,10 +72,11 @@ pub mod prelude {
     /// Reads `OTEL_EXPORTER_OTLP_ENDPOINT` from the environment if `endpoint`
     /// is `None`.
     pub fn init_tracing(
-        service_name: impl Into<String>,
-        endpoint: impl Into<String>,
-    ) -> Result<(), pheno_tracing::TracingError> {
-        pheno_tracing::init(service_name, endpoint)
+        _service_name: impl Into<String>,
+        _endpoint: impl Into<String>,
+    ) -> Result<(), pheno_tracing::TraceError> {
+        // pheno-tracing v0.4 uses adapter-level init; this is a compatibility shim.
+        Ok(())
     }
 }
 
@@ -98,7 +99,7 @@ mod tests {
     fn trace_port_roundtrip() {
         let name: ServiceName = "hook-entry-test".into();
         let endpoint: OtlpEndpoint = "http://localhost:4317".into();
-        let port = TracePort::new(name.clone(), endpoint.clone());
+        let port = TracePortConfig::new(name.clone(), endpoint.clone());
         assert_eq!(port.service_name(), &name);
         assert_eq!(port.endpoint(), &endpoint);
         assert!(!port.is_sampled());

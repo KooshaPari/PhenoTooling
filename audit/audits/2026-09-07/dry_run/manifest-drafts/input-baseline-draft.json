@@ -1,0 +1,27 @@
+{
+  "control_schema_version": "dry-run-controls-draft/v1",
+  "draft_status": "UNREVIEWED",
+  "sponsor_reviewed": false,
+  "purpose": "Frozen-byte input inventory; captured baseline is not an approved execution baseline.",
+  "original_bytes_preserved_independently": true,
+  "baseline": {
+    "rubric": {
+      "path": "rubric/rubric-v1.json",
+      "sha256": "e50b5c2875ef2ef00cf4b69e43f818373922852ac050914086aa1cc822f1dad6",
+      "length_bytes": 1346995,
+      "record_count": 4503,
+      "record_count_kind": "criteria_array_length",
+      "status": "captured_not_sponsor_reviewed"
+    }
+  },
+  "inputs": [
+    {"path":"rubric/rubric-v1.json","kind":"rubric","sha256":"e50b5c2875ef2ef00cf4b69e43f818373922852ac050914086aa1cc822f1dad6","length_bytes":1346995,"record_count":4503,"record_count_kind":"criteria_array_length"},
+    {"path":"rubric/schema.json","kind":"schema","sha256":"ee4f3dd2128ba97ebec04d491dbf1e29df64972e05588072d635df4d5399a072","length_bytes":1073,"record_count":7,"record_count_kind":"top_level_member_count"},
+    {"path":"rubric/id-crosswalk.json","kind":"crosswalk","sha256":"18267481af022e57b1148b092daf6a48753c4783bff7f7dc7f8cc308a537df9f","length_bytes":20209,"record_count":3,"record_count_kind":"top_level_member_count"},
+    {"path":"rubric/evidence-index.json","kind":"evidence_index","sha256":"7f67262d6589ebf55ce00373cf65a5528264e19bfd784d9ca4980ea1a2d12553","length_bytes":771145,"record_count":2,"record_count_kind":"top_level_member_count"},
+    {"path":"rubric/weights.json","kind":"weights","sha256":"47306c886278d05f57e0d278a135c03de580a37fbf1e65fefb75e0d876a6f43c","length_bytes":1379,"record_count":3,"record_count_kind":"top_level_member_count"},
+    {"path":"rubric/scoring.py","kind":"scorer","sha256":"faeb333db3e3db4aed2a6cecc6f5860dec4307b54ff881a40387e07493125034","length_bytes":2071,"record_count":null,"record_count_kind":"not_json"},
+    {"path":"scorecards/SUMMARY.json","kind":"summary","sha256":"1a127d86745c5c20d3afec9e45aa23bd728bdb5c9d64c87a9aa6a549964e4f3c","length_bytes":12062,"record_count":2,"record_count_kind":"top_level_member_count"},
+    {"path":"INDEX.md","kind":"index","sha256":"6e0992d8d8242b3f37e504c4a6a4924b6e151c8cc1b3e322e5a69df04d8c7e4b","length_bytes":2066,"record_count":null,"record_count_kind":"not_json"}
+  ]
+}

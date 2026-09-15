@@ -1,0 +1,12 @@
+SLSA • Supply-chain Levels for Software Artifacts
+Supply-chain Levels for Software Artifacts, or SLSA ("salsa").
+It’s a security framework, a checklist of standards and controls to prevent tampering, improve integrity, and secure packages and infrastructure. It’s how you get from "safe enough" to being as resilient as possible, at any link in the chain.
+Levels of assurance
+SLSA levels are like a common language to talk about how secure software, supply chains and their component parts really are. From source to platform, the levels blend together industry-recognized best practices to create four compliance levels of increasing assurance.
+Read the level specifications
+SLSA can help create more trust across the entire supply chain. It can be used by producers for protection against tampering and insider threats, by consumers to verify the software they rely on is secure, and by infrastructure providers as a guideline for hardening build platforms and processes.
+“This is our chance to work with the industry, set a standard which we can all agree to, and work together to raise the collective bar.”
+“Having a common language and standard for objectively measuring our supply chain security is a must in order to even begin meeting EO 14028.”
+“The threat to the software supply chain is real and growing, 650% from the last year. However, changing development process without slowing down is a major barrier.”
+“Regulated industries such as Financial Services are being more vocal on defining their responsibility on the software supply chain. Having control and traceability as a requirement is taking shape.”
+Want to learn about how it fits your organization’s security? Here’s the documentation behind the framework, with use cases, specific threats (and their prevention), provenance and fully detailed requirements.

@@ -1,0 +1,602 @@
+[
+  {
+    "message": "Add fast configurable Performance Scorecard\n\n* Add fast configurable performance scorecard app\n\n* Register Performance Scorecard in CoachTools suite\n\n* Format generated manifest source with Performanc",
+    "repo": "Sean-Pereksta/CoachingTools",
+    "sha": "4c0b006c6d55a548acb3b1084e65d65c99cb8551",
+    "url": "https://github.com/Sean-Pereksta/CoachingTools/commit/4c0b006c6d55a548acb3b1084e65d65c99cb8551"
+  },
+  {
+    "message": "Aggregate Opportunity Engine outcomes into proof scorecard\n\n* Add Opportunity Engine performance scorecard\n\n* Test Opportunity Engine performance scorecard\n\n* Package Opportunity Engine scorecard modu",
+    "repo": "sagelawrence1-spec/sports-card-market-os",
+    "sha": "8852d3bd8508c14b4182d44550d84456de6fdf4d",
+    "url": "https://github.com/sagelawrence1-spec/sports-card-market-os/commit/8852d3bd8508c14b4182d44550d84456de6fdf4d"
+  },
+  {
+    "message": "fix(readme): scorecard badge reads score from api.scorecard.dev (#13)\n\nThe stock badge chain (api.scorecard.dev/badge -> shields.io\nossf-scorecard) renders \"invalid repo path\": shields' ossf-scorecard",
+    "repo": "hyperformant/vibecarbon",
+    "sha": "c0bfbe2e9a12b29b314599568eb57b67cbca7eef",
+    "url": "https://github.com/hyperformant/vibecarbon/commit/c0bfbe2e9a12b29b314599568eb57b67cbca7eef"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#108)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action)\nfrom 2.4.3 to 2.4.4.\n<details>\n<summary>Release notes</summa",
+    "repo": "nsphung/mcp-snowflake-server",
+    "sha": "cdf5ee8b3eb38d2e46a39a39f71e5d47ceb1065c",
+    "url": "https://github.com/nsphung/mcp-snowflake-server/commit/cdf5ee8b3eb38d2e46a39a39f71e5d47ceb1065c"
+  },
+  {
+    "message": "scorecard.yml's comment names api.scorecard.dev (closes #219) (#221)\n\nThe comment read api.securityscorecards.dev, a domain neither\nossf/scorecard-action's nor ossf/scorecard's own README mentions any",
+    "repo": "btclib-org/btclib-benchmarks",
+    "sha": "ff9d131a5ceb188429c4822efa50d4c6f0f5df27",
+    "url": "https://github.com/btclib-org/btclib-benchmarks/commit/ff9d131a5ceb188429c4822efa50d4c6f0f5df27"
+  },
+  {
+    "message": "HANI OS release \u00b7 v2.9.60-purchase-review-v2-adaptive-scorecard (#24)\n\n* HANI OS modular release: v2.9.60-purchase-review-v2-adaptive-scorecard\n\n* HANI OS modular release: v2.9.60-purchase-review-v2-a",
+    "repo": "ghdtjdalskr-svg/hani-os",
+    "sha": "2177953920d008dd37e0fd113a2c4051853f72d3",
+    "url": "https://github.com/ghdtjdalskr-svg/hani-os/commit/2177953920d008dd37e0fd113a2c4051853f72d3"
+  },
+  {
+    "message": "Separate tee-time and scorecard publication\n\n* Separate tee-time and scorecard publication\n\n* Separate tee-time and scorecard publication\n\n* Separate tee-time and scorecard publication\n\n* Enable separ",
+    "repo": "Highstreetwebco/barford-golf-society-2027-dev",
+    "sha": "6ea0bce1ef20f6065b20f592fe853b814103b48b",
+    "url": "https://github.com/Highstreetwebco/barford-golf-society-2027-dev/commit/6ea0bce1ef20f6065b20f592fe853b814103b48b"
+  },
+  {
+    "message": "Migrate scorecard dashboards onto dashboards.smartmetrixdata.com\n\nHost Goal Metrics scorecard and scorecard-by-objective under /scorecard\nand /scorecard-by-objective on the clean custom domain, off th",
+    "repo": "ambersmart/campus-capacity-extension",
+    "sha": "e06f6f105eb9209d6bfbc99131e4e979cf5bbc98",
+    "url": "https://github.com/ambersmart/campus-capacity-extension/commit/e06f6f105eb9209d6bfbc99131e4e979cf5bbc98"
+  },
+  {
+    "message": "Add supplier-scorecard technical compliance contract\n\n* Add supplier-scorecard technical compliance contract\n\n* Add supplier-scorecard export options to compare\n\n* Add supplier scorecard contract test",
+    "repo": "yigitcan-ozturk/bidlint",
+    "sha": "f3a160ba3cc5ee69fe31c28efccf895548b94330",
+    "url": "https://github.com/yigitcan-ozturk/bidlint/commit/f3a160ba3cc5ee69fe31c28efccf895548b94330"
+  },
+  {
+    "message": "fix(ux-scorecard): fail closed on missing baseline metrics (#13198) (#13204)\n\n* fix(ux-scorecard): fail closed on missing baseline metrics (#13198)\n\n* style(ux-scorecard): apply rustfmt (#13198)\n\n* te",
+    "repo": "EffortlessMetrics/perl-lsp-swarm",
+    "sha": "7adfa3df9a71b4ea222dc2e856622bde78560ee5",
+    "url": "https://github.com/EffortlessMetrics/perl-lsp-swarm/commit/7adfa3df9a71b4ea222dc2e856622bde78560ee5"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "step-security/docker-login-action",
+    "sha": "5dabd9e15e414ff65e1c481fbefac600b0655240",
+    "url": "https://github.com/step-security/docker-login-action/commit/5dabd9e15e414ff65e1c481fbefac600b0655240"
+  },
+  {
+    "message": "Rename scorecard.py to scorecard/scorecard.py",
+    "repo": "davegebert-ux/50_Day_MA_Data",
+    "sha": "403ef43d68ea8a26b8796e1503f90d5a1a3c7157",
+    "url": "https://github.com/davegebert-ux/50_Day_MA_Data/commit/403ef43d68ea8a26b8796e1503f90d5a1a3c7157"
+  },
+  {
+    "message": "feat(models): Scorecard + Clustering (v1-full-parity part 1)\n\n- pmml-xml: RawScorecard/Characteristic/Attribute, RawClusteringModel/Cluster/ComparisonMeasure, parse_scorecard/clustering, RawPmml exten",
+    "repo": "pab1s/pmmlruntime",
+    "sha": "c935b3ead1790a3e8fd7efdcb653749e06cb7ce2",
+    "url": "https://github.com/pab1s/pmmlruntime/commit/c935b3ead1790a3e8fd7efdcb653749e06cb7ce2"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action (#9)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc963261246454",
+    "repo": "victron-venus/dbus-ev",
+    "sha": "263b33e48059995711d55901fd8eaddbc2b0c818",
+    "url": "https://github.com/victron-venus/dbus-ev/commit/263b33e48059995711d55901fd8eaddbc2b0c818"
+  },
+  {
+    "message": "chore: add OpenSSF Scorecard workflow (#570)\n\n* Create scorecard.yml\n\n* Update scorecard.yml\n\n* Update scorecard.yml",
+    "repo": "dynatrace-oss/dynatrace-mcp",
+    "sha": "f3a3c69f2bae377df58164aa4676dcb699e52d96",
+    "url": "https://github.com/dynatrace-oss/dynatrace-mcp/commit/f3a3c69f2bae377df58164aa4676dcb699e52d96"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action (#18)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc96326124645",
+    "repo": "victron-venus/dbus-pump",
+    "sha": "dad5b4ec0ba87e01d437ddfec924b6135bc43410",
+    "url": "https://github.com/victron-venus/dbus-pump/commit/dad5b4ec0ba87e01d437ddfec924b6135bc43410"
+  },
+  {
+    "message": "Fix scorecard plots in versioned docs (#1097)\n\n* docs: fix versioned scorecard plot paths\n\n* docs: limit scorecard path fix to generated pages\n\n* docs: update scorecard provenance commit\n\n* docs: rewr",
+    "repo": "NVIDIA/earth2studio",
+    "sha": "152b7e43416c9fb492d64464cccd05574db4a54a",
+    "url": "https://github.com/NVIDIA/earth2studio/commit/152b7e43416c9fb492d64464cccd05574db4a54a"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "ducktors/carretto",
+    "sha": "4d1c262ed9e3cccbf7bead414f419d11a2a08d1b",
+    "url": "https://github.com/ducktors/carretto/commit/4d1c262ed9e3cccbf7bead414f419d11a2a08d1b"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.1 to 2.4.4 (#91)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-a",
+    "repo": "BaryoDev/umbraco-pwa",
+    "sha": "e0068856dd26dd7e7597d91d71abeafcf7ade54d",
+    "url": "https://github.com/BaryoDev/umbraco-pwa/commit/e0068856dd26dd7e7597d91d71abeafcf7ade54d"
+  },
+  {
+    "message": "feat(scorecard): implement scorecard metrics and results management\n\n- Added new ScorecardMetric and ScorecardResult interfaces to manage team-specific metrics and their weekly results.\n- Implemented ",
+    "repo": "Bremmar/bremmar-org-management-app",
+    "sha": "cfebb3e368a0d305a71ef1a45f3208b0ba22c23e",
+    "url": "https://github.com/Bremmar/bremmar-org-management-app/commit/cfebb3e368a0d305a71ef1a45f3208b0ba22c23e"
+  },
+  {
+    "message": "Add reusable scoring for remaining Olympic events\n\n* Add supabase/add-event-scorecards.sql\n\n* Add worker-event-scorecards.js\n\n* Add event-scorecard.html\n\n* Add event-scorecard.css\n\n* Add event-scoreca",
+    "repo": "justiceschafer1234-star/Schafer-Olympics",
+    "sha": "75643a08297758ca02c587fc1b42ca938bb5d552",
+    "url": "https://github.com/justiceschafer1234-star/Schafer-Olympics/commit/75643a08297758ca02c587fc1b42ca938bb5d552"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "rebaze/rio",
+    "sha": "7f358277949e8c92d7073d9490e0f4535e2d4be0",
+    "url": "https://github.com/rebaze/rio/commit/7f358277949e8c92d7073d9490e0f4535e2d4be0"
+  },
+  {
+    "message": "Bump ossf/scorecard-action\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from af76153369ae1eb1eaffc4118046b7fda9a8419e to e8e61e86ea0a152be84d03729c02a7300065c17d.\n- [Releas",
+    "repo": "gui-ying233/MGPUsersGraph",
+    "sha": "b9550032ac84cc096355f97b52e98246ceab4763",
+    "url": "https://github.com/gui-ying233/MGPUsersGraph/commit/b9550032ac84cc096355f97b52e98246ceab4763"
+  },
+  {
+    "message": "Fix Trichome Trials runtime and scorecard UX\n\n* Harden Trichome Trials shell and scorecard HUD\n\n* Make Trichome Trials self-contained and require reviewed scorecards\n\n* Polish Trichome Trials scorecar",
+    "repo": "dtfgenetics/Thc",
+    "sha": "5e605c7b69cc29dff0295b65bd5307655b0cd0fd",
+    "url": "https://github.com/dtfgenetics/Thc/commit/5e605c7b69cc29dff0295b65bd5307655b0cd0fd"
+  },
+  {
+    "message": "Remove custom Scorecard threshold policy (#99)\n\n* Remove custom Scorecard threshold policy\n\n* Validate Scorecard evidence shape\n\n* Test malformed Scorecard evidence\n\n* Fix Scorecard v5 JSON validation",
+    "repo": "dceoy/segh",
+    "sha": "62ebe482990725e69c5b68a2d2ce164d2a0a5b7c",
+    "url": "https://github.com/dceoy/segh/commit/62ebe482990725e69c5b68a2d2ce164d2a0a5b7c"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "vegastrike/Vega-Strike-Engine-Source",
+    "sha": "7a3243265b7c9d9e14086ca5eaf583325014937a",
+    "url": "https://github.com/vegastrike/Vega-Strike-Engine-Source/commit/7a3243265b7c9d9e14086ca5eaf583325014937a"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.3.3 to 2.4.4 (#189)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-",
+    "repo": "Raizo-TCS/archive_r",
+    "sha": "2473c760ee02ea990f08bb050347f270a1c2366c",
+    "url": "https://github.com/Raizo-TCS/archive_r/commit/2473c760ee02ea990f08bb050347f270a1c2366c"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc96326124645441f03",
+    "repo": "only-cli/oc",
+    "sha": "625048a7d1f9cfbaa8a02392a47d327a6177e079",
+    "url": "https://github.com/only-cli/oc/commit/625048a7d1f9cfbaa8a02392a47d327a6177e079"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "intel/intel-sgx-ssl",
+    "sha": "4e44f55571fbaa516f71cec7180fbac3e882a8e5",
+    "url": "https://github.com/intel/intel-sgx-ssl/commit/4e44f55571fbaa516f71cec7180fbac3e882a8e5"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action (#8)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc963261246454",
+    "repo": "victron-venus/dbus-evcharger",
+    "sha": "63bc94dec4ba16e7c03be4c4fe02b58fd7e36151",
+    "url": "https://github.com/victron-venus/dbus-evcharger/commit/63bc94dec4ba16e7c03be4c4fe02b58fd7e36151"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#7)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-ac",
+    "repo": "jauderho/quip2md",
+    "sha": "784cec34b85683ea8ec98ceddea4b0db2c7ec0f5",
+    "url": "https://github.com/jauderho/quip2md/commit/784cec34b85683ea8ec98ceddea4b0db2c7ec0f5"
+  },
+  {
+    "message": "feat(trust): OpenSSF Scorecard workflow + provenance and Scorecard badges\n\nWeekly Scorecard analysis with published results (feeds the public badge\nand the scorecard.dev viewer) plus SARIF upload to c",
+    "repo": "hyperformant/vibecarbon",
+    "sha": "708662c0e8d68dc415968501678610e499ff67f9",
+    "url": "https://github.com/hyperformant/vibecarbon/commit/708662c0e8d68dc415968501678610e499ff67f9"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#2031)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/o",
+    "repo": "NativeScript/android",
+    "sha": "b9e29f1d85f04512400e187a6a0ac93fc9217a9d",
+    "url": "https://github.com/NativeScript/android/commit/b9e29f1d85f04512400e187a6a0ac93fc9217a9d"
+  },
+  {
+    "message": "ci: bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-act",
+    "repo": "ZL154/AchievementBadges_for_Jellyfin",
+    "sha": "e7c317fd0c8d005c042d087a903991f8eee01f3c",
+    "url": "https://github.com/ZL154/AchievementBadges_for_Jellyfin/commit/e7c317fd0c8d005c042d087a903991f8eee01f3c"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "jonathansantilli/freemad",
+    "sha": "9d774ac83de5e0f4f5c3b889b6467f1908e8fb10",
+    "url": "https://github.com/jonathansantilli/freemad/commit/9d774ac83de5e0f4f5c3b889b6467f1908e8fb10"
+  },
+  {
+    "message": "fix(scorecard): harden REST identity and status handling (#12)\n\n* fix(scorecard): harden REST identity and status handling\n\n* fix(scorecard): align repository cache freshness\n\n* fix(scorecard): valida",
+    "repo": "riyannode/omni",
+    "sha": "e990eee79caced94465b2fcc2bd707f609ee02d1",
+    "url": "https://github.com/riyannode/omni/commit/e990eee79caced94465b2fcc2bd707f609ee02d1"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#202)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-",
+    "repo": "akarnokd/RxJavaExtensions",
+    "sha": "008f5f8c9d9363b77a2a1fcfcb0bb2ddfe65e209",
+    "url": "https://github.com/akarnokd/RxJavaExtensions/commit/008f5f8c9d9363b77a2a1fcfcb0bb2ddfe65e209"
+  },
+  {
+    "message": "chore(ci): bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorec",
+    "repo": "lgriffin/ESI.ts",
+    "sha": "603c4d85c09c1dba7cddb589ae1fd3f1b5350280",
+    "url": "https://github.com/lgriffin/ESI.ts/commit/603c4d85c09c1dba7cddb589ae1fd3f1b5350280"
+  },
+  {
+    "message": "ci: bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#20)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scoreca",
+    "repo": "rubicon/diviops-module-bridge",
+    "sha": "dfc312bfc3757a28addf8895916a358ab177da7b",
+    "url": "https://github.com/rubicon/diviops-module-bridge/commit/dfc312bfc3757a28addf8895916a358ab177da7b"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action (#412)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc9632612464",
+    "repo": "khuepm/LumiBase",
+    "sha": "1c3cce405628c2cc9b5c47b145e7ba6232176742",
+    "url": "https://github.com/khuepm/LumiBase/commit/1c3cce405628c2cc9b5c47b145e7ba6232176742"
+  },
+  {
+    "message": "test(runtime): separate eval scorecard fixtures (#2000)\n\n* test(runtime): separate eval scorecard fixtures\n\n* test(runtime): split scorecard fixture construction",
+    "repo": "tetsuo-ai/agenc-core",
+    "sha": "ec532f75bef19786cdeb0ff4d7bf73cd2bc4faf8",
+    "url": "https://github.com/tetsuo-ai/agenc-core/commit/ec532f75bef19786cdeb0ff4d7bf73cd2bc4faf8"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.1 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "SorenHJohansen/SattLint",
+    "sha": "ca85b4cbfbd71c0316b34c292df720c6e29e47cf",
+    "url": "https://github.com/SorenHJohansen/SattLint/commit/ca85b4cbfbd71c0316b34c292df720c6e29e47cf"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "step-security/action-suggester",
+    "sha": "d0829438cd0d08b249792d06dd4b716e166751b2",
+    "url": "https://github.com/step-security/action-suggester/commit/d0829438cd0d08b249792d06dd4b716e166751b2"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.1 to 2.4.3\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.3.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "SorenHJohansen/SattLint",
+    "sha": "a98ced78b8bb95ac912998d3e938df35a0b8f23c",
+    "url": "https://github.com/SorenHJohansen/SattLint/commit/a98ced78b8bb95ac912998d3e938df35a0b8f23c"
+  },
+  {
+    "message": "chore(deps): update ossf/scorecard-action action to v2.4.4 (#954)\n\nThis PR contains the following updates:\n\n| Package | Type | Update | Change |\n|---|---|---|---|\n|\n[ossf/scorecard-action](https://red",
+    "repo": "canonical/identity-platform-login-ui",
+    "sha": "4cfe6add2e24d49630515b0342bb374f3178bc14",
+    "url": "https://github.com/canonical/identity-platform-login-ui/commit/4cfe6add2e24d49630515b0342bb374f3178bc14"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#7)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf",
+    "repo": "kirankotari/ossguard",
+    "sha": "7ab576f0c15d20685d26ab4f6ed3488b11b6cc24",
+    "url": "https://github.com/kirankotari/ossguard/commit/7ab576f0c15d20685d26ab4f6ed3488b11b6cc24"
+  },
+  {
+    "message": "Merge pull request #122 from PolicyEngine/fix-scorecard-base-path\n\nServe the scorecard at /scorecard",
+    "repo": "PolicyEngine/policyengine-scorecard",
+    "sha": "f5dce07d218d1fe8e5737c5d188f60c53e192dfe",
+    "url": "https://github.com/PolicyEngine/policyengine-scorecard/commit/f5dce07d218d1fe8e5737c5d188f60c53e192dfe"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "step-security/setup-php",
+    "sha": "77c46acd366c41e50677fb8a87412ccfd7ff03b7",
+    "url": "https://github.com/step-security/setup-php/commit/77c46acd366c41e50677fb8a87412ccfd7ff03b7"
+  },
+  {
+    "message": "build(deps): Bump ossf/scorecard-action from 2.3.1 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3.1 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "Mostafa-SAID7/Motor-Oil-EG",
+    "sha": "ee39556efcb4303a58a0b29bd817fde88d35b60a",
+    "url": "https://github.com/Mostafa-SAID7/Motor-Oil-EG/commit/ee39556efcb4303a58a0b29bd817fde88d35b60a"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "peap/git-global",
+    "sha": "890ea1d37b106c4a1051da3d719ea1592b6b8605",
+    "url": "https://github.com/peap/git-global/commit/890ea1d37b106c4a1051da3d719ea1592b6b8605"
+  },
+  {
+    "message": "Build(deps): Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "komidawi/komidawi.github.io",
+    "sha": "e6af57a0b0c664b596cc801a503451a022f8a64e",
+    "url": "https://github.com/komidawi/komidawi.github.io/commit/e6af57a0b0c664b596cc801a503451a022f8a64e"
+  },
+  {
+    "message": "docs(research): add quality scorecard contract (#312)\n\n* docs(research): add quality scorecard contract\n\n* ci(research): run quality scorecard tests\n\n* fix(research): tighten scorecard CI and evidence",
+    "repo": "Lateily/Alpha-Research",
+    "sha": "b02538046b4ffe3057dc4dfbd71d5d1d1ce83b52",
+    "url": "https://github.com/Lateily/Alpha-Research/commit/b02538046b4ffe3057dc4dfbd71d5d1d1ce83b52"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "step-security/update-pr-description",
+    "sha": "234a8460bcadb8977faf1fea7689f2ce6152bcd2",
+    "url": "https://github.com/step-security/update-pr-description/commit/234a8460bcadb8977faf1fea7689f2ce6152bcd2"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#162)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-",
+    "repo": "IntelLabs/atlas-cli",
+    "sha": "c2b90b39f9efeb6bf8428eeb0f8dc964827fae75",
+    "url": "https://github.com/IntelLabs/atlas-cli/commit/c2b90b39f9efeb6bf8428eeb0f8dc964827fae75"
+  },
+  {
+    "message": "feat: persist Chief Developer scorecards and promote durable decisions (#269)\n\n* feat: persist latest agent scorecards\n\n* feat: promote evidence-backed chief developer decisions to canonical memory\n\n*",
+    "repo": "MuninHQ/munin-foundation",
+    "sha": "7d45e358032db31ccc0c2de3f63ccefe73140b0b",
+    "url": "https://github.com/MuninHQ/munin-foundation/commit/7d45e358032db31ccc0c2de3f63ccefe73140b0b"
+  },
+  {
+    "message": "build(deps): Bump ossf/scorecard-action from 2.4.1 to 2.4.4 (#60)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "sameerkhansf/Sameer-Khan",
+    "sha": "23ccbf3dba94c520bd11ee46133cc48a6f2eb9e0",
+    "url": "https://github.com/sameerkhansf/Sameer-Khan/commit/23ccbf3dba94c520bd11ee46133cc48a6f2eb9e0"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "OpenScribbler/Katharsis",
+    "sha": "29e580d9c1d4d07046970be49ab4406f2834409b",
+    "url": "https://github.com/OpenScribbler/Katharsis/commit/29e580d9c1d4d07046970be49ab4406f2834409b"
+  },
+  {
+    "message": "fix(ci): publish maturity scorecards when main advances (#129955)\n\n* fix(ci): retry stale maturity scorecard runs\n\n* fix(ci): refreeze queued scorecard successors\n\n* fix(ci): allow scorecard publicati",
+    "repo": "openclaw/openclaw",
+    "sha": "67a310b2c6bafe7a8b74745ee958c34bca55dc84",
+    "url": "https://github.com/openclaw/openclaw/commit/67a310b2c6bafe7a8b74745ee958c34bca55dc84"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#171)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action)\nfrom 2.4.3 to 2.4.4.\n<details>\n<summary>Release notes</summary>\n<p><em>So",
+    "repo": "muir/list",
+    "sha": "2335e7058083314c12ce051fa3b8ceee65aa6851",
+    "url": "https://github.com/muir/list/commit/2335e7058083314c12ce051fa3b8ceee65aa6851"
+  },
+  {
+    "message": "Fix live scorecard column order\n\n* Fix live scorecard column order\n\n* Load live scorecard column fix",
+    "repo": "brent-prog/two-ball-darts",
+    "sha": "ffb0294dec82c5ceff07316a06db8b1180f75900",
+    "url": "https://github.com/brent-prog/two-ball-darts/commit/ffb0294dec82c5ceff07316a06db8b1180f75900"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "Tech-Preta/terraform-sample",
+    "sha": "aa368eac42aadceee1cf753ddb455f60afe10d61",
+    "url": "https://github.com/Tech-Preta/terraform-sample/commit/aa368eac42aadceee1cf753ddb455f60afe10d61"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.1 to 2.4.3 (#173)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.3.\n- [Release notes](https://github.com/os",
+    "repo": "device-management-toolkit/enterprise-assistant",
+    "sha": "9a91d144ef80d766779ea201e946d401ff46da1d",
+    "url": "https://github.com/device-management-toolkit/enterprise-assistant/commit/9a91d144ef80d766779ea201e946d401ff46da1d"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#99)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "lu1tr0n/nationid",
+    "sha": "d0bbdc2853047f51d915ef3b724dd83af7cedfab",
+    "url": "https://github.com/lu1tr0n/nationid/commit/d0bbdc2853047f51d915ef3b724dd83af7cedfab"
+  },
+  {
+    "message": "chore(deps): Bump ossf/scorecard-action from 2.4.0 to 2.4.4 in the github-actions group across 1 directory (#5)\n\nBumps the github-actions group with 1 update in the / directory:\n[ossf/scorecard-action",
+    "repo": "u64a/developer-control-tower",
+    "sha": "8c0642c6adb3c71b4408ae5d9663b76f634529b8",
+    "url": "https://github.com/u64a/developer-control-tower/commit/8c0642c6adb3c71b4408ae5d9663b76f634529b8"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#46)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-a",
+    "repo": "daveepope/beanz",
+    "sha": "98daa09bb41d1742ff39306bead3df9c79af1bf3",
+    "url": "https://github.com/daveepope/beanz/commit/98daa09bb41d1742ff39306bead3df9c79af1bf3"
+  },
+  {
+    "message": "Add cross-stock historical scorecards for market detectors (#15)\n\n* Expose detector event summary helper\n\n* Add cross-stock detector scorecards\n\n* Test cross-stock detector scorecards",
+    "repo": "derektshaffer/youtube-trading-strategy-lab-public",
+    "sha": "16abb8f973f39ec16988e6fa4ffe5055c82feb3d",
+    "url": "https://github.com/derektshaffer/youtube-trading-strategy-lab-public/commit/16abb8f973f39ec16988e6fa4ffe5055c82feb3d"
+  },
+  {
+    "message": "ci(actions): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "VBCreators/AI-RAG",
+    "sha": "f2b7e0fc42ff0cad2afc35ae606a6cb230f0802b",
+    "url": "https://github.com/VBCreators/AI-RAG/commit/f2b7e0fc42ff0cad2afc35ae606a6cb230f0802b"
+  },
+  {
+    "message": "chore(deps): Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#50)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "SemRels/provider-gitlab",
+    "sha": "74f9616dff809265248a8ad150f607755e5e12a5",
+    "url": "https://github.com/SemRels/provider-gitlab/commit/74f9616dff809265248a8ad150f607755e5e12a5"
+  },
+  {
+    "message": "fix(ci): correct scorecard-action pin and add OpenSSF Scorecard badge (#396)\n\n* fix(ci): correct scorecard-action pin and add OpenSSF Scorecard badge\n\nThe initial scorecard.yml run failed: the pinned\n",
+    "repo": "ff-fab/cosalette",
+    "sha": "64fd3a2c69720346201339fb10d5b1bfd3b5200d",
+    "url": "https://github.com/ff-fab/cosalette/commit/64fd3a2c69720346201339fb10d5b1bfd3b5200d"
+  },
+  {
+    "message": "ci: bump ossf/scorecard-action from 2.4.0 to 2.4.4 (#1)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecar",
+    "repo": "bartosz-kuc/skanfirmy-mcp",
+    "sha": "0e2a1195b43db66bbc9d3ea01681105ae07e8900",
+    "url": "https://github.com/bartosz-kuc/skanfirmy-mcp/commit/0e2a1195b43db66bbc9d3ea01681105ae07e8900"
+  },
+  {
+    "message": "ci(deps): bump ossf/scorecard-action from 2.3.1 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3.1 to 2.4.4.\n- [Release notes](https://github.com/ossf/scoreca",
+    "repo": "Ch-SriCharan/vlovkkk",
+    "sha": "7378ea3f2bce59f70148064133399e1be3915c06",
+    "url": "https://github.com/Ch-SriCharan/vlovkkk/commit/7378ea3f2bce59f70148064133399e1be3915c06"
+  },
+  {
+    "message": "Merge pull request #8 from akhiltalati101/initial-commit-ev-scorecard\n\n[EV Scorecard] Initial commit ev scorecard",
+    "repo": "akhiltalati101/toronto-city-tools",
+    "sha": "f2e4e09b9cca7c81ce681a86ca83028f194f0f1e",
+    "url": "https://github.com/akhiltalati101/toronto-city-tools/commit/f2e4e09b9cca7c81ce681a86ca83028f194f0f1e"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4 (#12)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "sebastienrousseau/oxml-mcp",
+    "sha": "84df24f38946b12a42af6ad5aea373befd23aa0c",
+    "url": "https://github.com/sebastienrousseau/oxml-mcp/commit/84df24f38946b12a42af6ad5aea373befd23aa0c"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.1 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-action/",
+    "repo": "keyrx/keyrx",
+    "sha": "e231eef9f60670dcd06f5e09ab0df3479c7b131d",
+    "url": "https://github.com/keyrx/keyrx/commit/e231eef9f60670dcd06f5e09ab0df3479c7b131d"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4 (#3)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf",
+    "repo": "Rusha-Corp/contract-engineering-skills",
+    "sha": "952cb096e3e0b36dc006445d6d6b0e8b92a19e7f",
+    "url": "https://github.com/Rusha-Corp/contract-engineering-skills/commit/952cb096e3e0b36dc006445d6d6b0e8b92a19e7f"
+  },
+  {
+    "message": "chore(deps): Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "trex0092/HAWKEYE-STERLING-SCREENING",
+    "sha": "2e23e2d4db9a4397c50a58fe827f67fd4a247139",
+    "url": "https://github.com/trex0092/HAWKEYE-STERLING-SCREENING/commit/2e23e2d4db9a4397c50a58fe827f67fd4a247139"
+  },
+  {
+    "message": "Add authoritative manager pilot scorecard and completion evidence (#43)\n\n* Add authoritative pilot scorecard evidence model\n\n* Add manager pilot scorecard UI\n\n* Record enrolled pilot operating days\n\n*",
+    "repo": "theitaliancouplellc-cpu/El-Molino-Ops",
+    "sha": "e524428eae2bcb60a431404bcb0e5999179b21f6",
+    "url": "https://github.com/theitaliancouplellc-cpu/El-Molino-Ops/commit/e524428eae2bcb60a431404bcb0e5999179b21f6"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.1 to 2.4.4 (#21)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "niStee/ani-cli-sync",
+    "sha": "db5667edcf0366aec90ca6e873c353e27c4bc43a",
+    "url": "https://github.com/niStee/ani-cli-sync/commit/db5667edcf0366aec90ca6e873c353e27c4bc43a"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#414)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-",
+    "repo": "maxvandl/bareos",
+    "sha": "a2d85c9f7c41ecea51d9b440c05eb4895eaffe54",
+    "url": "https://github.com/maxvandl/bareos/commit/a2d85c9f7c41ecea51d9b440c05eb4895eaffe54"
+  },
+  {
+    "message": "fix(ci): publish maturity scorecards when main advances (#129955)\n\n* fix(ci): retry stale maturity scorecard runs\n\n* fix(ci): refreeze queued scorecard successors\n\n* fix(ci): allow scorecard publicati",
+    "repo": "wewantbread/ddcdashboard",
+    "sha": "67a310b2c6bafe7a8b74745ee958c34bca55dc84",
+    "url": "https://github.com/wewantbread/ddcdashboard/commit/67a310b2c6bafe7a8b74745ee958c34bca55dc84"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#65)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action)\nfrom 2.4.3 to 2.4.4.\n<details>\n<summary>Release notes</summar",
+    "repo": "microsoft/artifacts-keyring-nofuss",
+    "sha": "f79d6a2edfd1e37a5e2d8c123ccf5311024020e3",
+    "url": "https://github.com/microsoft/artifacts-keyring-nofuss/commit/f79d6a2edfd1e37a5e2d8c123ccf5311024020e3"
+  },
+  {
+    "message": "Add External Scorecard Importer for Tabletop Battles, Warhammer 40k App, and manual scorecards with verified digital scorecard generation",
+    "repo": "hsiehjun/EloRanking-GCP",
+    "sha": "b4bcddd0faf1b2e08371ce40061115573ffad747",
+    "url": "https://github.com/hsiehjun/EloRanking-GCP/commit/b4bcddd0faf1b2e08371ce40061115573ffad747"
+  },
+  {
+    "message": "chore(deps): Bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "EvilBit-Labs/unifi_extract",
+    "sha": "051c58ff235fa38df8c59054fb939df25dadf711",
+    "url": "https://github.com/EvilBit-Labs/unifi_extract/commit/051c58ff235fa38df8c59054fb939df25dadf711"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#2171)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard",
+    "repo": "AcademySoftwareFoundation/rez",
+    "sha": "dd5f7e323eb216afe24e15c282b86a8eaa41972a",
+    "url": "https://github.com/AcademySoftwareFoundation/rez/commit/dd5f7e323eb216afe24e15c282b86a8eaa41972a"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scor",
+    "repo": "dfetch-org/dfetch",
+    "sha": "eee9ef76e280c9fef44ab4b9207394f05d7846c9",
+    "url": "https://github.com/dfetch-org/dfetch/commit/eee9ef76e280c9fef44ab4b9207394f05d7846c9"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#3)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf",
+    "repo": "attenu-io/attenu-derive",
+    "sha": "a929a0da537b5378d40aa26afc73759a48001084",
+    "url": "https://github.com/attenu-io/attenu-derive/commit/a929a0da537b5378d40aa26afc73759a48001084"
+  },
+  {
+    "message": "Merge pull request #752 from airsports-no/scorecard_editor_frontend\n\nScorecard Phase 3 (PR 2): organizer-facing React scorecard editor",
+    "repo": "airsports-no/airsportslivetracking",
+    "sha": "2a14a889fe205cdcb6432a9552b59c9a645a63f2",
+    "url": "https://github.com/airsports-no/airsportslivetracking/commit/2a14a889fe205cdcb6432a9552b59c9a645a63f2"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.0 to 2.4.4 (#23)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "sebastienrousseau/xmlschema",
+    "sha": "d22ab1e52712e512d17d641e45469af6ccf7cf9e",
+    "url": "https://github.com/sebastienrousseau/xmlschema/commit/d22ab1e52712e512d17d641e45469af6ccf7cf9e"
+  },
+  {
+    "message": "ci(deps): bump ossf/scorecard-action\n\nBumps the github-actions group with 1 update in the / directory: [ossf/scorecard-action](https://github.com/ossf/scorecard-action).\n\n\nUpdates `ossf/scorecard-acti",
+    "repo": "thesadzzad/minimalityui",
+    "sha": "0ee1fae61f5c829647907e9ece87385122fffcdf",
+    "url": "https://github.com/thesadzzad/minimalityui/commit/0ee1fae61f5c829647907e9ece87385122fffcdf"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#74)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/oss",
+    "repo": "ZaparooProject/go-zapscript",
+    "sha": "3c7899b87b358f568e8cd1af6c40a842c74219e9",
+    "url": "https://github.com/ZaparooProject/go-zapscript/commit/3c7899b87b358f568e8cd1af6c40a842c74219e9"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#140)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/os",
+    "repo": "nulab/bee",
+    "sha": "a6e106730a1492b201fb1034acdc8851a6634535",
+    "url": "https://github.com/nulab/bee/commit/a6e106730a1492b201fb1034acdc8851a6634535"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#38)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-a",
+    "repo": "apache/hadoop-cloudstore",
+    "sha": "a81571b721fa72d92e3ff5ca0b20ff72b1ea846c",
+    "url": "https://github.com/apache/hadoop-cloudstore/commit/a81571b721fa72d92e3ff5ca0b20ff72b1ea846c"
+  },
+  {
+    "message": "release: 3.4.0 (#49)\n\nAutomated Release PR\n---\n\n\n##\n[3.4.0](https://github.com/scorecard-ai/scorecard-node/compare/v3.3.0...v3.4.0)\n(2026-08-14)\n\n\n### Features\n\n* recover custom SDK helpers (runAndEva",
+    "repo": "scorecard-ai/scorecard-node",
+    "sha": "3ad73c61c3d9d73cb4770e29db4013656106e844",
+    "url": "https://github.com/scorecard-ai/scorecard-node/commit/3ad73c61c3d9d73cb4770e29db4013656106e844"
+  },
+  {
+    "message": "ci(deps): Bump ossf/scorecard-action from 2.4.0 to 2.4.4\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.0 to 2.4.4.\n- [Release notes](https://github.com/ossf/scoreca",
+    "repo": "jooservices/dto",
+    "sha": "08b1b9dc86f57d8b76a3a0d6d838592b309bdf28",
+    "url": "https://github.com/jooservices/dto/commit/08b1b9dc86f57d8b76a3a0d6d838592b309bdf28"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#108)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/ossf/scorecard-",
+    "repo": "IntelLabs/tdx-workload-attestation",
+    "sha": "cc52e013e614539a7dc2bd4f632e7b4669068b3a",
+    "url": "https://github.com/IntelLabs/tdx-workload-attestation/commit/cc52e013e614539a7dc2bd4f632e7b4669068b3a"
+  },
+  {
+    "message": "ci(scorecard): stop filing repository grades as code-scanning alerts (#178)\n\n* ci(scorecard): stop filing repository grades as code-scanning alerts\n\n* docs(scorecard): name code scanning as the destin",
+    "repo": "luckyPipewrench/agent-egress-bench",
+    "sha": "75719cca1eba90a0631a68b13542978d1da3bbf0",
+    "url": "https://github.com/luckyPipewrench/agent-egress-bench/commit/75719cca1eba90a0631a68b13542978d1da3bbf0"
+  },
+  {
+    "message": "chore(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#918)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.3 to 2.4.4.\n- [Release notes](https://github.com/os",
+    "repo": "web-auth/webauthn-framework",
+    "sha": "1c6c242ee7f541df05abb8b73c792dccffb35cb6",
+    "url": "https://github.com/web-auth/webauthn-framework/commit/1c6c242ee7f541df05abb8b73c792dccffb35cb6"
+  },
+  {
+    "message": "Bump ossf/scorecard-action from 2.4.1 to 2.4.4 (#640)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action)\nfrom 2.4.1 to 2.4.4.\n<details>\n<summary>Release notes</summary>\n<p><em>So",
+    "repo": "goharbor/terraform-provider-harbor",
+    "sha": "06e1ff89f58c77f829641194663efef9c0ae7b71",
+    "url": "https://github.com/goharbor/terraform-provider-harbor/commit/06e1ff89f58c77f829641194663efef9c0ae7b71"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 2.4.3 to 2.4.4 (#1217)\n\nBumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action)\nfrom 2.4.3 to 2.4.4.\n<details>\n<summary>Release notes</summ",
+    "repo": "modelcontextprotocol/go-sdk",
+    "sha": "59185e69690c99f383e3150f7cc9808d10e16571",
+    "url": "https://github.com/modelcontextprotocol/go-sdk/commit/59185e69690c99f383e3150f7cc9808d10e16571"
+  },
+  {
+    "message": "build(deps): bump ossf/scorecard-action from 99c09fe975337306107572b4fdf4db224cf8e2f2 to 4eaacf0543bb3f2c246792bd56e8cdeffafb205a (#291)\n\nbuild(deps): bump ossf/scorecard-action\n\nBumps [ossf/scorecard",
+    "repo": "cunvoas/opendata-tools",
+    "sha": "013c45349d7bb9ca9984d87aaeed21123dd66aee",
+    "url": "https://github.com/cunvoas/opendata-tools/commit/013c45349d7bb9ca9984d87aaeed21123dd66aee"
+  }
+]

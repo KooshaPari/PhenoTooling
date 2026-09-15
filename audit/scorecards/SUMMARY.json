@@ -1,0 +1,589 @@
+{
+  "generated": true,
+  "results": [
+    {
+      "scored": 116,
+      "skipped_reference_or_unmatched": 4387,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "SLSA": {
+          "pct": 100.0,
+          "n": 4,
+          "ci95": 5.66
+        },
+        "SOX": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "security": {
+          "pct": 100.0,
+          "n": 16,
+          "ci95": 2.53
+        },
+        "slsa": {
+          "pct": 100.0,
+          "n": 12,
+          "ci95": 2.95
+        }
+      },
+      "overall_pct": 100.0,
+      "grade": "A+",
+      "repo": "Tracera",
+      "source_card": "repos/Tracera/fix-contract-tests-20260901/audit/SCORECARD-FULL-2026-08-30.md"
+    },
+    {
+      "scored": 235,
+      "skipped_reference_or_unmatched": 4268,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "DeepEval": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "SLSA": {
+          "pct": 100.0,
+          "n": 4,
+          "ci95": 5.66
+        },
+        "SOX": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "documentation": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "dx": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "observability": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-asvs": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-top10": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "release_engineering": {
+          "pct": 50.0,
+          "n": 13,
+          "ci95": 5.66
+        },
+        "security": {
+          "pct": 100.0,
+          "n": 16,
+          "ci95": 2.53
+        },
+        "slsa": {
+          "pct": 100.0,
+          "n": 12,
+          "ci95": 2.95
+        },
+        "supply_chain": {
+          "pct": 100.0,
+          "n": 10,
+          "ci95": 3.27
+        },
+        "testing": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "third-party": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        }
+      },
+      "overall_pct": 97.23,
+      "grade": "A+",
+      "repo": "Melosviz",
+      "source_card": "repos/Melosviz/audit/SCORECARD.md"
+    },
+    {
+      "scored": 235,
+      "skipped_reference_or_unmatched": 4268,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "DeepEval": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "SLSA": {
+          "pct": 100.0,
+          "n": 4,
+          "ci95": 5.66
+        },
+        "SOX": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "documentation": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "dx": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "observability": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-asvs": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-top10": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "release_engineering": {
+          "pct": 50.0,
+          "n": 13,
+          "ci95": 5.66
+        },
+        "security": {
+          "pct": 100.0,
+          "n": 16,
+          "ci95": 2.53
+        },
+        "slsa": {
+          "pct": 100.0,
+          "n": 12,
+          "ci95": 2.95
+        },
+        "supply_chain": {
+          "pct": 100.0,
+          "n": 10,
+          "ci95": 3.27
+        },
+        "testing": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "third-party": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        }
+      },
+      "overall_pct": 97.23,
+      "grade": "A+",
+      "repo": "phenotype-registry",
+      "source_card": "repos/phenotype-registry/audits/org-audit-snapshots/audit-v38/output/MelosViz/SCORECARD.md"
+    },
+    {
+      "scored": 253,
+      "skipped_reference_or_unmatched": 4250,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 92.86,
+          "n": 14,
+          "ci95": 6.84
+        },
+        "DeepEval": {
+          "pct": 97.06,
+          "n": 17,
+          "ci95": 4.51
+        },
+        "SLSA": {
+          "pct": 87.5,
+          "n": 4,
+          "ci95": 17.21
+        },
+        "SOX": {
+          "pct": 90.0,
+          "n": 5,
+          "ci95": 13.86
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 92.86,
+          "n": 14,
+          "ci95": 6.84
+        },
+        "code_quality": {
+          "pct": 91.67,
+          "n": 18,
+          "ci95": 6.31
+        },
+        "documentation": {
+          "pct": 97.06,
+          "n": 17,
+          "ci95": 4.51
+        },
+        "dx": {
+          "pct": 96.15,
+          "n": 13,
+          "ci95": 5.71
+        },
+        "observability": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-asvs": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-top10": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "release_engineering": {
+          "pct": 96.15,
+          "n": 13,
+          "ci95": 5.71
+        },
+        "security": {
+          "pct": 96.88,
+          "n": 16,
+          "ci95": 4.75
+        },
+        "slsa": {
+          "pct": 95.83,
+          "n": 12,
+          "ci95": 6.13
+        },
+        "supply_chain": {
+          "pct": 95.0,
+          "n": 10,
+          "ci95": 7.23
+        },
+        "testing": {
+          "pct": 84.62,
+          "n": 13,
+          "ci95": 9.14
+        },
+        "third-party": {
+          "pct": 84.62,
+          "n": 13,
+          "ci95": 9.14
+        }
+      },
+      "overall_pct": 95.26,
+      "grade": "A",
+      "repo": "substrate"
+    },
+    {
+      "scored": 235,
+      "skipped_reference_or_unmatched": 4268,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "DeepEval": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "SLSA": {
+          "pct": 50.0,
+          "n": 4,
+          "ci95": 11.32
+        },
+        "SOX": {
+          "pct": 50.0,
+          "n": 5,
+          "ci95": 9.8
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 100.0,
+          "n": 14,
+          "ci95": 2.72
+        },
+        "documentation": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "dx": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "observability": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-asvs": {
+          "pct": 100.0,
+          "n": 9,
+          "ci95": 3.46
+        },
+        "owasp-top10": {
+          "pct": 100.0,
+          "n": 5,
+          "ci95": 4.9
+        },
+        "release_engineering": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "security": {
+          "pct": 50.0,
+          "n": 16,
+          "ci95": 5.06
+        },
+        "slsa": {
+          "pct": 50.0,
+          "n": 12,
+          "ci95": 5.91
+        },
+        "supply_chain": {
+          "pct": 100.0,
+          "n": 10,
+          "ci95": 3.27
+        },
+        "testing": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "third-party": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        }
+      },
+      "overall_pct": 92.13,
+      "grade": "B+",
+      "repo": "SessionLedger",
+      "source_card": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/audit/SCORECARD.md"
+    },
+    {
+      "scored": 235,
+      "skipped_reference_or_unmatched": 4268,
+      "domains": {
+        "CIS_Controls": {
+          "pct": 50.0,
+          "n": 14,
+          "ci95": 5.44
+        },
+        "DeepEval": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "SLSA": {
+          "pct": 50.0,
+          "n": 4,
+          "ci95": 11.32
+        },
+        "SOX": {
+          "pct": 50.0,
+          "n": 5,
+          "ci95": 9.8
+        },
+        "agentic-github": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "agileplus": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "architecture": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "ci_cd": {
+          "pct": 50.0,
+          "n": 14,
+          "ci95": 5.44
+        },
+        "documentation": {
+          "pct": 100.0,
+          "n": 17,
+          "ci95": 2.45
+        },
+        "dx": {
+          "pct": 100.0,
+          "n": 13,
+          "ci95": 2.83
+        },
+        "observability": {
+          "pct": 50.0,
+          "n": 9,
+          "ci95": 6.93
+        },
+        "owasp-asvs": {
+          "pct": 50.0,
+          "n": 9,
+          "ci95": 6.93
+        },
+        "owasp-top10": {
+          "pct": 50.0,
+          "n": 5,
+          "ci95": 9.8
+        },
+        "release_engineering": {
+          "pct": 50.0,
+          "n": 13,
+          "ci95": 5.66
+        },
+        "security": {
+          "pct": 50.0,
+          "n": 16,
+          "ci95": 5.06
+        },
+        "slsa": {
+          "pct": 50.0,
+          "n": 12,
+          "ci95": 5.91
+        },
+        "supply_chain": {
+          "pct": 50.0,
+          "n": 10,
+          "ci95": 6.53
+        },
+        "testing": {
+          "pct": 50.0,
+          "n": 13,
+          "ci95": 5.66
+        },
+        "third-party": {
+          "pct": 50.0,
+          "n": 13,
+          "ci95": 5.66
+        }
+      },
+      "overall_pct": 70.85,
+      "grade": "C",
+      "repo": "sharecli",
+      "source_card": "repos/sharecli/audit/SCORECARD-v38.md"
+    }
+  ]
+}

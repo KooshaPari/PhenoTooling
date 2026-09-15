@@ -1,0 +1,33 @@
+{
+  "control_schema_version": "dry-run-controls-draft/v1",
+  "draft_status": "UNREVIEWED",
+  "sponsor_reviewed": false,
+  "qualified_key_contract": {
+    "serialization": "UTF-8 JSON [criterion-v2,source,domain,legacy_id], ensure_ascii=false, separators=(',', ':')",
+    "normalization": "forbidden",
+    "bare_id_mapping": "forbidden",
+    "ambiguous_raw_audit_rows": "quarantine_until_reviewed"
+  },
+  "applicability": {
+    "status": "unknown",
+    "applicable_qualified_keys": null,
+    "all_keys_by_default": false,
+    "policy": "Only an explicit reviewed source declaration may establish an applicability set."
+  },
+  "adapter_interface": {
+    "schema_version": "snapshot-adapter/v1",
+    "implementation_sha256": "83e80d4c144520c513927a886456214cf2b84c42d67bdab6edf0ee30d00cd0cb",
+    "implementation_status": "verified_adapter_bytes_not_reviewed_control",
+    "source_kind": "card",
+    "required_record_locator": "$.criteria[N]",
+    "mapping_rule": "Every record with missing_reviewed_mapping remains untranslated and quarantined."
+  },
+  "cards": [
+    {"path":"scorecards/Melosviz-audit.json","sha256":"70a78bbad54826adda1febf5ab09185790cf1e30d1587b0a42c3ca47ff7d3d38","length_bytes":7719,"record_count":122,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"},
+    {"path":"scorecards/SessionLedger-audit.json","sha256":"5b91abbb11bab2e4d14dd2d847493ca720cd12543feec71ef4b82b332c0ba1dd","length_bytes":7713,"record_count":122,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"},
+    {"path":"scorecards/Tracera-wtrees-audit.json","sha256":"08e4debd13d55254d0715e9301caab3f4830b463820b88dcf16572a47f75aba1","length_bytes":2997,"record_count":47,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"},
+    {"path":"scorecards/phenotype-registry-audit.json","sha256":"5b4cfb5c65a99ef3f9ed06aa98dc0759f69181ab14171c6b88ee859f4f616255","length_bytes":7501,"record_count":122,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"},
+    {"path":"scorecards/sharecli-audit.json","sha256":"0f213f8e5e477749ddbf485049f11d55b3c87c8ac242facf56a5a4169df45bbc","length_bytes":7595,"record_count":122,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"},
+    {"path":"scorecards/substrate-audit.json","sha256":"669d605954524c410ad4b4b946881df0258cdf9a4ef7d1118f5dcfd9c0bfb0ce","length_bytes":8869,"record_count":140,"mapping_status":"unknown","applicability_status":"unknown","disposition":"quarantine_until_reviewed"}
+  ]
+}
