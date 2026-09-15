@@ -34,6 +34,16 @@ members = [
     "crates/tasken",
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
+
+    # Absorbed from zz-merge-unk-PhenoUtils (CLI shells, async FS, crypto, network, testing)
+    "crates/pheno-shell",
+    "crates/pheno-fs",
+    "crates/pheno-crypto",
+    "crates/pheno-net",
+    "crates/pheno-testing",
+    "crates/pheno-schema-port",
+    "crates/pheno-terminal",
+
     "bin/hook-entry",
 ]
 
