@@ -27,6 +27,6 @@
     {"source": "/blog", "destination": "/blog.html"},
     {"source": "/blog/why-we-forked-omniroute", "destination": "/blog/why-we-forked-omniroute.html"},
     {"source": "/archive", "destination": "/archive.html"},
-    {"source": "/((?!index\\.html|sitemap\\.xml|robots\\.txt|favicon\\.ico|assets/|asset-sources/|styles/|scripts/|data/|public/|tests/|docs/|output/|\\.playwright-cli/|.*\\.md|.*\\.html).*)", "destination": "/root"}
+    {"source": "/((?!index\\.html|sitemap\\.xml|robots\\.txt|favicon\\.ico|assets/|asset-sources/|styles/|bundled/|scripts/|data/|public/|tests/|docs/|output/|\\.playwright-cli/|.*\\.md|.*\\.html|.*\\.css|.*\\.js|.*\\.webp|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.ico|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)", "destination": "/root"}
   ]
 }
