@@ -11,7 +11,7 @@ homepage = "https://github.com/KooshaPari/phenotype-tooling"
 keywords = ["phenotype", "tooling", "cli"]
 categories = ["command-line-utilities"]
 [dependencies]
-pheno-tracing = { version = "0.4", default-features = false }
+pheno-tracing = { workspace = true, default-features = false }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 serde = { workspace = true }
