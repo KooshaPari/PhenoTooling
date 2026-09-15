@@ -34,6 +34,13 @@ members = [
     "crates/tasken",
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
+    # PhenoPlugins (absorbed from KooshaPari/zz-merge-unk-PhenoPlugins)
+    "crates/phenotype-plugins/pheno-plugin-core",
+    "crates/phenotype-plugins/pheno-plugin-git",
+    "crates/phenotype-plugins/pheno-plugin-sqlite",
+    "crates/phenotype-plugins/pheno-plugin-vessel",
+    "crates/phenotype-plugins/pheno-plugin-examples",
+
     "crates/phenotype-cache-adapter",
     "crates/phenotype-contracts",
     "crates/phenotype-cost-core",
@@ -50,7 +57,6 @@ members = [
     "crates/pheno-testing",
     "crates/pheno-schema-port",
     "crates/pheno-terminal",
-
     "bin/hook-entry",
 
     # Eye-tracking library (absorbed from KooshaPari/zz-merge-unk-eyetracker)
@@ -98,6 +104,13 @@ uuid = { version = "1.23", features = ["v4", "serde"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 criterion = { version = "0.8", features = ["html_reports"] }
+# PhenoPlugins additions
+async-trait = "0.1"
+git2 = "0.21"
+rusqlite = { version = "0.32", features = ["bundled"] }
+tempfile = "3"
+# PhenoPlugins internal path deps
+pheno-plugin-core = { path = "crates/phenotype-plugins/pheno-plugin-core" }
 
 # Absorbed from PhenoVCS
 pheno-tracing = { path = "crates/pheno-tracing", default-features = false }
