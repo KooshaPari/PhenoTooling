@@ -86,6 +86,30 @@ members = [
     "ports-vcs",
     # Gateway (absorbed from KooshaPari/zz-merge-unk-Gateway)
     "packages/router",
+# PhenoCompose (absorbed from zz-merge-unk-PhenoCompose)
+    "crates/pheno-compose-agentctl",
+    "crates/pheno-compose-apple-container-adapter",
+    "crates/pheno-compose-bindings",
+    "crates/pheno-compose-i18n",
+    "crates/pheno-compose-pheno-config",
+    "crates/pheno-compose-phenocompose-cli",
+    "crates/pheno-compose-plugin-api",
+    "crates/pheno-compose-plugin-sample",
+    "crates/pheno-compose-port-composer",
+    "crates/pheno-compose-port-di",
+    "crates/pheno-compose-port-publisher",
+    "crates/pheno-compose-port-runtime",
+    "crates/pheno-compose-port-secret",
+    "crates/pheno-compose-port-types",
+    "crates/pheno-compose-secret-file-adapter",
+    "crates/pheno-compose-wslc-adapter",
+    # PhenCom teamcomm (absorbed from zz-merge-unk-PhenCom)
+    "crates/teamcomm-cli",
+    "crates/teamcomm-client",
+    "crates/teamcomm-daemon",
+    "crates/teamcomm-mcp",
+    "crates/teamcomm-protocol",
+    "crates/teamcomm-smoke",
 ]
 
 [workspace.package]
@@ -133,6 +157,7 @@ pheno-vcs-core = { path = "crates/pheno-vcs-core" }
 # Absorbed from zz-merge-unk-Logify
 logkit = { path = "crates/logkit" }
 parking_lot = "0.12"
+dirs = "5"
 
 [profile.release]
 lto = "thin"
