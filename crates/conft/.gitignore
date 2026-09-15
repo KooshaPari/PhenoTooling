@@ -1,0 +1,5 @@
+rust/phenotype-config/
+typescript/packages/conft/coverage/
+typescript/packages/conft/dist/
+typescript/packages/conft/docs/.vitepress/dist/
+typescript/packages/conft/node_modules/

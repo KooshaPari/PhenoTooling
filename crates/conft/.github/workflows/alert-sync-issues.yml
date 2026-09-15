@@ -1,0 +1,94 @@
+name: Alert Sync Issues
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  security-events: read
+
+jobs:
+  alert-sync:
+    name: Sync code scanning alerts to issues
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # NOTE: this job previously called a reusable workflow at
+      # KooshaPari/phenoShared/.github/workflows/alert-sync-issues-reusable.yml.
+      # That repo no longer exists on the account (confirmed 404 via the
+      # GitHub API as of 2026-07-03), which made this entire workflow file
+      # fail to parse ("Unexpected value 'timeout-minutes'" was a second,
+      # separate parse error also present in this file — timeout-minutes is
+      # only valid at job level, not workflow level). Inlined a self-contained
+      # equivalent below rather than depend on a dead repo.
+      - name: Open/update issues for open code scanning alerts
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const label = 'auto-alert-sync';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Ensure the label exists.
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: label });
+            } catch (e) {
+              await github.rest.issues.createLabel({
+                owner, repo, name: label,
+                color: 'b60205',
+                description: 'Auto-synced from a code scanning alert',
+              });
+            }
+
+            const alerts = await github.paginate(
+              github.rest.codeScanning.listAlertsForRepo,
+              { owner, repo, state: 'open', per_page: 100 }
+            );
+
+            const openIssues = await github.paginate(
+              github.rest.issues.listForRepo,
+              { owner, repo, state: 'open', labels: label, per_page: 100 }
+            );
+            const issueByAlertNumber = new Map();
+            for (const issue of openIssues) {
+              const m = issue.title.match(/\[CodeQL #(\d+)\]/);
+              if (m) issueByAlertNumber.set(Number(m[1]), issue);
+            }
+
+            for (const alert of alerts) {
+              const title = `[CodeQL #${alert.number}] ${alert.rule?.description || alert.rule?.id || 'Code scanning alert'}`;
+              if (issueByAlertNumber.has(alert.number)) continue;
+
+              const body = [
+                `A code scanning alert is open on \`${alert.most_recent_instance?.ref || 'main'}\`.`,
+                '',
+                `- Rule: \`${alert.rule?.id || 'unknown'}\``,
+                `- Severity: ${alert.rule?.severity || alert.rule?.security_severity_level || 'unknown'}`,
+                `- Location: ${alert.most_recent_instance?.location?.path || 'unknown'}:${alert.most_recent_instance?.location?.start_line || '?'}`,
+                `- [View alert](${alert.html_url})`,
+              ].join('\n');
+
+              await github.rest.issues.create({
+                owner, repo, title, body, labels: [label],
+              });
+            }
+
+            // Close issues whose alert is no longer open (fixed/dismissed).
+            const openAlertNumbers = new Set(alerts.map(a => a.number));
+            for (const [alertNumber, issue] of issueByAlertNumber) {
+              if (!openAlertNumbers.has(alertNumber)) {
+                await github.rest.issues.update({
+                  owner, repo, issue_number: issue.number, state: 'closed',
+                });
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: issue.number,
+                  body: 'Closing: the underlying code scanning alert is no longer open.',
+                });
+              }
+            }

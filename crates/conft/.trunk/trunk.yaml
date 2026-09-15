@@ -1,0 +1,31 @@
+version: 0.1
+
+# Conft uses biome + eslint directly via `bun run lint`.
+# This v0.1 config keeps trunk's Lint & Format job non-blocking
+# by disabling all trunk-managed linters/formatters.
+# See: https://docs.trunk.io/check/reference/config
+
+lint:
+  enabled: []
+  disabled:
+    - actionlint
+    - black
+    - clippy
+    - eslint
+    - golangci-lint
+    - mypy
+    - ruff
+    - shellcheck
+    - taplo
+    - yamllint
+  ignore:
+    - linters: [ALL]
+      paths:
+        - "**/*"
+
+cli:
+  version: 1.22.2
+
+actions:
+  enabled:
+    - trunk-upgrade-available
