@@ -82,6 +82,8 @@ members = [
     "crates/phenovcs-observability",
     "crates/clap-ext",
     "ports-vcs",
+    # Gateway (absorbed from KooshaPari/zz-merge-unk-Gateway)
+    "packages/router",
 ]
 
 [workspace.package]
