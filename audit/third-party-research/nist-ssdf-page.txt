@@ -1,0 +1,24 @@
+Secure Software Development Framework | CSRC
+Secure .gov websites use HTTPSA
+secure websites.
+FIPS (standards)
+Security Engineering and Risk Management
+Secure Software Development Framework SSDF
+Prepare the Organization (PO): Ensure that the organization’s people, processes, and technology are prepared to perform secure software development at the organization level and, in some cases, for individual development groups or projects.
+Produce Well-Secured Software (PW): Produce well-secured software with minimal security vulnerabilities in its releases.
+Respond to Vulnerabilities (RV): Identify residual vulnerabilities in software releases and respond appropriately to address those vulnerabilities and prevent similar vulnerabilities from occurring in the future.
+Reference: A pointer to an established secure development practice document and its mappings to a particular task.
+Practices: Added PO.5, “Implement and Maintain Secure Environments for Software Development”
+Added PO.1.2 on documenting security requirements for organization-developed software to meet
+Added PW.1.2 on tracking software security requirements, risks, and design decisions
+International Electrotechnical Commission (IEC), Security for industrial automation and control systems – Part 4-1: Secure product development lifecycle requirements, IEC 62443-4-1
+International Organization for Standardization (ISO)/International Electrotechnical Commission (IEC), Information technology – Security techniques – Vulnerability disclosure, ISO/IEC 29147:2018, and Information technology – Security techniques – Vulnerability handling processes, ISO/IEC 30111:2019
+NIST, Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations, SP 800-161 Revision 1
+Open Web Application Security Project, OWASP Software Component Verification Standard, Version 1.0
+SP 800-218A, Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile
+systems security engineering,                     vulnerability management
+National Vulnerability Database
+Vulnerability Disclosure Guidelines
+systems security engineering,                     vulnerability management
+National Vulnerability Database
+Vulnerability Disclosure Guidelines

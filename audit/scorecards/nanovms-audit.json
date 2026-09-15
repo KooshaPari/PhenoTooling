@@ -1,0 +1,848 @@
+{
+  "product": "nanovms",
+  "source_format": "30-pillar",
+  "original_overall": 100.0,
+  "original_grade": "A+",
+  "criteria": [
+    {
+      "id": "A-0001",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0002",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0003",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0004",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0005",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0006",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0007",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0008",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0009",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0010",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0011",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0012",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0013",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0014",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0015",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0016",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "A-0017",
+      "status": "satisfied",
+      "domain": "architecture",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0001",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0002",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0003",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0004",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0005",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0006",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0007",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0008",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0009",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0010",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0011",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0012",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0013",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CC-0014",
+      "status": "satisfied",
+      "domain": "ci_cd",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0001",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0002",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0003",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0004",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0005",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0006",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0007",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0008",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0009",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0010",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0011",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0012",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0013",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0014",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0015",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0016",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0017",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "CQ-0018",
+      "status": "satisfied",
+      "domain": "code_quality",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0001",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0002",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0003",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0004",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0005",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0006",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0007",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0008",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0009",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0010",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0011",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0012",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0013",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0014",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0015",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0016",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0017",
+      "status": "satisfied",
+      "domain": "documentation",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0001",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0002",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0003",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0004",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0005",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0006",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0007",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0008",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0009",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0010",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0011",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0012",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "D-0013",
+      "status": "satisfied",
+      "domain": "dx",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0001",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0002",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0003",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0004",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0005",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0006",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0007",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0008",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "O-0009",
+      "status": "satisfied",
+      "domain": "observability",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0001",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0002",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0003",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0004",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0005",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0006",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0007",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0008",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0009",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0010",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0011",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0012",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "RE-0013",
+      "status": "satisfied",
+      "domain": "release_engineering",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0001",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0002",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0003",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0004",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0005",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0006",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0007",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0008",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0009",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0010",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0011",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0012",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0013",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0014",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0015",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "S-0016",
+      "status": "satisfied",
+      "domain": "security",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0001",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0002",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0003",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0004",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0005",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0006",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0007",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0008",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0009",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "SC-0010",
+      "status": "satisfied",
+      "domain": "supply_chain",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0001",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0002",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0003",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0004",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0005",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0006",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0007",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0008",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0009",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0010",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0011",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0012",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    },
+    {
+      "id": "T-0013",
+      "status": "satisfied",
+      "domain": "testing",
+      "source": "substrate-v3"
+    }
+  ]
+}

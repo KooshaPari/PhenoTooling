@@ -1,0 +1,606 @@
+[
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/agileplus-local/HEAD -> agileplus-local/main"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/agileplus-local/fix/owner-auto-merge-20260901-agileplus"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/agileplus-local/main"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/upstream/codex/update-default-config.toml-template"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/upstream/codex/viyatb/restore-security-audit-monitor"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/upstream/nm-codex/resolve-template-app-ids"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/upstream/olliem/feature/guardian/update-template"
+  },
+  {
+    "repo": "helios-cli",
+    "branch": "remotes/upstream/rreichel3/enterprise-audit-otel-fanout"
+  },
+  {
+    "repo": "phenotype-omlx",
+    "branch": "remotes/agileplus-local/HEAD -> agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-omlx",
+    "branch": "remotes/agileplus-local/chore/fix-trunk-check-20260816"
+  },
+  {
+    "repo": "phenotype-omlx",
+    "branch": "remotes/agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-omlx",
+    "branch": "remotes/agileplus-local/main"
+  },
+  {
+    "repo": "phenotype-omlx",
+    "branch": "remotes/origin/feat/agileplus-snapshot-18b231ee"
+  },
+  {
+    "repo": "AgilePlus-recovered-20260822",
+    "branch": "feat/agileplus-a-plus-completion/WP01"
+  },
+  {
+    "repo": "AgilePlus-recovered-20260822",
+    "branch": "feat/agileplus-macos-signing-infisical-20260902T0049Z"
+  },
+  {
+    "repo": "AgilePlus-recovered-20260822",
+    "branch": "feat/agileplus-macos-signing-infisical-20260902T0557Z-v3"
+  },
+  {
+    "repo": "AgilePlus-recovered-20260822",
+    "branch": "fix/benchmark-infra-criterion-20260826"
+  },
+  {
+    "repo": "pheno",
+    "branch": "remotes/agileplus-local/HEAD -> agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "pheno",
+    "branch": "remotes/agileplus-local/fix/git-conflict-contract-20260820"
+  },
+  {
+    "repo": "pheno",
+    "branch": "remotes/agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "pheno",
+    "branch": "remotes/agileplus-local/fix/triage-clippy-20260820"
+  },
+  {
+    "repo": "pheno",
+    "branch": "remotes/agileplus-local/main"
+  },
+  {
+    "repo": "substrate",
+    "branch": "chore/scorecard-5-quick-wins-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "* feat/scorecard-final-7-pillars-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "fix/scorecard-update-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/chore/scorecard-5-quick-wins-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/audit-phase0"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/audit-phase1"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/audit-phase1-temp"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/dx-scorecard-criterion"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/scorecard-final-7-pillars-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/feat/v38-cluster-scorecards"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/fix/scorecard-codeql-sha-20260902"
+  },
+  {
+    "repo": "substrate",
+    "branch": "remotes/origin/fix/scorecard-update-20260902"
+  },
+  {
+    "repo": "phenoAI",
+    "branch": "remotes/upstream/audit/ownership-20260722-phenoAI"
+  },
+  {
+    "repo": "phenoAI",
+    "branch": "remotes/upstream/chore/pin-rustsec-audit-check"
+  },
+  {
+    "repo": "HeliosLab",
+    "branch": "fix/scorecard-least-privilege-20260901"
+  },
+  {
+    "repo": "HeliosLab",
+    "branch": "remotes/origin/chore/scorecard-2026-06-08"
+  },
+  {
+    "repo": "HeliosLab",
+    "branch": "remotes/origin/fix/scorecard-least-privilege-20260901"
+  },
+  {
+    "repo": "HeliosLab",
+    "branch": "remotes/origin/fix/skip-cargo-audit-without-lock-20260827"
+  },
+  {
+    "repo": "tgt",
+    "branch": "remotes/origin/agileplus-snapshot-95ec6e4a"
+  },
+  {
+    "repo": "tgt",
+    "branch": "remotes/origin/agileplus-snapshot-ad1ccddb"
+  },
+  {
+    "repo": "tgt",
+    "branch": "remotes/origin/agileplus-snapshot-dd6bbc32"
+  },
+  {
+    "repo": "tgt",
+    "branch": "remotes/origin/chore/agileplus-bootstrap"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/HEAD -> agileplus-source/main"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/archives/legacy/4sgm"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/archives/legacy/phenotype-monorepo-state"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/archives/legacy/phenotype-shared"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/docs-preservation-fixes"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/docs/preservation-manifests-20260729"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/docs/preservation-manifests-20260729-fix"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/main"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/recoveries/AgilePlus-20260714-isolated"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/recoveries/AgilePlus-evidence-20260714"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/recoveries/agileplus-spec-harmonizer-tool"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260729T0152-18c69fba79c5b978"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260729T0349-18c6a61e3d071788"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260729T0736-18c6b28837cd5018"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260729T0752-18c6b362923f8a68"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260729T1103-18c6bdce2b288db8"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260731T0519-18c7483974a4d028"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260731T0627-18c74bee3064dc38"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260731T0728-18c74f40314cd0b0"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260731T0755-18c750b9a2bae078"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260731T0757-18c750d33aead100"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260801T0245-18c78e69191b0f08"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260801T0545-18c7982edc654d38"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260801T0605-stash-18c79946a45150e0"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/agileplus-source/wip/20260801T0622-18c79a33f7004e48"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/planify/chore/feature-request-template-2026-06-08"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/planify/chore/issue-template-2026-06-08"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/planify/chore/issue-templates-2026-06-08"
+  },
+  {
+    "repo": "Planify2",
+    "branch": "remotes/planify/consolidate/agileplus-candidate1"
+  },
+  {
+    "repo": "pheno-runtime-config",
+    "branch": "remotes/origin/audit/ownership-20260722-pheno-runtime-config"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/audit/auto-continue-bounded-20260802"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/audit/auto-continue-bounded-20260802-main"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/audit/auto-continue-bounded-20260802-pre-rebase"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/ci/scorecard-sarif-upload-permission-20260801"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/docs/forgecode-overhaul-audit-20260628"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/feat/fork-sync-audit"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/fork/wip/wip-on-main-ba9b6b82c-chore-gitignore-adopt-shared-node-template-from-p"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/upstream/docs/add-pr-templates-and-standards"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/upstream/feat/utilise-custom-template-for-building-agents"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/upstream/fix/use-env-vars-for-rendering-template"
+  },
+  {
+    "repo": "forgecode",
+    "branch": "remotes/upstream/workflow-templates"
+  },
+  {
+    "repo": "AgilePlus",
+    "branch": "feat/agileplus-a-plus-completion/WP01"
+  },
+  {
+    "repo": "AgilePlus",
+    "branch": "fix/owner-auto-merge-20260901-agileplus"
+  },
+  {
+    "repo": "AgilePlus",
+    "branch": "remotes/origin/fix/owner-auto-merge-20260901-agileplus"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v12-71-pillar-p0-remediation-2026-06-20"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v12-71-pillar-p0-remediation-clean-2026-06-20"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v14-71-pillar-cycle-3-p0-2026-06-20"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v14-71-pillar-cycle-4-p0-2026-06-20"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v15-71-pillar-cycle-5-p0-2026-06-21"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v17-71-pillar-cycle-7-p0-2026-06-21"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v20-71-pillar-cycle-10-p1-2026-06-22"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v22-71-pillar-cycle-12-p1-2026-06-22"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v24-71-pillar-cycle-14-p1-2026-06-22"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v25-71-pillar-cycle-15-p1-2026-06-22"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v26-71-pillar-cycle-16-p1-2026-06-23"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v29-71-pillar-p1-lift-2026-06-26"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/chore/v30-71-pillar-p2-lift-2026-06-25"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/fix/audit-yml-trufflehog-no-update-2026-06-19"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-28360037111"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-28777302943"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-29229920868"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-30794010967"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-31359151338"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-31995700098"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pillar-trend-report-32691475621"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/pr-template/bootstrap"
+  },
+  {
+    "repo": "argis-extensions",
+    "branch": "remotes/origin/wip-2026-06-19-v8-batch-11C-t13-z-audit"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/_orphan_src_AgilePlus/HEAD -> _orphan_src_AgilePlus/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/_orphan_src_AgilePlus/chore/fix-trunk-check-20260816"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/_orphan_src_AgilePlus/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/_orphan_src_AgilePlus/main"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/agileplus-local/HEAD -> agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/agileplus-local/chore/fix-trunk-check-20260816"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/agileplus-local/fix/git-integration-contract-20260817"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/agileplus-local/main"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/github/agileplus-snapshot-52682309"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/github/agileplus-snapshot-a623144f"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/github/agileplus-snapshot-c93bc65f"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/origin/audit/agentora-gates-refresh-20260822"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/origin/audit/agentora-gates-refresh-20260822-clean"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/origin/audit/agentora-gates-refresh-20260822-r2"
+  },
+  {
+    "repo": "phenotype-registry",
+    "branch": "remotes/origin/chore/audit-2026-09-01-13-sources"
+  },
+  {
+    "repo": "Tracera",
+    "branch": "+ audit/pr999-remediation-20260828"
+  },
+  {
+    "repo": "Tracera",
+    "branch": "remotes/origin/audit/scorecard-2026-08-30"
+  },
+  {
+    "repo": "asset-engine",
+    "branch": "remotes/origin/audit/ownership-20260722-asset-engine"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "+ docs/civic-wp02a-provenance-audit-20260830"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "feat/civic-public-audit"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "fix/civic-public-audit-shrinkwrap-cache-20260830"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "+ fix/civic-scorecard-markdown-parity-20260831"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "+ fix/civic-scorecard-ruff-cleanup-20260831"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "remotes/origin/chore/scorecard-baseline-0.3.25"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "remotes/origin/chore/scorecard-baseline-59-pr"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "remotes/origin/docs/scorecard-cosmetic"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "remotes/origin/docs/tutorial-help-portal-audit"
+  },
+  {
+    "repo": "CivicSurvival-public",
+    "branch": "remotes/public-audit-cache-main-live/20260830-2339"
+  },
+  {
+    "repo": "local-ops-source",
+    "branch": "remotes/origin/fix/agileplus-worklog-guard-20260816"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/agileplus-local/HEAD -> agileplus-local/fix/lockfile-resolver-integrity-20260814"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/agileplus-local/fix/lockfile-resolver-integrity-20260814"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/agileplus-local/main"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/origin/agileplus-snapshot-ff27e38a"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/origin/fix/scorecard-codeql-pin-20260822"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/origin/fix/scorecard-codeql-pin-20260822-current"
+  },
+  {
+    "repo": "portage",
+    "branch": "remotes/upstream/codex/audit-unauthenticated-cli-access"
+  },
+  {
+    "repo": "ResearchLedger",
+    "branch": "+ fix/scorecard-codeql-pin-retry-20260825"
+  },
+  {
+    "repo": "ResearchLedger",
+    "branch": "remotes/origin/codex/scorecard-action-permissions"
+  },
+  {
+    "repo": "ResearchLedger",
+    "branch": "remotes/origin/fix/scorecard-codeql-pin-20260824"
+  },
+  {
+    "repo": "ResearchLedger",
+    "branch": "remotes/origin/fix/scorecard-codeql-pin-retry-20260825"
+  }
+]

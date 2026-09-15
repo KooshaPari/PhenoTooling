@@ -1,0 +1,3372 @@
+{
+  "captured_utc": "2026-09-08T03:40:07.889790+00:00",
+  "python": "3.9.6",
+  "scope": "/Users/kooshapari/CodeProjects/Phenotype/repos/research/audit-system",
+  "inventory_exclusions": [
+    "audits/",
+    "docs/"
+  ],
+  "inventory_groups": {
+    "CONSOLIDATED_RUBRIC.json": {
+      "files": 1,
+      "bytes": 1764145
+    },
+    "INDEX.md": {
+      "files": 1,
+      "bytes": 2066
+    },
+    "agentic-research": {
+      "files": 45,
+      "bytes": 182549
+    },
+    "chats": {
+      "files": 17,
+      "bytes": 74362914
+    },
+    "era-research": {
+      "files": 13,
+      "bytes": 59523
+    },
+    "gh-pr-commits": {
+      "files": 15,
+      "bytes": 156919
+    },
+    "git-history": {
+      "files": 2,
+      "bytes": 305076
+    },
+    "github-audit": {
+      "files": 6,
+      "bytes": 67556
+    },
+    "mac-local-audit": {
+      "files": 1,
+      "bytes": 12005030
+    },
+    "repos": {
+      "files": 224,
+      "bytes": 1791901
+    },
+    "rubric": {
+      "files": 8,
+      "bytes": 2851578
+    },
+    "scorecards": {
+      "files": 7,
+      "bytes": 54456
+    },
+    "structured-stores": {
+      "files": 223,
+      "bytes": 505280736
+    },
+    "third-party-research": {
+      "files": 39,
+      "bytes": 409812
+    },
+    "windows": {
+      "files": 7,
+      "bytes": 665655926
+    }
+  },
+  "file_count": 609,
+  "rubric": {
+    "rows": 4503,
+    "unique_ids": 3598,
+    "duplicate_id_groups": 434,
+    "excess_rows_over_unique_ids": 905,
+    "domains": 56,
+    "invalid_id_pattern_rows": 4247,
+    "status_counts": {
+      "satisfied": 126,
+      "reference": 2294,
+      "partial": 14,
+      "historical": 2069
+    },
+    "duplicate_examples": [
+      {
+        "id": "G-0001",
+        "count": 5
+      },
+      {
+        "id": "G-0002",
+        "count": 5
+      },
+      {
+        "id": "G-0003",
+        "count": 5
+      },
+      {
+        "id": "G-0004",
+        "count": 5
+      },
+      {
+        "id": "G-0005",
+        "count": 5
+      },
+      {
+        "id": "G-0006",
+        "count": 5
+      },
+      {
+        "id": "G-0007",
+        "count": 5
+      },
+      {
+        "id": "G-0008",
+        "count": 5
+      }
+    ]
+  },
+  "evidence": {
+    "resolution_counts": {
+      "fallback-anchor": 183,
+      "auto": 4320
+    },
+    "declared_resolved": 4503,
+    "domain_resolved_sum": 4320,
+    "local_path_checks": {
+      "file": 1158,
+      "directory": 3345
+    },
+    "missing_paths": []
+  },
+  "scorecards_recomputed": [
+    {
+      "file": "Melosviz-audit.json",
+      "input_records": 122,
+      "unique_input_ids": 109,
+      "scored": 235,
+      "overall_pct": 97.23,
+      "grade": "A+",
+      "rubric_row_coverage_pct": 5.219
+    },
+    {
+      "file": "SessionLedger-audit.json",
+      "input_records": 122,
+      "unique_input_ids": 109,
+      "scored": 235,
+      "overall_pct": 92.13,
+      "grade": "B+",
+      "rubric_row_coverage_pct": 5.219
+    },
+    {
+      "file": "Tracera-wtrees-audit.json",
+      "input_records": 47,
+      "unique_input_ids": 47,
+      "scored": 116,
+      "overall_pct": 100,
+      "grade": "A+",
+      "rubric_row_coverage_pct": 2.576
+    },
+    {
+      "file": "phenotype-registry-audit.json",
+      "input_records": 122,
+      "unique_input_ids": 109,
+      "scored": 235,
+      "overall_pct": 22.77,
+      "grade": "F",
+      "rubric_row_coverage_pct": 5.219
+    },
+    {
+      "file": "sharecli-audit.json",
+      "input_records": 122,
+      "unique_input_ids": 109,
+      "scored": 235,
+      "overall_pct": 70.85,
+      "grade": "C",
+      "rubric_row_coverage_pct": 5.219
+    },
+    {
+      "file": "substrate-audit.json",
+      "input_records": 140,
+      "unique_input_ids": 127,
+      "scored": 253,
+      "overall_pct": 95.26,
+      "grade": "A",
+      "rubric_row_coverage_pct": 5.618
+    }
+  ],
+  "diagnostic_probes": {
+    "duplicate_rubric_id": {
+      "scored": 2,
+      "skipped_reference_or_unmatched": 0,
+      "domains": {
+        "one": {
+          "pct": 100,
+          "n": 1,
+          "ci95": 9.8
+        },
+        "two": {
+          "pct": 100,
+          "n": 1,
+          "ci95": 9.8
+        }
+      },
+      "overall_pct": 100,
+      "grade": "A+"
+    },
+    "unassessed_excluded": {
+      "scored": 1,
+      "skipped_reference_or_unmatched": 1,
+      "domains": {
+        "one": {
+          "pct": 100,
+          "n": 1,
+          "ci95": 9.8
+        }
+      },
+      "overall_pct": 100,
+      "grade": "A+"
+    },
+    "unknown_status": {
+      "scored": 0,
+      "skipped_reference_or_unmatched": 2,
+      "domains": {},
+      "overall_pct": 0,
+      "grade": "F"
+    },
+    "null_weight": {
+      "exception": "TypeError",
+      "message": "unsupported operand type(s) for *: 'float' and 'NoneType'"
+    },
+    "negative_weight": {
+      "scored": 2,
+      "skipped_reference_or_unmatched": 0,
+      "domains": {
+        "one": {
+          "pct": 0,
+          "n": 1,
+          "ci95": 176.4
+        },
+        "two": {
+          "pct": 100,
+          "n": 1,
+          "ci95": 9.8
+        }
+      },
+      "overall_pct": 200,
+      "grade": "A+"
+    },
+    "duplicate_audit_last_wins": {
+      "scored": 1,
+      "skipped_reference_or_unmatched": 1,
+      "domains": {
+        "one": {
+          "pct": 100,
+          "n": 1,
+          "ci95": 9.8
+        }
+      },
+      "overall_pct": 100,
+      "grade": "A+"
+    },
+    "empty_audit": {
+      "scored": 0,
+      "skipped_reference_or_unmatched": 2,
+      "domains": {},
+      "overall_pct": 0,
+      "grade": "F"
+    }
+  },
+  "session_indexes": [
+    {
+      "file": "chats/claude/session-index.tsv",
+      "lines": 93,
+      "field_counts": {
+        "3": 93
+      },
+      "duplicate_first_fields": 92,
+      "paths_resolving_relative_to_index": 0
+    },
+    {
+      "file": "chats/codex/session-index.tsv",
+      "lines": 8582,
+      "field_counts": {
+        "2": 8582
+      },
+      "duplicate_first_fields": 0,
+      "paths_resolving_relative_to_index": 1
+    },
+    {
+      "file": "chats/cursor/session-index.tsv",
+      "lines": 1,
+      "field_counts": {
+        "3": 1
+      },
+      "duplicate_first_fields": 0,
+      "paths_resolving_relative_to_index": 0
+    },
+    {
+      "file": "chats/forge/session-index.tsv",
+      "lines": 31,
+      "field_counts": {
+        "3": 31
+      },
+      "duplicate_first_fields": 30,
+      "paths_resolving_relative_to_index": 0
+    }
+  ],
+  "template_manifest": {
+    "rows": 223,
+    "missing_or_hash_mismatch": []
+  },
+  "windows_zip": {
+    "entries": 347,
+    "first_bad_crc_entry": null
+  },
+  "preserved_session": {
+    "records": 3252,
+    "first_timestamp": "2026-09-02T04:40:07.038Z",
+    "last_timestamp": "2026-09-07T01:15:42.855Z",
+    "sha256": "5d7f8ac16d0afd3c0bd70464f5664b3f3366eb12e6a54419494966a7182d8bee",
+    "original_exists": true,
+    "original_sha256": "5d7f8ac16d0afd3c0bd70464f5664b3f3366eb12e6a54419494966a7182d8bee"
+  },
+  "inventory": [
+    {
+      "path": "CONSOLIDATED_RUBRIC.json",
+      "bytes": 1764145,
+      "sha256": "701ace2d32d0fac06cd9e804cbb2b7d1ef6c3ae42126346c549045f2c4558c07"
+    },
+    {
+      "path": "INDEX.md",
+      "bytes": 2066,
+      "sha256": "6e0992d8d8242b3f37e504c4a6a4924b6e151c8cc1b3e322e5a69df04d8c7e4b"
+    },
+    {
+      "path": "agentic-research/STANDARDS.json",
+      "bytes": 7095,
+      "sha256": "cedb5daadea6c432f135eb3abbaa8f6e84a9526ce993b376666b752888d49c2e"
+    },
+    {
+      "path": "agentic-research/gh-agent-benchmark.json",
+      "bytes": 8057,
+      "sha256": "f064e86970c1a2ca2eda5d3da150220ddfd8c6ec7e5d707d8cd0cdc0b956871c"
+    },
+    {
+      "path": "agentic-research/gh-agent-capability-eval.json",
+      "bytes": 8498,
+      "sha256": "7130ee113d1aa0e9662848c78c3966dd620eda6f9280fab4aafa953462fab202"
+    },
+    {
+      "path": "agentic-research/gh-agent-eval-framework.json",
+      "bytes": 8505,
+      "sha256": "906f309f73a05cc4e869a926f457ae6f37bd16d9d5924e5f385baac067a6e9be"
+    },
+    {
+      "path": "agentic-research/gh-agent-evaluation-criteria.json",
+      "bytes": 8371,
+      "sha256": "44c23466cb49c9eac8e5d13624c5d91ceda214a5b27917c3b2a38650f406e81c"
+    },
+    {
+      "path": "agentic-research/gh-agent-governance.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-agent-red-team.json",
+      "bytes": 8879,
+      "sha256": "3e9b4a9a1759c6317624d51301b99660e88017477b525bc5b90cb48c267ce936"
+    },
+    {
+      "path": "agentic-research/gh-agent-risk-assessment.json",
+      "bytes": 9481,
+      "sha256": "13d754cab30b5ce2e3b30caf81d9f2981bdeabbba42c1b6c25f9edeed01c8a69"
+    },
+    {
+      "path": "agentic-research/gh-agent-rubric.json",
+      "bytes": 9598,
+      "sha256": "095af7d7c2b1b3d87b9ee05064db9f98d17c6006c0b40c2d9ed17fe34df76efb"
+    },
+    {
+      "path": "agentic-research/gh-agent-safety-benchmark.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-agentbench.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-agentsims.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ai-audit-criteria.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ai-compliance-framework.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ai-incident-database.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ai-red-team.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ai-safety-eval.json",
+      "bytes": 8370,
+      "sha256": "6b232829a098574caa18c01f94fe20a8dce67ed2ed3556cfa52050ab3b0cba50"
+    },
+    {
+      "path": "agentic-research/gh-anthropic-responsible-scaling-policy.json",
+      "bytes": 9933,
+      "sha256": "92152c07eaba981254ddace074ffbca935a8c829bb5dd4b8ad7bd2176de76cbb"
+    },
+    {
+      "path": "agentic-research/gh-arc-agi.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-deepeval.json",
+      "bytes": 8337,
+      "sha256": "494e0a9759b57c321c74c01fe3fe00097905a76733ec8464a8b0298d053e8a85"
+    },
+    {
+      "path": "agentic-research/gh-foundation-model-eval.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-gaia-benchmark.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-garak-llm-vulnerability.json",
+      "bytes": 9257,
+      "sha256": "ad2df1953d818f288c660f97832a03966b6f7eea841fb9ac97f0afa5383b9a3b"
+    },
+    {
+      "path": "agentic-research/gh-hellaswag.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-holistic-evaluation.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-inspect-ai.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-langsmith-eval.json",
+      "bytes": 8672,
+      "sha256": "08dd293c2e41184b53b45444b1c8a4bd2bd5601c8373922cb58483f1780dc629"
+    },
+    {
+      "path": "agentic-research/gh-llm-as-judge.json",
+      "bytes": 8513,
+      "sha256": "faf58bf3823b775ce3ff9aeb48fd1ee1d76740bfc330444f3335a6c8d9eef8e1"
+    },
+    {
+      "path": "agentic-research/gh-metr-evaluation.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-mint-benchmark.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-ml-model-card.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-mlflow-evaluation.json",
+      "bytes": 9569,
+      "sha256": "ce9db66216523a44c15a33076b59df30a91e4cde961ac1c3d738d63590c6bb90"
+    },
+    {
+      "path": "agentic-research/gh-mlops-audit.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-mmlu.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-model-risk-management.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-openai-preparedness-framework.json",
+      "bytes": 9948,
+      "sha256": "3a7e3ca9caaad61585d2baf7d7f087cf11820fcf499705159f98f8c0bfdac0d3"
+    },
+    {
+      "path": "agentic-research/gh-phoenix-arize.json",
+      "bytes": 9405,
+      "sha256": "5c429aa39e958217f02479e45c76a5baccd2fd4ace31ccac5330c29632ba1734"
+    },
+    {
+      "path": "agentic-research/gh-promptfoo.json",
+      "bytes": 8000,
+      "sha256": "c4807dbbf85dce625f3ed7b6cc5e7df27a859a96416001013759407b90a7a7e3"
+    },
+    {
+      "path": "agentic-research/gh-pyrit.json",
+      "bytes": 7958,
+      "sha256": "de91cec89fe098319a35a5be600f9f2eb93ea3f74d7cbebcc7208d17f20871ca"
+    },
+    {
+      "path": "agentic-research/gh-ragas-evaluation.json",
+      "bytes": 8303,
+      "sha256": "83d6627b679d6f957234ccd8ea8a1af91dc3f14aa78a2950cf8b15fa61f8aae0"
+    },
+    {
+      "path": "agentic-research/gh-spartqa.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-swe-bench.json",
+      "bytes": 7800,
+      "sha256": "d0c5f47be7c059cd9cd8f68b4e6c70698f503126da8fc1394b3fbfb5765aa162"
+    },
+    {
+      "path": "agentic-research/gh-toolbench.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-truthfulqa.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agentic-research/gh-webarena.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chats/claude/extracted-snippets.md",
+      "bytes": 550279,
+      "sha256": "3605f155b26b258d3811b8df724dfb2369e4f5d885286f6d1b3ef91964bce7e0"
+    },
+    {
+      "path": "chats/claude/progress.txt",
+      "bytes": 12,
+      "sha256": "10ed1c624a9109b34cd31bd2f95864179bb205ef76e9a6db9e58325889e1f565"
+    },
+    {
+      "path": "chats/claude/session-index.tsv",
+      "bytes": 16251,
+      "sha256": "b3eed61a2d867490b3872bd60f4b658dfb23bb777664d1562baa624dbc1cb4d3"
+    },
+    {
+      "path": "chats/codex/extracted-snippets.md",
+      "bytes": 66366451,
+      "sha256": "8659e410c66a5548c29109335c8d494b723740c76b53e340ab461bd3df494657"
+    },
+    {
+      "path": "chats/codex/session-index.tsv",
+      "bytes": 771478,
+      "sha256": "b61bf611f2aa41ccbe6895909f18d1dfd25179fcfb9d1071e7689afe61fc16c6"
+    },
+    {
+      "path": "chats/codex/sessions/01a0606a-b33a-7e52-934a-7774d75843a2.jsonl",
+      "bytes": 6041703,
+      "sha256": "5d7f8ac16d0afd3c0bd70464f5664b3f3366eb12e6a54419494966a7182d8bee"
+    },
+    {
+      "path": "chats/cursor/extracted-snippets.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chats/cursor/progress.txt",
+      "bytes": 7705,
+      "sha256": "74396e788c94e4ebd9124e47dbd6430c8904634efa6c592b2d36a57114caca41"
+    },
+    {
+      "path": "chats/cursor/session-index.tsv",
+      "bytes": 21,
+      "sha256": "1c528b10298cc0b7043b4f93c69643737c020f11ccd54373c7eb5f5c516b8156"
+    },
+    {
+      "path": "chats/factory/progress.txt",
+      "bytes": 5327,
+      "sha256": "1883db015555e658c9b05675c9febead1061dd65011e98412f77916aa4585be6"
+    },
+    {
+      "path": "chats/forge/extracted-snippets.md",
+      "bytes": 88747,
+      "sha256": "130e864280ae7b2d61971d638f19bf1372291df1ab1def57bb239ac198d6a99e"
+    },
+    {
+      "path": "chats/forge/progress.txt",
+      "bytes": 32,
+      "sha256": "a6ffa7932066b8cacea48a5aa1c097afcfddd91448fb8e221ff2f1ad1fe209e2"
+    },
+    {
+      "path": "chats/forge/session-index.tsv",
+      "bytes": 1395,
+      "sha256": "4c64944b68d585614041307244532dd50feeb70239a422b3101e5666993f3a0e"
+    },
+    {
+      "path": "chats/opencode/db-matches.txt",
+      "bytes": 513442,
+      "sha256": "b035bb583c7cc30d4c724c9cc720ea8458ee787be30748640c916c841776ec97"
+    },
+    {
+      "path": "chats/opencode/extracted-snippets.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chats/opencode/log-file-hits.txt",
+      "bytes": 57,
+      "sha256": "5dd47cc323b78ad8c57dd55b7fffda2ed72018d732305c32426c5eaa8ce33280"
+    },
+    {
+      "path": "chats/opencode/progress.txt",
+      "bytes": 14,
+      "sha256": "948fe55682e7ebca2ea0678ced49cbcc6e86bbcabd66d0d2895ff6d7ddc1dbfe"
+    },
+    {
+      "path": "era-research/gh-capability-maturity-model.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "era-research/gh-cmmi-process-audit.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "era-research/gh-cobit-2019.json",
+      "bytes": 7365,
+      "sha256": "a27e98d37e421709bd8504a0d890a0fdff9527451667d8060d15192239fa4779"
+    },
+    {
+      "path": "era-research/gh-fda-21-cfr-part-11.json",
+      "bytes": 6976,
+      "sha256": "403ad6f0ab799f3c903d7c36c2ceff6930e8ce82fa8f420c0f983316b84284e5"
+    },
+    {
+      "path": "era-research/gh-gdpr-article-25.json",
+      "bytes": 8239,
+      "sha256": "175da2701585e8f0f9f8b2bb1be3219b4219f01f577e25e7b18d7a999f26fd06"
+    },
+    {
+      "path": "era-research/gh-hipaa-audit-trail.json",
+      "bytes": 7073,
+      "sha256": "2512313dbf282b2d7cd08489be9d1d375e538f2334b6b104cbf2021aef1c5b34"
+    },
+    {
+      "path": "era-research/gh-iso-9001-audit.json",
+      "bytes": 7342,
+      "sha256": "cb0866586283e57b0a605b2438a842c7bc2790fdf82a8f52fa2fce9e5168c027"
+    },
+    {
+      "path": "era-research/gh-itil-audit.json",
+      "bytes": 5794,
+      "sha256": "08045f682e65789ec7e1f8dee45e4699654f5e8d3d6bc43d0bd0d33a84784901"
+    },
+    {
+      "path": "era-research/gh-pmbok-audit.json",
+      "bytes": 1650,
+      "sha256": "6ae60e806724dbb823b2e4525d36c95284af17cfb5dc352babc42b62883b9fa0"
+    },
+    {
+      "path": "era-research/gh-six-sigma-audit.json",
+      "bytes": 7787,
+      "sha256": "e36f0967313daebc5f82c4f0991ee1b6667f763a5343ce95b6918c56c2b2481c"
+    },
+    {
+      "path": "era-research/gh-sox-controls.json",
+      "bytes": 7294,
+      "sha256": "5545939842f4f1cbcb696b464de120ea580d261724ee4710ab91d6355c3c51ed"
+    },
+    {
+      "path": "era-research/gh-togaf-compliance.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "era-research/gh-zachman-audit.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gh-pr-commits/commit-audit.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gh-pr-commits/commit-comprehensive.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gh-pr-commits/commits-31-pillar.json",
+      "bytes": 539,
+      "sha256": "6b7346820b6bf717ab8ae902d141d398d1b1d6190a91790683a21cbade2f3d73"
+    },
+    {
+      "path": "gh-pr-commits/commits-agileplus.json",
+      "bytes": 541,
+      "sha256": "c36cd00689a76817daae70933ca854606a6f4cbacd6fd1823307a2b44d82593d"
+    },
+    {
+      "path": "gh-pr-commits/commits-audit-rubric.json",
+      "bytes": 539,
+      "sha256": "5e659cab5dd02edebac277b4cb8c908c79c7b09c7d46584df361ea87bfc16f89"
+    },
+    {
+      "path": "gh-pr-commits/commits-audit-scorecard.json",
+      "bytes": 38976,
+      "sha256": "86883780e07f65c7e27815b6b04026ba1d653deee3787ff6a92fd37d5e494082"
+    },
+    {
+      "path": "gh-pr-commits/commits-audit-template.json",
+      "bytes": 41329,
+      "sha256": "243ee3ae42114a26065c30a18b7b118943832af072746cff4edc6a9d2555f446"
+    },
+    {
+      "path": "gh-pr-commits/commits-audit.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gh-pr-commits/commits-rubric.json",
+      "bytes": 539,
+      "sha256": "48e43f3924e86e44f4155fb5d540f5ae873e5a6ad38505da22b8d662cf471c58"
+    },
+    {
+      "path": "gh-pr-commits/commits-scorecard.json",
+      "bytes": 42653,
+      "sha256": "8595a33c83f8cda056bb8a7d734e8f11d0d797d56feac71255d1b1c0752d22ac"
+    },
+    {
+      "path": "gh-pr-commits/pr-31-pillar.json",
+      "bytes": 5332,
+      "sha256": "f23a9d445f23aba15d7902a063c1ce55cc7f2c1c77fed609d0ab46e47725f99a"
+    },
+    {
+      "path": "gh-pr-commits/pr-agileplus.json",
+      "bytes": 4975,
+      "sha256": "9e6c8b67fb81572a47c936e871b8f90df80d78cb924bb9711835d6aaccd72005"
+    },
+    {
+      "path": "gh-pr-commits/pr-audit-scorecard.json",
+      "bytes": 7235,
+      "sha256": "a3aabc22f540f537ab300376a4ada943afa09a3d4b4ca3e66eaba320c6a65460"
+    },
+    {
+      "path": "gh-pr-commits/pr-audit-template.json",
+      "bytes": 7255,
+      "sha256": "d5c2033eef90ce51dd422f2e6364a7aa82a8bc88fde94000ac26dc0ae75d7455"
+    },
+    {
+      "path": "gh-pr-commits/pr-scorecard.json",
+      "bytes": 7006,
+      "sha256": "f46567937ef82446ea98f2cd4b7ce26da1e904f5be7b7eb4ef442148e576d351"
+    },
+    {
+      "path": "git-history/branches.json",
+      "bytes": 15924,
+      "sha256": "f97984db1e6d72bdc043a12aab7b0ba4f6f2f3969e8ffbd280b6655300f38255"
+    },
+    {
+      "path": "git-history/commits.json",
+      "bytes": 289152,
+      "sha256": "fe2c628ad2dcc3ba5a9c2323148c94a7234bbc2112e62ba57d69a41e4df8b678"
+    },
+    {
+      "path": "github-audit/gh-31-pillar.json",
+      "bytes": 11754,
+      "sha256": "b67479f2c30545057861b28632dd6a26f09f44b505448469138fcc99998ae880"
+    },
+    {
+      "path": "github-audit/gh-agileplus.json",
+      "bytes": 10730,
+      "sha256": "f7075325f1242d2a20b162734abfc22cc55b669b76ce6337c20040a4e4a0d966"
+    },
+    {
+      "path": "github-audit/gh-audit-template.json",
+      "bytes": 11556,
+      "sha256": "7f1517f8e864b9af1acfecbb7f5be04b40cd65a5a6729a90714437362778954d"
+    },
+    {
+      "path": "github-audit/gh-audit_scorecard.json",
+      "bytes": 11596,
+      "sha256": "4e5585507c3b6e7e4bdeda1ce9e30d6049b2a0e873d4865cb1de264a4ba76363"
+    },
+    {
+      "path": "github-audit/gh-pillar-rubric.json",
+      "bytes": 9250,
+      "sha256": "0e2490f9fa34d57d5b017477e262564c39fbe2e1cde4240d99967f89702d4327"
+    },
+    {
+      "path": "github-audit/gh-pillar-scorecard.json",
+      "bytes": 12670,
+      "sha256": "c715bb8383415ca4aa0561c3b81024e5a63641c70da6e2807452cd1f7627341b"
+    },
+    {
+      "path": "mac-local-audit/matches.txt",
+      "bytes": 12005030,
+      "sha256": "f4b6eac0f6f44623c7e290fb7e6ebdcf3f044d98504041bf381be6f95720a532"
+    },
+    {
+      "path": "repos/Agentora-wtrees/wt-206/.github/scorecard.yml",
+      "bytes": 469,
+      "sha256": "1ba930f8ad906e7cde20b5a121ff9d2dd04a0e6d595d59907e37daec104c417a"
+    },
+    {
+      "path": "repos/Agentora-wtrees/wt-206/.github/workflows/scorecard.yml",
+      "bytes": 1553,
+      "sha256": "4628abb1b881f07f73b772b9a06938a1205c7b58240fd6e833b2ce359ba980a4"
+    },
+    {
+      "path": "repos/Agentora-wtrees/wt-206/audit_scorecard.json",
+      "bytes": 8976,
+      "sha256": "9ecdab6950ae7e3d6bf7775fb586916e718fea7ae14fddd36b506805f526f574"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/.github/scorecard.yml",
+      "bytes": 2324,
+      "sha256": "6162be9d7f53a31407f402ec669f9e5f547fc61e4ddf4db06aa12d4dcbf21a61"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/audit_scorecard.json",
+      "bytes": 8919,
+      "sha256": "1ab7d4e0b291c92991035f415b8f31807979f971b6725a5ff2d50738952699ba"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/crates/agileplus-cli/src/commands/rubric.rs",
+      "bytes": 9375,
+      "sha256": "7b2d0724d55846c82568790485f0dae12a68615a7b94addc215d4f54132d8a3d"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/crates/agileplus-cli/tests/cli_rubric.rs",
+      "bytes": 5809,
+      "sha256": "36e9d3113fa63d081ccaf2504e332f10fe7911faa99b9496021feb339b640014"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/crates/agileplus-governance/src/rubric.rs",
+      "bytes": 8762,
+      "sha256": "a5c7b2ea316b63cc222dcd3de2b9a9382777c9783de92ab60cd57c75a723f5bf"
+    },
+    {
+      "path": "repos/AgilePlus-recovered-20260822/crates/clap-ext/.github/workflows/scorecard.yml",
+      "bytes": 1964,
+      "sha256": "10f08ba371ab1c2403e8a14c8531cb88d0e4254300e985d022106b273554776a"
+    },
+    {
+      "path": "repos/CivicSurvival-public/.github/scorecard-baseline.json",
+      "bytes": 389,
+      "sha256": "d5dc7acb6db35c692e52484a4babd429dbfc004435596151d2e0378a67f5603a"
+    },
+    {
+      "path": "repos/CivicSurvival-public/.github/workflows/scorecard-ci.yml",
+      "bytes": 4959,
+      "sha256": "b7fa9324620c5e1231366f1b558135c0e6fccaad310b002ea58f21ff1afa6b09"
+    },
+    {
+      "path": "repos/CivicSurvival-public/.github/workflows/scorecard.yml",
+      "bytes": 1602,
+      "sha256": "359bf344018ad1449e5d62276f51e4b7d36fa7d48dd8b353d974560f519a135c"
+    },
+    {
+      "path": "repos/CivicSurvival-public/SCORECARD_NOTES.md",
+      "bytes": 7337,
+      "sha256": "e10b44fce1f96f4a1e38675dfe53b8c2c96fb7d4b602ffca64ede9b9d56828a6"
+    },
+    {
+      "path": "repos/CivicSurvival-public/scripts/__pycache__/scorecard_ci.cpython-312.pyc",
+      "bytes": 31248,
+      "sha256": "2b8b08612f844d7867cac2f57cdee6e2689ebc8567337129740ffdede9a48603"
+    },
+    {
+      "path": "repos/CivicSurvival-public/scripts/__pycache__/scorecard_ci.cpython-314.pyc",
+      "bytes": 33755,
+      "sha256": "7333668cac9fcc9953a173d5fde48efd4f0e52e2d36cd3d2c9d56a0e6e2c0464"
+    },
+    {
+      "path": "repos/CivicSurvival-public/scripts/scorecard_ci.py",
+      "bytes": 18087,
+      "sha256": "b3ac4d9f367ac0cf11c773a583364cbf512ab7d328763d9305c131f45bfea94e"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/__pycache__/test_scorecard_baseline_freshness.cpython-312-pytest-9.1.1.pyc",
+      "bytes": 17022,
+      "sha256": "23c81795a9f328cd8db7c936631e1196e4afddd7d0e25f45ed51cb5e093106ca"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/__pycache__/test_scorecard_baseline_freshness.cpython-314-pytest-9.1.1.pyc",
+      "bytes": 18217,
+      "sha256": "ba38226238787fd7230e754ecbbc109e6818d93c7909c07e92fb911d104b9a2e"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/__pycache__/test_scorecard_ci.cpython-311-pytest-9.0.2.pyc",
+      "bytes": 11459,
+      "sha256": "d0a1d26b20e4180dc035733fd75c301af267fdf2c4c960c7ffc97c04fd8eb33f"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/__pycache__/test_scorecard_ci.cpython-312-pytest-9.1.1.pyc",
+      "bytes": 9842,
+      "sha256": "8f666a58a37bb455a60eb69f3d98a9c55ce3df47e47ad0b2e15496a01aab932c"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/__pycache__/test_scorecard_ci.cpython-314-pytest-9.1.1.pyc",
+      "bytes": 11753,
+      "sha256": "085911faf508cd4ae3d415c63fc1adf65991bb5c7170a2eed67bd1127ecb09bd"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/test_scorecard_baseline_freshness.py",
+      "bytes": 7078,
+      "sha256": "f0ea2643046e6fb6865e7814a440992dd58cb32ae98a322737679599e0ac8bcb"
+    },
+    {
+      "path": "repos/CivicSurvival-public/tests/test_scorecard_ci.py",
+      "bytes": 7839,
+      "sha256": "261cf4676724b55a3ff9503b0ca8bf3174361d64957358e94f5ab77d19f06ee1"
+    },
+    {
+      "path": "repos/HeliosLab/.github/workflows/scorecard.yml",
+      "bytes": 1929,
+      "sha256": "fd1e9840fb664eefe673cdd921de4f2a0b0cb854cd313d2cda03dacf2cd85b74"
+    },
+    {
+      "path": "repos/HeliosLab/audit_scorecard.json",
+      "bytes": 9350,
+      "sha256": "191e9444cbd1a66e5233c1a1dc25f20e90b3abb76601bc17fb3487ee7f6a9497"
+    },
+    {
+      "path": "repos/MANIFEST.md",
+      "bytes": 19193,
+      "sha256": "c11400477656f4c60932a3216b4adea562c562fbae10bb416ec11cb6aaaefd63"
+    },
+    {
+      "path": "repos/Melosviz/.github/workflows/agileplus-pillar-scorecard.yml",
+      "bytes": 2586,
+      "sha256": "08925fb416d2ea09b156e4852ddb2c5ae09423dca153fe4831e14a82788bb02a"
+    },
+    {
+      "path": "repos/Melosviz/.github/workflows/scorecard-ci.yml",
+      "bytes": 5061,
+      "sha256": "b8affea8de214d23758e3521a6d6c71307dc1b08e0be47165c1cffaf4e5a224f"
+    },
+    {
+      "path": "repos/Melosviz/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "7e2bff40cc178f4d74e01a8da08005f8d3f57c373e31899bf54a30832594f6c8"
+    },
+    {
+      "path": "repos/Melosviz/agileplus/pillars/31-pillar-scorecard.json",
+      "bytes": 3061,
+      "sha256": "deccf89caba612503fa189ec25fc3f8adb33f0733651b3e8ed395adeb375ead7"
+    },
+    {
+      "path": "repos/Melosviz/audit/SCORECARD.md",
+      "bytes": 2829,
+      "sha256": "52483c057e6380131580a20fbde41b0b09e6ff17bc2ff784e1fa07fd37f087db"
+    },
+    {
+      "path": "repos/Melosviz/audit_scorecard.json",
+      "bytes": 210,
+      "sha256": "c66f4ef70806a2c2b1fb32d673bbdb6fe7d8034ebf8035f1c96a17a52c48bf35"
+    },
+    {
+      "path": "repos/Melosviz/user-scorecard.json",
+      "bytes": 6816,
+      "sha256": "bdd9620d9d8216e8ddf2e1dd886a1df87a42523e7d280c226b50274ffe8a3f5b"
+    },
+    {
+      "path": "repos/OmniRoute/.github/scorecard.yml",
+      "bytes": 449,
+      "sha256": "50a81453e94e8807ee37217cf2dd63f20612e0c55a2b2f7115ab4b6fd9e05c06"
+    },
+    {
+      "path": "repos/OmniRoute/.github/workflows/scorecard.yml",
+      "bytes": 1518,
+      "sha256": "053634eb387e76f32a04951edb1bb10396cb05b3f463befac54ce014ed8093e2"
+    },
+    {
+      "path": "repos/OmniRoute/audit_scorecard.json",
+      "bytes": 8881,
+      "sha256": "d6062d5cc55b60247f93f3121f3cdc8fa5f02b27a1d8e38e46ab274b4c127ba6"
+    },
+    {
+      "path": "repos/OmniRoute/extensions/argis/.github/workflows/scorecard.yml",
+      "bytes": 1025,
+      "sha256": "6f230359603f0c05752fc6114d3183687049a4d73ae88f43f01b0ac67cc5c1b4"
+    },
+    {
+      "path": "repos/OmniRoute/src/app/(dashboard)/dashboard/analytics/components/DiversityScoreCard.tsx",
+      "bytes": 6256,
+      "sha256": "91c1915b4081104b4a6a421d3030da906e269238bf8085f6cd91ec5def74da81"
+    },
+    {
+      "path": "repos/OmniRoute/tools/pillar-fleet/push-scorecard.sh",
+      "bytes": 531,
+      "sha256": "64b2bcfb8188b5a9e97a06c8f63c65ba7666ebcd13ecfb28e9a03e0afecfacbb"
+    },
+    {
+      "path": "repos/PhenoMCPServers/servers/external/mcpforge/.github/workflows/scorecard.yml",
+      "bytes": 1116,
+      "sha256": "1264d84c3106ed87eb84809b7b25af19e1044c808a2bc76a7d09f9f65d2a48c2"
+    },
+    {
+      "path": "repos/PhenoObservability/.github/scorecard.yml",
+      "bytes": 349,
+      "sha256": "4f3f4650d839281663ebfd034ca2455fb5016398b5e26fd9783a789fb80f5a05"
+    },
+    {
+      "path": "repos/PhenoPlugins/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "692f200f9cbec80bf32078e6fac4f25cfa254e8dadfc99fe8f98c63d9a40696c"
+    },
+    {
+      "path": "repos/PhenoPlugins/audit_scorecard.json",
+      "bytes": 8890,
+      "sha256": "ea976c30e0bf4f26334288fc61fbef3ac6096fa89f2e08d147b262b0fd33f06e"
+    },
+    {
+      "path": "repos/PhenoVCS/.github/scorecard.yml",
+      "bytes": 688,
+      "sha256": "b72b672447f602b7aaa9ba0b6cb7933f394ac7fa62fa48e2aba1146192a831e1"
+    },
+    {
+      "path": "repos/PhenoVCS/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "ee55fdea427312d16a10122c603362a71b7ab5867e26a06db059532d872f5e2e"
+    },
+    {
+      "path": "repos/PhenoVCS/audit_scorecard.json",
+      "bytes": 8885,
+      "sha256": "500af7c8499f9920ad59bf975135c9c451aecc52b88aee7c5ccb1ac595178348"
+    },
+    {
+      "path": "repos/PlayCua/.github/workflows/scorecard.yml",
+      "bytes": 1017,
+      "sha256": "913fd010ee5741fd5166dafed4a27d1f8c6f0a39c32381d0523361678c2c0cf3"
+    },
+    {
+      "path": "repos/ResearchLedger/docs/A_PLUS_SCORECARD.md",
+      "bytes": 5824,
+      "sha256": "8e3379767ed0525189f1e292a8ab249c44316b60eac00df71b63fe5cdeca3fca"
+    },
+    {
+      "path": "repos/ResearchLedger/worktrees/codex-scorecard-action-permissions/.github/workflows/scorecard.yml",
+      "bytes": 1539,
+      "sha256": "0c74d2b114fb57716b8365f564cd0d02f6e5ef424ea684e42d0a02b98f06887b"
+    },
+    {
+      "path": "repos/ResearchLedger/worktrees/scorecard-codeql-pin-retry-20260825/.github/workflows/scorecard.yml",
+      "bytes": 1450,
+      "sha256": "b7856b1621bedc8ace418122ea50941a4ac8b14e9da7d741b81d730e8f3604f9"
+    },
+    {
+      "path": "repos/SessionLedger/.claude/worktrees/i18n-catalog-parity-20260822/audit_scorecard.json",
+      "bytes": 1646,
+      "sha256": "1b279ce6985d934ed73ef004ee5b8d8a7712d95d96bded07a1d32b1cf13e3fe0"
+    },
+    {
+      "path": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/.github/workflows/scorecard-ci.yml",
+      "bytes": 6046,
+      "sha256": "cfa0f9c17e68afbbd18fa2cb505a5b9d933523fa883f24575515ef29460fff4c"
+    },
+    {
+      "path": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/.github/workflows/scorecard.yml",
+      "bytes": 1451,
+      "sha256": "38f2866d4fb0f97fd5bbc7748d8b342ec07dd435daeba600db4ea0a0540a4b15"
+    },
+    {
+      "path": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/audit/SCORECARD.md",
+      "bytes": 10216,
+      "sha256": "ed96237fdcaa22fb97c39b300b7df844defd5d5cb6aa0e236053a83b32687776"
+    },
+    {
+      "path": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/audit_scorecard.json",
+      "bytes": 1662,
+      "sha256": "bd59407bf88cb62c28150779817ffec4c9a7a9bd84e95c7d08d6862917b30e6a"
+    },
+    {
+      "path": "repos/SessionLedger/SessionLedger/.claude/worktrees/mergify-configuration/user-scorecard.json",
+      "bytes": 6877,
+      "sha256": "f338ebadc57a94c34fe7c8aab7206cd55b430ef88b9b60ee5e889be8e0407a79"
+    },
+    {
+      "path": "repos/Tokn/.github/workflows/scorecard.yml",
+      "bytes": 1493,
+      "sha256": "b562885130d12ed0d9d69116749f66dce4419ff61b57175f99a006ac55dba15c"
+    },
+    {
+      "path": "repos/Tokn/audit_scorecard.json",
+      "bytes": 1392,
+      "sha256": "1e343d855948e0d8da448b0122f8a8387d5c27cd275fdc31e9768ec6e4175ed0"
+    },
+    {
+      "path": "repos/Tracera/audit/SCORECARD-S7778-REFRESH-2026-09-01.md",
+      "bytes": 6647,
+      "sha256": "389ae6c0fe364841df952a4099847d8e96c23ddd87e649cd0d8bd896643ce02d"
+    },
+    {
+      "path": "repos/Tracera-wtrees/fix-contract-tests-20260901/.github/workflows/scorecard.yml",
+      "bytes": 1632,
+      "sha256": "4e5dd0f1bcc88acb3a0343b5e1ca42c6737e89691f27ef5b580137ee17340075"
+    },
+    {
+      "path": "repos/Tracera-wtrees/fix-contract-tests-20260901/audit/SCORECARD-FULL-2026-08-30.md",
+      "bytes": 161320,
+      "sha256": "256d03913ef633b6f11340487353a6f2dbf620f7f059f0f2e4600519d7c762de"
+    },
+    {
+      "path": "repos/Tracera-wtrees/fix-contract-tests-20260901/frontend/apps/web/src/components/specifications/prioritization/RiceScoreCard.tsx",
+      "bytes": 10350,
+      "sha256": "995d6d8b3968d8aca34e0896d5970de5dc9cb8b46c3a6178f2ce976585f55883"
+    },
+    {
+      "path": "repos/Tracera-wtrees/fix-contract-tests-20260901/loadtest/audit_scorecard.js",
+      "bytes": 1624,
+      "sha256": "5cfdb40b0ab0bb02e4e3307091efbd4b8659c4ecfd06b53db5d4c2cf56c96fd0"
+    },
+    {
+      "path": "repos/agileplus-recovery-wtrees/core-mcp-runtime-20260829/.github/workflows/scorecard.yml",
+      "bytes": 1456,
+      "sha256": "10e78dbf0724df45388f31bcd793c46391b259a0a0b3244d36491cb2bbd01336"
+    },
+    {
+      "path": "repos/agileplus-recovery-wtrees/core-mcp-runtime-linear2-20260829/.github/workflows/scorecard.yml",
+      "bytes": 1761,
+      "sha256": "710a9ee4af184dc74db2318b94f6e9c59f4a31998bab8557245275e2fd813d98"
+    },
+    {
+      "path": "repos/agileplus-recovery-wtrees/python-coverage-comment-path-20260901/.github/workflows/scorecard.yml",
+      "bytes": 1615,
+      "sha256": "95c3420f576bb8fbf1935d64dd95fa104cc2d6d66d53de786e0ac5d9f8f5b2b4"
+    },
+    {
+      "path": "repos/agileplus-recovery-wtrees/python-coverage-comment-path-20260901/crates/agileplus-cli/src/commands/rubric.rs",
+      "bytes": 9735,
+      "sha256": "adfe5e81e4ff1602e24a7d79a1512f3b442bafa25325a65b279ceb202ec78cd8"
+    },
+    {
+      "path": "repos/argis-extensions/audit_scorecard.json",
+      "bytes": 8907,
+      "sha256": "e535114bf7ba1a0944ee7cf23ec065fab4b70fcdcc5d6171830e57cdb9354a3c"
+    },
+    {
+      "path": "repos/argis-extensions/pheno-config/.github/workflows/scorecard.yml",
+      "bytes": 1071,
+      "sha256": "821dcb220e927864f3843034da3f6afe06077739f8072071d9b48d9c1096ad5d"
+    },
+    {
+      "path": "repos/argis-extensions/tools/pillar-fleet/push-scorecard.sh",
+      "bytes": 223,
+      "sha256": "8de005a59e4bc042b1596f444b9a8794dbb3de891de22619c739f06363c7c9a3"
+    },
+    {
+      "path": "repos/argis-extensions/tools/pillar-fleet/scorecard.sh",
+      "bytes": 678,
+      "sha256": "f250b66865815ae3c2e4913eff0fc48dca97ffa98eb265adc7abb78ab1ce6280"
+    },
+    {
+      "path": "repos/cliproxyapi-plusplus/.github/workflows/scorecard.yml",
+      "bytes": 1632,
+      "sha256": "0c141f1d1bcea08a833880e41c4385da8eccffbb98ea3816852bbe955530fb2c"
+    },
+    {
+      "path": "repos/cliproxyapi-plusplus/audit_scorecard.json",
+      "bytes": 8862,
+      "sha256": "7ff1715678e1b1695c0afb22a901152bb3795c3140b0d2288d65d05c2e825497"
+    },
+    {
+      "path": "repos/helios-cli/audit_scorecard.json",
+      "bytes": 212,
+      "sha256": "1f9cd421cf9db05694e6f549dc3e5237a5fc826e6ec32ccec97f34fe0efb43af"
+    },
+    {
+      "path": "repos/helios-cli/codex-rs/prompts/templates/review/rubric.md",
+      "bytes": 6438,
+      "sha256": "bc96ddff6a80d36620ea27cd3e864abffd875cc4ea65a55063b99da459ba4ae2"
+    },
+    {
+      "path": "repos/helios-cli/docs/31-pillar-scorecard.md",
+      "bytes": 22170,
+      "sha256": "63c39cf21ab0a759f299593e224c66926d177d55a8d13faac286136ca1ceac4e"
+    },
+    {
+      "path": "repos/helios-cli/docs/fragemented/wbs/phase-1-reports/governance-rubric.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "repos/helios-cli/fragemented/wbs/phase-1-reports/governance-rubric.html",
+      "bytes": 22505,
+      "sha256": "0f66dbe7972234a2766217c87d4dbfa82569bd6577f9497b648ee60672ea4838"
+    },
+    {
+      "path": "repos/helios-cli/scripts/scorecard_ci.py",
+      "bytes": 11131,
+      "sha256": "98d3613046eea9f0abf8789c1fb30fc8a4c9773e5043555cf3f9ad40059a337e"
+    },
+    {
+      "path": "repos/helios-cli/user-scorecard.json",
+      "bytes": 6839,
+      "sha256": "777125e73e78d85d471bd2ff823983d4facacd8a05241f3e2ff7f2847cd84444"
+    },
+    {
+      "path": "repos/hwLedger/audit_scorecard.json",
+      "bytes": 8936,
+      "sha256": "86cda4bb158d2bc40bd4e1a0b067c6407b60973f4b1e4bf372816c22f437b5be"
+    },
+    {
+      "path": "repos/nanovms/.github/workflows/scorecard.yml",
+      "bytes": 1487,
+      "sha256": "4fee7207b60e4bede70cd65c60fa99f6915a278555ffe428e4576812dfe2bd46"
+    },
+    {
+      "path": "repos/nanovms/audit_scorecard.json",
+      "bytes": 1209,
+      "sha256": "484eb74c286d47eeb2c7896de7ce832935dc002219c5ed7fe1792b9b8e19e5ff"
+    },
+    {
+      "path": "repos/nanovms/docs/audit/scorecard.json",
+      "bytes": 9137,
+      "sha256": "8ddf67ab637d180b9a9a1d15ceaad62c31cf109993d4fe0e678841b3557aba02"
+    },
+    {
+      "path": "repos/pheno/crates/agile-plus/.github/workflows/scorecard.yml",
+      "bytes": 843,
+      "sha256": "32599d984d0d004fc62105dc1d9a6e00f1d97e3b446bcf300166e2a14a54b9fe"
+    },
+    {
+      "path": "repos/pheno/crates/agile-plus/PhenoObservability/.github/workflows/scorecard.yml",
+      "bytes": 981,
+      "sha256": "5fc127d2ae54ccbcc26c3cf4f164217b8a0150c36f8b63cb7825585b39297e9b"
+    },
+    {
+      "path": "repos/pheno/crates/agile-plus/crates/agileplus-cli/src/commands/rubric.rs",
+      "bytes": 9397,
+      "sha256": "f59f394d08a383469ec0fa6f26fc6e7d9fbd0bcc60ca8e4ca8aa5b1679db1f66"
+    },
+    {
+      "path": "repos/pheno/crates/agile-plus/crates/agileplus-cli/tests/cli_rubric.rs",
+      "bytes": 5808,
+      "sha256": "da9274b56f0ed8f6e042e1c7710086a3c14413e966dde07e525a5dde25a94529"
+    },
+    {
+      "path": "repos/pheno/crates/agile-plus/crates/agileplus-governance/src/rubric.rs",
+      "bytes": 8675,
+      "sha256": "3a4ed99e5bf19c9833297742e9affde8b04a00c98099797eb7e5a6402735b329"
+    },
+    {
+      "path": "repos/pheno/crates/hexa-kit/.github/workflows/scorecard.yml",
+      "bytes": 1185,
+      "sha256": "c1066d1ac5453539f2c5e6841333580a06134924516198eb727a9d0427313389"
+    },
+    {
+      "path": "repos/pheno/crates/hexa-kit/audit_scorecard.json",
+      "bytes": 10489,
+      "sha256": "f0e98a27ee70ed2d5628302feccab44892001eb42967a991b4df7fb27978835b"
+    },
+    {
+      "path": "repos/pheno/crates/hexa-kit/templates/appgen/audit_scorecard.json",
+      "bytes": 8997,
+      "sha256": "9bebda6085f04eca4d7f2d9be31769b7795d61e61dc786bb04540b918e9d1f4b"
+    },
+    {
+      "path": "repos/pheno-harness/.github/workflows/agileplus-pillar-scorecard.yml",
+      "bytes": 853,
+      "sha256": "6885fd724998148665c1672498af7783b424c9426de998de34c081f478d398c5"
+    },
+    {
+      "path": "repos/pheno-harness/.github/workflows/scorecard.yml",
+      "bytes": 1671,
+      "sha256": "30c912aa6fadee46520bcbb2d17186e1a5fc90ba095d863a9d37a69dcee1ac06"
+    },
+    {
+      "path": "repos/pheno-harness/audit_scorecard.json",
+      "bytes": 2185,
+      "sha256": "6e72353804d7060975ec8d3f8de82a685cda8ad84e752bc1d3e3beabf3a70f93"
+    },
+    {
+      "path": "repos/pheno-harness/user-scorecard.json",
+      "bytes": 6856,
+      "sha256": "59dd6875af82cdab0520633d70f96781f943e0757fef56f634cef446772bdca8"
+    },
+    {
+      "path": "repos/phenoAI/.github/workflows/scorecard.yml",
+      "bytes": 1100,
+      "sha256": "ea09dd6f58f44fb629b6870ad2fb098b799378f71e1d096c6d04d939aff87cc5"
+    },
+    {
+      "path": "repos/phenoAI/audit_scorecard.json",
+      "bytes": 8890,
+      "sha256": "8634ed2412b9ffaa9be563110eacde60089f8676089cbe5a329da72259d027fc"
+    },
+    {
+      "path": "repos/phenotype-fleet-ops/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "6b77cdecaef38baa85438d1c44826c61b6e403169c30fdb26270edf0c96add8c"
+    },
+    {
+      "path": "repos/phenotype-go-sdk/packages/devhex/.github/workflows/scorecard.yml",
+      "bytes": 953,
+      "sha256": "2a97a48e76a7a7866452a0fa4e0f894fd2838ba90198040eaa43eda5db1adea8"
+    },
+    {
+      "path": "repos/phenotype-omlx/worktrees/phenotype-omlx/reconcile-bench-cockpit/.github/workflows/scorecard.yml",
+      "bytes": 1565,
+      "sha256": "11ffe46b796ee2c96c822d6cd53c1cae3c7d4f60887691cfd0102b09e41b56bc"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "492510eb93661b5058885628c13258542067d7bcaa4785e32042af45c0f8f84c"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/auth-kit/.github/workflows/scorecard.yml",
+      "bytes": 789,
+      "sha256": "0fa9803100732d7e38f7368dc8bf0d29cac732ecf74a9baa4df5959076151902"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/data-kit/.github/workflows/scorecard.yml",
+      "bytes": 874,
+      "sha256": "6846e516bc1892821d294b2ad99121919a59b22b323ac9a4ede3bad8adfdca88"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/mcp-kit/.github/workflows/scorecard.yml",
+      "bytes": 903,
+      "sha256": "ab21e18f61875e6214d1e0aa58fbf179326e040864c70d202133ce9c7f6e271c"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/observability-kit/.github/workflows/scorecard.yml",
+      "bytes": 999,
+      "sha256": "befeefa9b30ef69ca792c815eccecab6964f30a1ddf431b3ce6185a067862c8d"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/resilience-kit/.github/workflows/scorecard.yml",
+      "bytes": 972,
+      "sha256": "dd360d09e75d30f72e1b7e15679e8977090172d2435f434dc5a8fdba533e5014"
+    },
+    {
+      "path": "repos/phenotype-python-sdk/packages/testing-kit/.github/workflows/scorecard.yml",
+      "bytes": 975,
+      "sha256": "a8217ee3da7016cc71414029b30e2689a9ff6588e37d8d9444e3db19cc9a748f"
+    },
+    {
+      "path": "repos/phenotype-registry/.github/workflows/scorecard-ci.yml",
+      "bytes": 5082,
+      "sha256": "c158748fee9a2a858dc1fbd5797d9c5b4c257fa545a0c9d3d14719b023c06c1d"
+    },
+    {
+      "path": "repos/phenotype-registry/.github/workflows/scorecard.yml",
+      "bytes": 1090,
+      "sha256": "cc7e3476e040a5e291f3f6ef5b9b1373c2aae448473db0970ec426aafa8b15cd"
+    },
+    {
+      "path": "repos/phenotype-registry/archives/zz-archive-phenotype-registry/docs/absorption/dagctl/source-docs/.github/workflows/scorecard.yml",
+      "bytes": 638,
+      "sha256": "38cf1466f1c00a451439b9949fef94fe973a239d69d74386902fbafb2d8ce339"
+    },
+    {
+      "path": "repos/phenotype-registry/audit_scorecard.json",
+      "bytes": 126,
+      "sha256": "f24e1c0b8844012e1fe026863f13fea6ae6249bc4c339ae642197f90da11e82d"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/.github/workflows/scorecard.yml",
+      "bytes": 949,
+      "sha256": "c43fdb4487987fcdb97eb0d6218903ae0531134f61b86515268f0bbb4cc239dd"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/audit-v38/output/MelosViz/SCORECARD.md",
+      "bytes": 2775,
+      "sha256": "4cad68c22e9fb8d9eb342939927654c059d977755f1891d95798e84da30041aa"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/audit-v38/output/SessionLedger/SCORECARD.md",
+      "bytes": 3307,
+      "sha256": "9fbb61ccf4ef3daa17a202bfd60d5416cb66363f5f41436b4812675cae467cab"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/audit-v38/output/sharecli/SCORECARD-v38.md",
+      "bytes": 12849,
+      "sha256": "0bcf512a50077f0d6bcf13355cd85e0dfd2a5a02d6014e2acc5624a9213bd99c"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/audits/docs-site/audit_scorecard-2026-06-18.json",
+      "bytes": 8759,
+      "sha256": "eeaf3b744b1a563b823e16410b4bad2bd120439306fbd65d50f0214481d64bdb"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/audits/services/audit_scorecard-2026-06-18.json",
+      "bytes": 8738,
+      "sha256": "cf8b313e8347796a091caa7eca67875a5eb0af7310dfe96977c6eea5a6d13502"
+    },
+    {
+      "path": "repos/phenotype-registry/audits/org-audit-snapshots/catalog/RUBRIC-LINEAGE.md",
+      "bytes": 21761,
+      "sha256": "184ececf8cc2f082d55b5dc35fe4e364408b427e12b876f38a171ba2365dd4ff"
+    },
+    {
+      "path": "repos/phenotype-registry/docs/sessions/20260722-consolidation-20/08_CURRENT_SCORECARD.md",
+      "bytes": 7128,
+      "sha256": "f7e4336a369215c2f0cc3a9e7de999d6f8d7c94337f3838bd6b7c0e361e51b90"
+    },
+    {
+      "path": "repos/phenotype-registry/docs/specs/pheno-specs/.github/workflows/scorecard.yml",
+      "bytes": 1030,
+      "sha256": "52a22ebfbc01e9792a9d5dec32088805079d74ad4dd18f0a9941b8708114f4f2"
+    },
+    {
+      "path": "repos/phenotype-registry/docs/specs/pheno-specs/audit_scorecard.json",
+      "bytes": 8913,
+      "sha256": "02590188e11c70e7077ed8e21861434b278d4270a86f97584ccb026545ec301d"
+    },
+    {
+      "path": "repos/phenotype-registry/registry/absorbed-crates/clap-ext/.github/workflows/scorecard.yml",
+      "bytes": 2017,
+      "sha256": "95f9a2975e9075e7b26a8b8a785de6278ed81eb897a45fff1959484b215706ca"
+    },
+    {
+      "path": "repos/phenotype-registry/registry/absorbed-crates/phenotype-hub/.github/workflows/scorecard.yml",
+      "bytes": 909,
+      "sha256": "0ffa037f66c50f4a5d9179238561ff96c92234a1f09db0db1b0c1b6929850b86"
+    },
+    {
+      "path": "repos/phenotype-registry/user-scorecard.json",
+      "bytes": 4829,
+      "sha256": "3eaa3f509fc121127ed80cef053bd3d2aa199130b5d8ffa5421b7d6176e5215b"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/.github/workflows/agileplus-pillar-scorecard.yml",
+      "bytes": 609,
+      "sha256": "5a7c8c26aa51afbcdb08c2cd270edfce120595c425066690bf2ca23b93c1ae0a"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/audit_scorecard.json",
+      "bytes": 8992,
+      "sha256": "7b1e5b1cfe6b0963cae0ee982ddd5c2eb19bd92413c785b1af7d185a1d5eba0b"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/byteport/.github/workflows/scorecard.yml",
+      "bytes": 997,
+      "sha256": "b233bd6c6435b7122ac29dfe2fdc18756cdc788d604b5b1eb12a85fda657b6d9"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/heliosapp/.github/workflows/scorecard.yml",
+      "bytes": 1025,
+      "sha256": "16ce0ea13fb3988e3059e62b6a00d919731af623d0c2e5d813c75b71a10873b0"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/heliosbench/.github/workflows/scorecard.yml",
+      "bytes": 903,
+      "sha256": "e70dd040046009969caa632ec0d9dff89bf755b7692bea3dc2316fd6e50bde7b"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/nanovms/.github/workflows/scorecard.yml",
+      "bytes": 787,
+      "sha256": "cfde0ea17bb44108b35816174c7e364db0c6b552a9e716daefb46ef1900b8621"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/perfharness/src/scorecard.rs",
+      "bytes": 15587,
+      "sha256": "901723bc739a24c6ad7f924768e225cc394ad5d96d7b987c184100e1cce0391f"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/crates/policystack/.github/workflows/scorecard.yml",
+      "bytes": 1130,
+      "sha256": "11ee6776acb59ff15380b11b9f28a84eac623ed69dd76c69796154e50e318567"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-DINOForge-UnityDoorstop/audit_scorecard.json",
+      "bytes": 8866,
+      "sha256": "0f8bf3db64c1fc039386fa890bf9c6392d9fba902a8e69f58c66841ceb05bebf"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-HeliosCLI/.github/workflows/scorecard.yml",
+      "bytes": 1065,
+      "sha256": "2db041b8e1a9280c246682c35c61c04b5db2a93345d5be1b6781d34d52df084e"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-Paginary/.github/workflows/scorecard.yml",
+      "bytes": 1004,
+      "sha256": "18456ae3489c72be220acd466268033bac0c3c766aa6af61ae70867e22ea3e6a"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-Paginary/audit_scorecard.json",
+      "bytes": 8968,
+      "sha256": "a8dbacaccb6ee63bc25ba4c12c38179325dd7e1506ff21c2fb723db349fc5bda"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoAgent/.github/workflows/scorecard.yml",
+      "bytes": 1068,
+      "sha256": "b64ea5ce7b2ea7191c22912a007a92f39f383778ddf879440586035c971510b8"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoAgent/audit_scorecard.json",
+      "bytes": 8952,
+      "sha256": "567c2540e6cdd36afdf98e7c016d6af8b2a7d165937b7990fa41f50fb3762a3d"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoDevOps/audit_scorecard.json",
+      "bytes": 9134,
+      "sha256": "509653575dbe5949348ff7c6c93e3651a0bab5ba713e1b652671cf3b577bd8fd"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoEvents/.github/workflows/scorecard.yml",
+      "bytes": 992,
+      "sha256": "2f42c5f5a5f99391b043018d33ee6f5d4796afb8fae697cecb8d7146bd0d7299"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoEvents/audit_scorecard.json",
+      "bytes": 8824,
+      "sha256": "320657d70df4338f1bdfa74d3aaafb721be8943812a09a04e30d79695d828b76"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoMCP/.github/workflows/scorecard.yml",
+      "bytes": 1065,
+      "sha256": "ce3ab5a8d99f6c8afbf5997897a6bb08a817d248fd5a6ed803a385d8d1ef2856"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoMCP/audit_scorecard.json",
+      "bytes": 9072,
+      "sha256": "ac4dd541dc3d446bc204558d9ac134107a3cbc58966997f194af6e270e53ee71"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoProc/.github/workflows/scorecard.yml",
+      "bytes": 991,
+      "sha256": "6fbba8833e874571b5c7009c4b53c0eda5bca011bd44d8355bef3194a5eb47c0"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-PhenoProc/audit_scorecard.json",
+      "bytes": 8901,
+      "sha256": "19fb2477a6e6379f64a8746861d0bd88e1e14180517e20ef44e6772eab5c1de8"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-Planify/.github/workflows/scorecard.yml",
+      "bytes": 1169,
+      "sha256": "f3a3b68122e5a2e301c2c2809a9181fbf3de89ebed28f92a7a1abff7bbff8479"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-Planify/audit_scorecard.json",
+      "bytes": 8806,
+      "sha256": "e37f5ce3dd4f0df8847ad68c0e55d22591bea4413f8cdd79507cc8f877e292c3"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-QuadSGM/.github/workflows/scorecard.yml",
+      "bytes": 1123,
+      "sha256": "d5c182ed08f9bf383a07222b48a253479c2c34091e1df0c22b0d896e07d9645c"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-QuadSGM/audit_scorecard.json",
+      "bytes": 9105,
+      "sha256": "7b8dd19856b1519db2efe7e287de42b0fd158047a3792f41d204d15cb69b4cf2"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-apikit/.github/workflows/scorecard.yml",
+      "bytes": 1111,
+      "sha256": "69dd3db4ebe880a8faa214955878c33e525c3a0bd663fe7fb727073a60911279"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-apikit/audit_scorecard.json",
+      "bytes": 8909,
+      "sha256": "3345740e735e2b4b57308925375d76db77a2dc0fc36049ab61db6994f82cc7da"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-authkit/.github/workflows/scorecard.yml",
+      "bytes": 990,
+      "sha256": "ba8b5be494568ac45e15db45e4337cbd9212da8d9280a3da4c2f7bdce4ca9a22"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-authkit/audit_scorecard.json",
+      "bytes": 9236,
+      "sha256": "4ee5f921b1e25661328c9ba16cc99491db8d46866420eb4e6582a2daa406d36b"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-dispatch-mcp/audit_scorecard.json",
+      "bytes": 9859,
+      "sha256": "b70f3d3cd6084c1f77f6e1d53a1b77ba55cb7f069277030817e47b0b7769d7a2"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-heliosApp/.github/workflows/scorecard.yml",
+      "bytes": 1024,
+      "sha256": "04331a04a013b4b13e4392b2b57b09829e71e08fd52e4dc65b0f470d441cec31"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-kodevibe/.github/workflows/scorecard.yml",
+      "bytes": 1926,
+      "sha256": "1bb3428b8432ca5871d84a0025d534a6c5f66d6eaf158f98a74c50d7e752ad9d"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-nanovms/.github/workflows/scorecard.yml",
+      "bytes": 966,
+      "sha256": "ee439ae9e6e35c0fbcdcfb0c9f2ba1eed8a45a02c2a888726b1eaeefe2002da8"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-netweave-final2/audit_scorecard.json",
+      "bytes": 8914,
+      "sha256": "19f7754cda6980d7a12fbeff167dbf5d1ce581b27c0f9a696f19d45b0fd789d8"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-cost-card/audit_scorecard.json",
+      "bytes": 9020,
+      "sha256": "073a5daa68e335fa02770420df7fa9dded489ab6a5bb84b85ce426b054e56220"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-errors/.github/workflows/scorecard.yml",
+      "bytes": 948,
+      "sha256": "406249088042fa8dc80af678e2bc94c34c4de2802d67a1fd3c606281e66b6fc2"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-mcp-router/.github/workflows/scorecard.yml",
+      "bytes": 1159,
+      "sha256": "b804bbf473b3d55f30fa99e769b3f919c97630d2b466f33f909707ef4c64bdbc"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-mcp-router/audit_scorecard.json",
+      "bytes": 9074,
+      "sha256": "3dfc2624bfaa85a8e7160caae83414513fe144f27f73c6f8fd7418e6dda1cb0e"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-otel/.github/workflows/scorecard.yml",
+      "bytes": 1079,
+      "sha256": "05547726848ca9ba63326878fd54eac4858b0d363363e79f171b931c0d201f93"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-port-adapter/.github/workflows/scorecard.yml",
+      "bytes": 927,
+      "sha256": "5cacbe45d10549b1cecf1685174817b8041e4fd493d7ab06d41b06979c8ab93c"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-scaffold-kit/audit_scorecard.json",
+      "bytes": 9144,
+      "sha256": "f908be7f3db87395628da66c534e394340846c1f2d90a6617c08160ba54d14d0"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-ssot-template/.github/workflows/scorecard.yml",
+      "bytes": 1150,
+      "sha256": "81578988a4e255a167727180a96bb791403610159e4a140b33ce2c99f84817a5"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-pheno-worklog-schema/audit_scorecard.json",
+      "bytes": 9072,
+      "sha256": "837edba9e3183d07dbe3bd630a2a8b1d690d2ec48fa2047b5124f6afe0ee95b4"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenoXdd/.github/workflows/scorecard.yml",
+      "bytes": 827,
+      "sha256": "3b107f23e3a34ce4ef8c2a932775de26e669cece6062f40f2e9fcf695f02323e"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-actions/.github/workflows/scorecard.yml",
+      "bytes": 1370,
+      "sha256": "a96378455683e02704cf27b198fa9e5182d6eb1d2ed78ef673f621cc01ffddd9"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-actions/audit_scorecard.json",
+      "bytes": 8897,
+      "sha256": "84c6ffaaa73a7d496fc427f26408af23355bdbe4e778f5d188da19c22c76de2a"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-dep-guard/audit_scorecard.json",
+      "bytes": 9366,
+      "sha256": "c5a9eb4ac3845c74f8aa112aab1ee298fb5f4605687c584e471da7c1f6a23e59"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-e2e-base/audit_scorecard.json",
+      "bytes": 8798,
+      "sha256": "7f2d9216a4428da2b552dd790d5e529971239725ceccc43934f2bd14e29b8ab5"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-gfx/unity/postfx/audit_scorecard.json",
+      "bytes": 8821,
+      "sha256": "26891551ef1087a469d82691d4115368e4e08d0099e047a0c2e7363815154275"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-omlx/.github/workflows/scorecard.yml",
+      "bytes": 1031,
+      "sha256": "cbc0b878b5c92762f37c99d4a5b0bf2e35e11ca04f6c99dd73c31981bf00a319"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-ops-mcp/.github/workflows/scorecard.yml",
+      "bytes": 1081,
+      "sha256": "d969cadb463dc963668db86ba14f63af8cc56e90f9d98c3f204dabb024c8a510"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-ops-mcp/audit_scorecard.json",
+      "bytes": 9027,
+      "sha256": "b398cf79ccc8012b7b43ef0639961b0c5526932d88f872bd10b79b943f4a47f7"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-otel/audit_scorecard.json",
+      "bytes": 8831,
+      "sha256": "16a4141eb85a5de1fdb010e97a8f9316e942b24779db4bb8214b01d35d049d82"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-py-extras/.github/workflows/scorecard.yml",
+      "bytes": 993,
+      "sha256": "9750c9ddfca21d03932bb581b9969568c2001aedae02f209944cc96015354cbf"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-py-extras/audit_scorecard.json",
+      "bytes": 9126,
+      "sha256": "b93d9d82a13a46d7be81e8c54f3f92c6901b2b2c7dc9d3b06c031d62a3f25e6a"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-py-utils/audit_scorecard.json",
+      "bytes": 9263,
+      "sha256": "2de5b10b092dda2142f4d285bc957bff719d25b5a15fb9588df77b7dde8d7690"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-request-id/.github/workflows/scorecard.yml",
+      "bytes": 883,
+      "sha256": "14e056b72ee93fe7d85ccdde72c5927261f4528430fa44802c491365da37fcc3"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-request-id/audit_scorecard.json",
+      "bytes": 9138,
+      "sha256": "1b3bf6cb243b20487d3a925fd7f9e38649606fb272bb47f87275683621881dfb"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-ts-utils/audit_scorecard.json",
+      "bytes": 8861,
+      "sha256": "6d60d4e310606b649f58d3c821bb5878d008a42aef0f9c134ac92b4854221d73"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-phenotype-zod-schemas/audit_scorecard.json",
+      "bytes": 8778,
+      "sha256": "fc90d75285e28fae3b5cf069fa182b5fef88c8e0b638d24e570d6ae11f4d679c"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-thegent-sharecli/.github/workflows/scorecard.yml",
+      "bytes": 1456,
+      "sha256": "fa60c2d4c42e6c7b6fe0b7cc60583c1eb2363d5d58b84f6fa88397c008018929"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-thegent-sharecli/audit_scorecard.json",
+      "bytes": 9110,
+      "sha256": "458a2411e48fdc3fa979241008a0110ed44567eba6909503e339eee4c73d56a4"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-vibeproxy/.github/workflows/scorecard.yml",
+      "bytes": 1293,
+      "sha256": "d8c568d4504ca72a4be317aff06984b8670cad56f0c9cc5d36b8a5e9ba58e2c5"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-vibeproxy/audit_scorecard.json",
+      "bytes": 8839,
+      "sha256": "fde73be3bcfc0b30f77ce0c539b5238c726172427106688cc811fb32e3fb82ca"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/docs/absorbed-from-vibeproxy-monitoring-unified/.github/workflows/scorecard.yml",
+      "bytes": 1132,
+      "sha256": "ff8dcd251a502433d38aca99121448b740c0e1773f6550d39991125ddcd41ce9"
+    },
+    {
+      "path": "repos/phenotype-tooling-mergify/user-scorecard.json",
+      "bytes": 6876,
+      "sha256": "92adf031084eadc3cca42ff77b14f6cc53d515e7fe9f783195c2e806ac18c2f4"
+    },
+    {
+      "path": "repos/phenotype-traceability-spine/.github/workflows/scorecard.yml",
+      "bytes": 1498,
+      "sha256": "493bc7153a6f4dd295ffac2e640ace6cca2f6c7bd1a6df8721c551f6a7a4aeae"
+    },
+    {
+      "path": "repos/portage/.github/workflows/scorecard.yml",
+      "bytes": 1305,
+      "sha256": "51193c91caa8f37ffa4d630bda465b5e2eff09ddea0a5833e7641383d3fa1251"
+    },
+    {
+      "path": "repos/portage/audit_scorecard.json",
+      "bytes": 1589,
+      "sha256": "9f69ba08fe29a7d87a2193f057f2ffcc1d83d606572fbb7737657700e7033e84"
+    },
+    {
+      "path": "repos/portage/docs/sessions/20260303-portage-runtime-followup/artifacts/packet-q-escalation-rubric.json",
+      "bytes": 2146,
+      "sha256": "89e602e28b3b0b172a0a5268d4f5b1b8f7a8c1de3f714e3430edc1c50647a2ab"
+    },
+    {
+      "path": "repos/portage/docs/sessions/20260303-portage-runtime-followup/artifacts/packet-q-escalation-rubric.md",
+      "bytes": 1978,
+      "sha256": "f76a6c46c6cefec0c483b07de5bb73feafe609a7a827964e8d62fa5518709f9a"
+    },
+    {
+      "path": "repos/portage/scripts/audit/__pycache__/scorecard.cpython-314.pyc",
+      "bytes": 42317,
+      "sha256": "45616cbcd02e1cf2a752c3572869451834220c055985cdbbb6d6bf93a639ba68"
+    },
+    {
+      "path": "repos/portage/scripts/audit/scorecard.py",
+      "bytes": 27776,
+      "sha256": "39b7e49a0bd0f0e8e62ccea8e07e2c8f6a75d0b97c8bd115757dc90c5df65f2c"
+    },
+    {
+      "path": "repos/portage/scripts/audit/scorecard_plus.py",
+      "bytes": 21152,
+      "sha256": "29c1c680b21ed1024246670e743ea106004d4dbda8d13d3c1ecca8598340dfb1"
+    },
+    {
+      "path": "repos/portage/src/harbor/analyze/prompts/analyze-rubric.toml",
+      "bytes": 1495,
+      "sha256": "01f7a994577501d94105352c6a1f35759c4c74c54deac5e81afe235e3738d5c2"
+    },
+    {
+      "path": "repos/portage/src/harbor/cli/quality_checker/default-rubric.toml",
+      "bytes": 5316,
+      "sha256": "0b2bf9e42e8a6290d9f43dab68c9ba61e5e00784deef0f586ca53af608f2903d"
+    },
+    {
+      "path": "repos/portage/tests/integration/test_cross_repo_unified_scorecard.py",
+      "bytes": 7432,
+      "sha256": "b6788dfbf0e034ad90475fd356bf930842da7ac7ea112d413794af0c33b2667d"
+    },
+    {
+      "path": "repos/sharecli/.github/workflows/agileplus-pillar-scorecard.yml",
+      "bytes": 609,
+      "sha256": "8d325693abb0625dc167753c8c065cbb4ede173aaeddece01695f4353e4aedfc"
+    },
+    {
+      "path": "repos/sharecli/.github/workflows/scorecard.yml",
+      "bytes": 1839,
+      "sha256": "7d25a8facd40543b9ea2f5da2601909d5865d109adc5cc71c3709d873e290d05"
+    },
+    {
+      "path": "repos/sharecli/COMPREHENSIVE_AUDIT_SCORECARD.md",
+      "bytes": 27509,
+      "sha256": "2401b71e6793de1809a052841972fbf53704a0d882d8defd9acb3e8a90c36ecf"
+    },
+    {
+      "path": "repos/sharecli/audit/SCORECARD-v38.md",
+      "bytes": 68225,
+      "sha256": "1973e54f6bc6ee09b2b7305753f68a281b6f7e4d667d5572daa3787cfe18f0c0"
+    },
+    {
+      "path": "repos/sharecli/audit/rubric/SCORECARD-TEMPLATE.md",
+      "bytes": 2627,
+      "sha256": "e5426832793cd5b4f7874ead3a10ce118f309ccb9684188be23ef9e3a4c071fb"
+    },
+    {
+      "path": "repos/sharecli/audit_scorecard.json",
+      "bytes": 6091,
+      "sha256": "b9446d79260f739d5048c17d8bb821f18ff3bfe745d1548b37809304e83c096c"
+    },
+    {
+      "path": "repos/sharecli/user-scorecard.json",
+      "bytes": 6865,
+      "sha256": "43a372810ac20f357cb76b77097d224062a1ae34228b87b1acdd6a630a0b9aa9"
+    },
+    {
+      "path": "repos/substrate/.github/workflows/scorecard-ci.yml",
+      "bytes": 2383,
+      "sha256": "75bb9d87bc6514b1dfd79b5cd6ca36fbb48c75e3d55a6f0162649f61d690d23e"
+    },
+    {
+      "path": "repos/substrate/.github/workflows/scorecard.yml",
+      "bytes": 1454,
+      "sha256": "d07eaf3f6afa87fd1f77bbb480a2f6bf745d12abbe021bb05ce94eb9858bab45"
+    },
+    {
+      "path": "repos/substrate/audit_scorecard.json",
+      "bytes": 29436,
+      "sha256": "ad4662b6b6a441588bbf606b439d45083f8b32e033c6b81ae6e573388ed27148"
+    },
+    {
+      "path": "repos/substrate/scripts/scorecard_ci.py",
+      "bytes": 13974,
+      "sha256": "60c435f5c564074887688880606e21eaeb082ffaec699c1c58965f748984a769"
+    },
+    {
+      "path": "repos/substrate/scripts/verify_scorecard_gaps.py",
+      "bytes": 1238,
+      "sha256": "09463d3a8870cc084d47416c1f83ad7eaa44e225649a1005f85a3b0e266ac823"
+    },
+    {
+      "path": "repos/tgt/audit_scorecard.json",
+      "bytes": 1402,
+      "sha256": "0f3d774ec54f70d393429f493f7f9ce34883b57f9008f85f74c5abceed4e14cb"
+    },
+    {
+      "path": "repos/thegent/AUDIT_SCORECARD.md",
+      "bytes": 81355,
+      "sha256": "155aed03a2851dcb19d8d9a0aa08bd9adfbdd9591036204643dd073052271763"
+    },
+    {
+      "path": "repos/thegent/audit_scorecard.json",
+      "bytes": 84890,
+      "sha256": "21caf3048a8d9b8b38c420b333c45206fca40194365af7b9958a94cd720d8d6e"
+    },
+    {
+      "path": "repos/thegent/src/thegent/integrations/__pycache__/rollout_scorecard.cpython-313.pyc",
+      "bytes": 1176,
+      "sha256": "bce45a3db5a1f5c7a682d9ce052d0b9a5c28ae8c9357048e40e140d1346599a9"
+    },
+    {
+      "path": "repos/thegent/src/thegent/integrations/__pycache__/rollout_scorecard.cpython-314.pyc",
+      "bytes": 1439,
+      "sha256": "f7cae1fc1ac99d7f2e5c1d46e7add47de64b8f33e15a540aaf4867a442a0bf01"
+    },
+    {
+      "path": "repos/thegent/src/thegent/integrations/rollout_scorecard.py",
+      "bytes": 452,
+      "sha256": "ed14b50ca94b7940585791c160b8effb3c72661891a14c9aa2c9ce72aa95ccc9"
+    },
+    {
+      "path": "repos/thegent/tests/integrations/__pycache__/test_wl320_rollout_scorecard.cpython-313-pytest-9.0.3.pyc",
+      "bytes": 49609,
+      "sha256": "48f120312bca8a8c790f1c2f1cb2e5bf0e880e9287b714eb63b08d6542a29e8d"
+    },
+    {
+      "path": "repos/thegent/tests/integrations/__pycache__/test_wl320_rollout_scorecard.cpython-313-pytest-9.1.1.pyc",
+      "bytes": 49609,
+      "sha256": "1d2b0114b664152037f7d866c39a411022bed05e7e6cdca7ed97971ad0133f17"
+    },
+    {
+      "path": "repos/thegent/tests/integrations/__pycache__/test_wl320_rollout_scorecard.cpython-314-pytest-9.0.3.pyc",
+      "bytes": 55231,
+      "sha256": "b1032097ee9596735cc2babd630d7410c0ce0b060cada99ede3b612551f808ef"
+    },
+    {
+      "path": "repos/thegent/tests/integrations/test_wl320_rollout_scorecard.py",
+      "bytes": 12143,
+      "sha256": "28ebcfcc234de9a6b21cc4341b83986f9b05679cfe96fabb0cd3a787d3231e8c"
+    },
+    {
+      "path": "rubric/criteria.csv",
+      "bytes": 699837,
+      "sha256": "c44ac2f71883b4b5de18c57319b58c61af86795c7eeba5f17eac318021a84671"
+    },
+    {
+      "path": "rubric/evidence-index.json",
+      "bytes": 771145,
+      "sha256": "7f67262d6589ebf55ce00373cf65a5528264e19bfd784d9ca4980ea1a2d12553"
+    },
+    {
+      "path": "rubric/example-audit.json",
+      "bytes": 8869,
+      "sha256": "5f50f0eb954385a99c55b43f0ff3b599f289c355b2a9d277bd934b1839c0288e"
+    },
+    {
+      "path": "rubric/id-crosswalk.json",
+      "bytes": 20209,
+      "sha256": "18267481af022e57b1148b092daf6a48753c4783bff7f7dc7f8cc308a537df9f"
+    },
+    {
+      "path": "rubric/rubric-v1.json",
+      "bytes": 1346995,
+      "sha256": "e50b5c2875ef2ef00cf4b69e43f818373922852ac050914086aa1cc822f1dad6"
+    },
+    {
+      "path": "rubric/schema.json",
+      "bytes": 1073,
+      "sha256": "ee4f3dd2128ba97ebec04d491dbf1e29df64972e05588072d635df4d5399a072"
+    },
+    {
+      "path": "rubric/scoring.py",
+      "bytes": 2071,
+      "sha256": "faeb333db3e3db4aed2a6cecc6f5860dec4307b54ff881a40387e07493125034"
+    },
+    {
+      "path": "rubric/weights.json",
+      "bytes": 1379,
+      "sha256": "47306c886278d05f57e0d278a135c03de580a37fbf1e65fefb75e0d876a6f43c"
+    },
+    {
+      "path": "scorecards/Melosviz-audit.json",
+      "bytes": 7719,
+      "sha256": "70a78bbad54826adda1febf5ab09185790cf1e30d1587b0a42c3ca47ff7d3d38"
+    },
+    {
+      "path": "scorecards/SUMMARY.json",
+      "bytes": 12062,
+      "sha256": "1a127d86745c5c20d3afec9e45aa23bd728bdb5c9d64c87a9aa6a549964e4f3c"
+    },
+    {
+      "path": "scorecards/SessionLedger-audit.json",
+      "bytes": 7713,
+      "sha256": "5b91abbb11bab2e4d14dd2d847493ca720cd12543feec71ef4b82b332c0ba1dd"
+    },
+    {
+      "path": "scorecards/Tracera-wtrees-audit.json",
+      "bytes": 2997,
+      "sha256": "08e4debd13d55254d0715e9301caab3f4830b463820b88dcf16572a47f75aba1"
+    },
+    {
+      "path": "scorecards/phenotype-registry-audit.json",
+      "bytes": 7501,
+      "sha256": "5b4cfb5c65a99ef3f9ed06aa98dc0759f69181ab14171c6b88ee859f4f616255"
+    },
+    {
+      "path": "scorecards/sharecli-audit.json",
+      "bytes": 7595,
+      "sha256": "0f213f8e5e477749ddbf485049f11d55b3c87c8ac242facf56a5a4169df45bbc"
+    },
+    {
+      "path": "scorecards/substrate-audit.json",
+      "bytes": 8869,
+      "sha256": "669d605954524c410ad4b4b946881df0258cdf9a4ef7d1118f5dcfd9c0bfb0ce"
+    },
+    {
+      "path": "structured-stores/claude/audit/claude-code-2026-06-24.md",
+      "bytes": 17747,
+      "sha256": "566cb36f1948fb5ff2bd3167da356f6b9414b68fddadfe3d2139a91f1f7ab965"
+    },
+    {
+      "path": "structured-stores/cursor-chats/.cursor/chats/1c9deb680f07a3294dc9ede5fdb85c7b/63a2e866-9724-4bec-849e-66c9d7827e80/pasted_text.json",
+      "bytes": 131400,
+      "sha256": "c0910b3541f01e3e12319210e7548793a82ed2790ac1d35979e193c461e5cd01"
+    },
+    {
+      "path": "structured-stores/cursor-chats/.cursor/chats/1c9deb680f07a3294dc9ede5fdb85c7b/63a2e866-9724-4bec-849e-66c9d7827e80/prompt_history.json",
+      "bytes": 9583,
+      "sha256": "d3d69cc56f826aa666454e451ef8dd4fc306907d19ffd4b03703fe53e412d59d"
+    },
+    {
+      "path": "structured-stores/cursor-chats/.cursor/chats/1c9deb680f07a3294dc9ede5fdb85c7b/884e9748-7e11-4621-8d82-be9e0b8315f5/pasted_text.json",
+      "bytes": 46237,
+      "sha256": "36fb38bee063516c6ffdfdb891c93a6e969af8626183706809ee7a40ad2de86b"
+    },
+    {
+      "path": "structured-stores/factory/audit/droid-2026-06-24.md",
+      "bytes": 15302,
+      "sha256": "33f94d62fbc8b8b2e915bdd06cdfaaf4709f4a5b8e86206ef67afb3f25ce42cb"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-08-conf-repos-in-scope.log",
+      "bytes": 3425,
+      "sha256": "bff5a73c427dc72e057fada61e719cad2d0f98416daff733077fcf9eef744d36"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-archive-deletions-completed.log",
+      "bytes": 5359,
+      "sha256": "e97bdd345c313eb059b3aa16002e9c0c5de11f363e2917dca18e15e1e5825ec6"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-pr26-do-it-all.log",
+      "bytes": 4692,
+      "sha256": "d63770c137a08900124efebaed64ae09525347662dfa96019c2b2d234742b831"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-pr26-forensic.log",
+      "bytes": 8379,
+      "sha256": "f264894425ad398017bffd3d8a15f382550be67b10e86d69a60af4238492bf6e"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-pr26-rebase-attempt.log",
+      "bytes": 3414,
+      "sha256": "109a1811ea9dc89c43f81f366ce35c36efcd039f28b0085c8d8e077141d5c24e"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-pr26-rebase-completed.log",
+      "bytes": 5307,
+      "sha256": "2d2a3871aac6061a2c7296c12966ce7525985c413467f8f9103359dad1526732"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-pr26-rebase.log",
+      "bytes": 488,
+      "sha256": "6a993bbbba2b5fbabc182b71d59f95812a3344817dc2a0f78c6ad9e167f43f5f"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-conft-submodule-bump.log",
+      "bytes": 3512,
+      "sha256": "0ef828ec364579c37a817e81f59fda2bed2675c9b6861ff92a9820b58130c4f5"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-do-it-all.log",
+      "bytes": 4409,
+      "sha256": "f8c834110e75ead31e319e0c1420c9b248fe8c77a89d679c1d1a6efbafd34d36"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-next-sweep-targets.log",
+      "bytes": 266,
+      "sha256": "2d57bd0f9f17d7dcbbb383db6cf0c0773c62ce73daf3b175a1f10c2252cb57ff"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-pheno-frontier-analysis.log",
+      "bytes": 10833,
+      "sha256": "6ec56b259a6e2bfb9a03fef5576d28f803dbfe7f572d377f7519113a250db74a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-safari-delete-handoff.log",
+      "bytes": 2617,
+      "sha256": "cba59e576581e61ec8de55d2a13de8af0e11f686281770be98352fcbbf6cdd67"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-09-safety-rail.log",
+      "bytes": 3578,
+      "sha256": "c589a9a97dfe307d40bfbf976c1055c311baee61873b381ef68abaf10293c98e"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-10-omniroute-monorepo-archive-vs-tracera.log",
+      "bytes": 277,
+      "sha256": "ff2dc70843fb62c037b78bbe8ce0398ca4e1539ca5175e577a72424cb0bae417"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-10-pr43-auto-close.log",
+      "bytes": 3201,
+      "sha256": "ea5161c3bd54ec9d70977c8b4c10294867f08b6e5cf30e841ab69f0a21fd0fb8"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-10-proc-all-closure.log",
+      "bytes": 3682,
+      "sha256": "92ca240e72671735d8125ac0308891bacd7ff1b5c5b97cd25b39f39c8c9abc69"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-final-sweep.log",
+      "bytes": 2331,
+      "sha256": "90bd8e8da503b6729c8c61ce724b4be8a768bed9ebfd30723558e5a780050596"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-merge-markers-batch1.log",
+      "bytes": 14122,
+      "sha256": "82f6c31f2873a22f093a290e171eff65cff29b8d23852df7e31d78b207fc0f2c"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-merge-markers-batch2.log",
+      "bytes": 12766,
+      "sha256": "c8c92006bcb4a45a367deecfd970d720ca2a1daa25e47b2b9801ed8e9d04a22c"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-merge-markers-batch3.log",
+      "bytes": 5964,
+      "sha256": "d0e0ccc66745c1d89dd07625baf2fea2d0060f0f4986a93188d541d72eff542a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-stream-A-cluster-diffs.log",
+      "bytes": 9954,
+      "sha256": "17c212b304ed09fc4ed83b16eb6bfecacc8deb88a5a835fe255646b4dd4dd233"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-stream-B-dirty-sweep.log",
+      "bytes": 12112,
+      "sha256": "c5d17bb540b5c6f092713c277e2eeda7f8f32a5445c442a8a09617d8d281ef5d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-stream-B-merge-markers.log",
+      "bytes": 9347,
+      "sha256": "8ec134258f5a5afe2dc551faa4663d4a2a43da14c26d49afc09f54364d6b41a3"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-stream-C-pr-batch1.log",
+      "bytes": 4862,
+      "sha256": "17c9e0abb17bfc3f9972c70f7997a890ea20df2878fd3236a3d6c7dfcfefbee7"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-11-stream-C-pr-sweep.log",
+      "bytes": 116478,
+      "sha256": "c776ea908f2d764d100656f0f71f6dbfc993715d27fd8809c5e5338c5d480ac4"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-session-closure.log",
+      "bytes": 6071,
+      "sha256": "d60b814b5ddd9f01d1fec50065942d3ee0e361bab2d5c2599e9587e328876906"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-spec-kitty-migrate.log",
+      "bytes": 4772,
+      "sha256": "005d88dc4df99cf4fec80d1375fa446d6eb1e571f82d9db5441ece2d7f1f7077"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-stream-c-batch2.log",
+      "bytes": 8026,
+      "sha256": "f67d1762aa6fa0886ebfd1269aaae5432677324ade2ec75aae5c393a7e5ea85f"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-task-A-B-C-closure.log",
+      "bytes": 2355,
+      "sha256": "32a00524f8ab8c2632d6fa0317c5bbc75f858e343a521753f63bc9226414bd5b"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-task-closure-final.log",
+      "bytes": 3962,
+      "sha256": "601a717a31f295f9123a568308c0d1c9420c07b8d6aa7addc4853734c2d9e68e"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-wip-chip.log",
+      "bytes": 25689,
+      "sha256": "cdabc80fba10e686cdbe7196eac227f5c81d9bd641d58827fe7314882ac4cf9d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-12-wip-snapshot-pinned.tsv",
+      "bytes": 24313,
+      "sha256": "1b49c70dd43638a24475ec713210ecbacb81b4ac4bf215f5b624bd5da31f3578"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-13-task-b-spec-harmonizer-workspace.log",
+      "bytes": 1733,
+      "sha256": "520d0bb3f9762b90155aee7ad6355d2e9c1608f516195107ddf89b49fe0bbbf7"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-13-wip-cleanup-attempt-3.log",
+      "bytes": 2993,
+      "sha256": "e24822ac7f95b54c0f610a47eca35cdf9cc12ac725cc3fd3f04598cfdb8a9697"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-14-eyetracker-side-branch-audit.log",
+      "bytes": 3309,
+      "sha256": "b9fc58ec77cee043945fb8024c48abf8d515bf092e0027ff02ba60c19fde8d3d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-14-pheno-substrate-family-absorb.md",
+      "bytes": 52802,
+      "sha256": "7ec345533d2d78907684ec672a7432fbc7bb1d9405af9e4797c5e12c70f69f98"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-14-pr-961-merged.log",
+      "bytes": 1865,
+      "sha256": "ddc444ce56d17697c57139c28e5f43778161e928aac373f9b324a6e7e3567943"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-14-summary.log",
+      "bytes": 190,
+      "sha256": "1df68663f83d1eea9cf1514672cd6e16b9a36a9876cd59fb0ecefa08de6a20c1"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-14-workspace-rot-survey-9repos.log",
+      "bytes": 4623,
+      "sha256": "b76bbb8adb9d4202333ddb65b8552bd27b9349fb63e47ba260f42be25730d6e1"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-A-B-C-D-E-closure.log",
+      "bytes": 2719,
+      "sha256": "444a8c2adce529bcf43a1cc526036fc88c1117e412b42d6397e10a00e45ae971"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-A-rescue-trait-blocked.log",
+      "bytes": 2490,
+      "sha256": "b01712d436c329463b4d3226c19cbe14f14a457f326b00e333d16d56924f85a3"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-F-cargo-rot-survey.log",
+      "bytes": 1793,
+      "sha256": "78deb978cd70bb722704b69b3ad019ef5470b5bbaf41ce9fc0727d930268a3ab"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-cdylib-bridge-exclude.md",
+      "bytes": 2655,
+      "sha256": "4c864c6f3372b1fa7b700ca1556372cb2b8130b2e6b45f47a69ca6fd8fb3b82d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-conf-repos-depth-audit.log",
+      "bytes": 3822,
+      "sha256": "65ed7fbaf9ae0886ad208fc02be763820df085aeafc21660ceaf0dac9edaf05d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-do-it-B-F-closure.log",
+      "bytes": 1905,
+      "sha256": "21a33c73edc717be7bff7a35f4544649fe3dfbac5199a45769f874d4afbb7185"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-15-spec-kitty-source-audit.log",
+      "bytes": 906,
+      "sha256": "ac14c924574750685600a4511a2c1194d639fc118060ab3c8de90bc4ce38089a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-all-in-order-A-B-C-F.log",
+      "bytes": 1837,
+      "sha256": "48bd176b72a12883ea09fe758a13312b79a98d1e6c2daf46d22f7ca6ee5af9a5"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-cdylib-bridge-exclude-effectively-effective.md",
+      "bytes": 2646,
+      "sha256": "160f078a37c94de83f85e320b4e0216165d0b06a86ad0082519813d99c39e45a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-do-any-and-all-closure.log",
+      "bytes": 4133,
+      "sha256": "c009ac10049a4d9153db1b763b3eb370a90fb2a17181d2ddcc9bb8984b6f11b1"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-final-reconciliation.md",
+      "bytes": 3139,
+      "sha256": "8e71523870f9ff5effa00807a71a8f0e02361f7c1dd89e67ec154f45a56a4e8b"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-ground-truth-reconciliation.md",
+      "bytes": 2072,
+      "sha256": "85f8a40e4c781b1f45d73adf980abed9f721742ecb8de5a7610427b015fe8838"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-pheno-fleet-WBS-DAG-PERT.md",
+      "bytes": 34172,
+      "sha256": "0b445f26afc7ea82eda156eb579395fcfa4ec7befab56091e0f058dfd5191876"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-proc-C-closure.log",
+      "bytes": 2366,
+      "sha256": "e9ae684218f2ef754655f050a3b574da412c4b3e50c770ab81c67e19eb00d5a7"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-16-trunk-action-sweep.md",
+      "bytes": 8188,
+      "sha256": "a0ca1f38585fd25d241b7084b11cd103506c610f575f7a5b889b00d222c95c2a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-all-in-order-A-B-C-D-E-F-G.log",
+      "bytes": 2908,
+      "sha256": "4431d0229e80a613c1e67636c672cbb2628b3854a443ff79e7b79a2a6c35eaa8"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-ci-rot-reconciliation.md",
+      "bytes": 2097,
+      "sha256": "b93d0b5d94ce2a3d12d2886ed9d3ea4e9fd32a703a6a74e1eb5e41f46316ed81"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-o27-reusable-workflow-inline.md",
+      "bytes": 3170,
+      "sha256": "52a47182d9fac964c80fa8e1475b52ad16f17c781774d9c76bbef4520e020ae6"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-o28-stub-workflow-cleanup.md",
+      "bytes": 2839,
+      "sha256": "e7725c387a233f5b40aafe5b9331cfe4ddfa9801f57766cc108b983224f1bfb6"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-orphan-branches-reopen.md",
+      "bytes": 3431,
+      "sha256": "98f5e584a3d8ffef2d77d772d65536599011333a3be44a51a1683fc7d27d467b"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-pheno-harness-base-ci-fixes.md",
+      "bytes": 3688,
+      "sha256": "361569e7a8789f4f64dd1f8db491e60a417937cc654e99f20f87774fbcbe8f7a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-pr-661-merged.log",
+      "bytes": 2422,
+      "sha256": "ef3c5b61d49ae289eb008e346616db9a18e991cdd5a471cbe5b9835042b9af3c"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-A-portage-wip.log",
+      "bytes": 3831,
+      "sha256": "b33998dbb2ee895179663173961c1b8cfd283f133932f0f3b40d772f24ed4883"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-B-configra-plan.log",
+      "bytes": 10656,
+      "sha256": "6df5b1c72db1dc4abd27c3a9dd856a63b69baa1accdfec890ddf8e05d3e84a60"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-C-kitty-specs-map.log",
+      "bytes": 6948,
+      "sha256": "902cc75089b3b702255f9f2c721f892b0460e9940c6247423dbcc1f29b34d01c"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-D-worktree-cleanup.log",
+      "bytes": 16983,
+      "sha256": "75aa8a7c1fa07432037981c7c39773a86cd1cb04b0eaa180616fc8d0df576c6a"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-E-pr-batch.log",
+      "bytes": 9897,
+      "sha256": "ad51a319a784f0108525584b611bd41f9a769cb9ba5d68748b2630681c651baf"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-F-no-mistakes-lift.log",
+      "bytes": 5455,
+      "sha256": "78bd063f312420f02450a6266df1398501198369c10c18154e1506dc400194ff"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-19-stream-F-no-mistakes-lift.log.attempt1-aborted.bak",
+      "bytes": 6462,
+      "sha256": "e671724e85185a8b22939b1ea6c1a17eaaebfe5b35e88d152ed1237950788bf5"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-20-ci-rot-reconciliation.md",
+      "bytes": 2496,
+      "sha256": "be5cf54e247e0288959cba5a9ec9a597709d8f2a0977f40187401a1400b428bd"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-20-final-reconciliation-scorecard-atlas.md",
+      "bytes": 2349,
+      "sha256": "4cee2aca8be0894964049ec3e08c52c6e6777a23cba21fa8654173bb88299b27"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-20-tracera-batch-merge.log",
+      "bytes": 2620,
+      "sha256": "da244ecfc467b7b9837977e6f6932226778397fdc0b87b547d6745f4c15050f5"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-B-E-A-D-C-F-closure.log",
+      "bytes": 1630,
+      "sha256": "97101fce34dede27f99be090302ff2fa8c4ff9a522b0ff7e463ecf9100c961e3"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-ci-rot-machete-fix.md",
+      "bytes": 1018,
+      "sha256": "75bc4b5a98054aa33fa2d81829e90ca771acb52eb629ec1e9131a09157f7ab9d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-ci-rot-sweep-o29-o30.md",
+      "bytes": 1745,
+      "sha256": "972b72afb7256e1da38a602f831174600f5c9300e1a38ca90828143208c97fe3"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-comprehensive-wbs-dag-pert.md",
+      "bytes": 14400,
+      "sha256": "a1750617358d33e8d5b1a7f4e5dec48f2a94abfe43b4ccee3ec5a2a22f33947d"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-phase-1-phenotype-omlx.md",
+      "bytes": 2323,
+      "sha256": "ef2cb947161b5a814892ae7ad27a490f932297cd326802346c7389118dacdb04"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-phase1-tracera-stash-resolution.md",
+      "bytes": 2170,
+      "sha256": "7bcf4c38eee66fe24e1133e34d02d1294162283a0e89cbab2dbb0754d3bc1f49"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-phased-wbs-dag-pert-FULL.md",
+      "bytes": 18805,
+      "sha256": "b0e93c3a51f387e57924653ee97c69a470bf635dec6e10b274e74ce45381f1a5"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-phased-wbs-dag-pert.md",
+      "bytes": 10774,
+      "sha256": "b8d45c1eb6ad73e2ca954e96ff49674fcdf05c7c230439c39e6fb639d2c89d93"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-stream-A-argis-sweep.log",
+      "bytes": 12554,
+      "sha256": "2ebcdbd0bc7626a3665ce3de204e74bc96a5640da2e16ea95f4b000f521ac3ad"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-stream-A-preflight.log",
+      "bytes": 905,
+      "sha256": "d1ec9bbf97e4955740b109e59043333b14063488929c2c9c85fbd1e13bac53f2"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-stream-B-configra-migrate.log",
+      "bytes": 2633,
+      "sha256": "c9bc62562148e37654cf39f95ce89be5dddb18d01ab0ff9f67dfe7188fbf1b71"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-stream-E-repos-md-rebuild.log",
+      "bytes": 1257,
+      "sha256": "2e2b0456bb559abe30965cc938cb018ec27aaa10cae95ad90734e5f043ec8e44"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-tier3-rustsec-bumps.md",
+      "bytes": 1268,
+      "sha256": "a4ceff5a859d89d3698fe8aa2f42e895af276bdb44cf1f4b0499db2b36774e90"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-21-wbs-comprehensive.md",
+      "bytes": 2376,
+      "sha256": "0dd2fae4298e96ac405e63c60be9f10f018ca283f01ce5853838d0c899f13cf2"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-22-G1-minor-stashes.log",
+      "bytes": 16988,
+      "sha256": "b685abfcc1b1d8d90acb1b0ff8d44292ee3c575dcc0075ce6174f1ca86697687"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-22-G1-omni-rl-ap.log",
+      "bytes": 12677,
+      "sha256": "adeae498170cc34cb899950dc47cca96ef2460a921a35ef2e8272ee4235f0da2"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-22-G1-phenotype-registry.log",
+      "bytes": 8722,
+      "sha256": "156754b2ba719165820eb41d4601a8e0652bf4328440f010d857684b5f515afe"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-22-G1-sharecli.log",
+      "bytes": 9663,
+      "sha256": "1d59c98316ece2febf0b3dca7d59490f4a07356295ea1f9039c1b9518fb42696"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-22-multi-repo-wbs-final.md",
+      "bytes": 3908,
+      "sha256": "a1f6473d654f758f9d3ea07e172a1beb95cd26ec4da6aad28e9b1e2b3954dd41"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-23-heavy-ci-rot-survey.md",
+      "bytes": 3905,
+      "sha256": "9efe687a76df2086f4d169f6ffec2c5e52ceb280d845e5bd25c99a45c2d8ebab"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-24-heavy-phases-completion.md",
+      "bytes": 3044,
+      "sha256": "03aefc88b585d0b1fa6c19e9a90b326c3635b60f2d789a0f43e4bce008af03f9"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-25-phase0-and-ci-rot-O31.md",
+      "bytes": 1059,
+      "sha256": "49ae2cfe1d2f43828109f66d87167fed1563038c50376347e0b28758f43a7305"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-08-27.log",
+      "bytes": 697,
+      "sha256": "4e5da2f918ddb4afc6313ea41b123117d0c2aee9e75a9a551f6dedf5b01abf8e"
+    },
+    {
+      "path": "structured-stores/forge/audit/2026-09-02-resume-agentora.md",
+      "bytes": 3583,
+      "sha256": "a3384a2441894dd63861b6aa55b92f04015a02ff3c0d43abdd00be9b49244fe2"
+    },
+    {
+      "path": "structured-stores/forge/audit/20260826T054218Z-codex-403-fix.md",
+      "bytes": 2743,
+      "sha256": "ad052404bf0f5531e89e0681ad2885eca2ef1c507729d49664984b365b80e65b"
+    },
+    {
+      "path": "structured-stores/forge/audit/Agentora-batch-w-20260815-224200.log",
+      "bytes": 937,
+      "sha256": "11988406fa6c10f53175f5cdbe02a1fcbf9dd12a0d56667d70733556412f9e0b"
+    },
+    {
+      "path": "structured-stores/forge/audit/Agentora-batch-x-20260816-031103.log",
+      "bytes": 1285,
+      "sha256": "f6574c56c7c76e2afec0eab4bbc2161779c71bd7179adc63f42a7cfbef34c7b2"
+    },
+    {
+      "path": "structured-stores/forge/audit/Configra-batch-l-20260813-221700.log",
+      "bytes": 1161,
+      "sha256": "5d249db78cc6aa6cedff1af667ddd13359ef744c19825e7ba4b845bbb242b222"
+    },
+    {
+      "path": "structured-stores/forge/audit/Configra-batch-n-20260814-035546.log",
+      "bytes": 1977,
+      "sha256": "03064ef4cdf3339d686c10f7e9ad80118d73daaa12b242a93399aa1506658549"
+    },
+    {
+      "path": "structured-stores/forge/audit/FINAL-consolidated-20260814-182938.log",
+      "bytes": 3642,
+      "sha256": "637bdc87b50510a286026902ec3eca703efb2f9989460978143414216e673122"
+    },
+    {
+      "path": "structured-stores/forge/audit/FINAL-resumed-20260814-223309.log",
+      "bytes": 1277,
+      "sha256": "bca9a6f54bd5cc4992d58930c61f1256a72bb47c5ee699e5e4807d05587cd0fa"
+    },
+    {
+      "path": "structured-stores/forge/audit/G1-drain-local-state-2026-08-22/G1.1-INVENTORY.md",
+      "bytes": 2882,
+      "sha256": "14450263260c6116450ee2ed17bc3ef0f6b3829b38339b9def93e11942f46a41"
+    },
+    {
+      "path": "structured-stores/forge/audit/PHASE2-final-20260816-231628.log",
+      "bytes": 1308,
+      "sha256": "5ebe014c2dd959eee2b1f5d1f4ddad3253100be1350bb522efd583ec6bc9067b"
+    },
+    {
+      "path": "structured-stores/forge/audit/PhenoMCPServers-batch-q-20260814-171841.log",
+      "bytes": 999,
+      "sha256": "051bb3e9a05f9f8b79c72b0268376539e33883976ed9765f94a925d639d84893"
+    },
+    {
+      "path": "structured-stores/forge/audit/PhenoVCS-batch-o-20260814-140755.log",
+      "bytes": 2666,
+      "sha256": "31b30476b7a16a8457fc9744fb0c32ae574288f7037c3c35b2cf76380ef85181"
+    },
+    {
+      "path": "structured-stores/forge/audit/SESSION-LEDGER.log",
+      "bytes": 20783,
+      "sha256": "9702ca0d0261455a278e111e6dd25c13442276eeb427b1bddbcfa9ae55ed2bd1"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/SESSION-SUMMARY.txt",
+      "bytes": 1901,
+      "sha256": "d8e3fd453d0d81da9278ff87efcf11eddf923946bd77c3bcd796be4ecb64f9d9"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/archive-branches.tsv",
+      "bytes": 242,
+      "sha256": "af74f9621cc8273bc262c5ee12fd781305c7ef20f7a834b0966cdea64281aad0"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/archive-files.txt",
+      "bytes": 6471,
+      "sha256": "e9d8a9c44884f6c822f436541c31029722ee0f742f19dd964dd323f22cf84585"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/archive-only-files.txt",
+      "bytes": 5694,
+      "sha256": "d1220e2730e1d943e85e32eae540c6f635fdf1920ffc05822e6d17110ae54235"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/bucket-archive-newer.txt",
+      "bytes": 754,
+      "sha256": "78c787a4f8b930149ebea013962ca3395eafc3e457e49c9a4ede1912d1ddf2a9"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/bucket-archive-older.txt",
+      "bytes": 1556,
+      "sha256": "da4835ae627400cceac1439a85f65a2b3571a97bf4e2d21db237f95844e4474a"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/bucket-identical.txt",
+      "bytes": 88,
+      "sha256": "1d247ec114d43cb8b4650ae3650b820710471879f8cba97523fe7fd0928f4c9a"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/bucket-missing.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/bucket-substantively-different.txt",
+      "bytes": 418,
+      "sha256": "73f9c088cc1234d0d1848a27a79325d1365ccd4e1ea91d3710d85846edddceb8"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/canonical-branches-by-prefix.tsv",
+      "bytes": 1636,
+      "sha256": "5867673e0af428e4a1405a01957ce29a11d325aecc47dd77a135d37b4a78868b"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/canonical-branches.tsv",
+      "bytes": 193107,
+      "sha256": "6f999edb9a70978ee72ac24314b9642761b10195c150df863b65a39c422f5343"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/canonical-files.txt",
+      "bytes": 828114,
+      "sha256": "1987b86d562138f60cfc28222cb208578a32679a71dd3e71e15678cf109c68b6"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/canonical-only-files.txt",
+      "bytes": 827337,
+      "sha256": "afd0f0c366b49f6df543d525f6ac613be5afe317436cc846fa46bd79191f3948"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/classification-summary.txt",
+      "bytes": 199,
+      "sha256": "e757bdbaea34bce9700ec86aeaacd02b95fc430e58df306ed8b8e9a1b65f1927"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/classify.py",
+      "bytes": 5121,
+      "sha256": "19b675027c7e8e876f35e8861dde618e8cfa5d73a47ae7c19167bfc68b6813c9"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/compare-shared.zsh",
+      "bytes": 1508,
+      "sha256": "902ada7b7749137b2585e8de98a4423b80328e6feebed60b9b54233cf01e4ccc"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/shared-files-status.tsv",
+      "bytes": 4530,
+      "sha256": "088d8f66ea467ba3d6598d34954ddcbd7b9a9d5435610607d8e70ccda7493c6a"
+    },
+    {
+      "path": "structured-stores/forge/audit/action1-omr-diff/shared-files.txt",
+      "bytes": 777,
+      "sha256": "374ec94a29e6957c23f786ad57fb63e26c20f6d243166da35ed5b395ad51646c"
+    },
+    {
+      "path": "structured-stores/forge/audit/action3-pa-branch-inventory.tsv",
+      "bytes": 18298,
+      "sha256": "39313f2c62d9afcaf976b71bf51ecc22a5a0449c773ddc288017669c043014cd"
+    },
+    {
+      "path": "structured-stores/forge/audit/audit.log",
+      "bytes": 12154,
+      "sha256": "5eb158e5656900edeb55a94afb02be407bdd16d14fec0a92d9af454f777ebef6"
+    },
+    {
+      "path": "structured-stores/forge/audit/badge-campaign-2026-08-31.md",
+      "bytes": 9392,
+      "sha256": "75466952c65cfcba030901cf5389a9290adf28f786cdf6fa2d9cc2cb78e4a95a"
+    },
+    {
+      "path": "structured-stores/forge/audit/badge-campaign-stats-2026-08-31.json",
+      "bytes": 7590,
+      "sha256": "d8438e6873c7e2b29b304ab925e92ec7bcd0db3eb410e7de83c581ad522e46f7"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Agentora.log",
+      "bytes": 15867,
+      "sha256": "3f844da918b9c30660acf46d187dbd1e8b01b0a24c5bab9810a0c8c9bdb8fcc0"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/AgilePlus.log",
+      "bytes": 139,
+      "sha256": "17df39991aecc87a6a60263e0759e8e8d09559c2e7e27fa29219b7bbb7f15a64"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Benchora.log",
+      "bytes": 139,
+      "sha256": "17df39991aecc87a6a60263e0759e8e8d09559c2e7e27fa29219b7bbb7f15a64"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Civis.log",
+      "bytes": 4133,
+      "sha256": "fa10aae245ca0f590a62b8db0806ff0d5b54a0bc70836aaebf823af46805b52c"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Configra.log",
+      "bytes": 1988,
+      "sha256": "dc1bea9dda1d0e28580715884aee3fcf0731db4ade881c8884014602d45c4f6a"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Eidolon.log",
+      "bytes": 612,
+      "sha256": "74a54ae7c88555b51258bbd61be49bef8443b8d1de7da078e4996ddfb611ffb3"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Grapheon.log",
+      "bytes": 2632,
+      "sha256": "b54ffe3d326f19d933a2915f28ca3f0389ffe03630d6594983c37a9d3e1e48bb"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/HexaKit.log",
+      "bytes": 2568,
+      "sha256": "b0844fa6052955a2e1618bc362123d7efa2e2b3c044a0fc26f885853f0a427e7"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Melosviz.log",
+      "bytes": 607,
+      "sha256": "4151d1a96b7003cca01b766b0947fd319d03fcf9329ae95809ea87048c4287c4"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/OmniRoute.log",
+      "bytes": 3539,
+      "sha256": "e78db3900bf93a935ab04a825c8a3b1e4a0c48476ffb0cababf1ea9c305db1be"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/PhenoObservability.log",
+      "bytes": 2203,
+      "sha256": "d3cf0ab1004036c1f742bfbc2be84265038315f72d58fd46f1f0fc38afc31299"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/PhenoPlugins.log",
+      "bytes": 811,
+      "sha256": "7c03a8b19db68f851b650a989d51761dc9d3ff231f060d43bf05b272f517e281"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/PlayCua.log",
+      "bytes": 617,
+      "sha256": "35088111139702bb88ecfa3eb4fa3a7f2fa7fc318f3e952a2220bc790117bfcd"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/REPORT.md",
+      "bytes": 8050,
+      "sha256": "83929722a8efc328507523f4d8891f1986dffe303f901d821e8e1aa3d8a78d92"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/SessionLedger.log",
+      "bytes": 597,
+      "sha256": "a90ae4d81de59628038dab745210a6a21d926a71e2a16a771e5371e710c67b3b"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Tokn.log",
+      "bytes": 723,
+      "sha256": "3aae37f6f3423a54b26b1e879677e5e1bbed7375ade05cf82c8217beeacdf2d4"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/Tracera.log",
+      "bytes": 668,
+      "sha256": "90947a71ec373594f0d859f87092afeac4f6d303855e0c339c064a1b853ca43d"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/forgecode.log",
+      "bytes": 3068,
+      "sha256": "ac3e6b01ac7dd4aaf85c556ce37ae64c856b7065a57a0162e040ae4fd8ccc6e9"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/helios-cli.log",
+      "bytes": 4761,
+      "sha256": "7c6bf779a973ab47539b620df27ddd0af2b7310c71f66f2f54c9804b2d78a5c2"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/hwLedger.log",
+      "bytes": 1726,
+      "sha256": "2721466452aa882a69a00ce4e4707033ec47ed111afcde73ea79dcf2eeaa13e4"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/nanovms.log",
+      "bytes": 801,
+      "sha256": "4d76e98976cfa99f82c88b9f3e7f93c8163db1da4e01254023c210f9191f6f65"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/pheno-runtime-config.log",
+      "bytes": 599,
+      "sha256": "e542dad62e4c376fb933b5ed8ef40531897a982d4a7bda2d958f2d04222f30e0"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/pheno.log",
+      "bytes": 8463,
+      "sha256": "28ddb29797a748f1aa6ca5a5bae0adb5748cdf94c0b4640bf1e2c02dbe42ba82"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/phenoAI.log",
+      "bytes": 666,
+      "sha256": "4bd56d091da795111e1c11eee6ed58b56b5850a3912070e61f22459888f31050"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/phenotype-journeys.log",
+      "bytes": 730,
+      "sha256": "abf74210f1c8589c9a5bd3f0ed74c050ab59c79cce6ed0441c8db6a85c0e8d49"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/phenotype-registry.log",
+      "bytes": 6158,
+      "sha256": "8f469a00edd5d8340aaa4f93a64180584820cc4854d969bde79d9ad5bc8f7416"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/phenotype-tooling.log",
+      "bytes": 10673,
+      "sha256": "94bffa62262e1e9f8f23882b11357715ef8882e4040835368aa9f61d0f21cca1"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/phenotype-traceability-spine.log",
+      "bytes": 643,
+      "sha256": "73f27467444ea25e6b72bfd74bb2daa4f48c46e163aef357799a7930da72859e"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/sharecli.log",
+      "bytes": 2047,
+      "sha256": "af91c1eea5c179c672f600474026602e990c721f86555ab7cfc46268ef2b6c3e"
+    },
+    {
+      "path": "structured-stores/forge/audit/cargo-machete-2026-08-14/shared.log",
+      "bytes": 139,
+      "sha256": "17df39991aecc87a6a60263e0759e8e8d09559c2e7e27fa29219b7bbb7f15a64"
+    },
+    {
+      "path": "structured-stores/forge/audit/daemon-disable.log",
+      "bytes": 1289,
+      "sha256": "664d980bf832f2ed89c7c3ecc269070586a8e0a767fda1e9a36f7d09883973bb"
+    },
+    {
+      "path": "structured-stores/forge/audit/final-cleanup-batch-20260814-182246.log",
+      "bytes": 1022,
+      "sha256": "80d5bf7025b2fe7e75c8661c72ce921f8f52a61f33d7b3c95c1fc8d6f8d63f3e"
+    },
+    {
+      "path": "structured-stores/forge/audit/forge-batchB-final-1786514104.log",
+      "bytes": 65,
+      "sha256": "77f7fa428a1f3bd184bd152a0460c468165e9bbdc3873d8b10db53c5aa7613f3"
+    },
+    {
+      "path": "structured-stores/forge/audit/forge-batchB-final-1786514104.summary",
+      "bytes": 1480,
+      "sha256": "03be11344f5b0cc04ded11db1160e185093e0df6a22a3f8eb105d05e256c4ff8"
+    },
+    {
+      "path": "structured-stores/forge/audit/g1-batch-20260901T081342Z.log",
+      "bytes": 37352,
+      "sha256": "093b8cf3741c05c698f67a0a8584e18f3d72e5393a40c9eb0a38df0772c592de"
+    },
+    {
+      "path": "structured-stores/forge/audit/g2-batch-20260901T091258Z.log",
+      "bytes": 15079,
+      "sha256": "f2d200c133f497ac91fc24b4f7fb8369f3de892181b60aa4a637ce472425997b"
+    },
+    {
+      "path": "structured-stores/forge/audit/helioscli-resume-20260901-1527.md",
+      "bytes": 5909,
+      "sha256": "9f98f20ea51ebe6ff23261da84b56deaf87be94cd4d2c34a858b389193d85114"
+    },
+    {
+      "path": "structured-stores/forge/audit/nanovms-batch-r-20260814-172140.log",
+      "bytes": 825,
+      "sha256": "3ce3cd77f0ebb922a2b301a05b919e092d7ff45410250d242e42837abc14fd38"
+    },
+    {
+      "path": "structured-stores/forge/audit/net-heal-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "structured-stores/forge/audit/net-heal-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "structured-stores/forge/audit/phase1-stash-audit/STASH-INVENTORY.md",
+      "bytes": 1156,
+      "sha256": "92caa45c460921cdefff094ce04fdfaca90c3cb78fdaf99e836224c68d168623"
+    },
+    {
+      "path": "structured-stores/forge/audit/phase2-dirty-audit/DIRTY-INVENTORY.md",
+      "bytes": 775,
+      "sha256": "b3c9c163776ad7f46a788649d82b8d1dae1df5d55baeda8844a4c3128382767d"
+    },
+    {
+      "path": "structured-stores/forge/audit/phase3-branch-audit/BRANCH-INVENTORY.md",
+      "bytes": 1988,
+      "sha256": "0f789ec83c097d31042f67649f15cc037b3dee3c953166d301c68c8b87ab874c"
+    },
+    {
+      "path": "structured-stores/forge/audit/phase4-worktree-audit/WORKTREE-INVENTORY.md",
+      "bytes": 1577,
+      "sha256": "00ac3f00a5e1e0d2ba81855f4b9d668eda4572135a38cded415e0335864f58d9"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-harness-batch-g-20260812-203948.log",
+      "bytes": 2818,
+      "sha256": "f2d5bc76d7d7eedcb8463eb61bc577a38e09d6f6a79e9cb400e63a5f42d666c7"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-harness-batch-h-20260812-231634.log",
+      "bytes": 2531,
+      "sha256": "1058606492e08f0430579804b957012b6a8537b58b1295a54a1553b96c9512db"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-harness-batch-h-20260812-231730.log",
+      "bytes": 2632,
+      "sha256": "31d0306f2e5624254634d91e734ece3d6ce7965aace61dae2a62d932c3486ae0"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-harness-batch-i-20260813-042246.log",
+      "bytes": 1649,
+      "sha256": "4668b2b2ea5ab10b1ec5594f2bdc93d4cbffaa7ebcf44016531fe748b276e749"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-harness-batch-j-20260813-173102.log",
+      "bytes": 1426,
+      "sha256": "c96f75a6bda0798618e38003f792d65762b9824c43f33bc3dde80274e6f67e5e"
+    },
+    {
+      "path": "structured-stores/forge/audit/pheno-runtime-config-batch-t-20260814-181353.log",
+      "bytes": 734,
+      "sha256": "b1f82d522fe8bca917e62fb0fa3a8bf817652b6b77a7f8aca4b9372eb6198e29"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenodag-batch-m-20260813-230653.log",
+      "bytes": 2504,
+      "sha256": "40b55b95930ac3654a1d4c62ca4210bd1b542f8e90389a0385bbab34792d9135"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenodag-batch-p-20260814-143826.log",
+      "bytes": 1324,
+      "sha256": "1a8f091a0e3414f4b0b57ac27badef7c852e07b1ef6043804af312662b3157cb"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-omlx-batch-c-20260811-193137.log",
+      "bytes": 3073,
+      "sha256": "7f189a3aa977f8beaf6131635962f434cdca0f9c6d7d4afc932e6924b12b8e59"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-omlx-batch-d-20260811-222156.log",
+      "bytes": 4308,
+      "sha256": "462b51b3b62193a216c1c0909b1fbcd81aa7a9d786f563b417946669e6185cfd"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-omlx-batch-e-20260812-010011.log",
+      "bytes": 2777,
+      "sha256": "0856fa8373cf1c13ae9b847719c8d118c0c51016eaf376480b63104133a311fc"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-omlx-batch-f-20260812-154521.log",
+      "bytes": 3027,
+      "sha256": "5940cebe9a18ce22446e22a8faf5c57218381ee46a480e58c0af9f4ca0abbaa6"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-registry-batch-k-20260813-173813.log",
+      "bytes": 1009,
+      "sha256": "1ab8f487bdc51c2236495e98ee4ca87046af4eaa844f3478ea39f98014028be0"
+    },
+    {
+      "path": "structured-stores/forge/audit/phenotype-tooling-batch-t-20260814-181910.log",
+      "bytes": 394,
+      "sha256": "b367b466c6a5487e2f39c56ffb69acfacdb46b0d0fae219081b819e255a02e9a"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A1-app-branch-sweep-20260901T083329Z.md",
+      "bytes": 3651,
+      "sha256": "2f38e79241c7e5756e29a43495a122e8e47d77bcd51b29ab3f3a19d16b97349b"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A2-app-pr-close-20260901T083329Z.md",
+      "bytes": 5867,
+      "sha256": "122e1bac4268707efb4ad875b1f4acab4c529047c403d0566cf3f1c23d16647d"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A3-app-fork-status-20260901T083329Z.md",
+      "bytes": 4255,
+      "sha256": "5d0aea606d7a1a6f9ec303b52967bfa837c05f47d6e9f6fdf246395b7a3f102c"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A4-agentora-origin-20260901T083329Z.md",
+      "bytes": 3511,
+      "sha256": "4c0fd19561f13f4e75ce693430dd54f00384b03452d6d3f6c669bd74a1b8fabe"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A5-agentora-desc-20260901T083329Z.md",
+      "bytes": 3188,
+      "sha256": "4a66087392bebf3d88ce7df70052d07e9ae42016531db54ad02bd8596cf6f9a6"
+    },
+    {
+      "path": "structured-stores/forge/audit/previews/g1-A6-agentora-mergify-pr203-20260901T083329Z.md",
+      "bytes": 4561,
+      "sha256": "53f02bb6fc738306234194ec0c48e3beee697ae632dd96d918195878c7c31da9"
+    },
+    {
+      "path": "structured-stores/forge/audit/proc-reap.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "structured-stores/forge/audit/proc-reap.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "structured-stores/forge/audit/session-snapshot-baseline.log",
+      "bytes": 310,
+      "sha256": "4402b9951977c3ae8aea12b4a90330d1f3607983e684ad22615770fe6f574dd1"
+    },
+    {
+      "path": "structured-stores/forge/audit/sessions.log",
+      "bytes": 22573,
+      "sha256": "d49e9f69c7f055fc7169336ed025bbe34b20a31c68af517eecc3b79bab95ab39"
+    },
+    {
+      "path": "structured-stores/forge/audit/sharecli-batch-r-20260814-180657.log",
+      "bytes": 276,
+      "sha256": "fbf00031210b7593fa5d251b30583f5cba955ffc7ac58538380c14425b42832f"
+    },
+    {
+      "path": "structured-stores/forge/audit/sharecli.log",
+      "bytes": 11555,
+      "sha256": "8ccc01d0a64466db2ed68da5401cc6058280afda87ed7b4796fc9dd55a2925cd"
+    },
+    {
+      "path": "structured-stores/forge/audit/slice6-sharecli-ipc.log",
+      "bytes": 2509,
+      "sha256": "1c462a361b961ae0ffb8401da70c72d264f5d4822c5daa20341cc2ed1293d0b2"
+    },
+    {
+      "path": "structured-stores/forge/audit/watchdog-launchd.log",
+      "bytes": 97605,
+      "sha256": "db8acddc9085dd55c4d3cc74257687775a2e434522185d99398adda929e2e61b"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260814-033532.tar.gz",
+      "bytes": 15038,
+      "sha256": "85a1448fda7a85c1e5c163d29edfe4bfcd7658beb5a815e671b26369446f5d10"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260814-033634-bulk.tar.gz",
+      "bytes": 29,
+      "sha256": "63c4c3dfe9ab2c18a2977872cfe0c888279299de4523d0274c92db37717a59dd"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260814-033850-bulk.tar.gz",
+      "bytes": 69067,
+      "sha256": "30547acc3ccdef027ef4ef01cff03e86df1b5084065b0b3683cd7744bd5d48ef"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260820-180005-bulk.tar.gz",
+      "bytes": 26904,
+      "sha256": "27af6fff65436401ee9414028d72a604aa2c789694ea85724e364cd5f6698a47"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260821-180002-bulk.tar.gz",
+      "bytes": 5550,
+      "sha256": "2a119a3d87d2899dfa307a6ede725a0e337fb3431db0050ec4c4e7b132f1ad59"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260822-060001-bulk.tar.gz",
+      "bytes": 8934,
+      "sha256": "1f057bba2725c6f1a61dececd13ea7cec4f33e4d427863a34f9ae6e072fc6234"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260824-000000-bulk.tar.gz",
+      "bytes": 1025,
+      "sha256": "a995961a3a3cb71aa3c758383aa1469984ab9f9afe281ab560c8c0af4b66d4fe"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260824-180135-bulk.tar.gz",
+      "bytes": 3014,
+      "sha256": "a2f7233cf10bee447d30cd67bd1dee23d65fa70a6b0c51e9e6ff579a0a5302e5"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260825-180000-bulk.tar.gz",
+      "bytes": 2270,
+      "sha256": "305c73d42928a1f4bcc57fd4b771c8efe6a56bf87e93e4f8afaae57da843d8f3"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260826-000000-bulk.tar.gz",
+      "bytes": 2025,
+      "sha256": "ee7f3a18e0b6f451172b4473201f6c58946bc5c85f6946bca7c8b7bacde8781f"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260901-000001-bulk.tar.gz",
+      "bytes": 4608,
+      "sha256": "afe046a34f26307c1b68ef39f93fbf278e6a52e40064d7d600566771af23fe2e"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/audit-20260901-180002-bulk.tar.gz",
+      "bytes": 1490,
+      "sha256": "c708888b7c30650274c95d06f2b717494be1245495bb02547802a217ffcd0a7a"
+    },
+    {
+      "path": "structured-stores/forge/audit-archive/forge-scan-20260802-20260814-033937.tar.gz",
+      "bytes": 77831581,
+      "sha256": "56ead8f2d99db7594cabbc0dbcf48033c4322c9c3709e0d13d14e1638dd721d1"
+    },
+    {
+      "path": "structured-stores/forge/audits/20260713-all-workspaces-except-phenotype-repos/derived/corpus_index.sqlite",
+      "bytes": 1839104,
+      "sha256": "4fd3cff74739b4f2846642fdca7246cb142e9869d297013d7d10d50f9f238076"
+    },
+    {
+      "path": "structured-stores/forge/audits/20260713-all-workspaces-except-phenotype-repos/raw/corpus.sqlite",
+      "bytes": 415154176,
+      "sha256": "d006b1779bb9401b3abfefccecdb26dd7d76a811ea997123ad769c4d886298a6"
+    },
+    {
+      "path": "structured-stores/forge/corpus-extracted.md",
+      "bytes": 7021751,
+      "sha256": "156a04a9b8a636ad2467ecc67083de7325cdc43d494e7feb3c0e420d88b2888a"
+    },
+    {
+      "path": "structured-stores/forge/corpus-full-extracted.md",
+      "bytes": 65126,
+      "sha256": "9278ff7915e1880b47cbe8bce6824a98b2044205a2b5ef0bdfc10d98331f2108"
+    },
+    {
+      "path": "third-party-research/STANDARDS.json",
+      "bytes": 8227,
+      "sha256": "cd416a066be81d19183f7d13b17678eda76a9b868cddc9a0c7dca70a0a5f2c88"
+    },
+    {
+      "path": "third-party-research/cis-v8-page.html",
+      "bytes": 50044,
+      "sha256": "f264d885e06ab2ae0bb3e3d46892978fc3ad399b90b8843df634b5ef37bc1035"
+    },
+    {
+      "path": "third-party-research/cis-v8-page.txt",
+      "bytes": 1297,
+      "sha256": "55fece062816dd6dbd8d5a389b285cd3faff16cf332b3f309f825fe028fd4987"
+    },
+    {
+      "path": "third-party-research/gh-asvs-requirement.json",
+      "bytes": 6666,
+      "sha256": "f47c39fd5e201ec646364eac0c67a0d55b8597fa0276904f5d5ca2a575416765"
+    },
+    {
+      "path": "third-party-research/gh-atlas-attack.json",
+      "bytes": 7144,
+      "sha256": "ab6a91d870a5257a37965ae9eed0b84e8796b9c487f88b9ddec19a6c65c2bd28"
+    },
+    {
+      "path": "third-party-research/gh-att&ck-technique.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-bsimm-framework.json",
+      "bytes": 7962,
+      "sha256": "7ceba051217f41a731286a4e412dfa72dcf45df69fe648ee44e880ed3b87fd48"
+    },
+    {
+      "path": "third-party-research/gh-cis-benchmark-controls.json",
+      "bytes": 11213,
+      "sha256": "ee4f3afb3383a4894d0877dad25b8d3f4fdca97ffca398afc78919a67db4af3f"
+    },
+    {
+      "path": "third-party-research/gh-cmmc-level.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-cvss-score.json",
+      "bytes": 6312,
+      "sha256": "e0bd1e5d728f1dbe3bb249c7206a62697f12bffd51b1d2970953cd4788d1d03c"
+    },
+    {
+      "path": "third-party-research/gh-cwe-22.json",
+      "bytes": 6220,
+      "sha256": "d29f4be72fe27892ad49e8057aadb9c10d978e23418c8b67c4369829dcee8a81"
+    },
+    {
+      "path": "third-party-research/gh-cwe-79.json",
+      "bytes": 6395,
+      "sha256": "73bdd9875d74fed2b9965ccabf1d689287df091d3e29523722879383b7d51d85"
+    },
+    {
+      "path": "third-party-research/gh-cwe-89.json",
+      "bytes": 6485,
+      "sha256": "50b19188f1dcdc50fb4edf1c7e35517124c56396b98392778bcb9dd24a066098"
+    },
+    {
+      "path": "third-party-research/gh-cwe-top-25.json",
+      "bytes": 9355,
+      "sha256": "fc87388f0e1ac28edd5dbf89cab5e3d407cf506ac5e5ad7cc385b130d9a93a41"
+    },
+    {
+      "path": "third-party-research/gh-fair-risk-metrics.json",
+      "bytes": 1594,
+      "sha256": "8da3e55bbcd4b90942706ae1634a264c1d90ad764a9cb8f7bf730e18754f2958"
+    },
+    {
+      "path": "third-party-research/gh-fedramp-baseline.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-gdpr-audit.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-hipaa-controls.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-iso-27001-controls.json",
+      "bytes": 10581,
+      "sha256": "c22c92c3c496d6d3b11151ba01ac839d4b62effda0eaf8cbbc9129e06be4e5d6"
+    },
+    {
+      "path": "third-party-research/gh-nist-800-53-controls.json",
+      "bytes": 10807,
+      "sha256": "89a94d6f8d99ad44e6397ee121f3c8e5e166ed0293d83828f6c71f61be82fba0"
+    },
+    {
+      "path": "third-party-research/gh-openssf-scorecard-criteria.json",
+      "bytes": 5886,
+      "sha256": "0599f7721a4c38b083dc7f85ffcf08ad70f4e098f5d433ccb71956a5190a7821"
+    },
+    {
+      "path": "third-party-research/gh-owasp-api.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-owasp-asvs.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-owasp-samm.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third-party-research/gh-owasp-top-10.json",
+      "bytes": 9725,
+      "sha256": "6fc57cb2cb9a99d3ac19c64fa5eaa964a3f59c45ecc267089a7d59e5b42bfc3f"
+    },
+    {
+      "path": "third-party-research/gh-pasta-risk.json",
+      "bytes": 7128,
+      "sha256": "f08beab6c745c56b360eecb59c650ff4f9da150fe6af50db7fb8c8ed5d00aea5"
+    },
+    {
+      "path": "third-party-research/gh-pci-dss-requirements.json",
+      "bytes": 10794,
+      "sha256": "439f9916dff2578b47502fcf0ad446a388efa057d4d573e0f6d105b43fca16c9"
+    },
+    {
+      "path": "third-party-research/gh-samm-model.json",
+      "bytes": 7267,
+      "sha256": "e1421158de6f859c43cd408215aafcb735c561087c7cb6ccdd43ebce0662482a"
+    },
+    {
+      "path": "third-party-research/gh-slsa-framework-levels.json",
+      "bytes": 12290,
+      "sha256": "faf0e88c3aebb7aad996e25c48e9088db30f9673424aafa2773793c670ec9ffc"
+    },
+    {
+      "path": "third-party-research/gh-soc-2-trust-criteria.json",
+      "bytes": 10708,
+      "sha256": "c2efbdf8a9d1bab4f46ea8b129c62538c1cc45c75986a9e1acc7aa7a828b4b60"
+    },
+    {
+      "path": "third-party-research/gh-stride-threat.json",
+      "bytes": 6178,
+      "sha256": "8d31757e56797541337f29a477d903c97c0992d737d8439412cdd5f0bfebf731"
+    },
+    {
+      "path": "third-party-research/nist-ssdf-page.html",
+      "bytes": 50038,
+      "sha256": "ea068444758fade0626308eb5c12269855c1d8338301bf50b89ca6b82d7465b1"
+    },
+    {
+      "path": "third-party-research/nist-ssdf-page.txt",
+      "bytes": 2276,
+      "sha256": "3a08726c4e48bdb37a4c981fb6108da3d6c5ca4e29879fbf15f3ac141d69041c"
+    },
+    {
+      "path": "third-party-research/owasp-asvs-page.html",
+      "bytes": 50073,
+      "sha256": "b2a40ae25acdccd274ede18be79f3d8235eb66817b99c33b8a20c474485233bb"
+    },
+    {
+      "path": "third-party-research/owasp-asvs-page.txt",
+      "bytes": 4495,
+      "sha256": "2b58b5db3d8993c0a1285626380ef9e9da88c054470957af6adf8386154f8931"
+    },
+    {
+      "path": "third-party-research/owasp-top10-page.html",
+      "bytes": 50872,
+      "sha256": "1a3d930587538aaaee2fc6f38b30555bdbf5023ea9af1507f7be37eb9ceb2fbf"
+    },
+    {
+      "path": "third-party-research/owasp-top10-page.txt",
+      "bytes": 419,
+      "sha256": "67839a77d858b8d0b6b913d3b56e6a7e557cf09c66c2108e45c57e1361e72e98"
+    },
+    {
+      "path": "third-party-research/slsa-page.html",
+      "bytes": 29505,
+      "sha256": "42a51e7a7b21ac59516103054e974e02e682273cad244f27f35202e21b696788"
+    },
+    {
+      "path": "third-party-research/slsa-page.txt",
+      "bytes": 1856,
+      "sha256": "2bc680cd00533b2ab5e5d6e99f9479df1694a3cad8801230c127fe6c87591b7e"
+    },
+    {
+      "path": "windows/MANIFEST.md",
+      "bytes": 6891,
+      "sha256": "055ae7d18f77e0f4c9a00799e4309115fc58a62fbd3abe0ad55bb18d0b261927"
+    },
+    {
+      "path": "windows/audit-collect-extracted.md",
+      "bytes": 556050,
+      "sha256": "50fc4e1a1afda638f1f66c91aeef9f45cc5c5cf84b93ff5c63b7d70e79941a58"
+    },
+    {
+      "path": "windows/audit-collect.zip",
+      "bytes": 451110,
+      "sha256": "2da19bd3df2afcde488a8d7c81bc6e04f8112f362137b28df2ef9ab1b71aacb8"
+    },
+    {
+      "path": "windows/audit-hits.txt",
+      "bytes": 31991,
+      "sha256": "f98cae976de555741f91783581d029b123826f151444bc41e5d50de0923127cb"
+    },
+    {
+      "path": "windows/chat-collect-INCOMPLETE.tar.gz",
+      "bytes": 664169813,
+      "sha256": "aff0eda75d66b76283df49638b0df4142334f319270194eb5a2547395dcbfc6c"
+    },
+    {
+      "path": "windows/pull-list.txt",
+      "bytes": 31696,
+      "sha256": "296a34428593f9d078bbd65b49de8b5370bf61d48e52d94841a00d7335a92a38"
+    },
+    {
+      "path": "windows/yaml-templates.md",
+      "bytes": 408375,
+      "sha256": "ced54a66d6e46bedb9eaf22dad7a1e65653391420fe167f05cd1ffcfa2c86ede"
+    }
+  ]
+}
