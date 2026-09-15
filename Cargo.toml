@@ -34,12 +34,18 @@ members = [
     "crates/tasken",
     "crates/tokn-pareto-rs",
     "crates/tokn-tokenledger",
+    # PhenoJourneys Rust CLI (absorbed from KooshaPari/zz-merge-unk-PhenoJourneys)
+    "crates/phenotype-journey-core",
+    "crates/klipdot-capture",
+    "crates/phenotype-journeys-observability",
     # PhenoPlugins (absorbed from KooshaPari/zz-merge-unk-PhenoPlugins)
     "crates/phenotype-plugins/pheno-plugin-core",
     "crates/phenotype-plugins/pheno-plugin-git",
     "crates/phenotype-plugins/pheno-plugin-sqlite",
     "crates/phenotype-plugins/pheno-plugin-vessel",
     "crates/phenotype-plugins/pheno-plugin-examples",
+    "bin/hook-entry",
+    "bin/phenotype-journey",
 
     "crates/phenotype-cache-adapter",
     "crates/phenotype-contracts",
@@ -57,7 +63,6 @@ members = [
     "crates/pheno-testing",
     "crates/pheno-schema-port",
     "crates/pheno-terminal",
-    "bin/hook-entry",
 
     # Eye-tracking library (absorbed from KooshaPari/zz-merge-unk-eyetracker)
     "crates/eyetracker-domain",
