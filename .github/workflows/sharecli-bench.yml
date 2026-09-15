@@ -1,0 +1,268 @@
+name: Bench
+
+# C08 perf surface:
+#   - criterion (soft): advisory; continue-on-error
+#   - bench-gate (hard-ish): fails on >10% mean regression vs committed baseline
+# Bench flake quarantine: docs/testing/flake-policy.md § Bench / Criterion flakes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Nightly trend store (C08 L74) — UTC 06:00
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: bench-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  SHARECLI_BENCH_SEED: "42"
+
+jobs:
+  criterion:
+    name: cargo bench (soft)
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libglib2.0-dev libgtk-3-dev libxdo-dev pkg-config
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+
+      - name: Record pins
+        run: |
+          echo "sha=$(git rev-parse HEAD)"
+          echo "rustc=$(rustc --version)"
+          echo "seed=${SHARECLI_BENCH_SEED}"
+
+      - name: Run Criterion benches
+        run: |
+          cargo bench --locked --bench config_parse -- --sample-size 10 --warm-up-time 1 --measurement-time 2
+          cargo bench --locked --bench pool_list -- --sample-size 10 --warm-up-time 1 --measurement-time 2
+          cargo bench --locked --bench prometheus_render -- --sample-size 10 --warm-up-time 1 --measurement-time 2
+          cargo bench --locked --bench jwt_auth_validate -- --sample-size 10 --warm-up-time 1 --measurement-time 2
+
+  bench-gate:
+    name: cargo bench (gate)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libglib2.0-dev libgtk-3-dev libxdo-dev pkg-config
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          key: bench-gate
+
+      - name: Record pins
+        run: |
+          echo "sha=$(git rev-parse HEAD)"
+          echo "rustc=$(rustc --version)"
+          echo "seed=${SHARECLI_BENCH_SEED}"
+          echo "baseline=docs/eval/baselines/criterion-baseline.json"
+          echo "threshold=10%"
+
+      - name: Run Criterion benches
+        run: |
+          cargo bench --locked --bench config_parse -- --sample-size 10 --warm-up-time 1 --measurement-time 2 --save-baseline ci-gate
+          cargo bench --locked --bench pool_list -- --sample-size 10 --warm-up-time 1 --measurement-time 2 --save-baseline ci-gate
+          cargo bench --locked --bench prometheus_render -- --sample-size 10 --warm-up-time 1 --measurement-time 2 --save-baseline ci-gate
+          cargo bench --locked --bench jwt_auth_validate -- --sample-size 10 --warm-up-time 1 --measurement-time 2 --save-baseline ci-gate
+
+      - name: Compare against committed baseline (10% max regression)
+        run: |
+          python3 scripts/check-bench-baseline.py \
+            --baseline docs/eval/baselines/criterion-baseline.json \
+            --criterion-dir target/criterion \
+            --threshold 0.10
+
+      - name: Upload Criterion profiler artifacts (C00 L6)
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: criterion-profiler-${{ github.sha }}
+          path: |
+            target/criterion/**/estimates.json
+            target/criterion/**/sample.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  # Longitudinal trend store (does not gate merges). Runs on cron + manual.
+  bench-nightly:
+    name: cargo bench (nightly trends)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libglib2.0-dev libgtk-3-dev libxdo-dev pkg-config
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          key: bench-nightly
+
+      - name: Run Criterion benches
+        run: |
+          cargo bench --locked --bench config_parse -- --sample-size 25 --warm-up-time 1 --measurement-time 3
+          cargo bench --locked --bench pool_list -- --sample-size 25 --warm-up-time 1 --measurement-time 3
+          cargo bench --locked --bench prometheus_render -- --sample-size 25 --warm-up-time 1 --measurement-time 3
+          cargo bench --locked --bench jwt_auth_validate -- --sample-size 25 --warm-up-time 1 --measurement-time 3
+
+      - name: Export trend JSON
+        run: |
+          python3 scripts/bench/export-trend.py \
+            --criterion-dir target/criterion \
+            --out "bench-trend-${GITHUB_SHA}.json" \
+            --sha "${GITHUB_SHA}"
+
+      - name: Upload trend artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bench-trend-${{ github.sha }}
+          path: bench-trend-*.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Install hyperfine
+        uses: taiki-e/install-action@84f5ac3124727fb3d284d4d22ee9ab3654fd09a6 # v2.87.7
+        with:
+          tool: hyperfine
+
+      - name: Build sharecli (release)
+        run: cargo build --locked --release -p sharecli
+
+      - name: Hyperfine GET /healthz + upload JSON
+        env:
+          SHARECLI_HYPERFINE_RUNS: "20"
+          SHARECLI_HYPERFINE_WARMUP: "5"
+          SHARECLI_HYPERFINE_OUT: hyperfine-healthz-${{ github.sha }}.json
+        run: |
+          ./target/release/sharecli serve --bind 127.0.0.1:9000 &
+          serve_pid=$!
+          trap 'kill $serve_pid 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://127.0.0.1:9000/healthz; then
+              break
+            fi
+            sleep 1
+          done
+          curl -sf -o /dev/null http://127.0.0.1:9000/healthz
+          bash scripts/bench/hyperfine-healthz.sh
+          test -s "${SHARECLI_HYPERFINE_OUT}"
+
+      - name: Upload hyperfine JSON artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: hyperfine-healthz-${{ github.sha }}
+          path: hyperfine-healthz-*.json
+          if-no-files-found: error
+          retention-days: 90
+
+  # Soft PR/main path so hyperfine JSON wiring is exercised without waiting for cron.
+  hyperfine-healthz:
+    name: hyperfine healthz (soft)
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libglib2.0-dev libgtk-3-dev libxdo-dev pkg-config
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          key: hyperfine-healthz
+
+      - name: Install hyperfine
+        uses: taiki-e/install-action@84f5ac3124727fb3d284d4d22ee9ab3654fd09a6 # v2.87.7
+        with:
+          tool: hyperfine
+
+      - name: Build sharecli (release)
+        run: cargo build --locked --release -p sharecli
+
+      - name: Hyperfine GET /healthz
+        env:
+          SHARECLI_HYPERFINE_RUNS: "10"
+          SHARECLI_HYPERFINE_WARMUP: "3"
+          SHARECLI_HYPERFINE_OUT: hyperfine-healthz-${{ github.sha }}.json
+        run: |
+          ./target/release/sharecli serve --bind 127.0.0.1:9000 &
+          serve_pid=$!
+          trap 'kill $serve_pid 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://127.0.0.1:9000/healthz; then
+              break
+            fi
+            sleep 1
+          done
+          curl -sf -o /dev/null http://127.0.0.1:9000/healthz
+          bash scripts/bench/hyperfine-healthz.sh
+          test -s "${SHARECLI_HYPERFINE_OUT}"
+
+      - name: Upload hyperfine JSON artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: hyperfine-healthz-${{ github.sha }}
+          path: hyperfine-healthz-*.json
+          if-no-files-found: error
+          retention-days: 30

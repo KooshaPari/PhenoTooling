@@ -1,0 +1,43 @@
+name: dhat heap sample (soft)
+
+# C00 L8 — soft dhat heap profile for sharecli serve (continue-on-error).
+
+on:
+  pull_request:
+    paths:
+      - "src/alloc.rs"
+      - "Cargo.toml"
+      - "docs/ops/memory.md"
+      - "docs/ops/alloc-profiling.md"
+      - ".github/workflows/dhat-soft.yml"
+      - "scripts/ops/dhat_soft.sh"
+  push:
+    branches: [main]
+    paths:
+      - "src/alloc.rs"
+      - "Cargo.toml"
+      - "docs/ops/memory.md"
+      - "docs/ops/alloc-profiling.md"
+      - ".github/workflows/dhat-soft.yml"
+      - "scripts/ops/dhat_soft.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dhat-soft:
+    name: dhat heap soft budget
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          shared-key: dhat-soft
+      - name: Sample heap profile vs soft budget
+        run: bash scripts/ops/dhat_soft.sh

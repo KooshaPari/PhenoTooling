@@ -1,0 +1,151 @@
+name: Desktop / Tray Builds
+
+# MVP parity smoke — native tray/desktop per OS (FINALITY.md)
+on:
+  pull_request:
+    paths:
+      - "crates/sharecli-tray-linux/**"
+      - "crates/sharecli-ffi/**"
+      - "desktop/**"
+      - "contrib/**"
+      - "windows/ShareCLITray/**"
+      - "docs/deploy/**"
+      - ".github/workflows/desktop-builds.yml"
+      - ".github/workflows/release.yml"
+      - "justfile"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tray-linux:
+    name: Tray Linux (beta)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          shared-key: tray-linux
+      - name: Build sharecli-tray-linux
+        run: cargo build -p sharecli-tray-linux --release --locked
+      - name: Pack artifact
+        run: |
+          set -euo pipefail
+          STAGE=sharecli-tray-linux
+          mkdir -p "$STAGE"
+          cp target/release/sharecli-tray "$STAGE/sharecli-tray"
+          tar -czf sharecli-tray-linux-x86_64.tar.gz -C "$STAGE" .
+          shasum -a 256 sharecli-tray-linux-x86_64.tar.gz | tee sharecli-tray-linux-x86_64.tar.gz.sha256
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sharecli-tray-linux-x86_64
+          path: |
+            sharecli-tray-linux-x86_64.tar.gz
+            sharecli-tray-linux-x86_64.tar.gz.sha256
+          if-no-files-found: error
+
+  tray-macos:
+    name: Desktop macOS (beta)
+    runs-on: macos-latest
+    # Soft until Swift package stays green on runners; release attach still attempts hard build.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: mlugg/setup-zig@d1434d08867e3ee9daa34448df10607b98908d29
+        with:
+          version: 0.14.1
+      - name: Export macOS SDK for Zig libc
+        run: echo "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)" >> "$GITHUB_ENV"
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          shared-key: tray-macos
+      - name: Build sharecli-ffi
+        run: cargo build -p sharecli-ffi --release --locked
+      - name: Swift build ShareCLITray
+        working-directory: desktop/ShareCLITray
+        env:
+          SHARECLI_FFI_LIB_DIR: ${{ github.workspace }}/target/release
+        run: |
+          set -euo pipefail
+          # Prefer release lib dir for linker search
+          export LIBRARY_PATH="${SHARECLI_FFI_LIB_DIR}:${LIBRARY_PATH:-}"
+          swift build -c release \
+            -Xlinker -L -Xlinker "${SHARECLI_FFI_LIB_DIR}" \
+            -Xlinker -lsharecli_ffi
+      - name: Swift build contrib/ghostty-control
+        working-directory: contrib/ghostty-control
+        run: swift build
+      - name: Pack artifact
+        run: |
+          set -euo pipefail
+          BIN=$(swift build -c release --package-path desktop/ShareCLITray --show-bin-path)/ShareCLITray
+          STAGE=sharecli-desktop-macos
+          mkdir -p "$STAGE"
+          cp "$BIN" "$STAGE/ShareCLITray"
+          cp target/release/libsharecli_ffi.dylib "$STAGE/" 2>/dev/null || true
+          tar -czf sharecli-desktop-macos-aarch64.tar.gz -C "$STAGE" .
+          shasum -a 256 sharecli-desktop-macos-aarch64.tar.gz | tee sharecli-desktop-macos-aarch64.tar.gz.sha256
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sharecli-desktop-macos-aarch64
+          path: |
+            sharecli-desktop-macos-aarch64.tar.gz
+            sharecli-desktop-macos-aarch64.tar.gz.sha256
+          if-no-files-found: warn
+
+  tray-windows:
+    name: Tray Windows (beta soft)
+    runs-on: windows-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: "8.0.x"
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v3
+      - name: Build WinUI tray
+        working-directory: windows/ShareCLITray
+        run: msbuild ShareCLITray.csproj /restore /p:Configuration=Release /p:Platform=x64
+      - name: Pack zip
+        shell: pwsh
+        run: |
+          $out = Get-ChildItem -Recurse windows/ShareCLITray/bin -Filter ShareCLITray.exe | Select-Object -First 1
+          if (-not $out) { Write-Error "ShareCLITray.exe not found"; exit 1 }
+          New-Item -ItemType Directory -Force pack | Out-Null
+          Copy-Item $out.FullName pack/
+          Compress-Archive -Path pack/* -DestinationPath sharecli-tray-windows-x64.zip -Force
+          Get-FileHash sharecli-tray-windows-x64.zip -Algorithm SHA256 |
+            ForEach-Object { "$($_.Hash.ToLower())  sharecli-tray-windows-x64.zip" } |
+            Tee-Object sharecli-tray-windows-x64.zip.sha256
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sharecli-tray-windows-x64
+          path: |
+            sharecli-tray-windows-x64.zip
+            sharecli-tray-windows-x64.zip.sha256
+          if-no-files-found: warn
+
+  wsl-parity-docs:
+    name: WSL parity docs
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Assert FINALITY WSL section
+        run: |
+          set -euo pipefail
+          grep -q 'WSL bridge' docs/deploy/FINALITY.md
+          grep -q '127.0.0.1:9000' docs/deploy/FINALITY.md
+          grep -q 'macOS' docs/deploy/FINALITY.md
+          grep -q 'Windows' docs/deploy/FINALITY.md
+          grep -q 'Linux' docs/deploy/FINALITY.md
+          grep -q 'Parity floor' docs/deploy/FINALITY.md
+          grep -q 'x86_64-pc-windows-msvc' .github/workflows/release.yml
+          grep -q 'tray-macos' .github/workflows/release.yml
+          grep -q 'WSL (CLI in WSL' README.md
+          echo "WSL parity docs OK"
